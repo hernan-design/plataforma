@@ -1,0 +1,151 @@
+%copo-emprendimiento-banner {
+	#copo-emprendimiento-banner {
+
+		@media #{$mobile-only}, #{$small-only} {
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/banner/svg/copo-emprendimiento-banner-img-375x667.svg') 50% 0/cover no-repeat;
+			height: 690px;
+		}
+
+		@media #{$tablet-only} {
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/banner/svg/copo-emprendimiento-banner-img-1920-890.svg') center top no-repeat;
+	    height: 600px;
+	    background-size: 142% auto;
+		}
+
+		@media #{$medium-only} {
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/banner/svg/copo-emprendimiento-banner-img-1920-890.svg') center top no-repeat;
+			height: 646px;
+    	background-size: 132% auto;
+		}
+
+		@media #{$large-up} {
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/banner/svg/copo-emprendimiento-banner-img-1920-890.svg') 50% 30%/cover no-repeat;
+			height: 865px;
+		}
+
+		.banner-content-main {
+			padding-top: 40px;
+
+			@media #{$tablet-up} {
+				padding-top: rem-calc(20);
+			}
+
+			.banner-content {
+				@media #{$tablet-only} {
+					margin-top: rem-calc(20);
+				}
+
+				@media #{$medium-only}, #{$large-only} {
+					margin-top: rem-calc(40);
+				}
+
+				// @media #{$xlarge-up}{
+				// 	margin-top: rem-calc(76);
+				// }
+
+				.temporal-logo {
+					width: 140px;
+			    height: auto;
+			    margin-bottom: 40px;
+
+			    @media #{$tablet-only} {
+			    	margin-bottom: 20px;
+			    	width: 120px;
+
+			    }
+				}
+
+				.copo-emprendimiento-about-video {
+					border: 4px solid white;
+					@include box-shadow (9px 21px 89px -10px rgba($black, 0.39));
+					@include border-radius(10px);
+
+					@media #{$xlarge-up} {
+						margin-top: rem-calc(60);
+					}
+				}
+
+				.banner-title-1 {
+					font-size: rem-calc(28);
+					padding-bottom: rem-calc(20);
+					margin-bottom: rem-calc(20);
+					// text-align: center;
+					color: $white;
+					position: relative;
+
+					&:after {
+			      position: absolute;
+			      content: '';
+			      height: 1px;
+			      background-color: $white;
+			      width: 40px;
+			      bottom: 0;
+						left: 50%;
+						margin-left: -20px;
+					}
+				}
+
+				@media #{$tablet-up} {
+					.banner-title-1, .banner-title-2 {
+						// text-align: left;
+
+						&:after {
+							left: 0;
+							margin-left: 0;
+						}
+					}
+				}
+
+				@media #{$tablet-only} {
+					.banner-title-1 {
+						font-size: rem-calc(21);
+					}
+				}
+
+				@media #{$medium-only}, #{$large-only} {
+					.banner-title-1 {
+						font-size: rem-calc(30);
+					}
+				}
+
+				@media #{$xlarge-up} {
+					.banner-title-1 {
+						font-size: rem-calc(38);
+						line-height: 1.2;
+					}
+				}
+
+				.banner-title-2 {
+					color: $white;
+					font-size: rem-calc(20);
+					line-height: 1.3;
+				}
+
+				@media #{$medium-only}, #{$large-only} {
+					.banner-title-2 {
+						font-size: rem-calc(17);
+						line-height: 1.2;
+					}
+				}
+
+				@media #{$small-only}, #{$tablet-only} {
+					.banner-title-2 {
+						font-size: rem-calc(16);
+						line-height: 1.2;
+						margin-bottom: 20px;
+					}
+				}
+
+				@media #{$mobile-only} {
+					.banner-title-2 {
+						font-size: rem-calc(18);
+						line-height: 1.5;
+						margin-bottom: 20px;
+						// text-align: center;
+					}
+				}
+			}
+		}
+
+	}
+}

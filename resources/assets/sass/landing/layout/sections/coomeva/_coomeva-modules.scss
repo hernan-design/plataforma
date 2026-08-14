@@ -1,0 +1,23 @@
+%coomeva-modules {
+  #coomeva-modules {
+		background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/2019/redcoo-modulos-bg.svg') 50% 0/cover no-repeat;
+		padding-top: rem-calc(80);
+
+		@media #{$mobile-only}, #{$small-only} {
+			padding-top: rem-calc(30);
+		}
+
+		@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+			padding-top: rem-calc(50);
+		}
+
+		.modules-list {
+			> li {
+				img {
+					width: 180px;
+					margin-left: 45px;
+				}
+			}
+		}
+	}
+}

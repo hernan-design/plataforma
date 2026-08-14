@@ -1,0 +1,436 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for slick carousel
+// ----------------------------
+
+// Slick slider loader
+// ----------------------------
+.slick-slider, .slick-slider-banner, .slick-slider-text-btn, .slick-tabs-five-activearrow, .slick-slider-coomeva, .slick-carousel-content-testimonial-copo, .slick-slider-copo, .slick-slider-terpel, .slick-copo-emprendimiento-news, .slick-copo-emprendimiento-partners, .slick-slider-images-dinamiza, .slick-testimonial-dinamiza, .slick-dinamiza-partners, .innpulsa-slick-stats, .slick-slider-innpulsa-team, .slick-feature-projects, .slick-slider-default {
+	position: relative;
+	min-height: 80px;
+
+	&:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+		border: 6px solid $vapor;
+    border-top: 6px solid $base;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    @include animation(spin-slider .8s linear infinite);
+    margin-left: -30px;
+    margin-top: -30px;
+    z-index: 1;
+
+    @include keyframes(spin-slider) {
+	    0% { transform: rotate(0deg); }
+	    100% { transform: rotate(360deg); }
+		}
+	}
+
+	.wrap-img-slider, .slick-slide {
+		opacity: 0;
+		@include transition(opacity 0.5s ease-in);
+	}
+
+	.slick-list {
+    position: absolute;
+    opacity: 0;
+	  @include transition(opacity 0.2s ease-in);
+	}
+
+	&.slick-initialized {
+    &:before {
+    	content: none;
+    }
+
+    .wrap-img-slider, .slick-slide {
+    	opacity: 1;
+    }
+
+    .slick-list {
+	    opacity: 1;
+	    position: relative;
+		}
+	}
+}
+
+.slick-slider-banner {
+	&:before {
+		top: 40%;
+	}
+}
+
+// Styles for slick browse
+.slick-browse {
+	padding-bottom: rem-calc(45) !important;
+
+	.item-carousel {
+		padding: rem-calc(0 13 22);
+	}
+
+	.slick-prev, .slick-next {
+		font-size: rem-calc(32);
+		overflow: hidden;
+
+		&:before{
+			color: $iron;
+		}
+	}
+
+	.slick-prev {
+		right: rem-calc(36);
+	}
+
+	.slick-next {
+		right: rem-calc(4);
+	}
+
+	.slick-dots {
+		margin: rem-calc(0 50 10);
+
+		> li {
+    	button {
+    		&:before {
+    			font-size: 10px;
+    		}
+    	}
+    }
+	}
+
+	.slick-list {
+		padding-left: 0 !important;
+
+
+		.slick-track {
+			padding: rem-calc(10 0);
+		}
+	}
+}
+
+.slick-slider {
+	margin-bottom: 0;
+}
+
+.slick-tabs {
+	.slick-list {
+		padding-bottom: rem-calc(100) !important;
+    margin-bottom: rem-calc(-100);
+	}
+}
+
+// Styles for slick slider banner and slick slider text btn
+// ----------------------------
+.slick-slider-banner, .slick-slider-text-btn {
+	margin: 0;
+	overflow: hidden;
+	height: rem-calc(500);
+	max-height: rem-calc(500);
+
+	.slick-slide, .wrap-img-slider {
+		position: relative;
+		width: 100%;
+		height: rem-calc(500);
+		overflow: hidden;
+
+		&:before {
+			content: '';
+	    display: block;
+	    padding-left: 100%;
+		}
+
+		img {
+			position: relative;
+	    max-width: none;
+	    min-height: auto;
+	    width: 100%;
+	    height: auto;
+	    bottom: -30%;
+	    left: auto;
+	    top: auto;
+	    margin: 0 auto;
+	    @include transform(translate(0, -30%));
+		}
+	}
+
+	.slick-prev, .slick-next {
+		cursor: pointer;
+		font-size: rem-calc(32);
+		overflow: hidden;
+		width: 56px;
+		height: 56px;
+		background: rgba($white, 0.1);
+
+		&:before{
+			@extend %font-mdi;
+			font-size: rem-calc(40);
+	    line-height: 1;
+	    opacity: .75;
+	    -webkit-font-smoothing: antialiased;
+		}
+
+		&:hover {
+			background: rgba($white, 0.6);
+		}
+	}
+
+	.slick-prev {
+		left: rem-calc(0);
+		@include side-radius(right, 3px);
+		padding-right: rem-calc(4);
+
+		&:before {
+			content: mdi('chevron-left');
+		}
+	}
+
+	.slick-next {
+		right: rem-calc(0);
+		@include side-radius(left, 3px);
+		padding-left: rem-calc(4);
+
+		&:before {
+			content: mdi('chevron-right');
+		}
+	}
+
+	.slick-dots {
+		bottom: 100px;
+
+		li {
+			width: 8px;
+			height: 8px;
+			margin-right: rem-calc(7);
+
+			button {
+				border: 2px solid $white;
+  			border-radius: 7px;
+  			background-color: transparent;
+  			width: 8px;
+  			height: 8px;
+
+  			&:before {
+  				content: none;
+  			}
+			}
+
+			&.slick-active {
+				button {
+					background-color: $secondary-color;
+					border: 2px solid $secondary-color;
+				}
+			}
+		}
+	}
+
+	@media #{$mobile-only}, #{$small-only} {
+
+		.slick-slide {
+			img {
+				position: relative;
+		    width: auto;
+		    max-width: none;
+		    min-width: 100%;
+		    height: 100%;
+		    top: 0;
+		    left: auto;
+		    right: -50%;
+		    margin: 0 auto;
+		    @include transform(translate(-50%, 0));
+			}
+		}
+	}
+}
+
+// Styles for slick slider text btn Content
+// ----------------------------------------
+
+.slick-slider-text-btn {
+
+
+	.slick-slide, .wrap-img-slider {
+
+		.slider-img {
+			width: auto;
+			height: auto;
+			min-width: 100%;
+		}
+
+		.slick-slider-content {
+			position: absolute;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+
+	    > .row {
+	    	height: 100%
+	    }
+
+			.slider-content {
+
+				.slick-title-1 {
+					color: $white;
+				}
+
+				@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+					.slick-title-1 {
+						font-size: rem-calc(22);
+						line-height: 1.1;
+						margin-bottom: 20px;
+					}
+				}
+
+				@media #{$medium-only}, #{$large-only} {
+					.slick-title-1 {
+						font-size: rem-calc(27);
+						line-height: 1.2;
+					}
+				}
+
+				.slick-title-2 {
+					color: $white;
+					font-size: rem-calc(20);
+					line-height: 1.3;
+				}
+
+				@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+					.slick-title-2 {
+						font-size: rem-calc(16);
+						line-height: 1.2;
+						margin-bottom: 20px;
+					}
+				}
+
+				@media #{$medium-only}, #{$large-only} {
+					.slick-title-2 {
+						font-size: rem-calc(17);
+						line-height: 1.2;
+					}
+				}
+
+			}
+
+			@media only screen and (max-width: 1440px) {
+				padding-left: 100px;
+			}
+
+			@media only screen and (max-width: 600px) {
+				padding-left: 0px;
+			}
+		}
+	}
+}
+
+// Styles for slick slider testimonial
+// ----------------------------
+.slick-slider-testimonial, .slick-carousel-team {
+	position: relative;
+	padding: {
+		left: rem-calc(60);
+		right: rem-calc(60);
+	}
+
+	.slick-prev, .slick-next {
+		border-top: 1px solid $white;
+		position: absolute;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 8px; /*set the size for arrow*/
+    width: 4em;
+	  height: 4em;
+		cursor: pointer;
+
+		&:before{
+			content: '';
+		}
+
+		&:hover {
+			border-top-color: $white;
+		}
+
+	}
+
+	.slick-prev {
+		left: rem-calc(0);
+	  border-left: 1px solid $white;
+    transform: rotate(-45deg);
+
+    &:hover {
+			border-left-color: $white;
+		}
+	}
+
+	.slick-next {
+		right: rem-calc(0);
+	  border-right: 1px solid $white;
+    transform: rotate(45deg);
+
+    &:hover {
+			border-right-color: $white;
+		}
+	}
+}
+
+// Styules for slick carousel two items
+// --------------------------------------
+
+.slick-carousel-pair {
+	position: relative;
+	padding: {
+		left: rem-calc(60);
+		right: rem-calc(60);
+	}
+
+	.slick-prev, .slick-next {
+		border-top: 1px solid $white;
+		position: absolute;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 8px; /*set the size for arrow*/
+    width: 4em;
+	  height: 4em;
+		cursor: pointer;
+		bottom: 0;
+
+		&:before{
+			content: '';
+		}
+
+		&:hover {
+			border-top-color: $white;
+		}
+
+	}
+
+	.slick-prev {
+		left: rem-calc(0);
+		border-left: 1px solid $white;
+    transform: rotate(-45deg);
+
+    &:hover {
+			border-left-color: $white;
+		}
+	}
+
+	.slick-next {
+		right: rem-calc(0);
+	  border-right: 1px solid $white;
+    transform: rotate(45deg);
+
+    &:hover {
+			border-right-color: $white;
+		}
+	}
+}
+
+@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+	.slick-carousel-pair {
+		position: relative;
+		padding: {
+			left: rem-calc(30);
+			right: rem-calc(30);
+		}
+	}
+}

@@ -1,0 +1,70 @@
+/*
+* footer Container
+* -----------------
+*/
+#{$footer-wrap} {
+	// display: none;
+	// visibility: hidden;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	background-color: $white;
+	width: 100%;
+	@include box-shadow(0px 0px 4px $iron);
+
+	.footer-info {
+		padding: rem-calc(35 0);
+
+		ul.info-footer-copy {
+			list-style: outside none none;
+			margin: 0px;
+
+			> li {
+				display: inline-block;
+				vertical-align: middle;
+
+				&:not(:last-child) {
+					margin: {
+						right: rem-calc(10);
+					}
+				}
+			}
+		}
+
+		ul.list-footer-social {
+			list-style: outside none none;
+			margin: 0px;
+
+			> li {
+				display: inline-block;
+				vertical-align: middle;
+
+				&:not(:last-child) {
+					margin: {
+						right: rem-calc(10);
+					}
+				}
+
+				.circle-social {
+					@include icon-circle(
+						$font-size: rem-calc(18),
+						$padding: rem-calc(4),
+						$color: $white,
+						$bgcolor: $iron,
+						$sizes-custom: true
+					);
+
+					&.youtube {
+						@include icon-circle( $color: $white, $bgcolor: $youtube-color );
+					}
+					&.twitter {
+						@include icon-circle( $color: $white, $bgcolor: $twitter-color );
+					}
+					&.facebook {
+						@include icon-circle( $color: $white, $bgcolor: $facebook-color );
+					}
+				}
+			}
+		}
+	}
+}

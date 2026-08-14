@@ -1,0 +1,102 @@
+// Styles for mentoring questions
+//-------------------------------
+%mentoring-questions {
+
+  #container-tab-main{
+    padding: 0rem 1.3rem;
+    .title-main{
+      margin: 1rem -.7rem;
+    }
+  }
+
+
+  .container-targets{
+    border-bottom: 1px solid #c3c3c3;
+    padding-top: 10px;
+    .link-process{
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
+      text-decoration:none;
+      &:hover{
+        text-decoration:none;
+      }
+    }
+  }
+	// table mentoring questions
+  #mentoring-questions-data {
+  	margin: {
+  		top: rem-calc(20);
+  	}
+
+		.img-project-question-mentoring {
+			width: rem-calc(70);
+			height: auto;//rem-calc(42);
+		}
+
+		ul.card-project-question {
+			img.img-project-card {
+				max-width: rem-calc(75);
+				width: rem-calc(75);
+				height: auto;
+			}
+		}
+  }
+
+  // detail view mentoring question
+  #question-mentoring-detail {
+
+  	#{headers(all)} {
+
+  		&.spacing-top-header {
+				margin: {
+					top: rem-calc(40);
+				}
+  		}
+		}
+
+		.top-mentoring-question {
+			padding: {
+				bottom: rem-calc(10);
+			}
+
+			.container-users-question {
+				margin: {
+					bottom: rem-calc(30);
+				}
+			}
+		}
+
+		.comments-mentoring-question {
+			margin: {
+				top: rem-calc(50);
+			}
+		}
+
+		ul.card-project-question {
+
+			> li{
+				.img-project-question {
+					max-width: rem-calc(135);
+					width: rem-calc(135);
+					height: auto;
+				}
+			}
+		}
+  }
+
+	// list mentoring question like card
+  #list-mentoring-questions {
+		@include redefine-padding-gb( rem-calc(0 15 30) );
+
+		> li {
+			.item-carduser-list, .item-wrap-list {
+				background-color: $gray-lighter;
+
+				&:hover {
+					background-color: $white;
+				}
+			}
+		}
+  }
+}

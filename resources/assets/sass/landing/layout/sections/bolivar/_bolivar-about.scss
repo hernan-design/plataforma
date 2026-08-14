@@ -1,0 +1,258 @@
+%bolivar-about {
+  #bolivar-about {
+    h4{
+      font-family: 'Sansation light';
+      opacity: 0.5;
+    }
+    background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/about/bolivar-about-bg.png') $white 50% 30%/cover no-repeat;
+
+    padding: rem-calc(80 0);
+
+    @media #{$mobile-only}, #{$small-only} {
+      padding: rem-calc(20 0);
+    }
+
+    @media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+      padding: rem-calc(60 0);
+    }
+
+    .about-img-box {
+
+      &.about-img-left {
+        text-align: center;
+
+        @media #{$tablet-up} {
+          text-align: right;
+        }
+      }
+
+      &.about-img-right {
+        text-align: center;
+
+        @media #{$tablet-up} {
+          text-align: left;
+        }
+      }
+
+      .about-img {
+        @media #{$mobile-only}, #{$small-only} {
+          width: 160px;
+          margin-bottom: 30px;
+        }
+
+        @media #{$tablet-only}, #{$medium-only} {
+          width: 300px;
+        }
+
+        @media #{$large-only}, #{$xlarge-only} {
+          width: 400px;
+        }
+      }
+    }
+
+    .about-text-box {
+      p{
+        line-height:1.8;
+        font-family: 'Sansation Light';
+        font-size: rem-calc(23.2);
+        font-weight: 700;
+        color:#69696B;
+        letter-spacing: 1.1px;
+        strong.color-text{
+          font-family: 'Sansation bold';
+          color:#E3531F;
+        }
+      }
+      .about-title {
+        font-family: 'sansation light';
+        font-weight: 600;
+        font-size: rem-calc(42);
+        padding-bottom: rem-calc(2.56);
+        position: relative;
+        color: $charcoal;
+        border-bottom: 5px solid #F15D36;
+
+        @media #{$mobile-only}, #{$small-only} {
+          font-size: rem-calc(24);
+        }
+
+        @media #{$tablet-only}, #{$medium-only}, #{$large-only} {
+          font-size: rem-calc(32);
+        }
+      }
+
+      .about-list {
+        list-style: none;
+        margin-bottom: rem-calc(30);
+        color: $charcoal;
+
+        .about-text-list {
+          padding-left: rem-calc(20);
+          position: relative;
+          margin-bottom: 0;
+          color: $monsoon;
+
+          &:before {
+            color: $aluminum;
+            content: '•';
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+
+      .about-text {
+        margin-top: rem-calc(32);
+        font-family: 'sansation light';
+        font-size: rem-calc(16);
+        line-height: 1.7;
+        @media #{$mobile-only}, #{$small-only},#{$tablet-only} {
+          font-size: rem-calc(20);
+          font-weight: 700;
+        }
+      }
+    }
+      .about-rows{
+        .show-for-large-up{
+            margin-bottom: rem-calc(56);
+            margin-top: rem-calc(56);
+        }
+        .hide-for-large-up{
+          margin-bottom: rem-calc(56);
+        }
+
+      .hide-for-large-up{
+        margin-bottom: rem-calc(56);
+      }
+      div.panel-yellow{
+        background:#FBBD4C !important;
+         p{
+           padding:50px;
+           font-family: 'Sansation light' !important;
+           font-size: rem-calc(19.2) !important;
+           font-weight: 600;
+           opacity: 0.8;
+           strong{
+             color: white !important;
+             font-family: 'Sansation Bold' !important;
+             font-size: rem-calc(32) !important;
+           }
+         }
+      }
+
+        h2 {
+          margin-top: 30px;
+          text-align: center;
+        }
+        h2.linea {
+          position: relative;
+          z-index: 1;
+          &:before {
+            border-top: 1px solid #999;
+            content: "";
+            margin: 0 auto;
+            position: absolute;
+            top: 69%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 95%;
+            z-index: -1;
+          }
+          span {
+            background: #fff;
+            padding: 0 15px;
+            font-family: 'Sansation Light';
+            font-size: rem-calc(16);
+            font-weight: 700;
+            color:#69696B;
+            letter-spacing: 1.1px;
+          }
+        }
+
+      .row{
+        max-width: 90% !important;
+        div.panel{
+          background: #F9F9F9;
+          border-radius: 8px;
+          text-align: center;
+          img{
+            display: block;
+            margin: auto;
+            }
+          h5{
+            margin-top: rem-calc(16);
+            font-family: sansation light;
+            font-weight: 600;
+            font-size: rem-calc(14.4);
+            color: #52BFBA;
+          }
+          p{
+            font-family: sansation light;
+            font-weight: 600;
+            font-size: rem-calc(14.6);
+            opacity: 0.8;
+          }
+        }
+      }
+       .content{
+         margin-top: rem-calc(72);
+         margin-bottom: rem-calc(88);
+       }
+    }
+    .about-tabs-content{
+        padding-top: rem-calc(80) !important;
+        padding-bottom: rem-calc(80) !important;
+        .row{
+          .tabs-content{
+              section {
+                .text-description{
+                  font-family: 'Sansation light';
+                  font-style: italic;
+                  font-size: rem-calc(20);
+                  line-height: 1.7;
+                }
+                .text-name{
+                  font-family: 'Sansation Bold';
+                  font-style: italic;
+                  font-size: rem-calc(20);
+                  opacity: 0.6;
+                }
+                .text–rol{
+                  font-family: 'Sansation Bold' !important;
+                  font-style: italic;
+                  font-size: rem-calc(16);
+                  opacity: 0.6;
+                  line-height: 0;
+
+                }
+                .text-factory{
+                  font-family: 'Sansation light';
+                  font-style: italic;
+                  font-weight: 600;
+                  font-size: rem-calc(16);
+                  opacity: 0.5;
+                }
+              }
+            }
+        }
+    }
+    ul.tabs{
+      box-shadow: 0px 13px 19px -15px rgba(0,0,0,0.3);
+      .active{
+        border-bottom: 3px solid #E3531F;
+      }
+      .about-tabs{
+          height: 200px;
+          background: white;
+          >img{
+              display: block;
+              margin: auto;
+          }
+        @media #{$mobile-only}, #{$small-only},#{$tablet-only} {
+          height: 168px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+%terpel-banner {
+	/*
+	* Banner landing
+	* ---------------
+	*/
+	#{$banner-land-top}{
+		// banner central content
+		.content-banner {
+			margin-top: rem-calc(-82);
+		}
+	}
+}

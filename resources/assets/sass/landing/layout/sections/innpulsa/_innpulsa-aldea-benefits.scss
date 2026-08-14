@@ -1,0 +1,202 @@
+%innpulsa-aldea-benefits {
+  #innpulsa-aldea-benefits {
+    background-color: $white;
+
+    .innpulsa-benefits-title-box {
+      background-color: $innpulsa-bright-yellow-color;
+      padding: rem-calc(80);
+
+      .innpulsa-aldea-benefits-title {
+        font-size: rem-calc(26);
+        line-height: 1.2;
+        padding-bottom: rem-calc(40);
+        margin-bottom: rem-calc(40);
+        position: relative;
+        font-family: 'FuturaStd-Bold';
+
+        &:after {
+          width: 50px;
+          height: 2px;
+          background-color: $white;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          content: '';
+        }
+
+        .aldea-name {
+          color: $innpulsa-dark-blue-color;
+        }
+      }
+
+      .innpulsa-aldea-benefits-text {
+        color: $black;
+        font-size: rem-calc(20);
+        line-height: 1.2;
+
+      }
+
+      @media #{$xlarge-only}, #{$large-only} {
+
+        .innpulsa-aldea-benefits-title {
+          font-size: rem-calc(24);
+        }
+
+        .innpulsa-aldea-benefits-text {
+          font-size: rem-calc(18);
+        }
+      }
+
+      @media #{$tablet-only}, #{$medium-only} {
+        .innpulsa-aldea-benefits-title {
+          font-size: rem-calc(21);
+          padding-bottom: rem-calc(20);
+          margin-bottom: rem-calc(20);
+        }
+
+        .innpulsa-aldea-benefits-text {
+          font-size: rem-calc(16);
+        }
+      }
+
+      @media #{$small-only} {
+        .innpulsa-aldea-benefits-title {
+          font-size: rem-calc(20);
+          margin-bottom: rem-calc(20);
+          padding-bottom: 0;
+          text-align: center;
+
+          &:after {
+            background: none;
+          }
+        }
+
+        .innpulsa-aldea-benefits-text {
+          font-size: rem-calc(13);
+          text-align: center;
+        }
+      }
+
+    }
+
+    @media  #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only} {
+
+      .innpulsa-benefits-title-box {
+        padding: rem-calc(38 20 20 20);
+      }
+    }
+
+    .innpulsa-benefits-list {
+      padding: rem-calc(58 38 38 38);
+      margin: 0;
+      background: $innpulsa-light-pink-color url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/innpulsa/landing-octubre-2018/benefits/benefits-bg.svg') 50% 30%/cover no-repeat;
+
+      > li {
+        &:nth-child(odd) {
+          padding: rem-calc(0 20 0 0);
+        }
+        &:nth-child(even) {
+          padding: rem-calc(0);
+        }
+      }
+
+      @media #{$mobile-only}, #{$small-only}, #{$tablet-only}  {
+          > li {
+
+            &:nth-child(odd) {
+              padding: rem-calc(0);
+            }
+            &:nth-child(even) {
+              padding: rem-calc(0);
+            }
+
+        }
+      }
+
+      .innpulsa-benefits-list-item {
+
+        .innpulsa-benefits-icons {
+          width: 111px;
+          height: auto;
+          margin-right: rem-calc(10);
+        }
+
+        .innpulsa-benefits-item-title {
+          font-size: rem-calc(21);
+          font-family: 'FuturaStd-Bold';
+          color: $innpulsa-bright-red-color;
+
+          @media #{$mobile-only}, #{$small-only} {
+            font-size: rem-calc(15);
+          }
+
+          @media #{$tablet-only}, #{$medium-only}, #{$large-only} {
+            font-size: rem-calc(16);
+          }
+
+          @media #{$xlarge-only} {
+            font-size: rem-calc(18);
+          }
+        }
+
+        .innpulsa-benefits-item-text {
+          font-weight: normal;
+          font-size: rem-calc(14);
+          color: $black;
+        }
+
+        @media #{$large-up} {
+
+          .innpulsa-benefits-icons {
+            width: 95px;
+            margin-right: rem-calc(8);
+          }
+
+          .innpulsa-benefits-item-text {
+            font-size: rem-calc(16);
+          }
+        }
+
+        @media #{$medium-only}, #{$tablet-only} {
+
+          .innpulsa-benefits-icons {
+            width: 80px;
+            margin-right: rem-calc(8);
+          }
+
+          .innpulsa-benefits-item-title {
+            font-size: rem-calc(20);
+          }
+
+          .innpulsa-benefits-item-text {
+            font-size: rem-calc(14);
+          }
+        }
+
+        @media #{$small-only} {
+
+          .innpulsa-benefits-icons {
+            width: 60px;
+            margin-right: rem-calc(6);
+          }
+
+          .innpulsa-benefits-item-title {
+            font-size: rem-calc(18);
+          }
+
+          .innpulsa-benefits-item-text {
+            font-size: rem-calc(13);
+          }
+        }
+
+      }
+    }
+
+    @media  #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only} {
+
+      .innpulsa-benefits-list {
+        padding: rem-calc(38 20 20 20);
+      }
+    }
+  }
+}

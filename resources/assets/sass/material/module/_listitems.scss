@@ -1,0 +1,1854 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles list items
+// ----------------------
+
+// Table of Contents
+//
+// a. Style for list items inline
+// b. Style for list icon browse
+// c. Style list as grid
+// d. Style for list' items type
+// 01. Styles for list and content
+// 02. Styles for lists
+// 03. Styles for social buttons lists
+// 04. Styles for lists items with images
+
+//
+// @variables
+//
+$padding-browse-list: rem-calc(20 0 0) !default;
+$padding-browse-item: rem-calc(0 10 20) !default;
+$bg-browse-item: $white !default;
+$box-shadow-browse-item: $box-shadow-item !default;
+
+//
+// @mixins
+//
+
+//
+// list base styles
+// @param $padding
+// @param $padding-item
+//
+@mixin browse-list-base( $padding: $padding-browse-list, $padding-item: $padding-browse-item) {
+	list-style: outside none none;
+	padding: $padding;
+	@include redefine-padding-gb( $padding-item );
+
+	&.no-border-spacing { padding: 0; }
+	&.no-spacing { @include redefine-padding-gb(0 0); }
+
+	@media #{$mobile-only} {
+		padding-top: 0;
+	}
+}
+
+//
+// list item base styles
+// @param $bg
+// @param $box-shadow
+//
+@mixin browse-item-base( $bg: $bg-browse-item ) {
+	// float: left;
+	width: 100%;
+	height: 100%;
+	background-color: $bg;
+	@include clearfix;
+
+	img {
+		width: 100%;
+	}
+
+	&.radius {
+		@include border-radius($global-radius);
+
+		.top-item-list {
+			overflow: hidden;
+			@include side-radius(top);
+		}
+
+		.bottom-item-list {
+			@include side-radius(bottom);
+		}
+
+		.columns, [class*="column"] {
+			.top-item-list {
+				@include border-radius(0);
+				@include side-radius(left);
+			}
+
+			.content-item-list {
+				@include side-radius(right);
+			}
+
+			.bottom-item-list {
+				@include border-radius(0px);
+			}
+		}
+	}
+	&.round {
+		@include border-radius($global-rounded);
+
+		.top-item-list {
+			overflow: hidden;
+			@include side-radius(top, $global-rounded);
+		}
+
+		.bottom-item-list {
+			@include side-radius(bottom, $global-rounded);
+		}
+
+		.columns, [class*="column"] {
+			.top-item-list {
+				@include side-radius(left, $global-rounded);
+			}
+
+			.content-item-list {
+				@include side-radius(right, $global-rounded);
+			}
+
+			.bottom-item-list {
+				@include border-radius(0px);
+			}
+		}
+	}
+
+	&:hover, &:active, &.active {
+
+		.is-hovered {
+			&:not(.button):not(button){
+				color: $sky-blue;
+			}
+
+			&button, &.button {
+				color: $white;
+				background-color: $sky-blue;
+				border-color: $sky-blue;
+			}
+		}
+	}
+}
+
+//
+// list grid base styles
+// @param $width-tb
+//
+@mixin base-list-grid($width-tb:100%) {
+	width: $width-tb;
+	display: table;
+	list-style: outside none none;
+	margin: 0;
+
+	> li, .base-item-grid {
+		display: table-cell;
+		vertical-align: middle;
+		width: auto;
+		float: none;
+
+		&.has-image, &.short-col {
+			width: 1%;
+
+			> img {
+				max-width: none;
+				width: 100%;
+			}
+		}
+
+		&.no-warp, &.no-wrap {
+			white-space: nowrap;
+		}
+
+		&:not(:last-of-type) {
+			padding: {
+				right: rem-calc(8);
+			}
+		}
+
+		&.vtop {
+	  	vertical-align: top;
+	  }
+
+	  &.vcenter {
+			vertical-align: middle;
+		}
+
+		&.vbottom {
+			vertical-align: bottom;
+		}
+	}
+
+	&.align-top, &.valign-top {
+		> li, .base-item-grid {
+			vertical-align: top;
+		}
+	}
+
+	&.align-center, &.valign-center {
+		> li, .base-item-grid {
+			vertical-align: middle;
+		}
+	}
+
+	&.align-bottom, &.valign-bottom {
+		> li, .base-item-grid {
+			vertical-align: bottom;
+		}
+	}
+
+	&.no-spacing {
+		> li, .base-item-grid {
+			padding: 0 !important;
+      @media #{$mobile-only}, #{$small-only} {
+        padding-bottom: rem-calc(16) !important;
+      }
+		}
+	}
+}
+
+// reset list no bullet inset of no bullet list
+ul.no-bullet {
+	ul.no-bullet {
+		list-style-type: none;
+		margin-left: 0;
+	}
+
+	> li {
+		ul {
+			list-style: inherit;
+			margin: initial;
+		}
+	}
+}
+
+// a. Style for list items inline
+// ------------------------------
+ul.inline-list-items {
+	margin: 0px;
+	list-style: outside none none;
+	line-height: 1.1;
+
+	> li {
+		display: inline-block;
+		vertical-align: middle;
+		float: none !important;
+
+		&:not(:first-of-type) {
+      margin: {
+        left: rem-calc(10);
+      }
+    }
+	}
+}
+
+// b. Style for list icon browse
+// -----------------------------
+ul.list-icons-browse {
+	margin: 0px;
+	list-style: outside none none;
+
+	> li {
+		display: inline-block;
+		vertical-align: top;
+		float: none !important;
+
+    &:not(:first-child) {
+      margin: {
+        left: rem-calc(10);
+      }
+    }
+	}
+}
+
+// c. Style list as grid
+// ---------------------
+ul.inline-list-grid {
+	@include base-list-grid;
+}
+
+// browse items settings
+ul.settings-section-browse {
+	@include base-list-grid;
+	margin: rem-calc(20 0);
+}
+
+// d. Style for list' items type
+// -----------------------------
+
+// list with separator
+.list-separator {
+	list-style-position: inside;
+
+	&#user-network-wrap {
+		> li {
+			&:last-of-type {
+				border-bottom: 1px solid $gris;
+			}
+		}
+	}
+
+	> li {
+		padding: {
+			top: rem-calc(15);
+			bottom: rem-calc(15);
+		}
+		border-bottom: 1px solid $gris;
+
+		@media #{$mobile-only}, #{$small-only} {
+			padding: rem-calc(12 20);
+		}
+
+		&:last-of-type {
+			border-bottom: 0px;
+		}
+
+		.content-close {
+			top: auto;
+		}
+	}
+}
+
+// list highlighted
+.list-highlighted {
+	margin: 0;
+	list-style-position: inside;
+
+	&:not(.ordered) {
+		list-style: outside none none;
+	}
+
+	> li {
+		padding: rem-calc(10 15);
+
+		&:hover {
+			background-color: $color-main-wrap-alt;
+		}
+	}
+}
+// list info data
+ul.list-info-data {
+	> li {
+		line-height: 1.1;
+
+		&:not(:last-of-type){
+			padding: {
+				bottom: rem-calc(8);
+			}
+		}
+	}
+}
+
+// ===============================
+// 01. Styles for list and content
+// ===============================
+.list-item-title {
+  height: rem-calc(20);
+	overflow: hidden;
+	font-size: rem-calc($text-medium);
+	margin: {
+		top: rem-calc(0);
+	  bottom: rem-calc(2);
+	}
+
+	@media #{$tablet-up} {
+		font-size: rem-calc(17);
+		height: rem-calc(22);
+	}
+
+	a {
+		color: inherit;
+	}
+}
+
+.content-data-list {
+	// .columns, [class*="column"] {
+	// 	position: static;
+	// }
+
+	// styles for lists
+	ul.browse-list-search, ul.browse-list-programs, ul.browse-list-mask {
+		p {
+			margin-bottom: rem-calc(2);
+		}
+
+		> li {
+			overflow: hidden;
+
+			@media #{$tablet-up} {
+				margin-bottom: rem-calc(30);
+			}
+
+		}
+
+		.list-item-wrap {
+			position: relative;
+
+			.top-item-list {
+				@media #{$tablet-up} {
+					margin-bottom: rem-calc(10);
+			  }
+			}
+
+			.item-thumb {
+				display: block;
+				width: 100%;
+				overflow: hidden;
+
+				> img {
+					@include radius($global-radius);
+				}
+			}
+
+			.dots-action-item {
+				display: none;
+
+				@media #{$large-up} {
+					display: table-cell;
+				}
+			}
+
+			.list-dots-action {
+				opacity: 0;
+
+				> i {
+					color: $aluminum;
+					background-color: transparent;
+
+					&:hover {
+						background-color: $vapor;
+					}
+				}
+			}
+
+			&:hover {
+				.list-dots-action {
+					opacity: 1;
+				}
+
+				.content-item-list {
+
+				  .like-action {
+					  > i {
+					    color: $dark-silver;
+					  }
+				  }
+				}
+			}
+
+			.drop-item-content-box {
+				padding: rem-calc(10);
+        position: absolute;
+        top: 500px !important;
+				left: 0 !important;
+				width: 100%;
+				height: 100%;
+				border: 1px solid $smoke;
+				background-color: $white;
+				@include radius($global-radius);
+			  @include transition(all ease-in-out 300ms);
+
+				.description-list-item {
+  			  height: rem-calc(176px);
+	    	}
+
+				.bottom-item-list {
+					position: absolute;
+					padding-bottom: rem-calc(10);
+					bottom: 0;
+				}
+
+
+				&.open {
+					left: 0 !important;
+					top: 0 !important;
+				}
+			}
+
+			.content-item-list {
+
+			  .participate-action {
+				  color: $white;
+          padding: 13px 0;
+          display: block;
+
+					&:hover {
+						text-decoration: none;
+					}
+			  }
+		  }
+		}
+
+
+		@media #{$mobile-only}, #{$small-only} {
+			&.responsive-browse {
+				> li, li.slick-slide {
+
+
+					&:first-child {
+						border-top: 1px solid $gainsboro;
+					}
+
+					&:last-child {
+						border-bottom: 1px solid $gainsboro;
+					}
+
+					.list-item-wrap {
+						display: table;
+						@include box-shadow(none);
+						@include border-radius(0px);
+
+						&:hover {
+							@include box-shadow(none);
+
+							.title-item-list {
+								color: $black !important;
+							}
+						}
+
+						.top-item-mask, .top-item-list {
+							display: table-cell;
+							vertical-align: top;
+							padding: rem-calc(10 0 10 10);
+							width: 35%;
+
+							.mask-thumb, .item-thumb {
+								position: relative;
+								display: block;
+								width: 100%;
+								overflow: hidden;
+								@include radius($global-radius);
+
+								&:before {
+									content: '';
+									display: block;
+									padding-top: 100%;
+								}
+
+								img {
+									position: absolute;
+									width: auto;
+									max-width: none;
+									height: 100%;
+									top: 0px;
+									left: -100%;
+									right: -100%;
+									margin: 0 auto !important;
+									@include translate(0, 0);
+								}
+							}
+						}
+
+						.content-item-mask, .content-item-list {
+							position: relative;
+							display: table-cell;
+							vertical-align: top;
+							margin: 0;
+
+							padding: rem-calc(6 10 10 10);
+
+							.bottom-item-mask, .bottom-item-list {
+								margin: 0;
+							}
+						}
+
+						> .bottom-item-mask, > .bottom-item-list {
+							display: none;
+						}
+
+						.title-item-mask, .title-item-list {
+							height: rem-calc(38);
+							margin-top: 0;
+							font: {
+								size: rem-calc(15);
+								weight: $font-weight-normal;
+							}
+						}
+
+						.category-product-item, .category-proyect-item, .category-learn-item {
+							height: rem-calc(18);
+    					overflow: hidden;
+						}
+
+						*:not(.columns) {
+							> .top-item-mask, > .top-item-list {
+								display: block;
+								width: 100%;
+							}
+
+							> .content-item-mask, > .content-item-list {
+								display: block;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// styles for mask browse list
+	ul.browse-list-mask {
+		@include browse-list-base;
+
+		.item-mask-list, .item-wrap-list {
+
+			.top-item-mask, .top-item-list {
+				background-color: $white;
+				margin: rem-calc(5);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.content-item-mask, .content-item-list {
+				padding: rem-calc(10 12);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.bottom-item-mask, .bottom-item-list {
+				position: static;
+				left: 0px;
+				right: 0px;
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+
+				.reveal-data-info {
+					position: absolute;
+					top: 100%;
+					left: 0;
+					width: 100%;
+					padding: inherit;
+					background-color: $gray-light-alt;
+					box-shadow: $box-shadow-browse-item;
+					z-index: 2;
+					margin: {
+						top: rem-calc(-47);
+						bottom: rem-calc(30);
+					}
+					@include side-radius(bottom);
+					@include transition(all 400ms linear,opacity 100ms linear);
+					@include opacity(0);
+					clip: rect(-20px,2000px,0px,-20px);
+				}
+
+				.card-user-info {
+					word-break: break-all;
+					margin: {
+						left: rem-calc(-17);
+						right: rem-calc(-17);
+					}
+					padding: {
+						left: rem-calc(17);
+						right: rem-calc(17);
+					}
+
+					ul {
+						line-height: 1.1;
+					}
+				}
+
+				.toggle-reveal-info {
+					& + label {
+						position: absolute;
+						right: rem-calc(17);
+						margin-top: -32.5px;
+						z-index: 1;
+					}
+
+					&:checked {
+						& ~ .reveal-data-info {
+							@include opacity(1);
+							clip: rect(-20px,2000px,1000px,-20px);
+						}
+
+						& + label {
+							z-index: 3;
+						}
+					}
+				}
+			}
+
+			.mask-thumb, .item-thumb {
+				display: block;
+				width: 100%;
+				overflow: hidden;
+				@include radius(8px);
+
+				@media #{$mobile-only}, #{$small-only} {
+			    @include radius($global-radius);
+			    height: 95px;
+				}
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.title-item-mask, .title-item-list {
+				height: rem-calc(40);
+				overflow: hidden;
+				font: {
+					size: rem-calc($text-medium);
+					weight: $font-weight-normal;
+				}
+
+				@media #{$tablet-up} {
+					font-size: rem-calc(17);
+					height: rem-calc(44);
+				}
+
+				a {
+					color: inherit;
+				}
+			}
+
+			.nombre-entidad-list-item {
+				margin-bottom: 0;
+			}
+
+			.category-list-item {
+	  		margin-bottom: 0;
+	  		color: $jumbo;
+	  		height: rem-calc(16);
+	  		overflow: hidden;
+	  		font-size: rem-calc(11);
+
+	  		@media #{$mobile-only}, #{$small-only} {
+	  			font-size: rem-calc(10);
+	  		}
+
+	  		@media #{$tablet-up} {
+	  			margin: rem-calc(15 0);
+	  			height: rem-calc(32);
+	  		}
+	  	}
+
+	  	.description-list-item {
+  			height: rem-calc(164);
+
+  			@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+					line-height: 1.3;
+  			}
+
+				@media #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+					height: rem-calc(145);
+				}
+	  	}
+
+	  	.product-price {
+				@media #{$mobile-only}, #{$medium-only} {
+					font-size: rem-calc(14);
+				}
+			}
+
+			.post-favorite-icon {
+
+				> i {
+					@media #{$tablet-up} {
+						font-size: rem-calc(24);
+					}
+
+					@media #{$mobile-only} {
+						font-size: rem-calc(21);
+					}
+				}
+			}
+
+	  	.content-roster-list {
+				.title-item-list {
+					@media #{$tablet-up} {
+						height: rem-calc(23);
+					}
+				}
+
+				.description-list-item {
+					height: rem-calc(36);
+				}
+
+				.category-list-item {
+					@media #{$tablet-up} {
+						height: rem-calc(28);
+						margin: rem-calc(10 0);
+					}
+				}
+
+				.list-dots-action {
+					opacity: 0;
+				}
+
+				.content-bottom-item-roster {
+					position: relative;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
+				}
+			}
+
+			.content-item-list {
+				position: relative;
+
+				.bottom-item-list {
+					@media #{$tablet-only} {
+						margin-top: rem-calc(20);
+					}
+
+					@media #{$mobile-only}, #{$small-only} {
+						position: absolute;
+				    bottom: 0;
+				    right: 0;
+				    left: 0;
+				    padding: 0 12px 10px 12px;
+					}
+				}
+			}
+
+			ul.list-info-mask {
+				margin: 0px;
+			}
+
+			.foot-info-mask {
+				position: relative;
+
+				span {
+					font: {
+						size: rem-calc(14);
+					}
+				}
+			}
+			ul.list-icons-mask {
+				display: inline-block;
+				position: absolute;
+				right: 0px;
+				bottom: 0;
+
+				@media #{$tablet-up} {
+					top: rem-calc(-3);
+					bottom: auto;
+				}
+
+				> li{
+					.icon-circle, .icon-circle-o {
+						font: {
+							size: rem-calc(16);
+						}
+					}
+				}
+			}
+		}
+
+		&.adaptive-images {
+
+			.top-item-list {
+				width: 100%;
+
+				.mask-thumb, .item-thumb {
+					position: relative;
+					display: block;
+					width: 100%;
+					height: rem-calc(180);
+    			min-height: 100%;
+					overflow: hidden;
+
+					&:before {
+						content: '';
+						display: block;
+						padding-left: 100%;
+					}
+
+					img {
+						position: relative;
+				    width: auto;
+				    max-width: none;
+				    height: 100%;
+				    left: auto;
+				    right: -50%;
+				    margin: 0 auto;
+				    min-width: 100%;
+				    // min-height: 100%;
+				    @include translate(-50%,0);
+	  			}
+				}
+			}
+		}
+
+		@media #{$mobile-only} {
+
+			&.responsive-browse {
+				> li, li.slick-slide {
+					padding: 0 !important;
+  				border-bottom: 1px solid $smoke;
+
+					&:first-child {
+						border-top: 1px solid $gainsboro;
+					}
+
+					&:last-child {
+						border-bottom: 1px solid $gainsboro;
+					}
+
+					.list-item-wrap, .item-mask-list {
+						display: table;
+						@include box-shadow(none);
+						@include border-radius(0px);
+
+						&:hover {
+							@include box-shadow(none);
+
+							.title-item-list {
+								color: $black !important;
+							}
+						}
+
+						.top-item-mask, .top-item-list {
+							display: table-cell;
+							vertical-align: top;
+							padding: rem-calc(10 0 10 10);
+							width: 35%;
+
+							.mask-thumb, .item-thumb {
+								position: relative;
+								display: block;
+								width: 100%;
+								overflow: hidden;
+
+								&:before {
+									content: '';
+									display: block;
+									padding-top: 100%;
+								}
+
+								img {
+									position: absolute;
+									width: auto;
+									max-width: none;
+									height: 100%;
+									top: 0px;
+									left: -100%;
+									right: -100%;
+									margin: 0 auto !important;
+									@include translate(0, 0);
+								}
+							}
+						}
+
+						.content-item-mask, .content-item-list {
+							position: relative;
+							display: table-cell;
+							vertical-align: top;
+							margin: 0;
+
+							.bottom-item-mask, .bottom-item-list {
+								margin: 0;
+							}
+						}
+
+						> .bottom-item-mask, > .bottom-item-list {
+							display: none;
+						}
+
+						.title-item-mask, .title-item-list {
+							height: rem-calc(38);
+							margin-top: 0;
+							font: {
+								size: rem-calc(15);
+								weight: $font-weight-normal;
+							}
+						}
+
+						.category-product-item, .category-proyect-item, .category-learn-item {
+							height: rem-calc(18);
+    					overflow: hidden;
+						}
+
+						*:not(.columns) {
+							> .top-item-mask, > .top-item-list {
+								display: block;
+								width: 100%;
+							}
+
+							> .content-item-mask, > .content-item-list {
+								display: block;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// styles for block browse list
+	ul.browse-list-block {
+
+		@include browse-list-base;
+
+		.item-block-list, .item-wrap-list {
+			@include browse-item-base;
+
+			.picture-item-block, .top-item-list {
+				margin: rem-calc(5);
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+			.content-item-block, .content-item-list {
+				margin: rem-calc(5);
+				padding: rem-calc(12);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.title-item-block, .title-item-list {
+				border-bottom: 2px solid $smoke;
+
+				a {
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	// styles for mask card list
+	ul.browse-list-card {
+		@include browse-list-base;
+
+		.item-card-list, .item-wrap-list {
+			@include browse-item-base;
+
+			.top-item-card, .top-item-list {
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.content-item-card, .content-item-list {
+				padding: rem-calc(20 25 10);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.bottom-item-card, .bottom-item-list {
+				padding: rem-calc(10 25 20);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.card-thumb, .item-thumb {
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.title-item-card, .title-item-list {
+				height: rem-calc(46);
+				overflow: hidden;
+				font: {
+					weight: 300;
+				}
+
+				a {
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	// styles for data browse list
+	ul.browse-list-data {
+		@include browse-list-base($padding: 0, $padding-item: rem-calc(8 0) );
+
+		> li {
+			border-bottom: 1px solid $hr-border-color;
+		}
+
+		.item-data-list, .item-wrap-list {
+			@include browse-item-base;
+
+			.picture-item-data, .top-item-list {
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			.content-item-data, .content-item-list {
+				display: inline-block;
+				vertical-align: top;
+				padding: rem-calc(10 10 10 15);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.data-thumbnail, .item-thumb {
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+
+	// styles for event browse list
+	ul.browse-list-event {
+		@include browse-list-base($padding: rem-calc(5 0 0));
+
+		.item-event-list, .item-wrap-list {
+			@include browse-item-base;
+
+			.top-item-event, .top-item-list {
+				padding: rem-calc(15 15 10);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.content-item-event, .content-item-list {
+				padding: rem-calc(10 15 15);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+
+				a:hover {
+					color: $sky-blue;
+				}
+			}
+
+			.bottom-item-event, .bottom-item-list {
+				padding: rem-calc(15);
+				background-color: $color-main-wrap-alt;
+				font: {
+					size: rem-calc(14);
+				}
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.title-item-event, .title-item-list {
+				color: $sky-blue;
+				height: rem-calc(70);
+				margin: {
+					top: 0;
+				}
+
+				a {
+					color: inherit;
+				}
+			}
+
+			.info-basic-event {
+				font: {
+					weight: 900;
+				}
+				text-transform: uppercase;
+				color: $light-purple-blue;
+
+				> span {
+					font: {
+						weight: 300;
+					}
+				}
+			}
+
+			.date-event {
+				text-transform: capitalize;
+			}
+		}
+	}
+
+	// styles for piece browse list
+  ul.browse-list-piece {
+    @include browse-list-base($padding: 0);
+
+    .item-piece-list, .item-wrap-list {
+      @include browse-item-base;
+
+      .picture-item-piece, .top-item-list {
+        padding: rem-calc(15 0 15 15);
+
+        > a {
+        	display: block;
+					overflow: hidden;
+					@include border-radius($global-radius);
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        &.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+      }
+
+      .title-item-piece, .title-item-list {
+        display: block;
+
+        @media #{$mobile-only}, #{$small-only} {
+					font-size: rem-calc(16);
+					margin: 0;
+        }
+
+        a {
+					color: inherit;
+				}
+      }
+
+      .content-item-piece, .content-item-list {
+        padding: rem-calc(15);
+        position: relative;
+
+        @media #{$mobile-only}, #{$small-only} {
+        	padding: rem-calc(15 15 15 10);
+        }
+
+        .description-piece-content {
+          > p {
+            margin: {
+              bottom: rem-calc(10);
+            }
+          }
+        }
+
+        &.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+
+        .footer-piece-content {
+
+        	@media #{$small-only}, #{$mobile-only}, #{$medium-up} {
+						position: absolute;
+						padding: rem-calc(0 15 15);
+        	}
+
+          width: 100%;
+          left: 0px;
+          bottom: 0px;
+
+          &.no-border {
+						margin: 0;
+						padding: 0;
+						border: none;
+					}
+        }
+      }
+
+      .list-icons-browse {
+        .item-icon {
+          @extend .icon-circle-o;
+	        @include icon-circle(
+            $color: $jumbo,
+            $bgcolor: $vapor,
+            $colors-custom: false
+          );
+
+          &:hover {
+            @include icon-circle(
+              $color: $black,
+              $bgcolor: $silver,
+              $colors-custom: false
+            );
+            // @extend .circle-shadow;
+          }
+        }
+      }
+
+    }
+  }
+
+	// styles for user card browse list
+  ul.browse-list-carduser {
+		@include browse-list-base;
+
+		.item-carduser-list, .item-wrap-list {
+			@include browse-item-base;
+
+			.top-item-carduser, .top-item-list {
+				padding: rem-calc(12);
+				border-bottom: 1px solid $hr-border-color;
+			}
+
+			.content-item-carduser, .content-item-list {
+				padding: rem-calc(5 12);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.bottom-item-carduser, .bottom-item-list {
+				padding: rem-calc(10 12);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+
+			.img-carduser {
+				width: rem-calc(65);
+				height: rem-calc(65);
+				@include radius(50%);
+			}
+
+			.carduser-name {
+				margin: {
+					bottom: 0;
+				}
+			}
+
+			.title-small {
+				font: {
+					size: rem-calc(14);
+				}
+			}
+
+			.btn-viewmore-item {
+				margin: rem-calc(25 0 15);
+			}
+
+			ul.carduser-info-basic {
+				display: table;
+				list-style: outside none none;
+				margin: 0;
+
+				> li {
+					display: table-cell;
+					vertical-align: middle;
+
+					&:first-child {
+						width: 30%;
+						padding: {
+							right: rem-calc(8);
+						}
+					}
+
+					> ul {
+						> li {
+							line-height: 1.1;
+						}
+					}
+				}
+			}
+
+			.inner-sections-carduser {
+				list-style: outside none none;
+				margin: 0;
+
+				> dd, > li {
+					list-style: none;
+					position: relative;
+					margin: 0;
+					padding: rem-calc(10 22);
+
+					&:not(:last-of-type) {
+						border-bottom: 1px solid $hr-border-color;
+					}
+				}
+
+				.icon-info-card {
+					position: absolute;
+					top: rem-calc(10);
+					left: 0px;
+				}
+			}
+
+			.section-description-card {
+				> label {
+					margin: {
+						bottom: rem-calc(5);
+					}
+				}
+				#{headers(all)} {
+					margin: rem-calc(0 0 5);
+					line-height: 1;
+				}
+				p {
+					margin: {
+						bottom: 0;
+					}
+				}
+			}
+
+			.section-detail {
+
+				p:first-of-type {
+					overflow: hidden;
+					height: rem-calc(90);
+				}
+			}
+
+			.section-footer {
+				height: rem-calc(70);
+			}
+		}
+  }
+
+	// list data info
+  ul.browse-list-info {
+		@include browse-list-base;
+
+		.item-wrap-list {
+			@include browse-item-base;
+
+			table.data-info-item {
+				margin: {
+					bottom: 0;
+				}
+
+				tr {
+					th, td {
+						padding: rem-calc(5 15);
+					}
+				}
+			}
+
+			.top-item-list {
+				background-color: $color-main-wrap-alt;
+				padding: rem-calc(10);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+
+				table.data-info-item {
+					tr {
+						background-color: $color-main-wrap-alt;
+
+						th {
+							color: $jumbo;
+							font: {
+								size: rem-calc(15);
+								weight: 300;
+							}
+						}
+					}
+				}
+			}
+
+			.content-item-list {
+				padding: rem-calc(15);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+
+				table.data-info-item {
+					tr {
+						background-color: $white;
+
+						td {
+							color: $body-font-color;
+						}
+					}
+				}
+			}
+
+			.bottom-item-list {
+				padding: rem-calc(10);
+
+				&.no-border {
+					margin: 0;
+					padding: 0;
+					border: none;
+				}
+			}
+		}
+  }
+
+	// list users
+  ul.browse-list-users {
+  	@include browse-list-base;
+
+  	.item-wrap-list {
+			@include browse-item-base;
+			padding: rem-calc(8 10);
+			overflow: visible;
+			@include transition(all 250ms ease-out);
+
+			.item-thumb {
+				display: inline-block;
+				@include border-radius(50%);
+				border: 2px solid $white;
+				@include box-shadow(2px 2px 10px rgba($black, .3));
+				margin-right: rem-calc(8);
+
+				img {
+					width: rem-calc(50);
+					height: rem-calc(50);
+					@include border-radius(50%);
+				}
+			}
+
+			&:hover {
+				background-color: $white;
+				// @include box-shadow($box-shadow-browse-item !important);
+			}
+  	}
+  }
+}
+
+// ====================
+// 02. Styles for lists
+// ====================
+// chip list
+ul.list-chip-info {
+	margin: rem-calc(10 0 10);
+	list-style: outside none none;
+
+	> li {
+		display: block;
+		margin: {
+			bottom: rem-calc(10);
+		}
+
+		.item-chip-info {
+			position: relative;
+			background-color: $white;
+			border: 1px solid $gainsboro;
+			padding: rem-calc(1);
+
+			.img-chip-info {
+				display: inline-block;
+				vertical-align: middle;
+				width: auto;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.content-chip-info {
+				display: inline-block;
+				vertical-align: middle;
+				padding: {
+					left: rem-calc(10);
+				}
+				color: $tuatara;
+				font: {
+					family: $font-family-sanfrancisco;
+					weight: 300;
+				}
+			}
+		}
+
+		.info-item-list {
+			list-style: outside none none;
+			margin: 0;
+
+			label {
+				margin: 0;
+				font: {
+					size: rem-calc(14);
+					weight: 500;
+				}
+			}
+			> li {
+				font: {
+					size: rem-calc(13);
+				}
+			}
+		}
+
+		.close {
+			position: absolute;
+			right: rem-calc(10);
+			top: 50%;
+			color: $base;
+			font: {
+				size: rem-calc(18);
+				weight: 600;
+				style: normal;
+			}
+			margin: {
+				top: rem-calc(-13);
+			}
+		}
+	}
+}
+
+// user entrepreneurship
+ul.list-circles-entrepreneurship {
+  margin: 0;
+  list-style: outside none none;
+
+  > li {
+    display: inline-block;
+    vertical-align: middle;
+    font: {
+      size: rem-calc(15);
+    }
+
+    &:not(:first-child) {
+      margin: {
+        left: rem-calc(15);
+      }
+    }
+
+    .circle-entrepreneurship {
+      @include icon-circle( $color: $white, $bgcolor: $gainsboro );
+    }
+    color: $gainsboro;
+  }
+}
+
+// ===================================
+// 03. Styles for social buttons lists
+// ===================================
+
+// Styles for social shared list
+// ------------------------
+@at-root ul.post-social-shared {
+	display: inline-block;
+	vertical-align: top;
+	line-height: 1;
+	margin: {
+		top: rem-calc(2);
+		left: 0;
+	}
+
+	&.extend {
+		width: 100%;
+		@include base-list-grid;
+	}
+
+	> li{
+		display: inline-block;
+		vertical-align: middle;
+		float: none;
+		line-height: 1;
+
+		&:not(:first-child){
+			margin: {
+				left: rem-calc(10);
+			}
+		}
+
+		color: $gray-base;
+		font: {
+			weight: 300;
+			size: rem-calc(13);
+		}
+
+		span {
+			a {
+				color: $sky-blue;
+			}
+		}
+	}
+}
+
+// Styles for social icon list
+// ----------------------
+@at-root ul.social-box-icons {
+	list-style: outside none none;
+	margin: 0;
+	line-height: 1.1;
+
+	> li {
+		display: inline-block;
+		vertical-align: middle;
+
+		&:not(:first-child) {
+			margin-left: rem-calc(6);
+		}
+
+		a {
+			display: inline-block;
+			color: $gray-light;
+			font: {
+				size: rem-calc(12);
+			}
+			margin: 0 !important;
+			text-transform: none !important;
+
+			&:hover, &.ilike {
+				color: $sky-blue;
+				text-decoration: none;
+				span {
+					color: $sky-blue;
+				}
+			}
+			&:focus {
+				text-decoration: none;
+			}
+
+			i {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: rem-calc(14);
+			}
+
+			span {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+
+		span {
+			a {
+				color: $sky-blue;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.data-count-likes {
+			min-width: rem-calc(10);
+	    display: inline;
+			vertical-align: baseline;
+	    line-height: 1;
+		}
+
+		&.wrap-icon {
+			padding: rem-calc(5 10);
+			background-color: $white;
+			@include box-shadow($box-shadow-item);
+
+			&.radius { @include radius; }
+      &.round  { @include radius($global-rounded); }
+		}
+
+		.button, button {
+			@include button-style($bg:$white, $bg-hover: $white, $border-color: scale-color($white, $lightness: -5%));
+			color: $gray-base;
+
+			&:hover {
+				@include box-shadow( 2px 2px 10px $base !important );
+				color: $sky-blue;
+			}
+			&:focus {
+				color: $sky-blue;
+			}
+		}
+
+		// styles for button like
+		.TPlikelink {
+
+			.data-count-likes {
+				// font-size: rem-calc(12);
+				vertical-align: middle;
+			}
+
+			i {
+				@extend %font-mdi;
+				font-size: rem-calc(14);
+
+				&:before {
+					content: mdi('thumb-up-outline');
+				}
+			}
+
+			.icon-btn {
+				margin-right: rem-calc(2);
+			}
+
+			&.ilike {
+				i {
+					&:before {
+						content: mdi('thumb-up');
+					}
+				}
+			}
+		}
+	}
+}
+
+// ======================================
+// 04. Styles for lists items with images
+// ======================================
+
+.list-small-thumb-item {
+	> li {
+		> .mask-thumb {
+			position: relative;
+			display: block;
+			width: 100px;
+			overflow: hidden;
+			@include border-radius($global-radius);
+			height: 76px;
+
+			> img {
+				position: absolute;
+				width: auto;
+				max-width: none;
+				height: 100%;
+				top: 0px;
+				left: -100%;
+				right: -100%;
+				margin: 0 auto !important;
+				@include translate(0, 0);
+			}
+		}
+
+		a {
+			text-decoration-color: $black;
+		}
+
+		h6 {
+			font-size: rem-calc(13);
+		}
+
+		span {
+			font-size: rem-calc(12);
+		}
+	}
+}

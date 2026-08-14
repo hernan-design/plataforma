@@ -1,0 +1,54 @@
+%sena-header {
+	#{$header-land}{
+		background-color: $white;
+
+		#nav-header {
+			.top-bar-section {
+				.icon-search {
+					color: $sena-bright-green-color;
+				}
+			}
+		}
+
+		#nav-menus-grid {
+			.right-top-menu {
+				.singin-buttons-top-menu {
+					> li {
+						&:first-child {
+							> a {
+								color: $jumbo;
+                @include border-radius(24px);
+                border-color: $sena-bright-orange-color !important;
+                text-transform: none;
+                letter-spacing: normal;
+                padding-left: 40px;
+                padding-right: 40px;
+                font-weight: 400;
+
+                &:hover {
+                  border-color: $sena-bright-green-color !important;
+                }
+							}
+						}
+					}
+				}
+
+				> li {
+					.has-icon-help {
+						> span {
+							i {
+								color: $sena-bright-green-color;
+							}
+						}
+					}
+				}
+
+				.menu-icon-custom {
+					.md-hamburger__layer {
+						background-color: $sena-bright-green-color;
+					}
+				}
+			}
+		}
+	}
+}

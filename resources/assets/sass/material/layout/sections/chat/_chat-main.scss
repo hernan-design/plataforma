@@ -1,0 +1,115 @@
+%chat-main{
+  #container-chat{
+    margin-top: 3rem;
+    @media #{$tablet-only}, #{$medium-only}, #{$small-only}, #{$mobile-only}{
+      position:absolute;
+      margin-top: 0;
+    }
+    .sidebar-chat {
+      height: 80vh;
+      overflow: auto;
+      .setup-chat {
+        padding: 0.8rem;
+        border-bottom: 1px solid #d7d7d7;
+        .setup-text-chat {
+          font-size: 0.9rem;
+          color: #777;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      .room-users {
+        ul {
+          margin: 0;
+          li.room-member {
+            padding: 10px 15px;
+            listStyle: none;
+          }
+        }
+      }
+    }
+    .content-chat {
+      border-left: 1px solid #d7d7d7;
+      border-right: 1px solid #d7d7d7;
+      .chat-screen{
+          height: 80vh;
+          @media #{$small-only}, #{$mobile-only}{
+            height: 69vh;
+          }
+        .chat-header {
+          height: 12%;
+          padding: 1.5rem;
+          border-bottom: 1px solid #c7c7c7;
+
+        }
+        .chat-footer {
+          height: 7%;
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          @media #{$small-only}, #{$mobile-only}{
+            height: 8%;
+          }
+          form {
+            input {
+              border-top: 1px solid #d7d7d7;
+              border-bottom: 0;
+              text-indent: 10px;
+            }
+            button {
+              background: none;
+              border: none;
+              padding: 0;
+              margin: 0;
+              span {
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+              }
+            }
+          }
+        }
+        .chat-messages {
+          height: 81%;
+          margin: 0;
+          padding: 1.3rem;
+          overflow-y: visible;
+          overflow-x: hidden;
+          @media #{$small-only}, #{$mobile-only}{
+           height: 92%;
+          }
+          li.message-own {
+            list-style: none;
+            width: 60%;
+            margin-left: auto;
+            background-color: #9B9B9B;
+            color: #f1ecec;
+            span.message-time{
+              font-size: 12px;
+            }
+          }
+          li.message-other {
+            list-style: none;
+            width: 60%;
+            span.message-time{
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .sidebar-2-chat {
+      height: 80vh;
+      overflow: auto;
+      padding: 0;
+      ul.chat-rooms {
+        margin: 0;
+        li {
+          padding: 10px 15px;
+          list-style: none;
+        }
+      }
+    }
+  }
+}

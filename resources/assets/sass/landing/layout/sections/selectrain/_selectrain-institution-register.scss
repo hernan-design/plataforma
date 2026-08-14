@@ -1,0 +1,31 @@
+%selectrain-institution-register {
+
+	#selectrain-institution-register {
+		background-color: $white;
+
+		.selectrain-reg-video {
+			margin-top: rem-calc(10);
+			// @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			// }
+		}
+
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			.selectrain-reg-video {
+				margin-top: rem-calc(0);
+			}
+
+			.selectrain-reg-title {
+				margin-top: rem-calc(10);
+			}
+		}
+
+		.selectrain-reg-title {
+			font-weight: 200;
+			margin-bottom: rem-calc(10);
+		}
+
+		.selectrain-button-text {
+			font-weight: 200;
+		}
+	}
+}

@@ -1,0 +1,92 @@
+%innpulsa-successful-projects {
+	#innpulsa-successful-projects {
+		background-color: $innpulsa-bright-red-color;
+		background-position: center bottom;
+		background-repeat: no-repeat;
+    padding: rem-calc(60 0 80);
+    overflow: hidden;
+
+    @media #{$mobile-only}, #{$small-only} {
+      padding: rem-calc(0 0 30);
+    }
+
+    @media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+      padding: rem-calc(30 0 50);
+    }
+
+		&.section-land {
+			.title-section-land {
+				font-weight: normal;
+			}
+		}
+
+		.content-data-list {
+			position: relative;
+
+			.innpulsa-projects-button {
+				position: absolute;
+				right: 0;
+				bottom: -12px;
+				background-color: $innpulsa-dark-yellow-color;
+				font-weight: 800;
+
+					&:hover {
+					color: $white;
+				}
+			}
+		}
+
+    .projects-title {
+      font-family: 'FuturaStd-Heavy';
+    }
+
+		.slick-browse {
+      overflow: visible;
+
+			.slick-prev, .slick-next {
+				position: absolute;
+        height: auto;
+        bottom: 50%;
+        top: auto;
+        width: 33px;
+
+				&:hover {
+					border-top-color: $white;
+				}
+			}
+
+			.slick-prev {
+        left: -80px;
+
+        @media #{$tablet-only}, #{$medium-only} {
+          left: -60px;
+        }
+
+        &:before {
+          content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/innpulsa/landing-octubre-2018/projects/arrow-left-projects.png');
+        }
+			}
+
+			.slick-next {
+				right: -80px;
+
+        @media #{$tablet-only}, #{$medium-only} {
+          right: -60px;
+        }
+
+        &:before {
+          content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/innpulsa/landing-octubre-2018/projects/arrow-right-projects.png');
+        }
+			}
+		}
+
+		.slick-feature-projects {
+
+			.projects-text-box {
+        > p {
+          text-align: justify;
+        }
+      }
+		}
+	}
+}

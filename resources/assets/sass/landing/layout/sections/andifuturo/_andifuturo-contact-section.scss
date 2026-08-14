@@ -1,0 +1,23 @@
+%andifuturo-contact-section {
+	#andifuturo-contact-section {
+		background-color: $andifuturo-dark-blue-color;
+
+		.title-section-land {
+			color: $white;
+		}
+
+		.adf-city-title {
+			font-weight: 800;
+
+		}
+
+		.adf-map {
+			> iframe {
+				width: 100%;
+				min-width: 100%;
+				height: auto;
+				min-height: 340px;
+			}
+		}
+	}
+}

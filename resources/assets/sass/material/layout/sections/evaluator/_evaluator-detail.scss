@@ -1,0 +1,217 @@
+// Styles for evaluation projects detail
+//--------------------------------------
+%evaluator-detail {
+
+	// main content project evaluation detail
+	#evaluation-project-detail-content {
+
+		// styles for panel info project
+		.info-project-evaluation {
+			padding: rem-calc(0);
+
+			ul.list-info-project-evaluation {
+				list-style: outside none none;
+				margin: 0;
+
+				> li {
+					padding: 0;
+
+					&:last-of-type {
+						border-bottom: none;
+					}
+
+					.info-inner-evaluation {
+						padding: rem-calc(12 15);
+					}
+
+					.image-project-evaluation {
+						width: 100%;
+						height: auto;
+						@include side-radius(top);
+					}
+
+					ul.list-info-inner-evaluation {
+						margin: 0;
+						list-style: outside none none;
+
+						> li {
+							padding-bottom: rem-calc(20);
+
+							label {
+								margin-bottom: rem-calc(10);
+							}
+
+							p {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+
+			.description-project-evaluation {
+				.wrapper-more {
+					display: inline;
+				}
+			}
+		}
+
+		// card project creator
+		.card-creator-info {
+			margin: {
+				left: rem-calc(-15);
+				right: rem-calc(-15);
+			}
+			padding: rem-calc(15 15);
+		}
+
+		// inner content evaluation
+		.panel-content-project-evaluation {
+			padding: 0;
+
+			.submenu-project-evaluation {
+				padding: rem-calc(0 20);
+				background-color: $white;
+				@include side-radius(top);
+				@include box-shadow($panel-shadow);
+				margin-bottom: rem-calc(20);
+
+				ul.tabs-project-evaluation {
+					border-bottom: none;
+				}
+			}
+
+			.content-project-evaluation {
+				padding: {
+					top: 0;
+					left: 0;
+					right: 0;
+				}
+
+				#{nest("& >", unquote("#{headers(all)}"))} {
+					padding: rem-calc(25 25 0 25);
+				}
+
+				.content-header-panel {
+					top: 0px;
+					left: 0px;
+					right: 0px;
+					@include box-sizing(border-box);
+
+					.hpanel-title {
+						font-size: rem-calc(20);
+					}
+				}
+
+				&:not(.with-header) {
+					padding: 0;
+				}
+
+				.data-result-average {
+					margin-top: rem-calc(14);
+				}
+			}
+
+			.inner-contect-evaluation {
+
+				> dd, > li {
+					margin: 0;
+				}
+			}
+
+			// evaluation inner section
+			.inner-section-evaluation {
+				padding: rem-calc(25);
+				// border-bottom: 1px solid $hr-border-color;
+
+				// #{headers(all)} {
+				// 	margin-bottom: rem-calc(35);
+				// }
+
+				> .label {
+					margin-bottom: rem-calc(5);
+					white-space: normal;
+					text-align: left;
+				}
+
+				> p {
+					margin-bottom: rem-calc(25);
+				}
+			}
+
+			// content evaluation calification
+			#info-calification-evaluation {
+				.inner-section-evaluation {
+					&:hover {
+						background-color: $gray-light-alt;
+					}
+				}
+			}
+
+			// content score results
+			.content-score-result, .info-panel-evaluation {
+				margin-bottom: rem-calc(20);
+
+				.panel-score-result-desc {
+					@include side-radius(left);
+					margin-bottom: 0;
+					height: auto;
+					width: 100%;
+
+					p {
+						margin-bottom: $paragraph-margin-bottom;
+					}
+				}
+
+				.panel-score-result-value {
+					width: 100%;
+					height: auto;
+					margin-bottom: 0;
+					@include side-radius(right);
+
+					span {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						@include transform( translateY(-50%) translateX(-50%) );
+					}
+
+					.data-result-average {
+						tr:nth-of-type(even) {
+							background-color: transparent;
+						}
+					}
+				}
+			}
+
+			.info-panel-evaluation {
+
+				.data-result-average {
+					margin-bottom: rem-calc(25);
+					tr {
+						td, th {
+							&:first-child { padding-left: rem-calc(25); }
+							&:last-child { padding-right: rem-calc(25); }
+						}
+					}
+				}
+			}
+
+			.categories-product-list {
+				margin-top: rem-calc(20);
+
+				> li {
+					padding: {
+						left: rem-calc(25);
+						right: rem-calc(25);
+					}
+				}
+			}
+		}
+	}
+
+	#container-form-industry {
+		width: rem-calc(360);
+	}
+}
+

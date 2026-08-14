@@ -1,0 +1,67 @@
+%compensar-footer {
+  #compensar-footer {
+		background-color: $oil;
+
+
+		a, h6, ul, li, p {
+		  font-size: rem-calc(13);
+			color: $aluminum;
+		}
+
+		h6 {
+			font-size: rem-calc(16);
+		}
+
+		a:hover {
+			color: $compensar-bright-orange-color;
+
+			> ul {
+				&:last-child {
+					color: $compensar-bright-orange-color;
+				}
+			}
+		}
+
+		.footer-lists {
+			padding-left: rem-calc(15);
+			border-left: 1px dotted $aluminum;
+			margin-bottom: rem-calc(40);
+
+			@media #{$mobile-only}, #{$small-only} {
+			  margin-bottom: rem-calc(40);
+			}
+
+			.compensar-icon {
+				width: 12px;
+			}
+
+			.agenciaempleo-icon {
+				width: 14px;
+			}
+
+			&.bullet {
+
+				> ul {
+				  padding-left: rem-calc(18);
+				}
+			}
+
+			> ul {
+				> li {
+					margin-bottom: rem-calc(8);
+				}
+			}
+
+			.contact-list {
+				> li {
+					margin-bottom: rem-calc(20);
+
+					h6 {
+						margin-bottom: rem-calc(4);
+					}
+				}
+			}
+		}
+
+	}
+}

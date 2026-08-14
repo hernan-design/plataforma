@@ -1,0 +1,128 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for images
+// --------------------
+
+//
+// variables
+//
+$count-size: 25 !default;
+
+// sizes and rounded of images
+img {
+
+	@while $count-size <= 250 {
+
+		&.size#{$count-size} {
+			max-width: rem-calc($count-size) !important;
+			max-height: rem-calc($count-size) !important;
+			width: rem-calc($count-size) !important;
+			height: rem-calc($count-size) !important;
+		}
+
+		$count-size: $count-size + 5;
+	}
+
+	&.radius-img { @include border-radius($global-radius !important);	}
+
+	&.radius-top-img { @include side-radius(top); }
+
+	&.radius-right-img { @include side-radius(right); }
+
+	&.radius-bottom-img { @include side-radius(bottom); }
+
+	&.radius-left-img { @include side-radius(left); }
+
+	&.rounded-img {
+		@include border-radius(50% !important);
+	}
+}
+
+// edit circle image profile
+.editable-profile-circle,
+	.wrapper-image-edit.editable-profile-circle,
+		.image-area-drop.editable-profile-circle {
+
+	@include icon-circle(
+		$font-size: rem-calc(10),
+		$padding: rem-calc(0),
+		$color: $white,
+		$bgcolor: $base
+	);
+	width: rem-calc(140);
+	height: rem-calc(140);
+	border: 2px solid $white;
+	@include box-shadow(2px 2px 20px rgba($black, .7));
+	position: absolute;
+	top: auto;
+	left: rem-calc(25);
+	bottom: rem-calc(-30);
+
+	> img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+// Styles for images without url
+// -----------------------------
+img.no-image {
+	position: relative;
+	background-color: $smoke;
+	font: {
+		size: rem-calc(400);
+	};
+	color: transparent;
+	* {
+		border: none !important;
+	}
+
+	&:before{
+		color: $white;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: {
+			top: -.5em;
+			left: -.5em;
+		}
+		font: {
+			size: 1em;
+		}
+	}
+	&[data-text]{
+		&:before{
+			left: 70%;
+			font: {
+				size: .7em;
+			}
+		}
+	}
+	&:after {
+		position: absolute;
+		content: attr(data-text);
+		color: $white;
+		top: 0px;
+		left: 0px;
+		font-size: 18px;
+	}
+}
+
+// Rounded thumbnail image
+// -----------------------
+.rounded-thumb {
+	display: inline-block;
+	@include border-radius(50%);
+	margin-right: rem-calc(8);
+
+	&:not(.no-outline) {
+		border: 2px solid $white;
+		@include box-shadow(2px 2px 10px rgba($black, .3));
+	}
+
+	img {
+		width: rem-calc(50);
+		height: rem-calc(50);
+		@include border-radius(50%);
+	}
+}

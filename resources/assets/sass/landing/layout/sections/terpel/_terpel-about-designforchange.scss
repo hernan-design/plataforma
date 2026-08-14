@@ -1,0 +1,77 @@
+%terpel-about-designforchange {
+	#terpel-about-designforchange {
+		background: $white url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/terpel-about-designforchange-bg.png') 50% 30%/cover no-repeat;
+
+		.terpel-dfc-about-head-box {
+			padding: rem-calc(50 0);
+
+			.terpel-dfc-logo-img {
+				margin-bottom: 30px;
+
+				@media #{$tablet-only} {
+					width: 200px;
+				}
+
+				@media #{$small-only}, #{$mobile-only} {
+					width: 150px;
+				}
+
+				@media #{$large-up} {
+					margin-bottom: 50px;
+				}
+			}
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding: rem-calc(0);
+			}
+		}
+
+		.terpel-dfc-about-content-box {
+			padding-bottom: rem-calc(50);
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding: rem-calc(0);
+			}
+
+			.terpel-download-button {
+				font-weight: 700;
+			}
+
+			.flex-video {
+				overflow: visible;
+
+				&.about-video {
+					margin: rem-calc(6 0 0);
+
+					iframe {
+						@include box-shadow (0px 5px 10px 0px rgba($black, 0.22));
+						@include border-radius(10px);
+					}
+				}
+			}
+		}
+
+		&.section-land {
+			.title-section-land {
+				color: $charcoal;
+
+				> span {
+					color: $terpel-magenta-color;
+				}
+			}
+		}
+
+		.about-text {
+			font-family: 'MuseoSans-300';
+			font-size: rem-calc(16);
+
+			@media #{$large-up} {
+				font-size: rem-calc(18);
+			}
+
+			> span {
+				color: $terpel-magenta-color;
+			}
+		}
+	}
+}

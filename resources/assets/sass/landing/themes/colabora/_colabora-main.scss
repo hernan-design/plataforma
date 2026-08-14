@@ -1,0 +1,43 @@
+#{$wrapper-land}.wrapper-colabora{
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+  // @extend %bolivar-header !optional;
+  #{$main-land} {
+    .row{
+      .button-1{
+        background: #06ACB9;border-radius: 50px;font-weight: 900;text-transform: capitalize;font-size: 25px;
+      }
+      .button-2{
+        background: #F1900A;border-radius: 50px;font-weight: 900;text-transform: capitalize;font-size: 25px;
+      }
+      .button-3{
+        background: #95BF20;border-radius: 50px;font-weight: 900;text-transform: capitalize;font-size: 25px;
+      }
+      iframe{
+        margin: 50px 0px;
+        border-radius: 30px;
+      }
+      img1{
+        margin: 30px 0px;
+      }
+      img2{
+        margin: 50px 0px;
+      }
+    }
+  }
+
+}
+

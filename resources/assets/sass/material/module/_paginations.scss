@@ -1,0 +1,80 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for pagination
+// ----------------------
+
+.wrap-pagination {
+ @include clearfix;
+ padding: rem-calc(15 0 5);
+}
+
+ul.pagination {
+	margin: 0;
+
+	li {
+		padding: 0;
+		height: 30px;
+		font: {
+			size: rem-calc(15);
+			weight: $font-weight-normal;
+		}
+
+		&.active, &.current {
+			background-color: $secondary-color;
+		}
+
+		a {
+			display: inline-block;
+			line-height: 30px;
+			padding: rem-calc(0 10);
+			font: inherit;
+
+			&:hover, &:focus {
+				text-decoration: none;
+			}
+		}
+
+		i {
+			font-size: rem-calc(30);
+		}
+	}
+
+	@media #{$mobile-only}, #{$small-only} {
+		text-align: center;
+
+		li {
+			&.disabled {
+				a {
+					color: transparent;
+
+					// .prev-page, .next-page {
+					// 	&:before {
+					// 		color:
+					// 	}
+					// }
+				}
+			}
+		}
+
+		.start-page, .end-page {
+			display: none;
+		}
+
+		.prev-page, .next-page {
+
+			a {
+				display: inline-block;
+				vertical-align: middle;
+				color: transparent;
+				width: rem-calc(50);
+				height: rem-calc(30);
+				font-size: 0px;
+
+				i {
+					font-size: rem-calc(30);
+					color: $pagination-link-font-color;
+				}
+			}
+		}
+	}
+}

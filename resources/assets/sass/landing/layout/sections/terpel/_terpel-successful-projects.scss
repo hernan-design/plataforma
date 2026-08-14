@@ -1,0 +1,216 @@
+%terpel-successful-projects {
+  #terpel-successful-projects {
+    background: $terpel-bright-green-color url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/terpel-successful-projects/terpel-designforchange-dots-bg.png') 50% 30%/cover no-repeat;
+    position: relative;
+    padding: rem-calc(30 0 100);
+
+    @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+      padding: rem-calc(50 0);
+    }
+
+    &:before {
+      content: '';
+      background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/terpel-successful-projects/designforchange-successfulprojects-arrowup.png') repeat-x;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      width: 100%;
+      height: 22px;
+    }
+
+    &.section-land {
+      #galery-video{
+        @media #{$medium-up} {
+          border-left: 10px solid white;
+          float:right;
+        }
+
+        @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+          float:none;
+          border-left: none;
+        }
+      }
+      .title-section-land {
+        color: $terpel-dark-green-color;
+
+        @media #{$medium-up} {
+          display: inline-block;
+          width: 342px;
+          height: 148px;
+          line-height: 143px;
+        }
+
+        @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+          font-size: rem-calc(38);
+        }
+      }
+    }
+
+    .successful-dfc-head-box {
+      padding: rem-calc(50 0 20);
+
+      @media #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+        padding: rem-calc(10 0);
+      }
+
+      @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+        padding: rem-calc(0 0 10 0);
+      }
+    }
+    .subtitle-inspirate{
+      color: $terpel-dark-green-color;
+      font-family: 'ACMESecretAgentBB';
+      font-weight: 300;
+      font-size: 1.5rem;
+    }
+    .flex-video {
+      overflow: visible;
+
+      &.dfc-successful-projects-video {
+        @media #{$medium-up} {
+          margin: rem-calc(10 0 30);
+        }
+
+        @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+          margin: rem-calc(0 0 20);
+        }
+
+        iframe {
+          @media #{$medium-up} {
+            @include border-radius(20px);
+            border: 8px solid $white;
+          }
+
+          @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+            @include border-radius(10px);
+            border: 4px solid $white;
+          }
+        }
+      }
+    }
+
+    .dfc-successful-projects-text-title {
+      font-family: 'ACMESecretAgentBB';
+      font-weight: 300;
+      text-shadow: 2px 2px black;
+
+      @media #{$medium-up} {
+        font-size: rem-calc(32);
+      }
+
+      @media #{$tablet-only} {
+        font-size: rem-calc(30);
+        line-height: 32px;
+      }
+
+      @media #{$mobile-only}, #{$small-only} {
+        font-size: rem-calc(30);
+        line-height: 27px;
+      }
+
+      > span {
+        color: $charcoal;
+      }
+    }
+    .dfc-successful-projects-text-title-mini {
+      font-family: 'ACMESecretAgentBB';
+      font-weight: 300;
+      text-shadow: 2px 2px black;
+
+      @media #{$medium-up} {
+        font-size: rem-calc(24);
+      }
+
+      @media #{$tablet-only} {
+        font-size: rem-calc(25);
+        line-height: 32px;
+      }
+
+      @media #{$mobile-only}, #{$small-only} {
+        font-size: rem-calc(25);
+        line-height: 27px;
+      }
+
+      > span {
+        color: $charcoal;
+      }
+    }
+    .paragraph-video{
+      font-family: 'MuseoSans-300';
+    }
+
+    .dfc-successful-projects-text-subtitle {
+      font-family: 'ACMESecretAgentBB';
+      font-weight: 300;
+
+      @media #{$medium-up} {
+        line-height: 40px;
+        font-size: rem-calc(45);
+        margin-bottom: 20px;
+      }
+
+      @media #{$tablet-only} {
+        line-height: 28px;
+        font-size: rem-calc(30);
+        margin-bottom: 0;
+      }
+
+      @media #{$mobile-only}, #{$small-only} {
+        font-size: rem-calc(24);
+        color: $terpel-dark-green-color;
+        line-height: 22px;
+      }
+    }
+
+    .dfc-successful-projects-img-box {
+      display: block;
+      overflow: visible;
+      background-color: $white;
+      @include transition(box-shadow ease-out 300ms);
+
+
+      @media #{$medium-up} {
+        @include border-radius(20px);
+        padding: rem-calc(20 20 0);
+
+        &:hover {
+          @include box-shadow (0px 5px 10px 0px rgba($black, 0.22));
+        }
+      }
+
+      @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+        @include border-radius(10px);
+        padding: rem-calc(10 10 0);
+        margin-bottom: 20px;
+      }
+
+      .dfc-successful-projects-img {
+        @include border-radius($global-radius);
+      }
+
+      .dcf-successful-projects-item-title {
+        font-family: 'ACMESecretAgentBB';
+        font-weight: 300;
+        font-style: italic;
+        color: $charcoal;
+        margin-bottom: 0;
+
+        @media #{$medium-up} {
+          line-height: 25px;
+          padding-top: rem-calc(16);
+          padding-bottom: rem-calc(18);
+          font-size: rem-calc(26);
+        }
+
+        @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+          font-size: rem-calc(20);
+          padding: rem-calc(6 0 8 0);
+          line-height: 20px;
+
+        }
+      }
+    }
+  }
+}
+
+

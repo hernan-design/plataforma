@@ -1,0 +1,152 @@
+{
+	"root": {
+		"deleting_text": "Eliminando...",
+		"updating_text": "Actualizando...",
+		"community": {
+			"publish_button_msg": "Crea una publicación aquí",
+			"publish_create_button": "Publicar",
+			"publish_edit_button": "Editar",
+			"publish_cancel_button": "Cancelar",
+			"leave_channel": "Abandonar canal",
+			"no_results": "No hay publicaciones para el canal",
+			"entry_actions": {
+				"edit_entry": "Editar publicación",
+				"delete_entry": "Eliminar"
+			},
+			"verify_account": {
+				"description": "Verifica tu cuenta para acceder a contenido premium",
+				"label_action": "Activar cuenta"
+			},
+			"confirm_delete_title": "Eliminar publicación",
+			"confirm_delete_message": "Esta publicación se eliminará y ya no podrás encontrarla.",
+			"editor_content_placeholder": "Escribe tu publicación"
+		},
+		"discussion": {
+			"placeholder_field": "Escribe tu comentario",
+			"button_submit": "Comentar",
+			"no_results": "Inicia una discusión",
+			"discussedBy": [
+				"{count, plural, offset:2",
+				"=1 {El usuario {firstName} creó}",
+				"=2 {Los usuarios {firstName} y {secondName} crearón}",
+				"one {Los usuarios {firstName}, {secondName} y alguien más, crearón}",
+				"other {Los usuarios {firstName}, {secondName} y # más, crearón}",
+				"} {lastConcat}"
+			],
+			"confirm_delete_title": "Eliminar discusión",
+			"confirm_delete_message": "Recuerda: Una vez eliminada esta discusión, ya no podrás encontrarla."
+		},
+		"comment": {
+			"no_results": "Inicia un comentario de discusión"
+		},
+		"confirm_window": {
+			"cancel_button": "Cancelar",
+			"confirm_button": "Confirmar"
+		},
+		"like": {
+			"no_results": "Sé el primero a quien le gusta esta publicación.",
+			"whoLikeThis_title": "Personas a quienes les gusta esto",
+			"ilike_text": "Me gusta",
+			"likeExcludingMe": [
+				"{0, plural,",
+				"=0 {Sé el primero a quien le}",
+				"one {A <a><span class=\"data-count-likes\">#</span> emprendedor</a> le}",
+				"other {A <a><span class=\"data-count-likes\">#</span> emprendedores</a> les}",
+				"} gusta esta publicación."
+			],
+			"likeIncludingMe": [
+				"{0, plural, offset:1",
+				"=0 {Sé el primero a quien le}",
+				"=1 {A ti te}",
+				"one {A ti y a <a>otro emprendedor</a> les}",
+				"other {A ti y a <a><span class=\"data-count-likes\">#</span> emprendedores</a> más les}",
+				"} gusta esta publicación."
+			],
+			"likeExcludingMePropace": [
+				"{0, plural,",
+				"=0 {Sé el primero a quien le}",
+				"one {A <a><span class=\"data-count-likes\">#</span> cuidador</a> le}",
+				"other {A <a><span class=\"data-count-likes\">#</span> cuidadores</a> les}",
+				"} gusta esta publicación."
+			],
+			"likeIncludingMePropace": [
+				"{0, plural, offset:1",
+				"=0 {Sé el primero a quien le}",
+				"=1 {A ti te}",
+				"one {A ti y a <a>otro cuidador</a> les}",
+				"other {A ti y a <a><span class=\"data-count-likes\">#</span> cuidadores</a> más les}",
+				"} gusta esta publicación."
+			],
+			"likedBy": [
+				"A {count, plural, offset:2",
+				"=1 {{firstName} le}",
+				"=2 {{firstName} y a {secondName} les}",
+				"other {{firstName}, {secondName} y a # más les}",
+				"} {lastConcat}"
+			]
+		},
+		"survey": {
+			"presave_button_text": "Guardar y continuar después",
+			"require_question_text": "Pregunta obligatoria",
+			"message_progress_by_questions": [
+				"Has respondido {count, plural,",
+				"one {1 pregunta}",
+				"other {# preguntas}",
+				"} de {total}"
+			],
+			"message_progress_by_pages": [
+				"Has completado {count, plural,",
+				"one {1 página}",
+				"other {# páginas}",
+				"} de {total}"
+			]
+		},
+		"forum": {
+			"no_results": "No hay temas relacionados a esta categoría",
+			"publish_button_msg": "Crea un tema a través de una pregunta o comentario",
+			"static": {
+				"related_themes_title": "Temas relacionados"
+			},
+			"category": {
+				"no_results": "No hay categorías"
+			},
+			"theme_actions": {
+				"edit": "Editar tema",
+				"delete": "Eliminar"
+			},
+			"confirm_delete_title": "Eliminar tema de foro",
+			"confirm_delete_message": "Este tema se eliminará y ya no podrás encontrarlo.",
+			"editor_content_placeholder": "Contenido del tema"
+		},
+		"calendar": {
+			"event": {
+				"editor_content_placeholder": "Descripción del evento"
+			}
+		}
+	},
+	"es-CO": {
+		"payment": {
+			"card_error": {
+				"invalid_number": "El número de la tarjeta no es un número de tarjeta de crédito valida.",
+				"incorrect_number": "Tu número de tarjeta es incorrecto.",
+				"invalid_expiry_month": "El mes de expiración de tu tarjeta no es valido.",
+				"invalid_expiry_year": "El año de expiración de tu tarjeta no es valido.",
+				"invalid_cvc": "El código de seguridad de la tarjeta no es valido.",
+				"expired_card": "La tarjeta ha expirado.",
+				"incorrect_cvc": "El código de seguridad de la tarjeta es incorrecto.",
+				"card_declined": "La tarjeta fue rechazada.",
+				"processing_error": "Se ha producido un error al procesar la tarjeta."
+			},
+			"authorized": {
+				"approved_by_network": "Pago completo."
+			}
+		},
+		"redcoo": {
+			"community": {
+				"verify_account": {
+					"label_action": "Activa tu membresía de asociado"
+				}
+			}
+		}
+	}
+}

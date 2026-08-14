@@ -1,0 +1,40 @@
+%ecopetrol-program-call {
+
+	#ecopetrol-program-call {
+		background-color: $gray-cloud;
+
+		.description-box {
+			background-color: $gray-lighter;
+			padding: rem-calc(50 50);
+			@include box-shadow(none);
+
+			&:hover {
+				box-shadow: 4px 4px 8px $iron;
+				@include transition(all ease-out 300ms);
+			}
+
+			.title-small {
+				color: $tuatara;
+				font-size: rem-calc(24);
+				font-weight: 400;
+				margin: rem-calc(35 0);
+				padding-top: rem-calc(35);
+				border-top: 1px solid $gainsboro;
+
+				em {
+					text-transform: uppercase;
+					color: $ecopetrol-bright-green-color;
+					font-style: normal;
+				}
+
+			}
+			.description-text {
+				height: 146px;
+				overflow: hidden;
+			}
+			.view-programs-cta {
+				margin-bottom: rem-calc(20);
+			}
+		}
+	}
+}

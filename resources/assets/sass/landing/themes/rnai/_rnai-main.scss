@@ -1,0 +1,28 @@
+.wrapper-rnai {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	// Paddings
+
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	// @extend %terpel-institution-register !optional;
+	// @extend %terpel-stages-design-for-change !optional;
+	// @extend %terpel-entrepreneurship !optional;
+	// @extend %terpel-stats-numbers !optional;
+	@extend %rnai-temporal-section !optional;
+	@extend %rnai-institution-description !optional;
+	@extend %rnai-video-presentation !optional;
+	@extend %rnai-temporal-section-2 !optional;
+	@extend %rnai-team !optional;
+
+}

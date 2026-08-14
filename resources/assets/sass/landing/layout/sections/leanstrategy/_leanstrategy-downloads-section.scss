@@ -1,0 +1,43 @@
+%leanstrategy-downloads-section {
+
+	#leanstrategy-downloads-section {
+		background-color: $white;
+
+		.ls-video {
+			margin-top: rem-calc(10);
+			// @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			// }
+		}
+
+		.ls-video-title {
+			margin-top: rem-calc(4);
+			font-weight: 100;
+		}
+
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			.ls-video {
+				margin-top: rem-calc(0);
+			}
+
+			.ls-video-title {
+				margin-top: rem-calc(10);
+			}
+		}
+
+		.reg-title {
+			color: $terpel-do-color;
+			margin-bottom: rem-calc(20);
+		}
+
+		.inst-reg-paragraph {
+			em {
+				font-style: normal;
+				font-weight: 400;
+			}
+		}
+
+		.reg-form-download {
+			font-weight: 400;
+		}
+	}
+}

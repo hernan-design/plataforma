@@ -1,0 +1,141 @@
+// Styles for course-detail list
+//-----------------------------
+%course-detail {
+	.top-detail-course {
+    @include margin-top-module-menu;
+    .row{
+      .row{
+        .medium-6{
+          padding-left: rem-calc(22);
+          padding-right: rem-calc(22);
+          > h2{
+            font-size: rem-calc(32);
+            margin-bottom: 0 !important;
+            line-height: 1;
+            font-weight: bold !important;
+          }
+          .row{
+            .large-3{
+              padding-top: rem-calc(16);
+            }
+          }
+        }
+      }
+    }
+		.det-course-img-wrapper {
+      @include border-radius(8px);
+      overflow: hidden;
+			background-color: $white;
+
+			img {
+				width: rem-calc(777);
+			}
+		}
+
+		.registered-students {
+			@include margin-item-top;
+			@include margin-item-bottom;
+		}
+
+		.registered-user {
+			@include margin-item-bottom;
+		}
+
+		ul.list-icons-browse {
+			display: inline-block;
+			vertical-align: middle;
+
+			li {
+				display: inline-block;
+				.icon-circle {
+					font-size: rem-calc(11);
+					margin-left: rem-calc(7);
+				}
+			}
+		}
+
+		.about-course {
+			display: inline-block;
+		}
+
+		.course-price {
+			display: inline-block;
+			margin: 1rem 0rem;
+			text-transform: uppercase;
+			font: {
+				size: rem-calc(24);
+				weight: bold;
+			}
+		}
+
+		.btn-register-course {
+			margin: rem-calc(15 0 30);
+		}
+	}
+
+	.content-datail-course {
+
+		.wrapper-themes-course {
+			padding: 0px;
+      > button{
+        text-transform:lowercase;
+        background-color: transparent;
+        color: #d80053;
+        border-color: #d80053;
+        &:hover{
+          background-color: #d80053;
+          border-color: #d80053;
+          color: #ffffff;
+        }
+      }
+			> h6 {
+				@include margin-item-bottom;
+			}
+
+			.title-wrap-themes {
+				padding: rem-calc(20 20 0);
+			}
+      dl{
+        dd{
+          ul{
+            margin:0;
+            li{
+              list-style-type:none;
+              display: flex;
+              justify-content: left;
+              padding:1rem 2rem;
+              border-bottom: 1px solid #c7c7c7;
+            }
+          }
+        }
+      }
+		}
+
+		#sponsors-course-detail {
+			overflow-y: auto;
+			height: auto;
+			max-height: rem-calc(475);
+		}
+		// course themes list
+
+
+		// course sponsors list
+		ul.list-sponsors-course {
+			margin: 0px;
+			list-style: outside none none;
+
+			> li {
+				text-align: left;
+				img {
+					width: auto;
+				}
+			}
+		}
+
+		.data-aside {
+			padding: {
+				top: 0px;
+			}
+		}
+	}
+}

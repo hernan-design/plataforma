@@ -1,0 +1,28 @@
+#{$wrapper-land}.wrapper-bwee {
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+    @extend %bwee-header !optional;
+    @extend %bwee-banner !optional;
+    @extend %bwee-section1 !optional;
+    @extend %bwee-section2 !optional;
+    @extend %bwee-footer !optional;
+    /**
+    * =========================
+    * Sections styles
+    * =========================
+    */
+}
+

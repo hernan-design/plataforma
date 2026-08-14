@@ -1,0 +1,190 @@
+%dinamiza-testimonial {
+	#dinamiza-testimonial {
+		background-color: transparent;
+		overflow: hidden;
+		margin-top: -60px;
+		position: relative;
+
+		@media #{$mobile-only} {
+			margin-top: rem-calc(-80);
+		}
+
+		@media #{$tablet-only}, #{$medium-only} {
+			margin-top: rem-calc(-50);
+
+			.section-title {
+				font-size: rem-calc(32);
+			}
+		}
+
+		@media #{$medium-only} {
+			// margin-top: rem-calc(-40);
+		}
+
+		@media #{$tablet-up} {
+			margin-bottom: -20px;
+			padding-bottom: 100px;
+
+			.section-title {
+				border-left: 1px solid $dinamiza-dark-blue-color;
+			}
+
+			&:before {
+        position: absolute;
+        bottom: -37px;
+        right: -14px;
+        content: url("https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/2019/testimonial/testimonial-bg.svg");
+        width: 1000px;
+        height: auto;
+		  }
+		}
+
+		@media #{$large-only}, #{$xlarge-only} {
+			margin-top: -150px;
+
+			.block-text {
+				font-size: rem-calc(18);
+				color: $monsoon;
+			}
+		}
+
+		@media only screen and (min-width: 1440px) {
+			margin-top: 0;
+
+			.section-title {
+				font-size: rem-calc(44);
+			}
+
+			.block-text {
+				font-size: rem-calc(18);
+			}
+		}
+
+		@media #{$tablet-only}, #{$large-only}, #{$xlarge-only} {
+			.testimonial-img-container {
+			  > img {
+				  width: 260px;
+			  }	
+			}
+		}
+
+		@media #{$mobile-only}, #{$small-only} {
+			.testimonial-img-container {
+			  > img {
+					margin: 0 auto;
+			  }	
+			}
+		}
+
+		@media #{$tablet-up} {
+
+			.testimonial-img-container {
+				text-align: right;
+
+				> img {
+					display: inline;
+				}	
+			}
+
+			.testimonial-text-container {
+				padding-left: rem-calc(20);
+			}
+		}
+
+
+		.quote-title {
+			color: $dinamiza-dark-blue-color;
+			font-weight: 400;
+
+			@media #{$tablet-only} {
+				font-size: rem-calc(21);
+			}
+		}
+
+		.slick-testimonial-dinamiza {
+			padding-bottom: rem-calc(25);
+			position: relative;
+
+			.slick-prev, .slick-next {
+				border-top: 1px solid $aluminum;
+				bottom: -7px;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 5px; /*set the size for arrow*/
+				height: 4em;
+				overflow: hidden;
+				position: absolute;
+				top: auto;
+				width: 4em;
+				@include border-radius(6px);
+
+				&:hover {
+					border-top-color: $aluminum;
+				}
+			}
+
+			.slick-prev {
+				right: rem-calc(18);
+				left: auto;
+				border-left: 1px solid $aluminum;
+				transform: rotate(-45deg);
+
+				&:hover {
+					border-left-color: $dinamiza-dark-blue-color;
+					border-top-color: $dinamiza-dark-blue-color;
+				}
+
+				&:before {
+					content: '';
+				}
+			}
+
+			.slick-next {
+				right: 0;
+				border-right: 1px solid $aluminum;
+				transform: rotate(45deg);
+
+				&:hover {
+					border-right-color: $dinamiza-dark-blue-color;
+					border-top-color: $dinamiza-dark-blue-color;
+				}
+
+				&:before {
+					content: '';
+				}
+			}
+
+			.slick-dots {
+				bottom: 0;
+				text-align: right;
+				right: 65px;
+				width: auto;
+
+				li {
+					width: 8px;
+					height: 8px;
+					margin: rem-calc(0 7);
+
+					button {
+						border-radius: 3px;
+						background-color: rgba($aluminum, 0.3);
+						width: 12px;
+						height: 12px;
+						transform: rotate(-45deg);
+
+						&:before {
+							content: none;
+						}
+					}
+
+					&.slick-active {
+						button {
+							background-color: $dinamiza-dark-blue-color;
+							border: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for buttons
+// ----------------------
+
+//
+// variables
+//
+$button-function-factor: 10%;
+
+button, .button {
+
+	&.button-inst-primary {
+		$bg-hover-lightness: if(lightness($primary-bg-color) > 65%, -1 * $button-function-factor, $button-function-factor);
+
+		background-color: $primary-bg-color !important;
+		color: $white;
+
+		&:hover, &:focus {
+			background-color : scale-color($primary-bg-color, $lightness: $bg-hover-lightness) !important;
+			color: $white;
+		}
+	}
+	&.button-inst-secondary {
+		$bg-hover-lightness: if(lightness($secondary-bg-color) > 65%, -1 * $button-function-factor, $button-function-factor);
+
+		background-color: $secondary-bg-color !important;
+		color: $white;
+
+		&:hover, &:focus {
+			background-color : scale-color($secondary-bg-color, $lightness: $bg-hover-lightness) !important;
+			color: $white;
+		}
+	}
+	&.inst-primary-outline {
+		$bg-hover-lightness: if(lightness($primary-bg-color) > 65%, -1 * $button-function-factor, $button-function-factor);
+
+		background-color: transparent !important;
+		border: 1px solid $primary-color !important;
+		color: $white;
+
+		&:hover, &:focus {
+			background-color: scale-color($primary-bg-color, $lightness: $bg-hover-lightness) !important;
+			color: $white !important;
+		}
+	}
+	&.inst-secondary-outline {
+		$bg-hover-lightness: if(lightness($secondary-bg-color) > 65%, -1 * $button-function-factor, $button-function-factor);
+
+		background-color: transparent !important;
+		border: 1px solid $secondary-color !important;
+		color: $white;
+
+		&:hover, &:focus {
+			background-color: scale-color($secondary-bg-color, $lightness: $bg-hover-lightness) !important;
+			color: $white !important;
+		}
+	}
+}

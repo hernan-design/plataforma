@@ -1,0 +1,58 @@
+%demo-intro-section {
+	#demo-intro-section {
+		position: relative;
+
+		.title-section-land {
+			color: $white;
+		}
+
+		.intro-boxes {
+			background-color: transparent;
+			padding-top: rem-calc(10);
+			padding-bottom: rem-calc(10);
+
+			.description-box {
+				height: 138px;
+				text-align:center;
+  			width:100%;
+
+				.text-intro-boxes {
+					font-weight: 100;
+					color: $white;
+				}
+			}
+
+			.demo-intro-icons {
+				font-size: rem-calc(86);
+				color: $white;
+				margin-bottom: rem-calc(20);
+			}
+			@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+				.andifuturo-intro-icons {
+					margin-bottom: rem-calc(10);
+					font-size: rem-calc(60);
+				}
+
+				.description-box {
+					height: 88px;
+
+					.text-paragraph-normal {
+						margin-bottom: 0;
+					}
+				}
+			}
+			@media #{$mobile-only} {
+				.description-box {
+					height: 70px;
+					.text-paragraph-normal {
+						font-size: rem-calc(16);
+					}
+				}
+			}
+		}
+
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

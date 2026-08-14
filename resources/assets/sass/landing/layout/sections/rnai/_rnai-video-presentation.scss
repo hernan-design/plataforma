@@ -1,0 +1,16 @@
+%rnai-video-presentation {
+	#video-presentation {
+		background-color: $charcoal;
+		.video-presentation-title {
+			color: $rnai-gold-color;
+			margin-bottom: rem-calc(15);
+		}
+		.text-paragraph-medium {
+			color: $gainsboro;
+			font-weight: 100;
+		}
+		.video-rnai {
+			padding-top: rem-calc(10);
+		}
+	}
+}

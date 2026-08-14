@@ -1,0 +1,101 @@
+%andifuturo-achievements-section {
+	#andifuturo-achievements-section {
+		background-color: $gray-light;
+
+		.adf-achievements-box {
+			margin-bottom: rem-calc(90);
+
+			.has-image {
+				padding-right: rem-calc(38);
+
+				&:nth-child(2n+0) {
+					padding-right: 0;
+					padding-left: rem-calc(38);
+				}
+
+				.achievements-icon-circle {
+					@include icon-circle(
+						$font-size: rem-calc(92),
+						$padding: rem-calc(23),
+						$color: $andifuturo-bright-blue-color,
+						$bgcolor: $andifuturo-brighter-blue-color
+					);
+				}
+
+				@media #{$tablet-only}, #{$small-only}  {
+					.achievements-icon-circle {
+						@include icon-circle(
+							$font-size: rem-calc(50),
+							$padding: rem-calc(20),
+							$color: $andifuturo-bright-blue-color,
+							$bgcolor: $andifuturo-brighter-blue-color
+						);
+					}
+				}
+			}
+
+			.adf-achievements-text {
+				font-size: rem-calc(32);
+				font-weight: 100;
+				color: $monsoon;
+
+				.achievements-black {
+					color: $tuatara;
+				}
+			}
+
+			@media #{$tablet-only}, #{$small-only} {
+				.has-image {
+					padding: rem-calc(0 16);
+
+					&:nth-child(2n+0) {
+						padding: rem-calc(0 16);
+					}
+				}
+
+				.adf-achievements-text {
+					font-size: rem-calc(22);
+				}
+			}
+
+			@media #{$mobile-only} {
+				.has-image {
+					padding: rem-calc(0 24 0 8);
+
+					&:nth-child(2n+0) {
+						padding: rem-calc(0 8 0 24);
+					}
+
+					.achievements-icon-circle {
+						@include icon-circle(
+							$font-size: rem-calc(40),
+							$padding: rem-calc(16),
+							$color: $andifuturo-bright-blue-color,
+							$bgcolor: $andifuturo-brighter-blue-color
+						);
+					}
+				}
+
+				.adf-achievements-text {
+					font-size: rem-calc(18);
+				}
+			}
+
+
+ 		}
+
+		@media #{$tablet-only}, #{$small-only}, #{$mobile-only}  {
+			.adf-achievements-box {
+				margin-bottom: rem-calc(44);
+			}
+		}
+
+		@media #{$mobile-only} {
+			.adf-achievements-box {
+				> li {
+					vertical-align: top;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+#{$wrapper-land}.wrapper-redcoo {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	div, p, h1, h2, h3, h4, h5, h6, span, ul, li {
+		font-family: 'Ubuntu', sans-serif;
+	}
+
+	p {
+		font-weight: 400;
+	}
+
+	h4 {
+		font-size: rem-calc(32);
+
+		@media #{$mobile-only}, #{$small-only} {
+		  font-size: rem-calc(21);
+		}
+	}
+
+	.button {
+		@include border-radius(25);
+		text-transform: initial;
+		font-weight: 400;
+	}
+
+	#banner-land-top {
+		padding-bottom: 0;
+		background-color: transparent;
+	}
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	@extend %coomeva-header !optional;
+	@extend %coomeva-slider !optional;
+	@extend %coomeva-video-banner !optional;
+
+	#{$main-land} {
+		@extend %coomeva-about !optional;
+		@extend %coomeva-modules !optional;
+		@extend %coomeva-news !optional;
+		@extend %coomeva-partners !optional;
+	}
+}

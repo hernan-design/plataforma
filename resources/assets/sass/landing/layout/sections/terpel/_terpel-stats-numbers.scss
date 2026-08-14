@@ -1,0 +1,96 @@
+%terpel-stats-numbers {
+	#terpel-stats-numbers {
+		background-color: $terpel-yellow-color;
+		position: relative;
+
+		&:before {
+			content: '';
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-stats/dfc-stats-bg-top.png') bottom no-repeat;
+			position: absolute;
+			bottom: 100%;
+			width: 100%;
+			height: 50px;
+		}
+
+		&:after {
+			content: '';
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-stats/dfc-stats-bg-bottom.png') top no-repeat;
+			position: absolute;
+			top: 100%;
+			width: 100%;
+			height: 50px;
+		}
+
+		.stats-dfc-head-box {
+			padding: rem-calc(50 0 35);
+
+			@media #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+					padding: rem-calc(20 0 15);
+			}
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+					padding: rem-calc(0 0 10 0);
+			}
+
+			.head-text {
+				color: $terpel-redwine-color;
+				font-family: 'MuseoSans-300';
+			}
+		}
+
+
+		.dfc-colombia-stats-boxes {
+			text-align: center;
+			padding-top: rem-calc(90);
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+				margin-bottom: 30px;
+			}
+
+			.dfc-colombia-stats-number {
+				font-family: 'AkzidenzGroteskBQ-XBold';
+				font-size: rem-calc(66);
+				font-weight: 900;
+				margin-bottom: 8px;
+				text-shadow: -3px 3px 0px rgba($black, 0.2);
+
+				@media #{$medium-only} {
+					font-size: rem-calc(44);
+				}
+
+			}
+
+			&.icon-mapmarker {
+				background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-stats/dfc-stats-icon-mapmarker.png') center top no-repeat;
+			}
+
+			&.icon-projectsboard {
+				background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-stats/dfc-stats-icon-projectsboard.png') center top no-repeat;
+			}
+
+			&.icon-teaching {
+				background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-stats/dfc-stats-icon-teaching.png') center top no-repeat;
+			}
+
+			&.icon-study {
+				background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-stats/dfc-stats-icon-study.png') center top no-repeat;
+			}
+
+		}
+
+		.dfc-colombia-stats-item {
+			background-color: #910000;
+			display: inline-block;
+			padding: rem-calc(20);
+			font-family: 'BadaBoomBB';
+			letter-spacing: 4px;
+			font-size: rem-calc(30);
+			@include border-radius(12px);
+			line-height: 30px;
+
+			@media #{$medium-only} {
+				font-size: rem-calc(24);
+			}
+		}
+	}
+}

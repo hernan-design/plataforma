@@ -1,0 +1,126 @@
+// Styles for entities browse
+//--------------------------
+%entities-browse {
+
+	.content-browse-projects {
+
+		ul.browse-list-projects {
+			padding-top: 0;
+
+			.content-item-list {
+
+				@media #{$xlarge-up} {
+					margin: rem-calc(5);
+				}
+
+				.description-program-item {
+					margin: {
+						bottom: rem-calc(10);
+					}
+				}
+
+				.description-project-item {
+					margin-bottom: 0;
+					overflow: hidden;
+					height: rem-calc(110);
+				}
+
+				.description-project-piece {
+					margin-bottom: 0;
+					overflow: hidden;
+					height: rem-calc(75);
+				}
+			}
+
+			.content-roster-list {
+
+				.title-item-list {
+					@media #{$medium-up} {
+						font-size: rem-calc(19);
+					}
+				}
+
+				.description-list-item {
+					height: rem-calc(54);
+
+					@media only screen and (min-width: 1800px) {
+						height: rem-calc(100);
+					}
+
+					@media #{$large-only} {
+						height: rem-calc(40);
+					}
+
+					@media #{$medium-only} {
+						height: rem-calc(80);
+					}
+				}
+
+				.category-list-item {
+					font-size: rem-calc(12);
+
+		  		@media #{$mobile-only}, #{$small-only} {
+		  			font-size: rem-calc(10);
+		  		}
+				}
+
+			}
+
+			.project-location-box {
+
+				@media #{$tablet-only} {
+					margin-top: rem-calc(20);
+				}
+
+				@media #{$mobile-only}, #{$small-only} {
+					position: absolute;
+			    bottom: 0;
+			    right: 0;
+			    left: 0;
+			    padding: 0 15px 10px 15px;
+				}
+
+				.project-location {
+					max-width: 1px;
+			    overflow: hidden;
+			    position: relative;
+
+			    .overflowed-text {
+
+			    	&:after {
+				    	position: absolute;
+					    top: 0px;
+					    right: 0px;
+					    content: '';
+					    z-index: 1;
+					    width: 20px;
+					    height: 100%;
+					    -moz-box-shadow: -12px 0px 16px #FFFFFF;
+					    -webkit-box-shadow: -12px 0px 16px #FFFFFF;
+					    box-shadow: -12px 0px 16px #FFFFFF;
+					    background-color: rgba($white, 1);
+			    	}
+			    }
+				}
+
+				&.bottom-item-piece {
+					position: absolute;
+					width: 99%;
+					left: 0px;
+					bottom: 0px;
+				}
+			}
+
+			@media #{$mobile-only} {
+
+				.content-item-list.content-item-piece {
+					padding-bottom: rem-calc(10);
+				}
+
+				.description-project-item {
+					max-height: rem-calc(70);
+				}
+			}
+		}
+	}
+}

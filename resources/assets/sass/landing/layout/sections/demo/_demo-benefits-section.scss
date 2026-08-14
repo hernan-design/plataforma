@@ -1,0 +1,39 @@
+%demo-benefits-section {
+	#demo-benefits-section {
+		background-color: $white-smoke;
+
+		.demo-benefits-section-title {
+			margin-bottom: rem-calc(60);
+			padding-bottom: rem-calc(60);
+			position: relative;
+
+			&:after {
+				position: absolute;
+	      content: '';
+	      height: 4px;
+	      background-color: $demo-bright-red-color;
+	      width: 50px;
+	      bottom: 0;
+				left: 50%;
+				margin-left: -25px;
+			}
+		}
+
+		.demo-benefits-boxes {
+			padding: rem-calc(0 30);
+
+			.demo-benefits-icon {
+				width: 70px;
+				margin-right: rem-calc(10);
+			}
+
+			.demo-benefits-subtitle {
+				color: $demo-bright-red-color;
+			}
+
+			.demo-benefits-text {
+				line-height: 1.5;
+			}
+		}
+	}
+}

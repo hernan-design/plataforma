@@ -1,0 +1,100 @@
+#{$wrapper-land}.wrapper-innpulsa {
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+  #main-land {
+
+    .section-land {
+      .section-title {
+        font-family: 'FuturaStd-Bold';
+        font-size: rem-calc(34);
+        text-transform: uppercase;
+
+        @media #{$mobile-only}, #{$small-only} {
+          font-size: rem-calc(24);
+        }
+
+        @media #{$tablet-only}, #{$medium-only}, #{$large-only} {
+          font-size:rem-calc(26);
+        }
+      }
+    }
+
+
+    #partners-land {
+      padding-bottom: 0;
+    }
+  }
+
+  #footer-land {
+
+    .footer-legal {
+      border-top-color: #596a96;
+    }
+
+    .footer-sitemap-legal {
+      background-color: $innpulsa-dark-blue-color;
+
+      .footer-site-map {
+        .footer-site-map-nav {
+        > li:first-child {
+            border-bottom-color: #596a96;
+          }
+        }
+      }
+    }
+
+    .copyright-social-footer {
+      .list-social-footer {
+        > li {
+          padding-right: 0 !important;
+        }
+      }
+    }
+  }
+
+
+  @extend %innpulsa-header !optional;
+  @extend %innpulsa-footer !optional;
+  @extend %innpulsa-video-tabs !optional;
+
+  #{$main-land} {
+    @extend %innpulsa-page1 !optional;
+    @extend %innpulsa-page2 !optional;
+    @extend %innpulsa-page3 !optional;
+    @extend %innpulsa-page4 !optional;
+    @extend %innpulsa-page5 !optional;
+    @extend %innpulsa-banner !optional;
+    @extend %innpulsa-requirements !optional;
+    @extend %innpulsa-about !optional;
+    @extend %innpulsa-emprendedores !optional;
+    @extend %innpulsa-team !optional;
+    @extend %innpulsa-successful-projects !optional;
+
+    @extend %innpulsa-partners-land !optional;
+    @extend %innpulsa-about-subscribe !optional;
+    @extend %innpulsa-aldea-benefits !optional;
+    @extend %innpulsa-stages !optional;
+    @extend %innpulsa-stats !optional;
+    @extend %innpulsa-achievements !optional;
+    @extend %innpulsa-blog !optional;
+
+    /**
+    * =========================
+    * Sections styles
+    * =========================
+    */
+  }
+}

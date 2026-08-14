@@ -1,0 +1,66 @@
+%leanstrategy-testimony-section {
+
+	#leanstrategy-testimony-section {
+		background-color: $gray-cloud;
+		@extend %top-line-transition !optional;
+
+		.ls-testimony-box {
+			padding: rem-calc(20);
+			@include box-shadow(none);
+			@include border-radius($global-radius);
+
+			&:hover {
+				background-color: $white;
+				@include box-shadow(4px 4px 8px $iron);
+				@include transition(all ease-out 300ms);
+			}
+
+			.ls-testimony-img {
+				margin-bottom: rem-calc(20);
+			}
+
+			.ls-testimony-name {
+				font-size: rem-calc(18);
+				font-weight: 200;
+				margin-bottom: rem-calc(10);
+			}
+
+			.ls-testimony-profession {
+				color: $jumbo;
+				font-size: rem-calc(12);
+				font-weight: 100;
+				font-style: italic;
+				height: 33px;
+				margin-bottom: rem-calc(15);
+				display: block;
+				line-height: 1.5;
+			}
+
+			.ls-testimony-description {
+				color: $charcoal;
+				font-size: rem-calc(14);
+				font-weight: 200;
+				height: 163px;
+				margin-bottom: 0;
+			}
+
+			@media #{$xlarge-only}, #{$tablet-only} {
+				.ls-testimony-description {
+					height: 144px
+				}
+			}
+
+			@media #{$large-only}, #{$medium-only} {
+				.ls-testimony-description {
+					height: 207px;
+				}
+			}
+
+			@media #{$small-only}, #{$mobile-only} {
+				.ls-testimony-description {
+					height: auto;
+				}
+			}
+		}
+	}
+}

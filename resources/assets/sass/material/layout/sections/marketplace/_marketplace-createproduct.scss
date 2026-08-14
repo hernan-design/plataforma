@@ -1,0 +1,13 @@
+// Styles for marketplace create product
+// -------------------------------------
+
+%marketplace-createproduct {
+
+	#new-product-content {
+		margin-top: rem-calc(20);
+		// images gallery list
+		#product-gallery-edit {
+			@include redefine-padding-gb( rem-calc(0 6 8) );
+		}
+	}
+}

@@ -1,0 +1,146 @@
+%coomeva-support {
+	#coomeva-support {
+	background-color: $vapor;
+
+		.title-section-land {
+			color: $coomeva-dark-green-color;
+			font-weight: 700;
+			font-family: 'Josefin Sans', sans-serif;
+			font-style: italic;
+			margin-bottom: rem-calc(30);
+			padding-bottom: rem-calc(30);
+			position: relative;
+
+			&:after {
+				position: absolute;
+	      content: '';
+	      height: 4px;
+	      background-color: $iron;
+	      width: 50px;
+	      bottom: 0;
+				left: 0;
+			}
+		}
+
+		.coomeva-support-text {
+			font-family: 'Josefin Sans', sans-serif;
+			font-size: rem-calc(18)
+		}
+
+		.coomeva-support-box {
+			margin-bottom: rem-calc(30);
+			overflow: hidden;
+			position: relative;
+			height: 300px;
+			@include border-radius($global-radius);
+
+			@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+				margin-bottom: rem-calc(15);
+			}
+
+			img {
+				min-width: 980px;
+				width: 100%;
+    		height: 300px;
+    		left: 50%;
+    		margin-left: -490px;
+    		position: absolute;
+			}
+
+			.coomeva-support-inner-box {
+				position: absolute;
+				left: 0;
+				bottom: -200px;
+				width: 100%;
+				height: 300px;
+				min-height: 100%;
+				padding: rem-calc(35);
+				@include transition(all 350ms ease-in-out);
+
+				&.advice {
+					background-color: rgba(255, 113, 16, 0.6);
+				}
+
+				&.networking {
+					background-color: rgba(95, 183, 255, 0.6);
+				}
+
+				&.offer {
+					background-color: rgba(159, 197, 77, 0.6);
+				}
+
+				&.study {
+					background-color: rgba(76, 76, 216, 0.6);
+				}
+
+				&.ally {
+					background-color: rgba(138, 60, 239, 0.6);
+				}
+
+				&.status {
+					background-color: rgba(255, 82, 82, 0.6);
+				}
+
+				&.money {
+					background-color: rgba(42, 139, 83, 0.6);
+				}
+
+				&.training {
+					background-color: rgba(92, 123, 145, 0.6);
+				}
+
+				.coomeva-support-title, .coomeva-support-text {
+					font-weight: 400;
+					font-family: 'Josefin Sans', sans-serif;
+				}
+
+				.coomeva-support-title {
+					font-style: italic;
+					padding-bottom: rem-calc(20);
+					margin-bottom: rem-calc(20);
+					position: relative;
+				}
+
+				@media #{$medium-only}, #{$tablet-only}, #{$small-only} {
+					bottom: 0;
+
+					.coomeva-support-title {
+						&:after {
+							position: absolute;
+				      content: '';
+				      height: 2px;
+				      background-color: $white;
+				      width: 50px;
+				      bottom: 0;
+							left: 0;
+						}
+					}
+				}
+
+				@media #{$mobile-only} {
+					bottom: auto;
+					top: 0;
+				}
+			}
+
+			&:hover {
+				.coomeva-support-inner-box {
+					bottom: 0;
+
+					.coomeva-support-title {
+
+						&:after {
+							position: absolute;
+				      content: '';
+				      height: 2px;
+				      background-color: $white;
+				      width: 50px;
+				      bottom: 0;
+							left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

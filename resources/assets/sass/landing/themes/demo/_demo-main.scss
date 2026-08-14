@@ -1,0 +1,39 @@
+#{$wrapper-land}.wrapper-demo {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+
+
+	@extend %demo-banner !optional;
+	@extend %demo-header !optional;
+
+	#{$main-land} {
+
+		.section-land {
+			.title-section-land {
+				color: $black;
+				font-weight: 300;
+				font-size: rem-calc(28);
+			}
+		}
+
+		@extend %demo-benefits-section !optional;
+		@extend %demo-events-section !optional;
+
+		// @extend %demo-intro-section !optional;
+		// @extend %block-title-text-cta-section !optional;
+		// @extend %demo-events-section !optional;
+		// @extend %demo-achievements-section !optional;
+		// @extend %demo-team-section !optional;
+	}
+
+}

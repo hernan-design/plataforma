@@ -1,0 +1,37 @@
+%leanstrategy-intro-section {
+	#leanstrategy-intro-section {
+		padding: rem-calc(80 0);
+
+		.leanstrategy-stats {
+			.leanstrategy-stats-list {
+				.stats-box {
+					list-style: none;
+					margin-bottom: rem-calc(20);
+					// &:not(:last-child){
+					// 	margin-bottom: rem-calc(20);
+					// }
+
+					.leanstrategy-stats-icons {
+						color: $white;
+						display: inline-block;
+						font-size: rem-calc(36);
+						margin-right: rem-calc(16);
+						padding-top: rem-calc(2);
+					}
+
+					.leanstrategy-stats-text {
+						color: $white;
+						display: inline-block;
+						font-size: rem-calc(24);
+						font-weight: 100;
+						padding-top: rem-calc(3);
+
+						.stats-numbers {
+							font-weight: 400;
+						}
+					}
+				}
+			}
+		}
+	}
+}

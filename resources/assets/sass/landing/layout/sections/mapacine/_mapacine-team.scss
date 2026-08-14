@@ -1,0 +1,53 @@
+%mapacine-team {
+
+	#mapacine-team {
+		background-color: $gray-light;
+		@extend %top-line-transition !optional;
+
+		.team-section-title {
+			font-weight: 100;
+			font-size: rem-calc(34);
+			color: $mapacine-bright-red-color;
+			margin-bottom: rem-calc(10);
+		}
+
+		.mapacine-team-member-box {
+			padding: rem-calc(20);
+			@include box-shadow(none);
+			@include border-radius($global-radius);
+
+			&:hover {
+				background-color: $white;
+				@include box-shadow(4px 4px 8px $iron);
+				@include transition(all ease-out 300ms);
+			}
+
+			.mapacine-team-member-img {
+				margin: rem-calc(10 0 20);
+			}
+
+			.mapacine-team-member-name {
+				color: $mapacine-bright-red-color;
+				font-size: rem-calc(18);
+				font-weight: 200;
+				margin-bottom: rem-calc(15);
+			}
+
+			.mapacine-team-member-country {
+				color: $jumbo;
+				font-size: rem-calc(14);
+				font-weight: 100;
+				font-style: italic;
+				margin-bottom: rem-calc(15);
+			}
+
+			.mapacine-team-member-description {
+				color: $charcoal;
+				font-size: rem-calc(14);
+				font-weight: 200;
+				margin-bottom: rem-calc(10);
+
+			}
+		}
+	}
+}

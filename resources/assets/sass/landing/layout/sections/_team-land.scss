@@ -1,0 +1,51 @@
+%team-landing {
+
+	#team-land {
+		background-color: $gray-light;
+		@extend %top-line-transition !optional;
+
+		.title-section-land {
+			text-align: center;
+		}
+
+		.team-member-box {
+			padding: rem-calc(20);
+			@include box-shadow(none);
+			@include border-radius($global-radius);
+
+			&:hover {
+				background-color: $white;
+				@include box-shadow(4px 4px 8px $iron);
+				@include transition(all ease-out 300ms);
+			}
+
+			.team-member-img {
+				margin-bottom: rem-calc(20);
+			}
+
+			.team-member-name {
+				color: $base;
+				font-size: rem-calc(18);
+				font-weight: 200;
+				margin-bottom: rem-calc(20);
+			}
+
+			.team-member-profession {
+				color: $jumbo;
+				font-size: rem-calc(14);
+				font-weight: 100;
+				font-style: italic;
+				height: 38px;
+				margin-bottom: rem-calc(20);
+			}
+
+			.team-member-description {
+				color: $charcoal;
+				font-size: rem-calc(14);
+				font-weight: 200;
+				height: 66px;
+
+			}
+		}
+	}
+}

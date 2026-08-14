@@ -1,0 +1,31 @@
+%sja-banner{
+    #sja-banner{
+      height: 545px;
+      @media #{$medium-only}{
+        height: 410px;
+      }
+      @media #{$tablet-only}{
+        height: 315px;
+      }
+      @media #{$mobile-only}{
+        display: none;
+      }
+      .sja-background{
+        height: 545px;
+        background-image: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/banner.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        @media #{$medium-only}{
+          height: 410px;
+        }
+        @media #{$tablet-only}{
+          height: 315px;
+        }
+        @media #{$mobile-only}{
+          display: none;
+        }
+      }
+    }
+
+}

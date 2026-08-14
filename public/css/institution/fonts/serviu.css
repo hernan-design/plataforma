@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'FiraSans Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('FiraSans Bold'), url('../../../build/css/fonts/FiraSans-Bold.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: 'FiraSans Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('FiraSans Regular'), url('../../../build/css/fonts/FiraSans-Regular.woff') format('woff');
+}

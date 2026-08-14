@@ -1,0 +1,83 @@
+%startupcitymed-banner {
+	/*
+	* Banner landing
+	* ---------------
+	*/
+	#{$banner-land-top}{
+		padding-bottom: 0;
+
+		// banner background image
+		.content-image-banner {
+			position: relative;
+			height: rem-calc(795);
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/startupcitymed/startupcitymed-banner-img.jpg') 50% 30%/cover no-repeat;
+
+			.banner-intro-grandbox {
+				height: auto;
+				padding: rem-calc(45 0);
+				background-color: rgba(0, 0, 0, 0.6);
+				position: absolute;
+		    top: 50%;
+		    margin-top: -111px;
+		    width: 100%;
+
+					.banner-intro-text-title {
+						font-size: rem-calc(36);
+						font-weight: 700;
+						color: $white;
+						margin-bottom: rem-calc(23);
+					}
+
+					.banner-intro-text {
+						color: $white;
+						font-size: rem-calc(20);
+						font-weight: 200;
+
+					}
+
+					.banner-intro-cta {
+						color: $startupcitymed-bright-green-color;
+						font-size: rem-calc(20);
+						display: block;
+					}
+
+				@media #{$large-only}, #{$medium-only} {
+					.banner-intro-text-box {
+					    top: 50%;
+					    height: 300px;
+					    margin-top: -100px;
+
+						.banner-intro-text-title {
+							font-size: rem-calc(60);
+							font-weight: 900;
+							color: $white;
+							line-height: 68px;
+							margin-bottom: rem-calc(40);
+						}
+					}
+				}
+
+				@media #{$tablet-only}, #{$small-only} {
+					.banner-intro-text-box {
+					    top: 50%;
+					    height: 300px;
+					    margin-top: -100px;
+
+						.banner-intro-text-title {
+							font-size: rem-calc(40);
+							font-weight: 900;
+							color: $white;
+							line-height: 48px;
+							margin-bottom: rem-calc(30);
+						}
+					}
+				}
+			}
+		}
+
+		// banner central content
+		.content-banner {
+			margin-top: rem-calc(-102);
+		}
+	}
+}

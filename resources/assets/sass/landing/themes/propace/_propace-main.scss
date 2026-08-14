@@ -1,0 +1,25 @@
+#{$wrapper-land}.wrapper-propace {
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+  @extend %propace-header !optional;
+  @extend %propace-banner !optional;
+  @extend %propace-comunity !optional;
+  @extend %propace-advantage !optional;
+  @extend %propace-form !optional;
+  @extend %propace-footer !optional;
+
+}
+

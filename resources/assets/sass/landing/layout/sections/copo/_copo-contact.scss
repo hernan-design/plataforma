@@ -1,0 +1,65 @@
+%copo-contact {
+	#copo-contact {
+		.contact-box {
+			text-align: center;
+			background-color: $tuatara;
+
+			.contact-box-content {
+				padding: rem-calc(60 0);
+				display: inline-block;
+
+				@media #{$xlarge-up} {
+					padding: rem-calc(150 0);
+				}
+
+				@media #{$tablet-only} {
+					padding-left: rem-calc(15);
+					padding-right: rem-calc(15);
+				}
+
+				.copo-contact-title {
+					font-weight: 400;
+					font-family: 'Ubuntu', sans-serif;
+					margin-bottom: rem-calc(25);
+					padding-bottom: rem-calc(25);
+					position: relative;
+					text-align: left;
+
+					@media #{$small-only}, #{$mobile-only} {
+						text-align: center;
+					}
+
+					&:after {
+						background-color: $copo-bright-blue-color;
+		        content: "";
+		        display: block;
+		        height: 2px;
+		        position: absolute;
+		        width: 50px;
+		        bottom: 0;
+
+		        @media #{$small-only}, #{$mobile-only} {
+							left: 50%;
+							margin-left: -25px;
+						}
+					}
+				}
+
+				.copo-contact-subtext {
+					margin-bottom: rem-calc(4);
+					text-align: left;
+					font-weight: 300;
+					font-family: 'Ubuntu', sans-serif;
+
+					@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+						font-size: rem-calc(13);
+					}
+
+					@media #{$small-only}, #{$mobile-only} {
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}

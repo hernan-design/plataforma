@@ -1,0 +1,37 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for tooltips
+// -------------------
+
+@media #{$mobile-up} {
+  .tooltip {
+    &>.nub {
+      border-color: transparent transparent $tooltip-bg transparent;
+      top: -($tooltip-pip-size * 2);
+    }
+    &.tip-top>.nub {
+      border-color: $tooltip-bg transparent transparent transparent;
+      top: auto;
+      bottom: -($tooltip-pip-size * 2);
+    }
+
+    &.tip-left,
+    &.tip-right { float: none !important; }
+
+    &.tip-left>.nub {
+      border-color: transparent transparent transparent $tooltip-bg;
+      right: -($tooltip-pip-size * 2);
+      left: auto;
+      top: 50%;
+      margin-top: -$tooltip-pip-size;
+    }
+    &.tip-right>.nub {
+      border-color: transparent $tooltip-bg transparent transparent;
+      right: auto;
+      left: -($tooltip-pip-size * 2);
+      top: 50%;
+      margin-top: -$tooltip-pip-size;
+    }
+
+  }
+}

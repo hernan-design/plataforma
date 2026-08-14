@@ -1,0 +1,146 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for spinners
+// ----------------------------
+
+//
+// @variables
+//
+$bg-color-spinner: transparentize($white, 0.1) !default;
+$color-load-spinner: transparent !default;
+$color-load: $sky-blue !default;
+
+// loader spinner styles
+// ---------------------
+.wrapper-spinner {
+	position: relative;
+	background-color: $bg-color-spinner;
+	border: none;
+	min-height: rem-calc(50);
+
+	.inner-spinner {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: auto;
+		height: auto;
+		border: none;
+		background-color: transparent;
+		padding: rem-calc(8);
+		@include translate(-50%, -50%);
+
+		.loader {
+			// position: absolute;
+			background-color: $color-load-spinner;
+			margin: 0px auto;
+			font-size: 1.3em;
+			text-indent: -9999em;
+			border-width: rem-calc(2);
+			border-style: solid;
+			border-color: $color-load;
+			border-left: rem-calc(2) solid $bg-color-spinner;
+			@include animation( load8 .8s infinite linear );
+			@include backface-visibility(visible);
+			@include transform-style(preserve-3d);
+
+			&, &:after {
+				width: 2em;
+				height: 2em;
+				@include border-radius(50%);
+			}
+
+			@include keyframes( load8 ) {
+				0% {
+					@include transform( rotate(0deg) );
+				}
+				100% {
+					@include transform( rotate(360deg) );
+				}
+			}
+		}
+
+		&.tiny {
+			.loader { font-size: .9em; }
+		}
+		&.small {
+			.loader { font-size: 1.1em; }
+		}
+		&.medium {
+			.loader { font-size: 1.3em; }
+		}
+		&.large {
+			.loader { font-size: 1.6em; }
+		}
+		&.xlarge {
+			.loader { font-size: 1.9em; }
+		}
+	}
+}
+// other spinner prealoder
+.spinner-preloader {
+  position: relative;
+  width: rem-calc(150);
+  height: rem-calc(150);
+}
+
+// bounce preloader
+// ----------------
+#preloader-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1007;
+	@include transform( translateY(0) );
+
+	#preloader {
+		display: block;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: rem-calc(150);
+		height: rem-calc(150);
+		margin: rem-calc(-75 0 0 -75);
+		z-index: 1008;
+	}
+
+	.preloader-diagonal-wrap {
+		position: absolute;
+		left: -50%;
+		top: -100%;
+		right: -50%;
+		bottom: -100%;
+		@include transform( rotate(45deg) );
+	}
+
+	.preloader-section {
+		width: 100%;
+		min-height: 50%;
+		background-color: #2C3E50;
+		z-index: 1007;
+		@include opacity(0.85);
+		@include transform( translateY(0) );
+	}
+}
+
+// progress preloader
+// -----------------
+.progress-preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	margin: 0px;
+	border: none;
+	height: 4px;
+	// background: transparent;
+	@include opacity(1);
+	clip: rect(0px, auto, auto, 0px);
+	@include transition(all .5ms ease);
+
+	.indeterminate, .determinate {
+		background-color: #{$background-header};
+	}
+}

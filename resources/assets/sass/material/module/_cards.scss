@@ -1,0 +1,285 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for cards
+// ---------------------
+
+//
+// @variables
+//
+
+// card panel
+.card-panel {
+	@include radius(0);
+
+	@media #{$mobile-only}, #{$small-only} {
+		margin-left: rem-calc(-10);
+		margin-right: rem-calc(-10);
+	}
+
+	@media #{$tablet-up} {
+		@include box-shadow($panel-shadow);
+		@include radius;
+		border-top: 1px solid $h-separate-materialize;
+		border-bottom: 1px solid $h-separate-materialize;
+
+	}
+}
+
+// Styles for general card
+.card {
+	@include radius(0);
+	position: relative;
+
+
+	@media #{$tablet-up} {
+		@include box-shadow($panel-shadow);
+		@include radius;
+		@include margin-item-bottom;
+		border-top: 1px solid $h-separate-materialize;
+		border-bottom: 1px solid $h-separate-materialize;
+	}
+
+	.card-image {
+		img {
+			@include side-radius(top);
+		}
+	}
+
+	.card-content {
+		@include side-radius(bottom);
+	}
+
+	.card-action {
+		@include side-radius(bottom);
+
+		.icon-circle-active {
+			@include icon-circle(
+				$font-size: rem-calc(24),
+				$padding: rem-calc(2),
+				$color: $gray-base,
+				$bgcolor: transparent,
+				$colors-custom: false,
+				$sizes-custom: true,
+				$has-transition: true
+			);
+
+			&:hover {
+				background-color: $smoke;
+			}
+		}
+	}
+}
+
+// Styles for publishing card
+.card-published-entry {
+	@extend .card;
+
+	@media #{$mobile-only}, #{$small-only} {
+		@include box-shadow(none);
+		border-top: 1px solid $gainsboro;
+		border-bottom: 1px solid $gainsboro;
+	}
+
+	.card-user-entry {
+		margin-bottom: rem-calc(15);
+	}
+
+	.card-content-entry {
+		@extend .card-content;
+		padding: rem-calc(15);
+
+		p {
+			margin-bottom: 5px;
+		}
+	}
+
+	.discussion-wrapper {
+		border-top: 1px solid $h-separate-materialize;
+		padding: rem-calc(0 15 15);
+
+		.discussion-post-box {
+			padding: {
+				top: rem-calc(5);
+				bottom: rem-calc(5);
+			}
+			border: none;
+		}
+
+		.post-footer-box {
+			padding: {
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+
+	.card-action-entry {
+		@extend .card-action;
+		padding: rem-calc(10 15 10);
+
+		a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+			margin-right: 0;
+		}
+
+		.discussion-wrapper {
+			padding-bottom: 0;
+			margin: {
+				top: rem-calc(10);
+				left: rem-calc(-15);
+				right: rem-calc(-15);
+			}
+		}
+	}
+
+	.card-tags-entry {
+		margin-top: rem-calc(15);
+	}
+}
+
+// styles for forms
+.card-form {
+	@extend .card;
+
+	.card-content {
+		padding: {
+			top: rem-calc(15);
+			bottom: rem-calc(15)
+		}
+	}
+	.card-action {
+		padding: {
+			top: rem-calc(10);
+			bottom: rem-calc(10)
+		}
+	}
+
+	.panel-section-form {
+		margin-bottom: rem-calc(10);
+		padding: rem-calc(20 10);
+	}
+}
+
+// =================================
+// 08. Styles for user and data card
+// =================================
+ul.card-user-detail {
+	margin: rem-calc(5 0);
+	list-style: outside none none;
+	background-color: $white;
+	display: inline-block;
+	width: auto;
+	@include box-shadow($box-shadow-item);
+
+	&.expand {
+		width: 100%;
+	}
+
+	> li {
+		display: inline-block;
+		vertical-align: middle;
+
+		img.author-image {
+			width: rem-calc(80);
+			height: rem-calc(80);
+		}
+
+		> ul {
+			margin: 0px;
+			padding: rem-calc(8 30 8 10);
+			list-style: outside none none;
+		}
+	}
+}
+
+.card-user-info, .card-data-info {
+	display: block;
+	padding: rem-calc(8 20);
+	@include transition(all 250ms ease-out);
+
+	&:hover, &:focus {
+		background-color: $gray-light-alt;
+		text-decoration: none;
+
+		> ul {
+			> li {
+				position: relative;
+			}
+		}
+
+		.card-options-button {
+			> li {
+				> a {
+					> i {
+						color: $monsoon;
+						background-color: $vapor;
+					}
+				}
+			}
+		}
+	}
+
+	&:hover, &:active, &.active {
+
+		.is-hovered {
+			&:not(.button):not(button){
+				color: $sky-blue;
+			}
+
+			&button, &.button {
+				color: $white;
+				background-color: $sky-blue;
+				border-color: $sky-blue;
+			}
+		}
+	}
+
+	.card-data-item {
+		> li:nth-child(2) {
+			line-height: 16px;
+
+			> a {
+				margin-bottom: rem-calc(6);
+    		display: block;
+			}
+
+			@media #{$mobile-only}, #{$small-only} {
+				padding-right: rem-calc(30);
+			}
+		}
+	}
+
+	.card-options-button {
+		@media #{$tablet-up} {
+			margin-right: rem-calc(-5);
+		}
+
+		@media #{$mobile-only}, #{$small-only} {
+			position: absolute;
+	    right: rem-calc(5);
+	    top: 50%;
+	    margin-top: -15px;
+		}
+
+		> li {
+			> a {
+				> i {
+					background-color: transparent;
+					color: $aluminum;
+				}
+			}
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+
+	&.separator:not(:last-of-type) {
+		border-bottom: 1px solid $hr-border-color;
+	}
+}
+.separator:not(:last-of-type) {
+	.card-user-info, .card-data-info {
+		border-bottom: 1px solid $hr-border-color;
+	}
+}

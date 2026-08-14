@@ -1,0 +1,159 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for sub navegation
+// --------------------------------
+
+//
+// variables
+//
+
+// mixins
+@mixin btn-sub-nav-default($btn-font-size:rem-calc(14), $btn-color: $white, $active-bg: $white, $active-color:$base, $style-items:true) {
+
+	@include sub-nav(
+		$font-color: $btn-color,
+		$font-size: $btn-font-size,
+		$active-bg: $active-bg,
+		$active-bg-hover: $active-bg
+	);
+
+  margin-left: 0;
+	overflow-x: auto;
+  white-space: nowrap;
+
+	@if $style-items {
+
+		> li, > dd {
+			display: inline-block;
+			line-height: 1;
+			margin: {
+				left: 0px;
+			}
+
+	    &:before {
+	      display: inline;
+	    }
+
+	    &:first-child:before {
+        content: "";
+        margin: 0;
+        display: block;
+      }
+
+			> a {
+				font: {
+					weight: inherit;
+				}
+			}
+
+			button, .button {
+				text-transform: none;
+				margin: {
+					bottom: rem-calc(10);
+				}
+				background-color: $sky-blue;
+				@include box-shadow($box-shadow-button);
+				color: $white;
+
+				&.xtiny  { @extend .xtiny !optional; }
+				&.tiny   { @extend .tiny !optional; }
+				&.small  { @extend .small !optional; }
+				&.medium { @extend .medium !optional; }
+				&.large  { @extend .large !optional; }
+
+				i {
+					vertical-align: middle;
+					font-size: 1.4em;
+					margin: {
+						right: rem-calc(8);
+					}
+					&.icon-bottom {
+						vertical-align: bottom;
+					}
+				}
+			}
+
+			&.active {
+				> a {
+					color: $active-color;
+
+					&:hover, &:focus {
+						color: $active-color;
+					}
+				}
+
+				button, .button {
+					color: $active-color;
+					@include box-shadow($box-shadow-button-active);
+
+					&.xtiny  { @extend .xtiny !optional; }
+						&.tiny   { @extend .tiny !optional; }
+						&.small  { @extend .small !optional; }
+						&.medium { @extend .medium !optional; }
+						&.large  { @extend .large !optional; }
+
+					&:hover, &:focus {
+						background-color: $active-bg;
+					}
+				}
+		  }
+		}
+	}
+}
+
+// sub nav with buttons
+.buttons-sub-nav {
+	@include btn-sub-nav-default;
+	margin: rem-calc(8 0 8);
+}
+
+.views-sub-nav {
+	@include btn-sub-nav-default;
+	margin: rem-calc(8 0 8);
+}
+
+.views-filter-nav {
+	@include btn-sub-nav-default(
+		$btn-font-size: rem-calc(25),
+		$active-color: $steel,
+		$active-bg: transparent,
+		$style-items: true
+	);
+}
+
+.magellan-container {
+	padding: {
+		top: 0;
+		bottom: 0;
+	}
+}
+.anchors-sub-nav {
+	@include btn-sub-nav-default(
+		$btn-font-size: rem-calc(16),
+		$active-color: $secondary-color
+	);
+	padding: 0;
+	margin: 0;
+	background-color: $white;
+	z-index: 99;
+
+	> dd, > li {
+		position: relative;
+		text-transform: uppercase;
+
+		> a, &.active > a {
+			display: inline-block;
+			padding: rem-calc(35 20);
+		}
+
+		&.active {
+			&:after {
+				@include css-triangle(12px, $gray-cloud, bottom);
+				position: absolute;
+				bottom: 0px;
+				left: 50%;
+				margin-left: -12.5px;
+			}
+		}
+	}
+}

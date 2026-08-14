@@ -1,0 +1,25 @@
+#{$wrapper-land}.wrapper-destapafuturo {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	@extend %destapafuturo-header !optional;
+	@extend %destapafuturo-banner !optional;
+
+	#{$main-land} {
+		@extend %destapafuturo-navmenu !optional;
+		@extend %destapafuturo-program-call !optional;
+		@extend %destapafuturo-tenth-cycle-stages !optional;
+		@extend %destapafuturo-stats-section !optional;
+		@extend %destapafuturo-feature-entrepreneurship !optional;
+		@extend %destapafuturo-redds-banner !optional;
+	}
+}

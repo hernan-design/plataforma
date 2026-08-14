@@ -1,0 +1,16 @@
+%andifuturo-register-section {
+	#andifuturo-register-section{
+
+		.adf-reg-item {
+			margin-bottom: 20px;
+
+			> li {
+				list-style: none;
+			}
+
+			.adf-reg-check-icon {
+				color: $andifuturo-blue-color;
+			}
+		}
+	}
+}

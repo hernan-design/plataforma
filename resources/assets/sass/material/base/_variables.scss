@@ -1,0 +1,228 @@
+// Table of Content
+// a. Override Foundation Variables
+// b. Override Fontawesome & Material design icons Variables
+// c. Custom Application Variables
+// d. Overwrite Materialize variables
+// 1. Colors
+// 2. Fonts
+// 3. Alert Boxes
+// 4. Images
+// 5. Forms
+// 6. box, panel & block
+// Institutions variables custom
+
+// =================================
+// a. Override Foundation Variables
+// =================================
+$white       : #FFFFFF;
+$ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+$vapor       : #F6F6F6;
+$white-smoke : #F5F5F5;
+$silver      : #EFEFEF;
+$smoke       : #EEEEEE;
+$gris        : #E6E6E6;
+$gainsboro   : #DDDDDD;
+$iron        : #CCCCCC;
+$dark-silver : #BBBBBB;
+$base        : #AAAAAA;
+$aluminum    : #999999;
+$jumbo       : #888888;
+$monsoon     : #777777;
+$steel       : #666666;
+$charcoal    : #555555;
+$tuatara     : #444444;
+$oil         : #2E2E2E;
+$jet         : #222222;
+$black       : #000000;
+
+// We use these as default colors throughout
+// -----------------------------------------
+$primary-color: $black !default;
+$secondary-color: $black !default;//#E1E1E1;
+$alert-color: #F44336; //#EB3F3F;
+$success-color: #14ce00;
+$warning-color: #EABD00;
+$info-color: #15B7FF;
+
+// these to define default font weights
+// ------------------------------------
+$font-weight-bold: 600;
+$font-weight-normal: 500;
+$font-weight-lighter: 300;
+
+// set modules that already exist for customized
+$modules : ('button');
+
+// =========================================================
+// b. Overwrite Fontawesome & Material design icons Variables
+// =========================================================
+
+$fa-font-path:        "fonts";
+$mdi-css-prefix:      "mdi";
+$mdi-font-path:       "fonts";
+
+// ===============================
+// c. Custom Application Variables
+// ===============================
+$slick-loader-path: '../../';
+
+// ===========
+// 1. Colors
+// ===========
+$primary-bg-color: $primary-color !default;
+$secondary-bg-color: $secondary-color !default;
+
+// base colors
+// -----------
+$light-yellow: #FBD57F !default;
+$lighter-blue: #EEF3F6 !default;
+$light-blue: #EEF3F6 !default;
+$water-blue: #D6E3E5 !default;
+$light-purple-blue: #646F93 !default;
+$sky-blue: $secondary-color !default;
+$purple-blue: #2A3670 !default;
+$deep-blue: #0E1332 !default;
+$gray-base: #8D8D8D !default;
+$charcoal: #555555;
+$gray-light: scale_color($gray-base, $lightness: 35%) !default;
+$gray-dark: scale_color($gray-base, $lightness: -35%) !default;
+$gray-lighter-alt: scale_color($gray-light, $lightness: 35%) !default;
+$gray-lighter: #FBFBFB !default;
+$gray-light-alt: #F7F7F7 !default;
+$gray-cloud: #F2F2F2 !default;
+$gray-rain: #EDEDED !default;
+$gray-concrete: #E5E5E5 !default;
+$h-separate-materialize: rgba(160,160,160,.2) !default;
+
+// alternative colors
+// ------------------
+$color-load-spinner: transparent !default;
+$color-alt-form: #ACACAC !default;
+$bgcolor-item: #ECF1F5 !default;
+$link-normal-color: $sky-blue !default;
+$link-hover-color: inherit !default;
+$link-visited-color: $sky-blue !default;
+$bgcolor-main-wrap: $white !default;
+$color-main-wrap-alt: #F7F7F7 !default;
+
+// social colors
+// -------------
+$facebook-color: #3b5998 !default;
+$twitter-color: #55acee !default;
+$linkedin-color: #0077b5 !default;
+$youtube-color: #CD201F !default;
+$instagram-color: #c13584 !default;
+
+
+
+// entrepreneurship
+// ----------------
+$color-investor:  #727272 !default;
+$color-entrepreneur:  #FF9100 !default;
+$color-mentor:  #40BFFF !default;
+
+// ==================================
+// d. Overwrite Materialize variables
+// ==================================
+// general
+$placeholder-text-color: $iron;
+$radio-empty-color: $gray-base;
+$gutter-width: 1.25rem;
+// form
+$input-border-color: $gray-base;
+// $label-font-size: 0.875rem;
+$input-success-color: initial;
+$input-height: 2.5rem;
+// dropdown
+$dropdown-hover-bg-color: $gray-light-alt;
+// card
+$card-link-color: none;
+$card-link-color-light: none;
+
+
+// ==========
+// 2. Fonts
+// ==========
+$font-family-sanfrancisco: "San Francisco", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$font-family-frutiger: Frutiger, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$font-family-frutiger-roman: 'Frutiger Roman' !default;
+$font-family-crimsontext: 'Crimson Text', serif;
+$icon-css-prefix: "icon" !default;
+$social-css-prefix: "social" !default;
+$icon-fontsize-base: 14px !default;
+$facebook-logotype: "f" !default;
+$twitter-logo: "M" !default;
+$youtube-logo: "w" !default;
+
+$text-small: 13px !default;
+$text-medium: 15px !default;
+$text-large: 17px !default;
+
+// ==============
+// 3. Alert Boxes
+// ===============
+$opacity-alert: 0 !default;
+$lightcolor-alert: -65% !default;
+$bgcolor-alert-primary: #eac300 !default;
+$fontsize-icon-alert: 28px !default;
+$color-icon-alert: #876d00 !default; //#685400
+$bgcolor-icon-alert: $white !default;
+$border-color-alert: $alert-color;
+$border-color-success: $success-color;
+$border-color-warning: $warning-color;
+$border-color-info: $info-color;
+
+// ===========
+// 4. Images
+// ===========
+// $sprite-tuproyecto: image-url('sprite-css-tuproyecto-tmp.png') !default;
+
+// ==========
+// 5. Forms
+// ==========
+$form-small-text: #7F8080 !default;
+
+// =====================
+// 6. box, panel & block
+// =====================
+$box-shadow-item: 0px 2px 6px rgba($black,0.3) !default;
+$box-shadow-item-hover: 0px 6px 9px rgba($black,0.3) !default;
+$panel-shadow: 0px 2px 6px rgba($black, 0.3) !default;
+$gradient-function-factor: 8% !default;
+
+// =================================
+// Institutions variables custom
+// =================================
+
+// Variables content selector
+// --------------------------
+$wrapper-all: '#wrapper-main-all' !default;
+$header-wrap: '#header-wrap' !default;
+$topmenu-main: '#topmenu-main-options' !default;
+$main-wrap:   '#main-wrap' !default;
+$footer-wrap: '#footer-wrap' !default;
+
+// Variables content landing selector
+// ----------------------------------
+$wrapper-land: '#wrapper-land' !default;
+$header-land: '#header-land' !default;
+$banner-land-top: '#banner-land-top' !default;
+$main-land: '#main-land' !default;
+$footer-land: '#footer-land' !default;
+
+// Instituciones
+// -------------
+$color-header:         $white !default;
+$background-header:    $black !default;
+$font-weight-header:   600 !default;
+$color-active-header:  #FFF500 !default;
+$letterspacing-header: .3px !default;
+$texttransform-header: uppercase !default;
+$color-body:           $white !default;
+$background-body:      $black !default;
+
+// Selectrain
+$selectrain-secondary-color: #37d146;
+$selectrain-dark-blue-color: #00507c;
+$selectrain-bright-blue-color: #108bc1;

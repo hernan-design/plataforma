@@ -1,0 +1,173 @@
+// Styles for profile main
+// -----------------------
+%profile-main {
+
+  // list info profile global
+  ul.list-info-profile {
+
+    > li {
+      position: relative;
+
+      &:not(:last-of-type) {
+        padding: rem-calc(0 0 10);
+      }
+
+      .close {
+        position: absolute;
+        right: 10px;
+        top: 0px;
+        line-height: 1;
+        list-style: normal;
+        font: {
+          size: rem-calc(24);
+          weight: 200;
+        }
+        color: $base;
+        cursor: pointer;
+
+        &:hover, &:focus {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  // picture avatar
+  #profile-picture-avatar {
+    overflow: hidden;
+    @include border-radius(65px);
+    max-width: 130px;
+    position: relative;
+    margin: auto;
+
+    @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			margin-bottom: rem-calc(20);
+			border: 7px solid white;
+    	background-color: white;
+    }
+
+    .image-user-profile {
+      width: 100%;
+      height: auto;
+      max-width: rem-calc(200);
+    }
+
+    // &:hover, &:focus, &.qq-upload-drop-area-active {
+    //   .edit-photo, .change-photo {
+    //     display: block;
+    //     visibility: visible;
+    //   }
+    // }
+
+    .edit-field-button {
+    	position: absolute;
+	    bottom: 5px;
+	    left: 50%;
+	    margin-left: -12px;
+    }
+  }
+
+  // socials icons for user
+  ul.socials-user-profile {
+    // list-style: outside none none;
+    margin: 0;
+    vertical-align: middle;
+
+    > li {
+      display: inline-block;
+      vertical-align: middle;
+
+      &:not(:first-of-type) {
+        margin: {
+          left: rem-calc(10);
+        }
+      }
+
+      a {
+        color: $iron;
+        font-size: rem-calc(26);
+        vertical-align: middle;
+    		line-height: 1px;
+      }
+    }
+
+    .circle-outline {
+			@include icon-circle(
+				$bgcolor: transparent,
+				$sizes-custom: true
+			);
+
+			color: $gainsboro;
+			border-color: $gainsboro;
+		}
+
+		.icon-active {
+			&.circle-outline {
+				border-color: $iron;
+			}
+		}
+
+		.edit-field-button {
+			margin-top: rem-calc(2);
+		}
+  }
+
+  // Create new project
+
+  .user-project-create-new {
+  	margin-bottom: rem-calc(8);
+
+  	.panel-content {
+  		@include box-shadow(none);
+  		margin-bottom: rem-calc(0);
+  	}
+  }
+
+  // browse projects
+
+  // browse products
+
+  ul.list-circles-entrepreneurship {
+    display: inline-block;
+  }
+
+  // list roles check edit
+  ul.check-role-entrepreneurship {
+
+		input[type="radio"], input[type="checkbox"] {
+			+ label {
+				padding: rem-calc(15 0 10);
+			}
+		}
+  }
+
+  .data-aside-left {
+    padding: {
+      top: 0;
+    }
+  }
+
+  // containers edit form
+  // #drop-edit-form, #drop-edit-form-alt { width: auto !important; }
+
+  @media #{$tablet-up} {
+	  #container-form-location {
+	    width: rem-calc(500);
+	  }
+	  #container-form-name {
+	    width: rem-calc(500);
+	  }
+	  #container-form-rol {
+	    width: rem-calc(300);
+	  }
+	  // #container-form-basicdata {
+	  //   width: rem-calc(750);
+	  // }
+	  #container-form-socials {
+	    width: rem-calc(500);
+	  }
+  }
+
+
+}

@@ -1,0 +1,58 @@
+%sja-teachers{
+  #sja-teachers{
+    .row{
+      margin: 80px;
+      @media #{$medium-only},#{$tablet-only}{
+        margin: 80px 0px;
+      }
+      h2{
+        font-weight: bold;
+        color: #272859;
+      }
+      h4{
+        line-height: 35px;
+        color: #777777;
+        font-size: 23px;
+      }
+    }
+    .rows{
+      div.large-4{
+        height: 285px;
+        position: relative;
+        @media #{$tablet-only}, #{$medium-only}{
+          height: 214px;
+        }
+        .position-bottom{
+          position: absolute;
+          bottom: 20px;
+          strong , small{
+            color: white;
+            font-size: 12px;
+          }
+          h3{
+            a{
+              font-size: 20px;
+              letter-spacing: 2px;
+              color: #FFD338;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      #contenedor-imagen-1 {
+        background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/teachersimg1.png);
+        background-size: contain;
+      }
+
+      #contenedor-imagen-2 {
+        background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/teachersimg2.png);
+        background-size: contain;
+      }
+
+      #contenedor-imagen-3 {
+        background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/teachersimg3.png);
+        background-size: contain;
+      }
+    }
+  }
+}

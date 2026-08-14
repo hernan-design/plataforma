@@ -1,0 +1,148 @@
+// Styles for marketplace browse
+// -----------------------------
+%marketplace-browse {
+
+	.title-block-market {
+		margin: {
+			top: rem-calc(20);
+		}
+
+		> i {
+			margin: {
+				right: rem-calc(5);
+			}
+		}
+	}
+
+	//
+	.browse-list-marketplaces-trending {
+		padding: rem-calc(25 0 20);
+		margin: {
+			top: 0;
+			bottom: 0;
+		};
+
+		.title-trending-marketplace {
+			height: auto;
+			margin: {
+				top: 0;
+			}
+		}
+
+		.desc-trending-product {
+			max-height: rem-calc(48);
+    	overflow: hidden;
+		}
+
+		.item-wrap-list {
+			.content-item-list {
+				padding-bottom: rem-calc(55);
+			}
+			.bottom-item-list {
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				border-top: 0px;
+			}
+		}
+
+		.slick-slide {
+			padding: rem-calc(0 10 20);
+		}
+
+		.slick-prev, .slick-next, .slick-dots {
+			left: -50%;
+			right: -50%;
+			margin: 0 auto;
+		}
+		.slick-prev { left: -70%; z-index: 1; }
+		.slick-next { right: -70%; z-index: 1; }
+
+		ul.options-bottom-item {
+			margin: 0;
+			list-style: outside none none;
+			width: 100%;
+
+			> li {
+				width: 100%;
+
+				&:not(:last-of-type) {
+					margin: {
+						bottom: rem-calc(10);
+					}
+				}
+
+				button, .button {
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	// browse marketpalce
+	.browse-list-marketplaces {
+		padding-top: 0;
+
+		.bottom-item-mask, .bottom-item-list {
+			border: none;
+
+			.list-info-data {
+				> li {
+					&:not(:last-of-type){
+						padding-bottom: rem-calc(8);
+					}
+				}
+			}
+		}
+
+		.item-wrap-list {
+			&:hover {
+				.title-item-list {
+					color: $sky-blue;
+				}
+			}
+		}
+
+		.content-roster-list {
+
+			.title-item-list {
+				@media #{$tablet-only} {
+					margin-bottom: rem-calc(3);
+				}
+			}
+
+			.description-list-item {
+				@media #{$medium-only} {
+					height: rem-calc(70);
+				}
+			}
+
+			.category-list-item {
+
+				@media #{$tablet-only} {
+					height: rem-calc(16);
+					margin: rem-calc(6 0);
+				}
+			}
+		}
+
+		// section product states
+		ul.states-product-browse {
+			width: 100%;
+		}
+
+		@media #{$mobile-only} {
+
+			.content-item-mask {
+				position: relative;
+				padding-bottom: rem-calc(75);
+
+				.bottom-item-mask {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+				}
+			}
+		}
+	}
+}

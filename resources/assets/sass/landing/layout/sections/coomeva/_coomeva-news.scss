@@ -1,0 +1,14 @@
+%coomeva-news {
+	#coomeva-news {
+		background-color: $white;
+		padding-top: rem-calc(80);
+
+		@media #{$mobile-only}, #{$small-only} {
+			padding-top: rem-calc(30);
+		}
+
+		@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+			padding-top: rem-calc(50);
+		}
+	}
+}

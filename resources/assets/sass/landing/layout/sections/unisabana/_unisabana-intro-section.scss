@@ -1,0 +1,94 @@
+%unisabana-intro-section {
+	#unisabana-intro-section {
+		background-color: $gray-light;
+		position: relative;
+
+		.unisabana-introsection-text {
+
+		}
+
+		.intro-boxes {
+			background-color: $gray-rain;
+			padding-top: rem-calc(10);
+			padding-bottom: rem-calc(10);
+			@include box-shadow(none);
+
+			// &:hover {
+			// 	background-color: $vapor;
+			// 	@include box-shadow(4px 4px 8px $iron);
+			// 	@include transition(all ease-out 300ms);
+			// }
+
+			.unisabana-intro-icons {
+				font-size: rem-calc(50);
+				color: $unisabana-bright-redwine-color;
+				margin-top: rem-calc(20);
+			}
+
+			.text-box {
+				height: 80px;
+				display:table;
+    			width:100%;
+
+				.title-intro-boxes {
+					color: $steel;
+					font-weight: 100;
+					margin: rem-calc(25 0);
+
+					vertical-align:middle;
+	    				display:table-cell;
+				}
+
+				.objective {
+					color: $steel;
+					font-size: rem-calc(14);
+					font-size: 100;
+
+					vertical-align:middle;
+	    				display:table-cell;
+
+					.opportunity-through {
+						color: $unisabana-bright-redwine-color;
+						font-weight: 200;
+					}
+				}
+
+
+			}
+
+		}
+
+		.through-box {
+			background-color: inherit;
+			padding: rem-calc(58 0);
+			display:table;
+    			width:100%;
+
+			.through {
+				display: block;
+				font-size: rem-calc(14);
+				font-size: 100;
+			}
+
+			.through-icon {
+				@extend %font-mdi;
+				color: $base;
+				font-size: rem-calc(36);
+			}
+		}
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			.through-box {
+				padding: rem-calc(20 0);
+			}
+			.through-icon {
+				&:before {
+					content: mdi('chevron-double-down');
+				}
+			}
+		}
+
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

@@ -1,0 +1,41 @@
+%bwee-banner {
+  #bwee-banner{
+    height: 770px;
+    @media #{$mobile-only}{
+      height: 600px;
+    }
+    .bwee-background{
+      padding: 50px 170px;
+      height: 770px;
+      background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/bwee/hero-bwee-background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top;
+      @media #{$mobile-only}{
+        padding: 40px 20px;
+        height: 600px;
+      }
+      .row{
+        #bwee-banner-content{
+          a{
+            letter-spacing: 2px;
+            font-size:17px;
+            font-weight: 300;
+            font-family: 'Lato';
+            color: #031362;
+            padding: .5rem 2.5rem;
+            background: #F3EE0B ;
+            box-shadow: 2px 2px 9px 2px #2B337A93;
+            opacity: 1;
+            margin:2rem;
+          }
+        }
+        .flags{
+          img{
+            width: 40%;
+          }
+        }
+      }
+    }
+  }
+}

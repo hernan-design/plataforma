@@ -1,0 +1,36 @@
+%mapacine-courses {
+	#mapacine-courses {
+		background-color: $white;
+		position: relative;
+
+		.courses-section-title {
+			color: $terpel-purple-color;
+			margin-bottom: rem-calc(50);
+		}
+
+		.courses-box {
+			position: relative;
+
+			.courses-title {
+				overflow: hidden;
+				margin-top: rem-calc(20);
+				margin-bottom: rem-calc(20);
+				color: $mapacine-bright-red-color;
+				height: 54px;
+
+
+
+				// &:after {
+				// 	content: "";
+			 //    display: inline-block;
+			 //    height: 1px;
+			 //    width: 48px;
+			 //    position: absolute;
+			 //    left: 0;
+			 //    bottom: 0;
+			 //    background-color: $iron;
+				// }
+			}
+		}
+	}
+}

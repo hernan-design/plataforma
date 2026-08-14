@@ -1,0 +1,46 @@
+#{$wrapper-land}.wrapper-cecar {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+	// Transitions
+	%top-line-transition {
+		position: relative;
+
+		&:before {
+			content: '';
+			background-color: $cecar-bright-green-color;
+			width: 0;
+			height: 1px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include transition(width 1000ms ease);
+		}
+
+		&:hover {
+			&:before {
+				width: 100%;
+			}
+		}
+	}
+
+	#{$header-land} {
+		background-color: $white;
+	}
+
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	#{$main-land} {
+		@extend %cecar-intro-section !optional;
+		@extend %cecar-team !optional;
+		// @extend %cecar-feature-projects !optional;
+	}
+}

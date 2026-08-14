@@ -1,0 +1,224 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for accordions
+// ----------------------
+
+// style for theme accordion
+.accordion-theme {
+	@include accordion-container;
+
+	.thumb-icon {
+		display: inline-block;
+		vertical-align: middle;
+		margin: {
+			right: rem-calc(5);
+		}
+		color: $iron;
+		font-size: rem-calc(28);
+	}
+
+	ul.attached-list-theme {
+		margin: 0px;
+
+		> li {
+			list-style: none none outside;
+			padding: rem-calc(0 0 2);
+
+			&:not(:last-of-type) {
+				border-bottom: 2px solid $lighter-blue;
+			}
+
+			.link-to-theme-video, .link-attached-theme {
+				color: $monsoon;
+				&:hover{
+					.thumb-icon{
+						color: scale-color($iron, $lightness: -10%);
+					}
+				}
+			}
+		}
+	}
+
+	.state-attached-theme {
+		font-size: rem-calc(9);
+		cursor: pointer;
+	}
+
+	.accordion-navigation-theme {
+		@include accordion-navigation(
+			$bg: $white,
+			$hover-bg: $white,
+			$active-bg: $white,
+			$font-color: $purple-blue
+		);
+
+		border-top: 1px solid $gainsboro;
+
+		> a {
+			padding: rem-calc(15 20);
+			font: {
+				size: rem-calc(14);
+				weight: 500;
+			}
+			&:hover, &:focus{
+				text-decoration: none;
+			}
+		}
+
+		&.active{
+			> a {
+	      color: $sky-blue;
+	    }
+		}
+	}
+
+	.content-theme {
+		@include accordion-content;
+		padding: rem-calc(0 20 15);
+		background-color: $white;
+	}
+}
+
+// Style for theme accordion alternative
+.accordion-theme-alt {
+	@include accordion-container;
+	counter-reset: pos-theme;
+	margin: {
+		left: 0px;
+	}
+
+	.accordion-navigation-theme {
+		@include accordion-navigation (
+			$bg: $white,
+			$hover-bg: $white,
+			$active-bg: $white,
+			$font-color: $gray-base,
+			$font-size: rem-calc(14)
+		);
+
+		&:not(:last-of-type) {
+			border-bottom: 1px solid $hr-border-color	;
+		}
+
+		> a {
+			padding: rem-calc(15 20);
+			font: {
+				weight: 500
+			}
+
+			&:hover, &:focus{
+				text-decoration: none;
+			}
+		}
+
+		&.active{
+			border-bottom-color: $sky-blue;
+			> a {
+	      color: $sky-blue;
+	    }
+		}
+	}
+
+	.content-theme {
+		@include accordion-content(
+			$bg: $color-main-wrap-alt,
+			$padding: 0
+		);
+	}
+
+	.state-attached-theme {
+		color: $white;
+		font-size: rem-calc(10);
+		cursor: pointer;
+
+		&:hover {
+			&.secondary, &.gray-light {
+				@extend .success;
+			}
+		}
+	}
+
+	.thumb-icon {
+		display: inline-block;
+		vertical-align: middle;
+		margin: {
+			right: rem-calc(5);
+		}
+		font-size: rem-calc(16);
+	}
+
+	.description-course-theme {
+		margin: 0px;
+		padding: rem-calc(0 20 15);
+		background-color: $white;
+	}
+
+	ul.attached-list-theme {
+		margin: 0px;
+		padding: 0;
+
+		> li {
+			@include clearfix;
+			list-style: none none outside;
+			padding: rem-calc(15 25);
+
+			&:not(:last-of-type) {
+				border-bottom: 1px solid $hr-border-color;
+			}
+
+			&.active {
+				background-color: $sky-blue;
+
+				.link-to-theme-video, .link-attached-theme {
+					color: $white;
+				}
+			}
+
+			&:hover:not(.active) {
+				background-color: scale-color($color-main-wrap-alt, $lightness: -5%);
+
+				.link-to-theme-video, .link-attached-theme {
+					color: $sky-blue;
+				}
+			}
+
+			.link-to-theme-video, .link-attached-theme {
+				color: $monsoon;
+				font: {
+					size: rem-calc(13);
+				}
+				width: 90%;
+
+				> span {
+					display: inline-block;
+					float: left;
+
+					&:last-child {
+						width: 90%;
+					}
+				}
+			}
+		}
+	}
+
+	&.ordering {
+		.accordion-navigation-theme {
+			> a {
+				&:before {
+					counter-increment: pos-theme;
+					content: counter(pos-theme)'.';
+			    margin-right: 5px;
+			    color: scale-color($gray-base, $lightness: 30%);
+				}
+			}
+
+			&.active {
+				> a {
+					&:before {
+			      color: $sky-blue;
+					}
+		    }
+			}
+		}
+	}
+}

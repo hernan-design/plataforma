@@ -1,0 +1,29 @@
+%bwee-section2{
+  .row{
+    .show-for-medium-up{
+      .rows{
+        p#noticias{
+          color:#55B5BD;
+        }
+        p#tendencias{
+          color:#9EBE3B;
+        }
+        p#steam{
+          color:#3D98FF;
+        }
+        p#laboral{
+          color:#EA662B;
+        }
+      }
+      .container-img{
+        border-radius: 15px;
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+      }
+      hr#lineunique{
+        border: 3px solid #031362;
+      }
+    }
+  }
+}

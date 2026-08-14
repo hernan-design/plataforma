@@ -1,0 +1,115 @@
+%dinamiza-ecosistema {
+  #dinamiza-ecosistema {
+		padding: rem-calc(40 0);
+		
+		.section-title {
+			font-size: rem-calc(34);
+		}
+
+		@media #{$mobile-only}, #{$small-only} {
+			padding: rem-calc(20 0);
+
+			.section-title {
+				font-size: rem-calc(26);
+			}
+		}
+
+		@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+			padding: rem-calc(60 0 30);
+
+			.section-title {
+				font-size: rem-calc(26);
+			}
+		}
+
+		@media #{$tablet-up} {
+			.section-title {
+				border-left: 1px solid $dinamiza-dark-blue-color;
+			}
+		}
+
+		.ecosistema-text-box {
+			height: 160px;
+
+			@media #{$tablet-only} {
+			  height: auto;
+			  min-height: auto;
+			}
+		}
+
+		.ecosistema-list {
+			.ecosistema-list-item {
+				@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+					margin-bottom: rem-calc(50);
+				}
+
+				> img {
+					width: 118px;
+				}
+
+				> h4 {
+					font-size: rem-calc(28);
+					color: $dinamiza-dark-blue-color;
+					padding-bottom: rem-calc(18);
+					margin-bottom: rem-calc(30);
+
+					position: relative;
+
+					&:after {
+            content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/2019/ecosistema/icon-dinamiza.svg');
+
+						width: 15px;
+						height: 15px;
+
+						left: 50%;
+						margin-left: -7px;
+
+            bottom: 0;
+            position: absolute;
+          }
+				}
+
+				> p {
+					font-size: rem-calc(16);
+					line-height: 1.7;
+					color: $monsoon;
+				}
+
+				.btn {
+          background-image: linear-gradient(to top, #e2204a 0%, #f9c900 100%);
+					@include border-radius(30px);
+          box-sizing: border-box;
+          color: $steel;
+          display: block;
+          height: 50px;
+          margin: 0 auto;
+          padding: 1px;
+          position: relative;
+          width: 200px;
+          z-index: 2;
+
+					&:hover {
+        	  color: #fff;
+          }
+
+					> span {
+            align-items: center;
+            background: $white;
+					  @include border-radius(30px);
+            // @include border-radius(40);
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            transition: background .5s ease;
+            width: 100%;
+						font-weight: 400;
+          }
+        }
+
+        .btn:hover span {
+        	background: transparent;
+        }
+			}
+		}
+  }
+}

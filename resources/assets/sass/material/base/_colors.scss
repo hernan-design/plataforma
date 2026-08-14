@@ -1,0 +1,131 @@
+// =====================
+// Colors of application
+// =====================
+
+// a. color and background-color custom
+// ------------------------------------
+.box-bgcolor {
+	@extend %box-bgcolor;
+}
+.inst-color {
+	@extend %inst-color-body;
+}
+.inst-bgcolor {
+	@extend %inst-bgcolor-body;
+}
+.inst-color-invert {
+	@extend %inst-color-body-invert;
+}
+.inst-bgcolor-invert {
+	@extend %inst-bgcolor-body-invert;
+}
+.inst-color-active {
+	@extend %inst-color-body-active;
+}
+.inst-bgcolor-active {
+	@extend %inst-bgcolor-body-active;
+}
+
+// Institution customize color
+.inst-color-primary {
+	@extend %inst-color-primary;
+}
+.inst-bgcolor-primary {
+	@extend %inst-bgcolor-primary;
+}
+.inst-color-secondary {
+	@extend %inst-color-secondary;
+}
+.inst-bgcolor-secondary {
+	@extend %inst-bgcolor-secondary;
+}
+.inst-endbgcolor-secondary {
+	@extend %inst-endbgcolor-secondary;
+}
+.inst-dgradient-secondary {
+	@extend %inst-dgradient-secondary;
+}
+.inst-vgradient-secondary {
+	@extend %inst-vgradient-secondary;
+}
+
+
+// b. colors text custom
+// ---------------------
+.white-text {
+	@extend %color-white;
+}
+
+.alert-text {
+	@extend %color-alert;
+}
+
+.success-text {
+	@extend %color-success;
+}
+
+.warning-text {
+	@extend %color-warning;
+}
+
+.info-text {
+	@extend %color-info;
+}
+
+.purple-blue-text {
+	@extend %color-purple-blue;
+}
+
+.sky-blue-text {
+	@extend %color-sky-blue;
+}
+
+.gray-base-text {
+	@extend %color-gray-base;
+}
+
+.gray-light-text {
+	@extend %color-gray-light;
+}
+
+.gray-dark-text {
+	@extend %color-gray-dark;
+}
+
+.gray-lighter-alt-text {
+	@extend %color-gray-lighter-alt;
+}
+
+.gray-light-alt-text {
+	@extend %color-gray-light-alt;
+}
+
+// c. background colors box
+// ------------------------
+.white-bg {
+	@extend %bgcolor-white;
+}
+
+.sky-blue-bg {
+	@extend %bgcolor-sky-blue;
+}
+
+.gray-base-bg {
+	@extend %bgcolor-gray-base;
+}
+
+.gray-light-bg {
+	@extend %bgcolor-gray-light;
+}
+
+.gray-dark-bg {
+	@extend %bgcolor-gray-dark;
+}
+
+.gray-lighter-alt-bg {
+	@extend %bgcolor-gray-lighter-alt;
+}
+
+.gray-light-alt-bg {
+	@extend %bgcolor-gray-light-alt;
+}

@@ -1,0 +1,114 @@
+%dinamiza-about {
+	#dinamiza-about {
+		padding: rem-calc(40 0);
+		background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/about/dinamiza-about-bg.png') $white 50% 30%/cover no-repeat;
+
+		.about-img-box {
+
+			&.about-img-left {
+				text-align: center;
+
+				@media #{$tablet-up} {
+					text-align: right;
+				}
+			}
+
+			&.about-img-right {
+				text-align: center;
+
+				@media #{$tablet-up} {
+					text-align: left;
+				}
+			}
+
+			.about-img {
+				@media #{$mobile-only}, #{$small-only} {
+					width: 160px;
+					margin-bottom: 30px;
+				}
+
+				@media #{$tablet-only}, #{$medium-only} {
+					width: 300px;
+				}
+
+				@media #{$large-only}, #{$xlarge-only} {
+					width: 400px;
+				}
+			}
+		}
+
+		.about-text-box {
+
+			.about-title {
+				font-family: 'AkzidenzGroteskBQ-BdCnd';
+				font-size: rem-calc(42);
+				margin-bottom: rem-calc(23);
+				padding-bottom: rem-calc(23);
+				position: relative;
+				color: $charcoal;
+				letter-spacing: 1.6px;
+
+				@media #{$mobile-only}, #{$small-only} {
+					font-size: rem-calc(24);
+				}
+
+				@media #{$tablet-only}, #{$medium-only}, #{$large-only} {
+					font-size: rem-calc(32);
+				}
+
+
+				&:after {
+					position: absolute;
+					content: '';
+					height: 2px;
+					background-color: $dinamiza-yellow-color;
+					width: 50px;
+					bottom: 0;
+
+					left: 50%;
+					margin-left: -25px;
+				}
+
+				@media #{$tablet-up} {
+					&:after {
+						left: 0;
+						margin-left: 0;
+					}
+
+					&.title-right {
+						&:after {
+							left: auto;
+							right: 0;
+						}
+					}	
+				}
+			}
+
+			.about-text {
+				font-weight: 300;
+				font-size: rem-calc(20);
+				line-height: 1.3;
+				
+				@media #{$mobile-only}, #{$small-only} {
+					font-size: rem-calc(17);
+				}
+
+				@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+					font-size: rem-calc(19);
+				}
+
+				@media #{$tablet-up} {
+					text-align: justify;
+
+					&.about-text-left {
+						padding-right: rem-calc(30);
+					}
+
+					&.about-text-right {
+						padding-left: rem-calc(30);
+					}
+				}
+			}
+		}
+	}
+}

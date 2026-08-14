@@ -1,0 +1,96 @@
+%terpel-designforchange-faq {
+	#terpel-designforchange-faq {
+
+		padding: rem-calc(100 0);
+
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+			padding: rem-calc(50 0 100 0);
+		}
+
+		&.section-land {
+			.title-section-land {
+				color: $terpel-magenta-color;
+
+				@media #{$medium-up} {
+					line-height: 60px;
+					font-size: rem-calc(66);
+				}
+			}
+		}
+
+		.dfc-faq-text {
+			font-family: 'MuseoSans-300';
+
+			> span {
+				color: $terpel-magenta-color;
+			}
+		}
+
+		.dfc-faq-boxes {
+			display: block;
+			border: 2px solid;
+			padding: rem-calc(22 96 22 22);
+			margin-bottom: 20px;
+			@include border-radius(12px);
+			@include transition(box-shadow ease-out 300ms);
+
+			&:hover {
+				@include box-shadow (0px 5px 10px 0px rgba($black, 0.22));
+			}
+
+			&.box-arrow {
+				position: relative;
+
+				&:after {
+					position: absolute;
+					bottom: 22px;
+					right: 22px;
+					width: 70px;
+					height: 24px;
+					content: '';
+				}
+			}
+
+			&.program-terms {
+				border-color: $terpel-feel-color;
+
+				&:after {
+					background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-faq/faq-arrow-step1.png') repeat-x;
+				}
+			}
+
+			&.project-evidence {
+				border-color: $terpel-imagine-color;
+
+				&:after {
+					background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-faq/faq-arrow-step2.png') repeat-x;
+				}
+			}
+
+			&.program-prizes {
+				border-color: $terpel-do-color;
+
+				&:after {
+					background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-faq/faq-arrow-step3.png') repeat-x;
+				}
+			}
+
+			&.project-upload-video {
+				border-color: $terpel-share-color;
+
+				&:after {
+					background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/dfc-faq/faq-arrow-step4.png') repeat-x;
+				}
+			}
+
+			> p {
+				font-size: rem-calc(26);
+				font-family: 'ACMESecretAgentBB';
+				font-weight: 700;
+				font-style: italic;
+				margin-bottom: 0;
+				line-height: 32px;
+			}
+		}
+	}
+}

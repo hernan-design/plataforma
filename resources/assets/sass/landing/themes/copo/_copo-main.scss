@@ -1,0 +1,61 @@
+#{$wrapper-land}.wrapper-copo {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	.section-land {
+		.title-section-land {
+			font-weight: 300;
+			font-family: 'Ubuntu', sans-serif;
+
+      @media #{$tablet-only}, #{$medium-only} {
+          font-size: 27px;
+          margin-top: rem-calc(20);
+      }
+		}
+	}
+
+	#partners-land {
+		&.copo-partners {
+			background-color: $gray-light;
+		}
+	}
+
+	#footer-land {
+
+		.copyright-social-footer {
+			background-color: $jet;
+		}
+	}
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+	@extend %copo-header !optional;
+	@extend %copo-slider !optional;
+
+	#{$main-land} {
+		@extend %copo-practice-areas !optional;
+		@extend %copo-services !optional;
+		@extend %copo-testimonial !optional;
+		@extend %copo-study-cases !optional;
+		@extend %copo-partners !optional;
+		@extend %copo-contact !optional;
+
+		#copo-services, #copo-testimonial {
+			padding: rem-calc(0);
+
+			@media only screen and (min-width: 1440px) {
+				padding: rem-calc(40 0);
+			}
+		}
+	}
+
+	@extend %copo-footer-land !optional;
+}

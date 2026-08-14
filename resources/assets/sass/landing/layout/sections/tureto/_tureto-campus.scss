@@ -1,0 +1,74 @@
+%tureto-campus{
+     #section-1{
+       margin-top: 2rem;
+       @media #{$tablet-only},(max-width: 1025px){
+       margin-top: 80px;
+       }
+       @media #{$small-only}{
+         margin-top: 30px;
+       }
+       #img-section-1{
+         padding:1rem;
+       }
+       #text-section-1{
+         padding: 5rem 1rem;
+         @media #{$tablet-only}{
+           padding: 3rem 0rem;
+         }
+         @media #{$mobile-only}{
+           padding: 2rem 1rem;
+         }
+         h1{
+           font-family: 'lato Regular';
+           font-size: 35px;
+           letter-spacing: 0px;
+         }
+         .line-yellow{
+           color: #F8E71C;
+           font-weight: bold;
+           font-size: 30px;
+         }
+       }
+     }
+     #section-2{
+       .shape-circle{
+         width: 200px;
+         height: 200px;
+         background: #99CAE1;
+         border-radius: 50%;
+       }
+       .title-circle{
+         font-size: 50px;
+         font-family: lato regular;
+         letter-spacing: 2px;
+         height: 120px;
+         margin: 15px;
+       }
+       p{
+         font-size: 18px;
+         font-family: 'lato regular';
+         height: 90px;
+       }
+     }
+     .rows{
+       #bar-container{
+         background: #99CAE1;
+         padding: 25px;
+         color: white;
+         margin: 25px 0px;
+         font-family: 'lato regular';
+         @media #{$small-only}{
+           padding: 15px;
+         }
+         small{
+           font-size: 30px; font-weight: 500;
+         }
+         button{
+           background: #FFFF00;
+           color:black;
+           font-weight: 500;
+           font-family: "lato regular";
+         }
+       }
+     }
+}

@@ -1,0 +1,52 @@
+#{$wrapper-land}.wrapper-unisabana {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+	// Transitions
+	// %top-line-transition {
+	// 	position: relative;
+
+	// 	&:before {
+	// 		content: '';
+	// 		background-color: $innpulsa-bright-blue-color;
+	// 		width: 0;
+	// 		height: 1px;
+	// 		position: absolute;
+	// 		top: 0;
+	// 		left: 0;
+	// 		@include transition(width 1000ms ease);
+	// 	}
+
+	// 	&:hover {
+	// 		&:before {
+	// 			width: 100%;
+	// 		}
+	// 	}
+	// }
+
+	// /**
+	// * =========================
+	// * Sections styles
+	// * =========================
+	// */
+
+	// #news-land {
+
+	// 	@extend %top-line-transition !optional;
+
+	// 	&:hover {
+	// 		&:before {
+	// 			width: 0;
+	// 		}
+	// 	}
+	// }
+	@extend %unisabana-header !optional;
+	@extend %unisabana-banner !optional;
+
+	#{$main-land} {
+		@extend %unisabana-intro-section !optional;
+	}
+}

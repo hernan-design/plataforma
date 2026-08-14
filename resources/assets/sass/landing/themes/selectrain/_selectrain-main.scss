@@ -1,0 +1,24 @@
+#{$wrapper-land}.wrapper-selectrain {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+	@extend %selectrain-header !optional;
+	@extend %selectrain-banner !optional;
+
+	#{$main-land} {
+		@extend %selectrain-recruiting !optional;
+		@extend %selectrain-getstarted-services !optional;
+		@extend %selectrain-testimonial-section !optional;
+		@extend %selectrain-institution-register !optional;
+	}
+}

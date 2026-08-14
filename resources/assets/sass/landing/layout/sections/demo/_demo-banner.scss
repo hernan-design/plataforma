@@ -1,0 +1,108 @@
+%demo-banner {
+	#demo-banner {
+		padding-bottom: 0;
+
+		// banner background image
+		.content-image-banner {
+			margin: 0;
+			position: relative;
+			height: rem-calc(795);
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/demo/demo-landing-banner-img.jpg') 50% 30%/cover no-repeat;
+
+			.banner-intro-grandbox {
+				height: auto;
+				padding: rem-calc(45 0);
+				position: absolute;
+		    top: 50%;
+		    margin-top: -111px;
+		    width: 100%;
+
+				.banner-intro-text-title {
+					font-size: rem-calc(60);
+					font-weight: 700;
+					color: $white;
+					margin-bottom: rem-calc(40);
+					line-height: 1.1;
+					position: relative;
+					padding-bottom: rem-calc(40);
+
+					&:after {
+						position: absolute;
+			      content: '';
+			      height: 4px;
+			      background-color: $demo-bright-red-color;
+			      width: 50px;
+			      bottom: 0;
+						left: 50%;
+						margin-left: -25px;
+					}
+				}
+
+				.banner-intro-text {
+					color: $white;
+					font-size: rem-calc(20);
+					font-weight: 200;
+
+				}
+
+				.banner-intro-cta {
+					color: $startupcitymed-bright-green-color;
+					font-size: rem-calc(20);
+					display: block;
+				}
+
+				@media #{$large-only}, #{$medium-only} {
+					.banner-intro-text-box {
+					    top: 50%;
+					    height: 300px;
+					    margin-top: -100px;
+
+						.banner-intro-text-title {
+							font-size: rem-calc(60);
+							font-weight: 900;
+							color: $white;
+							line-height: 68px;
+							margin-bottom: rem-calc(40);
+						}
+					}
+				}
+
+				@media #{$tablet-only}, #{$small-only} {
+					.banner-intro-text-box {
+					    top: 50%;
+					    height: 300px;
+					    margin-top: -100px;
+
+						.banner-intro-text-title {
+							font-size: rem-calc(40);
+							font-weight: 900;
+							color: $white;
+							line-height: 48px;
+							margin-bottom: rem-calc(30);
+						}
+					}
+				}
+			}
+
+			@media #{$mobile-only} {
+				.banner-intro-grandbox {
+					margin-top: -260px;
+
+					.banner-intro-text-title {
+						font-size: rem-calc(32);
+					}
+				}
+			}
+		}
+
+		// banner central content
+		.content-banner {
+			margin-top: rem-calc(-102);
+		}
+	}
+}
+
+
+
+
+

@@ -1,0 +1,37 @@
+%selectrain-recruiting {
+	#selectrain-recruiting {
+		background-color: $ghost;
+
+		.selectrain-recruiting-title {
+			font-size: rem-calc(28);
+			font-weight: 200;
+			color: $charcoal;
+		}
+
+		.selectrain-recruiting-paragraph {
+			margin-bottom: rem-calc(6);
+		}
+
+		.selectrain-button-text {
+			font-weight: 200;
+		}
+
+		.selectrain-recruiting-subtitle {
+			font-size: rem-calc(14);
+			display: block;
+			margin-top: rem-calc(25);
+		}
+
+		@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+			.selectrain-recruiting-title, .selectrain-recruiting-paragraph, .selectrain-recruiting-subtitle {
+				text-align: center;
+			}
+		}
+	}
+
+	@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+		#selectrain-recruiting {
+			text-align: center;
+		}
+	}
+}

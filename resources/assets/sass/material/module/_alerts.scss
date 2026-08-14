@@ -1,0 +1,438 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Alert Box Styles
+// -----------------
+
+//
+// variables
+//
+$opacity-alert: 0 !default;
+$lightcolor-alert: -65% !default;
+$bgcolor-alert-primary: #eac300 !default;
+$fontsize-icon-alert: 28px !default;
+$color-icon-alert: #876d00 !default; //#685400
+$bgcolor-icon-alert: $white !default;
+
+$lightness-per: 20% !default;
+$margin-icon: 0 !default;
+$size-icon: rem-calc(18) !default;
+
+.alert-box-tp {
+	// @include alert( rgba($tuatara, 1), $global-radius);
+	background-color: $tuatara;
+	@include radius($global-radius);
+	border: none;
+	display: none;
+	padding: rem-calc(17);
+	position: fixed;
+	top: $topbar-height + rem-calc(25);
+	font: {
+		family: $font-family-sanfrancisco;
+	}
+	z-index: 1010;
+	left: 50%;
+	@include translate(-50%, 0);
+	@include box-shadow(2px 17px 80px rgba($black, 0.44));
+
+	@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+		top: $topbar-height + rem-calc(5);
+	}
+
+	.close {
+		@include alert-close;
+		color: $tuatara;
+		display: table-cell;
+		float: none;
+		font: {
+			weight: 200;
+			size: rem-calc(19);
+		}
+		line-height: 12px;
+		margin-top: 0;
+		padding: rem-calc(2 0 0 17);
+		position: relative;
+		right: auto;
+		top: auto;
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+	}
+
+	&.radius { @include radius($alert-radius); }
+	&.round { @include radius($global-rounded); }
+
+	&.inner-alert {
+		display: block;
+		position: relative;
+		top: 0px;
+		width: 100%;
+		left: 0px;
+		float: none;
+		margin: 0px;
+	}
+
+	> span {
+		display: table-cell;
+		vertical-align: top;
+		padding: {
+			left: rem-calc(10);
+		}
+		line-height: 1.3;
+		color: $white;
+		font-family: $font-family-sanfrancisco;
+		font-size: rem-calc(14);
+		font-weight: 300;
+
+		ul {
+			line-height: 1.3;
+			margin-left: 0;
+
+			> li {
+				list-style: none;
+				margin-bottom: 15px;
+				font-size: rem-calc(14);
+
+	    	&:last-child {
+	    		margin-bottom: 0;
+	    	}
+	    }
+		}
+	}
+
+	> i , i.icon-alert {
+		display: table-cell;
+		vertical-align: top;
+		width: auto;
+		margin: $margin-icon;
+		@extend %font-mdi;
+
+		&:before {
+			font-size: rem-calc(20);
+			// @include icon-circle($padding: rem-calc(6), $bgcolor:$bgcolor-icon-alert, $has-transition: true);
+			// color: $color-icon-alert;
+		}
+	}
+
+	&.success {
+		i.fa, i.icon-alert {
+			&:before {
+				content: mdi('check-circle-outline');
+				color: $success-color;
+			}
+		}
+	}
+
+	&.alert {
+		i.fa, i.icon-alert {
+			&:before {
+				content: mdi('close-circle-outline');
+				color: $alert-color;
+			}
+		}
+	}
+
+	&.warning {
+		i.fa, i.icon-alert {
+			&:before {
+				content: mdi('alert-outline');
+				color: $warning-color;
+			}
+		}
+	}
+
+	&.info {
+		i.fa, i.icon-alert {
+			&:before {
+				content: mdi('information-outline');
+				color: $info-color;
+
+			}
+		}
+	}
+
+	&.alert-close { opacity: 0}
+}
+
+//customize alerts
+.notice-box-tp {
+	font: {
+		family: $font-family-sanfrancisco;
+		size: rem-calc(16);
+		weight: normal;
+	}
+	padding: rem-calc(17);
+	@include alert( rgba($gray-lighter, 1), $global-radius);
+
+	.close {
+		@include alert-close;
+		color: $dark-silver;
+		display: table-cell;
+		float: none;
+		font: {
+			weight: 300;
+			size: rem-calc(22);
+		}
+		line-height: 12px;
+		margin-top: 0;
+		padding: rem-calc(2 0 0 17);
+		position: relative;
+		right: auto;
+		top: auto;
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+	}
+
+	&.radius    { @include radius($alert-radius); }
+	&.round     { @include radius($global-rounded); }
+
+	> span {
+		display: table-cell;
+		vertical-align: top;
+		padding: {
+			left: rem-calc(10);
+		}
+		line-height: 1.3;
+		color: $charcoal;
+		font-family: $font-family-sanfrancisco;
+		font-size: rem-calc(14);
+		font-weight: 300;
+
+		ul {
+			line-height: 1.3;
+			margin-left: 0;
+
+			> li {
+				list-style: none;
+				margin-bottom: 15px;
+				font-size: rem-calc(14);
+
+	    	&:last-child {
+	    		margin-bottom: 0;
+	    	}
+	    }
+		}
+	}
+
+	.icon-alert {
+		display: table-cell;
+		vertical-align: top;
+		width: auto;
+		margin: $margin-icon;
+		font: {
+			size: $size-icon;
+		}
+
+		@extend %font-mdi;
+	}
+
+	&.success {
+		border: 1px solid $border-color-success;
+		padding: rem-calc(17);
+
+		.icon-alert {
+			&:before {
+				content: mdi('check-circle-outline');
+				color: $success-color;
+			}
+		}
+	}
+
+	&.alert {
+		border: 1px solid $border-color-alert;
+		padding: rem-calc(17);
+
+		.icon-alert {
+			&:before {
+				content: mdi('close-circle-outline');
+				color: $alert-color;
+			}
+		}
+	}
+
+	&.warning {
+		border: 1px solid $border-color-warning;
+		padding: rem-calc(17);
+
+		.icon-alert {
+			&:before {
+				content: mdi('alert-outline');
+				color: $warning-color;
+			}
+		}
+	}
+
+	&.info {
+		border: 1px solid $info-color;
+		padding: rem-calc(17);
+		
+		.icon-alert{
+			&:before {
+				content: mdi('information-outline');
+				color: $info-color;
+			}
+		}
+	}
+
+	&.secondary {
+		@include alert-style($secondary-color);
+		@include background-image(
+			linear-gradient(scale-color($secondary-color, $lightness: $lightness-per),
+				$secondary-color)
+		);
+
+		.icon-alert {
+			&:before {
+				content: mdi('alert-circle-outline');
+			}
+		}
+	}
+
+	&.gray-base {
+		@include alert-style($gray-base);
+		background-image: none;
+		background-color: $gray-base;
+		color: $white;
+	}
+
+	&.gray-light {
+		@include alert-style($gray-light);
+		background-image: none;
+		background-color: $gray-light;
+		color: $white;
+	}
+
+	&.gray-dark {
+		@include alert-style($gray-dark);
+		background-image: none;
+		background-color: $gray-dark;
+		color: $white;
+	}
+
+	&.alert-close { opacity: 0}
+}
+
+// alert notice outline
+.notice-outline-tp {
+
+	@include alert($bg: transparent);
+
+	.close      { @include alert-close; }
+
+	&.radius    { @include radius($alert-radius); }
+	&.round     { @include radius($global-rounded); }
+
+	background-color: $white;
+	border-color: $bgcolor-alert-primary;
+	color: $bgcolor-alert-primary;
+	padding: rem-calc(3 10);
+
+	> * {
+		line-height: 1;
+	}
+
+	> span {
+		display: table-cell;
+		vertical-align: top;
+		width: 100%;
+		line-height: 1.3;
+		padding: {
+			left: rem-calc(5);
+		}
+	}
+
+	.icon-alert {
+		display: table-cell;
+		vertical-align: top;
+		width: auto;
+		margin: $margin-icon;
+		font: {
+			size: $size-icon;
+		}
+		@extend %font-mdi;
+	}
+
+	&.success   {
+		border-color: $success-color;
+		color: $success-color;
+
+		.icon-alert {
+			&:before {
+				content: mdi('check-circle-outline');
+				// content: $fa-var-check-square;
+				// color: $warning-color;
+			}
+		}
+	}
+
+	&.alert     {
+		border-color: $alert-color;
+		color: $alert-color;
+
+		.icon-alert {
+			&:before {
+				content: mdi('alert-circle-outline');
+				// content: $fa-var-times-circle;
+				// color: $warning-color;
+			}
+		}
+	}
+
+	&.secondary {
+		border-color: $secondary-color;
+		color: $secondary-color;
+
+		.icon-alert {
+			&:before {
+				content: mdi('alert-circle-outline');
+				// content: $fa-var-times-circle-o;
+				// color: $warning-color;
+			}
+		}
+	}
+
+	&.warning {
+		border-color: $warning-color;
+		color: $warning-color;
+
+		.icon-alert {
+			&:before {
+				content: mdi('alert-outline');
+				// content: $fa-var-exclamation-triangle;
+				// color: $warning-color;
+			}
+		}
+	}
+
+	&.info {
+		border-color: scale-color($info-color, $lightness: -20%);
+		color: scale-color($info-color, $lightness: -20%);
+
+		.icon-alert{
+			&:before {
+				content: mdi('information-outline');
+				// content: $fa-var-info-circle;
+				// color: $warning-color;
+			}
+		}
+	}
+
+	&.gray-base {
+		border-color: $gray-base;
+    color: $gray-base;
+  }
+
+  &.gray-light {
+  	border-color: $gray-light;
+    color: $gray-light;
+  }
+
+  &.gray-dark {
+  	border-color: $gray-dark;
+    color: $gray-dark;
+  }
+
+	&.alert-close { opacity: 0}
+}

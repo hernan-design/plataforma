@@ -1,0 +1,136 @@
+%destapafuturo-tenth-cycle-stages {
+	#destapafuturo-tenth-cycle-stages {
+		background: $white url('http://static.tuproyecto.com/images/landing/redbavaria/reb-df-program-stages-bg.jpg') no-repeat center center/cover;
+
+		ul.list-program-stages {
+			width: 100%;
+
+			li.tab-item-stage {
+				padding: rem-calc(0 10);
+
+				> a {
+					position: relative;
+					display: block;
+					padding: 0;
+				}
+
+				.vline-timeline {
+					position: absolute;
+					display: block;
+					top: 100%;
+					left: 50%;
+					margin-left: -.5px;
+					height: rem-calc(100);
+					width: 1px;
+					background: transparent;
+
+					&:before {
+						content: '';
+						display: block;
+						width: 100%;
+						height: 50%;
+						background-color: $destapafuturo-bright-red-color;
+						@include transition(all 250ms ease-out);
+					}
+
+					&:after {
+						content: '';
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						margin: {
+							top: rem-calc(-8);
+							left: rem-calc(-8);
+						}
+						display: inline-block;
+						width: rem-calc(16);
+						height: rem-calc(16);
+						background-color: $destapafuturo-bright-red-color;
+						@include border-radius(50%);
+						@include transition(all 250ms ease-out);
+						@include box-sizing(border-box);
+					}
+				}
+
+				&:hover, &:not(.slick-slide).active, &.slick-center {
+
+					.item-stage-box {
+						.stage-number {
+							color: $oil !important;
+						}
+					}
+				}
+
+				&:not(.slick-slide).active, &.slick-center {
+					.vline-timeline {
+						&:before {
+							height: 100%;
+						}
+
+						&:after {
+							background-color: $white;
+							border: 4px solid $destapafuturo-bright-red-color;
+							width: rem-calc(20);
+							height: rem-calc(20);
+							margin: {
+								top: rem-calc(-10);
+								left: rem-calc(-10);
+							}
+						}
+					}
+				}
+
+				.item-stage-box {
+					position: relative;
+					padding: rem-calc(15 0);
+					background-color: $white;
+					@include box-shadow($box-shadow-item);
+					@include border-radius($global-radius);
+					@include transition(box-shadow 250ms ease-out);
+					text-align: center;
+
+					.stage-number{
+						display: inline-block;
+						width: 100%;
+						color: $aluminum;
+						padding: 0;
+						margin-bottom: rem-calc(10);
+					}
+
+					.stage-title {
+						display: inline-block;
+						width: 100%;
+						color: $jumbo;
+						font-size: rem-calc(13);
+						font-weight: 100;
+						margin-bottom: rem-calc(10);
+					}
+
+					&:hover {
+						@include box-shadow($box-shadow-item-hover);
+					}
+				}
+			}
+		}
+
+		.dots-timeline {
+			background: transparent url('http://static.tuproyecto.com/images/landing/redbavaria/dot-line.png') left center repeat-x;
+			width: 100%;
+			height: rem-calc(100);
+		}
+
+		.stage-program-content {
+
+			.current-stage {
+				display: block;
+				color: $iron;
+				margin-bottom: rem-calc(20);
+				font-weight: 100;
+			}
+
+			> .content {
+				padding: 0;
+			}
+		}
+	}
+}

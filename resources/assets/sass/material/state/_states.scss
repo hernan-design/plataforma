@@ -1,0 +1,21 @@
+// Styles of stages global
+//------------------------
+.disabled {
+	// color: $aluminum !important;
+	cursor: default !important;
+}
+
+.hidesoft {
+	display: none;
+}
+
+.hidedark {
+	display: none;
+	visibility: hidden;
+	height: 0px;
+}
+
+// Styles for Sticky plugin
+.sticky-wrapper-aside, .sticky-wrapper-general {
+	height: auto !important;
+}

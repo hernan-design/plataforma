@@ -1,0 +1,80 @@
+%sacudete-banner {
+	#sacudete-banner {
+		padding-bottom: 0;
+
+		// banner background image
+		.content-image-banner {
+			margin: 0;
+			position: relative;
+			height: rem-calc(800);
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/sacudete/sacudete-banner-img.jpg') 50% 30%/cover no-repeat;
+			padding-top: rem-calc(248);
+
+			@media #{$mobile-only} {
+				padding-top: rem-calc(220);
+			}
+
+			.fondo-emprender-logo {
+				margin-bottom: rem-calc(20);
+			}
+
+			.banner-title-1 {
+				font-size: rem-calc(38);
+				padding-bottom: rem-calc(45);
+				margin-bottom: rem-calc(45);
+				position: relative;
+				font-weight: 700;
+
+				&:after {
+	        background-color: $sacudete-bright-orange-color;
+	        content: "";
+	        display: block;
+	        height: 4px;
+	        position: absolute;
+	        left: 50%;
+	        margin-left: -25px;
+	        width: 50px;
+	        bottom: 0;
+	      }
+
+				@media #{$small-only}, #{$tablet-only} {
+					font-size: rem-calc(48);
+					line-height: 1.1;
+					margin-bottom: 27px;
+				}
+
+	      @media #{$mobile-only} {
+						font-size: rem-calc(32);
+	      }
+
+				@media #{$medium-only}, #{$large-only} {
+					font-size: rem-calc(40);
+					line-height: 1.2;
+					padding-bottom: rem-calc(45);
+				}
+			}
+
+			.banner-text {
+				font-weight: 300;
+				margin-bottom: rem-calc(20);
+
+			}
+
+			@media #{$mobile-only}, #{$small-only} {
+				.banner-text {
+					font-size: rem-calc(18);
+				}
+			}
+		}
+
+		// banner central content
+		.content-banner {
+			margin-top: rem-calc(-102);
+		}
+	}
+}
+
+
+
+
+

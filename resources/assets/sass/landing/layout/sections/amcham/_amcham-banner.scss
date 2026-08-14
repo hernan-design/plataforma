@@ -1,0 +1,25 @@
+%amcham-banner {
+	/*
+	* Banner landing
+	* ---------------
+	*/
+	#{$banner-land-top}{
+
+		// banner background image
+		.content-image-banner {
+
+			@media #{$mobile-up} {
+				background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/amcham/creame-landing-banner-tablet.jpg');
+			}
+
+			@media #{$xlarge-up} {
+				background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/amcham/creame-landing-banner-desktop.jpg');
+			}
+		}
+
+		// banner central content
+		.content-banner {
+			margin-top: rem-calc(-102);
+		}
+	}
+}

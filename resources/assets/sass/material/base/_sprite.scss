@@ -1,0 +1,33 @@
+.tp-icon {
+	background: $sprite-tuproyecto no-repeat;
+	background-size: cover;
+	display: inline-block;
+	vertical-align: middle;
+
+	&.tp-icon-cup{ 
+		background-position: 0 0px;
+		width: rem-calc(32);
+		height: rem-calc(32);
+	}
+	&.tp-icon-star{ 
+		background-position: 25% 0;
+		width: rem-calc(32);
+		height: rem-calc(32);
+	}
+	&.tp-icon-crown{ 
+		background-position: 50% 0 ;
+		width: rem-calc(32);
+		height: rem-calc(32);
+	}
+
+	&.tp-icon-shooting{ 
+		background-position: 75% 0 ;
+		width: rem-calc(32);
+		height: rem-calc(32);
+	}
+	&.tp-icon-projects{ 
+		background-position: 100% 0 ;
+		width: rem-calc(32);
+		height: rem-calc(32);
+	}
+}

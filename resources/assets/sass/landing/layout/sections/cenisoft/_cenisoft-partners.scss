@@ -1,0 +1,84 @@
+%cenisoft-partners {
+  #cenisoft-partners {
+    .container-partners{
+      background: linear-gradient(#002133, #243A4F);
+      height: 50vh;
+      width: 100%;
+      @media #{$mobile-only}, #{$small-only} {
+        height: 80vh;
+      }
+      .image-partners{
+        transform: translateY(10px);background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/cenisoft/footer-image.png);
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        h3{
+          text-align: center;
+          padding-top: 30px;
+          font-size: 4rem;
+          color: #D8D8D8;
+          letter-spacing: -1.5px;
+          font-weight: 200;
+          margin-bottom: 3rem;
+          @media #{$mobile-only}, #{$small-only} {
+            margin-bottom: 7rem;
+            font-size: 1.8rem;
+            font-weight:400;
+          }
+        }
+      }
+    }
+    .container-footer{
+      background: #002133;
+      height: 50vh;
+      width: 100%;
+      padding-top: 150px;
+      @media #{$mobile-only}, #{$small-only} {
+        height: 80vh;
+      }
+      div.row > div.contact-us{
+        h5{
+          color:#d7d2d2;
+          font-size: 1.7rem;
+          @media #{$mobile-only}, #{$small-only},#{$tablet-only}, #{$medium-only} {
+            font-size: 2.1rem;
+          }
+        }
+        a{
+          font-size: 20px;
+          color:#9DA6AD;
+          i{
+            margin: 8px;
+            color:white;
+            width: 25px;
+          }
+        }
+      }
+      div.row > div.follow-us{
+        h5{
+          color:#d7d2d2;
+          font-size: 1.7rem;
+          @media #{$mobile-only}, #{$small-only},#{$tablet-only}, #{$medium-only} {
+            font-size: 2.1rem;
+          }
+        }
+        a > i{
+          margin: 20px 5px 0px 5px;
+          color:white;
+          width: 25px;
+          font-size: 30px;
+        }
+      }
+      div.row > div.image-company{
+        img{
+          width: 60%;
+        }
+      }
+      div.row > hr {
+        border-style: dotted;
+      }
+    }
+
+  }
+}

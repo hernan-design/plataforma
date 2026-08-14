@@ -1,0 +1,407 @@
+// ----------------------------------------
+// General platform styles
+// @author TuProyecto
+// @link coposoftware.com
+// ----------------------------------------
+
+body {
+	padding-top: $topbar-height + rem-calc(4);
+}
+// heights and posotions of main wrappers
+// --------------------------------------
+#wrapper-main-all {
+	min-height: 100%;
+	overflow: visible;
+
+	#wrapper-inner-all {
+		position: static;
+		min-height: 100%;
+	}
+}
+
+// strip of register and login buttons
+// -----------------------------------
+.strip-sign-up {
+	position: fixed;
+	top: $topbar-height + rem-calc(4);
+	left: 0px;
+	background-color: transparentize($white,.3);
+	width: 100%;
+	z-index: 2;
+	padding: rem-calc(12 0);
+
+	ul.buttons-sign-up {
+		button, .button {
+			margin: 0;
+		}
+
+		li {
+			color: $jumbo;
+			a:not(.button) {
+				color: inherit;
+			}
+		}
+	}
+}
+.strip-sign-up-mobile {
+	padding: rem-calc(12 0);
+}
+
+/*
+* Main Container
+* --------------
+*/
+#{$main-wrap} {
+	position: static;
+	min-height: 100%;
+	padding: {
+		// top: rem-calc(15);
+		bottom: rem-calc(50);
+	}
+	background-color: $bgcolor-main-wrap;
+
+	/**
+	* =============================
+	* Styles for banners in modules
+	* =============================
+	*/
+	.banner-section {
+		display: table;
+		top: 0;
+		left: 0;
+		height: 185px;
+		width: 100%;
+
+		@media #{$large-up} {
+		  height: 285px;
+		}
+	}
+
+	.header-section {
+		margin: 0;
+		background-repeat: repeat;
+		background-position: center;
+		display: table-cell;
+		vertical-align: middle;
+		padding-top: rem-calc(60);
+
+		> i {
+			color: $white;
+			border-color: $white;
+		}
+
+		> h2 {
+			font-size: rem-calc(21);
+			color: $white;
+		}
+
+		> p {
+			font-size: rem-calc(14);
+			color: $white;
+		}
+
+		@media #{$large-up} {
+			> h2 {
+			  font-size: rem-calc(36);
+			}
+
+			> p {
+			  font-size: rem-calc(18);
+			}
+		}
+	}
+
+  #content-browse-programs {
+		.header-section {
+		  background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/general/banner-convocatorias-bg.jpg');
+		}
+	}
+
+	/**
+	* =========================
+	* Styles for learn section
+	* =========================
+	*/
+	#course-wrapper {
+    background-color: $white;
+		@extend %learn-main !optional;
+
+		#course-content {
+			.wrapper-content-course {
+				@include margin-top-module-menu;
+			}
+			@extend %courses-list !optional;
+			@extend %course-detail !optional;
+			@extend %course-dashboard !optional;
+			@extend %course-lecture !optional;
+		}
+	}
+
+	/**
+	* ============================
+	* Styles for mentoring section
+	* ============================
+	*/
+	#mentoring-wrapper {
+    @extend %mentoring-main !optional;
+
+		#mentoring-content {
+      @extend %mentoring-navigation-bar !optional;
+      @extend %mentoring-questions !optional;
+      @extend %mentoring-sessions !optional;
+			@extend %mentoring-mentor !optional;
+      @extend %mentoring-feedback !optional;
+      @extend %mentoring-evaluation-mentor !optional;
+      @extend %mentoring-create-mentor !optional;
+		}
+	}
+
+	/**
+	* =======================
+	* Styles for blog section
+	* =======================
+	*/
+	#blog-wrapper {
+
+		@extend %blog-main !optional;
+
+		#blog-content {
+			width: 100%;
+
+			@extend %blog-browse !optional;
+			@extend %blog-article !optional;
+		}
+	}
+
+	/**
+	* ==============================
+	* Styles for marketplace section
+	* ==============================
+	*/
+	#marketplace-wrapper {
+    @include margin-top-module-menu;
+
+		@extend %marketplace-main !optional;
+
+		#marketplace-content {
+
+			@extend %marketplace-browse !optional;
+			@extend %marketplace-detail !optional;
+			@extend %marketplace-purchase !optional;
+			@extend %marketplace-mypurchases !optional;
+			@extend %marketplace-createproduct !optional;
+			@extend %marketplace-evaluation !optional;
+			@extend %marketplace-mypromotions !optional;
+		}
+	}
+
+	/**
+	* ===========================
+	* Styles for calendar section
+	* ===========================
+	*/
+	#calendar-wrapper {
+
+		@extend %events-main !optional;
+
+		#calendar-content {
+			@extend %events-browse !optional;
+			@extend %event-detail !optional;
+		}
+	}
+
+	/**
+	* ===============================
+	* Styles for user profile section
+	* ===============================
+	*/
+	#user-wrapper {
+
+		@extend %profile-main !optional;
+
+		#user-content {
+			@extend %profile-user !optional;
+		}
+	}
+
+	#search-wrapper {
+		@extend %search-main !optional;
+	}
+
+	/**
+	* ===========================
+	* Styles for programs section
+	* ===========================
+	*/
+	#calls-wrapper {
+		@extend %programs-main !optional;
+
+		#calls-content {
+			@extend %programs-detail !optional;
+			@extend %programs-apply-main !optional;
+		}
+	}
+
+	/**
+	* ==================
+	* Styles for surveys
+	* ==================
+	*/
+	#survey-wrapper {
+		@extend %survey-main !optional;
+
+		#survey-content {
+
+		}
+	}
+	// survey general
+	@extend %survey-main !optional;
+
+	/**
+	* ===================
+	* Styles for entities
+	* ===================
+	*/
+	#project-wrapper {
+    @include margin-top-module-menu;
+
+		@extend %entities-main !optional;
+
+		#project-content {
+			@extend %entities-browse !optional;
+			@extend %entities-detail !optional;
+		}
+	}
+
+	/**
+	* ========================
+	* Styles for notifications
+	* ========================
+	*/
+	#notification-wrapper {
+		@extend %notification-main !optional;
+
+		#notification-content {
+
+		}
+	}
+
+	/**
+	* =====================
+	* Styles for discussion
+	* =====================
+	*/
+	#discussion-wrapper {
+		@extend %discussion-main !optional;
+
+		#discussion-content {
+
+		}
+	}
+
+	/**
+	* ==============================
+	* Styles for evaluation projects
+	* ==============================
+	*/
+	#evaluation-project-wrapper {
+    @include margin-top-module-menu;
+
+		@extend %evaluator-main !optional;
+
+		#evaluation-project-content {
+			@extend %evaluator-browse !optional;
+			@extend %evaluator-detail !optional;
+		}
+	}
+
+	/**
+	* ==============================
+	* Styles for features
+	* ==============================
+	*/
+	#features-wrapper {
+		@extend %features-main !optional;
+
+	}
+
+	/**
+	* ==============================
+	* Styles for pricing
+	* ==============================
+	*/
+	#pricing-wrapper {
+		@extend %pricing-main !optional;
+
+	}
+
+	/**
+	* ==============================
+	* Styles for comunity/wall
+	* ==============================
+	*/
+	#wall-wrapper {
+		@extend  %wall-main !optional;
+	}
+
+	/**
+	* ==============================
+	* Styles for register user
+	* ==============================
+	*/
+	#registration-user-wrapper {
+		@extend %registration-process-main !optional;
+		@extend %registration-mail-confirmation !optional;
+		@extend %registration-general-info !optional;
+		@extend %registration-community-channels !optional;
+	}
+
+	/**
+	* ================
+	* Styles for forum
+	* ================
+	*/
+	#forum-wrapper {
+		@extend %forum-main !optional;
+		@extend %forum-browse !optional;
+	}
+	/**
+	* ================
+	* Styles for help
+	* ================
+	*/
+	#help-wrapper {
+		@extend %help-main !optional;
+	}
+
+	@extend %app-errors !optional;
+}
+
+/**
+* ===================================
+*	Styles for login and register forms
+* ===================================
+*/
+.wrapper-signin {
+	@extend %login-main !optional;
+	@extend %login-form !optional;
+	@extend %register-form !optional;
+	@extend %terms-form !optional;
+	@extend %pending-institution !optional;
+	@extend %confirm-form !optional;
+	@extend %pending-profile !optional;
+	@extend %pending-profile-entity !optional;
+	@extend %remind-form !optional;
+	@extend %reset-form !optional;
+	@extend %deactivation-account-form !optional;
+	@extend %general-middleware !optional;
+	@extend %verify-account !optional;
+}
+/**
+* ===================================
+*	Styles for chat
+* ===================================
+*/
+#chat-browse-wrap{
+  @extend  %chat-main !optional;
+}

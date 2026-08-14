@@ -1,0 +1,81 @@
+//
+// Styles for forms modal
+// @author TuProyecto.co
+// @frontend @krobing
+// ---------------------
+
+
+// Styles of menu for put on forms
+.menu-modal-form {
+	padding: rem-calc(35 5 0);
+	border-bottom: 1px solid scale-color(#D0D0D0, $lightness: 40%);
+
+	.nav-form-slide{
+		ul.menu-carousel-form{
+			margin: 0px;
+
+			> li {
+				list-style: outside none none;
+				display: inline-block;
+				vertical-align: middle;
+				margin: {
+					right: rem-calc(15);
+				}
+				&:nth-last-child(1){
+					margin: {
+						right: 0px;
+					}
+				}
+
+				.title-step{
+					display: inline-block;
+					width: 100%;
+					margin: { top: rem-calc(8); }
+					font: {
+						family: $font-family-sanfrancisco;
+						size: rem-calc(15);
+						weight: 300,
+					}
+					text-transform: uppercase;
+				}
+
+				a {
+					position: relative;
+					top: rem-calc(1);
+					display: inline-block;
+					color: scale-color($color-alt-form, $lightness: -10%);
+					border-bottom: none;
+					padding: {
+						bottom: rem-calc(5);
+					}
+
+					&:hover:not(.disabled), &.active:not(.disabled) {
+						@extend %inst-color-body-invert;
+						border-bottom: 1px solid $background-body;
+					}
+
+					.icon {
+						font-size: rem-calc(30);
+
+						&.icon-bases{
+							font-size: rem-calc(35);
+						}
+						&.icon-money{
+							font-size: rem-calc(35);
+						}
+
+					}
+					.icon-products-project {
+						font-size: rem-calc(30);
+					}
+				}
+			}
+
+			.icon-bases, .icon-money {
+				+ .title-step{
+					margin-top: rem-calc(3) !important;
+				}
+			}
+		}
+	}
+}

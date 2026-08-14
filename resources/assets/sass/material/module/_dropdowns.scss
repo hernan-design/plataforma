@@ -1,0 +1,630 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for dropdowns
+// ------------------
+
+//
+// Variables
+//
+$drop-box-shadow: 6px 6px 70px rgba($black, .28) !default;
+
+// Styles for dropdown base
+// ------------------------
+.md-dropdown {
+
+  @include dropdown-container (
+    $content: content,
+    $triangle: bottom
+  );
+
+  &.drop-#{$opposite-direction} {
+    @include dropdown-container(content, #{$default-float});
+  }
+
+  &.drop-#{$default-float} {
+    @include dropdown-container(content, #{$opposite-direction});
+  }
+
+  &.drop-top {
+    @include dropdown-container(content, top);
+  }
+
+  @include box-shadow($drop-box-shadow);
+
+  &.radius {
+  	@include radius($f-dropdown-radius);
+  }
+
+  &.round {
+  	@include radius($global-rounded);
+  }
+
+  @media #{$mobile-only}, #{$small-only} {
+		margin: {
+			left: rem-calc(10);
+			right: rem-calc(10);
+		}
+  }
+
+	@media #{$tablet-only} {
+		left: rem-calc(10) !important;
+		right: rem-calc(10);
+	}
+
+  &:after {
+  	content: none !important;
+  }
+
+	// invert arrow vertical
+  &.arrow-inverted-left {
+
+		&:not(.drop-#{$opposite-direction}):not(.drop-#{$default-float}) {
+
+	  	&:before {
+		  	left: auto !important;
+		  	right: $f-dropdown-triangle-side-offset !important;
+	  	}
+		}
+  }
+
+	// invert arrow horizontal
+  &.arrow-inverted-top {
+
+  	&.drop-#{$opposite-direction}, &.drop-#{$default-float} {
+
+	  	&:before {
+		  	top: auto;
+		  	bottom: $f-dropdown-triangle-side-offset !important;
+	  	}
+  	}
+  }
+
+  // Sizes
+  &.tiny    { max-width: 200px; }
+  &.small   { max-width: 300px; }
+  &.medium  { max-width: 500px; }
+  // &.large   { max-width: 800px; }
+  &.mega    {
+    width:100%!important;
+    max-width:100%!important;
+
+    &.open{
+      left:0!important;
+    }
+  }
+
+	&.large {
+		max-width: 800px;
+	}
+
+  @media #{$mobile-only}, #{$small-only} {
+  	&.open {
+	  	width: 100% !important;
+	  	max-width: 100% !important;
+	  	left: 0 !important;
+  	}
+  }
+
+  &.drop-card {
+  	padding: rem-calc(10) !important;
+  }
+
+  &.drop-strip {
+  	padding: rem-calc(5 10) !important;
+
+  	> li {
+  		> * {
+  			white-space: nowrap;
+  		}
+  	}
+  }
+
+  &.drop-editing {
+  	width: 100% !important;
+  }
+
+  &.drop-account {
+  	padding: rem-calc(10 25 25);
+
+  	.card-user-info {
+			margin-left: rem-calc(-25);
+			margin-right: rem-calc(-25);
+  	}
+  }
+
+}
+
+// Styles for dropdown notifications 
+// ---------------------------------
+.notification-layer-dropdown {
+
+	@include dropdown-container (
+		$content: list,
+		$triangle: false
+	);
+
+	&.drop-#{$opposite-direction} {
+		@include dropdown-container(list, #{$default-float});
+	}
+
+	&.drop-#{$default-float} {
+		@include dropdown-container(list, #{$opposite-direction});
+	}
+
+	&.drop-top {
+		@include dropdown-container(list, top);
+	}
+
+	&.drop-bottom {
+		@include dropdown-container(list, bottom);
+
+		&:before {
+			left: auto;
+			right: $topbar-link-padding + rem-calc(1);
+		}
+		&:after {
+			left: auto;
+			right: $topbar-link-padding;
+		}
+	}
+
+	&.open {
+		left: auto !important;
+	}
+
+  &.radius {
+  	@include radius($f-dropdown-radius);
+  }
+
+  &.round {
+  	@include radius($global-rounded);
+  }
+
+	width: auto !important;
+	max-height: rem-calc(520) !important;
+	right: 0px !important;
+	padding: {
+  	top: $f-dropdown-content-padding / 2 !important;
+  	bottom: $f-dropdown-content-padding / 2 !important;
+  };
+	background-color: $white;
+	@include box-shadow(1px 1px 15px rgba($black, .4));
+
+	> li:not(.has-form) {
+		@include dropdown-style;
+		float: none;
+		white-space: nowrap;
+
+		&:hover, &:focus {
+			color: $sky-blue;
+
+			a:hover:not(.button), a:focus:not(.button) {
+				color: $sky-blue;
+				background: transparent;
+				border-bottom: none !important;
+
+				ul {
+					&, li {
+						font: inherit;
+						color: inherit;
+						background: inherit;
+					}
+				}
+			}
+
+			> a {
+				background-color: inherit !important;
+			}
+		}
+
+		.title-category-opts {
+			display: block;
+			padding: rem-calc(15) $topbar-link-padding rem-calc(0);
+		}
+
+		> a, > a:not(.button) {
+			color: $monsoon;
+			padding: rem-calc(15) $topbar-link-padding;
+			text-transform: none;
+			line-height: normal;
+			height: auto !important;
+			font: {
+				size: rem-calc(14);
+			}
+			white-space: nowrap;
+			background: transparent;
+
+			i {
+				margin: {
+					left: rem-calc(5);
+				}
+			}
+
+			ul {
+				&, li {
+					font: inherit;
+					color: inherit;
+					background: inherit;
+				}
+			}
+		}
+	}
+
+	&.gutter-side {
+
+		> li {
+			padding: rem-calc(0) $topbar-link-padding !important;
+
+			&:hover, :focus {
+				cursor: default;
+			}
+
+			> a {
+				padding: {
+					left: 0 !important;
+					right: 0 !important;
+				}
+			}
+
+			.title-category-opts {
+				padding: {
+					left: 0 !important;
+					right: 0 !important;
+				}
+			}
+		}
+	}
+
+	.list-inner-dropdown {
+		li:not(.has-form) {
+			&:hover, &:focus {
+				color: initial;
+
+				a:hover:not(.button), a:focus:not(.button) {
+					color: initial;
+					background: transparent;
+					border-bottom: none !important;
+				}
+			}
+
+			a:not(.button) {
+				line-height: initial !important;
+				padding: 0px !important;
+				height: auto !important;
+				text-transform: none !important;
+			}
+		}
+	}
+
+	// You can also put custom content in these dropdowns
+	&.content { @include dropdown-container(content, $triangle:false); }
+
+	// Sizes
+	&.tiny    { max-width: 200px !important; }
+	&.small   { max-width: 300px !important; }
+	&.medium  { max-width: 500px !important; }
+	&.large   { max-width: 800px !important; }
+	&.mega    {
+		width:100% !important;
+		max-width:100% !important;
+
+		&.open{
+			left:0!important;
+		}
+	}
+}
+.has-dropdown {
+	.notification-layer-dropdown {
+		top: auto !important;
+		min-width: 100%;
+		margin: {
+			top: 0 !important;
+		}
+
+		> li {
+			a {
+				display: block;
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+// Style for plus create
+// ---------------------
+.drop-plus-create, .drop-options-md {
+	position: absolute;
+	right: 0px;
+	top: rem-calc(-25);
+	width: auto;
+	margin: {
+		right: rem-calc(15); //$column-gutter / 2;
+	};
+
+	// plus create button
+	.btn-plus-create {
+		font-size: rem-calc(15);
+	}
+
+	ul.drop-opt-create, ul.drop-opt-md {
+		list-style: outside none none;
+		margin: 0;
+		padding: rem-calc(18 7 18 0);
+		@include dropdown-container($content: false, $triangle: false);
+		overflow: hidden;
+		@media #{$tablet-up} {
+			width: rem-calc(300) !important;
+		}
+		// left: 0px;
+
+		&.open {
+			left: auto !important;
+			right: 0px;
+		}
+
+		> li {
+			text-align: right;
+
+			&:not(:last-child) {
+				margin: {
+					bottom: rem-calc(12);
+				}
+			}
+
+			label {
+				background-color: $charcoal;
+				font: {
+					size: rem-calc(12);
+				}
+				cursor: pointer;
+			}
+			.icon-drop {
+				vertical-align: middle;
+				margin: {
+					left: rem-calc(6);
+				}
+				font-size: rem-calc(20);
+			}
+			a {
+				text-align: right;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+		position: fixed;
+		top: auto;
+		right: rem-calc(15);
+		bottom: rem-calc(25);
+
+		.btn-plus-create {
+			font-size: rem-calc(20);
+		}
+
+		ul.drop-opt-create, ul.drop-opt-md {
+			top: auto !important;
+			bottom: 100%;
+			width: rem-calc(300) !important;
+
+			> li {
+				label {
+					font: {
+						size: rem-calc(14);
+					}
+				}
+				.icon-drop {
+					font-size: rem-calc(25);
+				}
+			}
+		}
+	}
+}
+
+// Dropdown styles
+// ---------------
+.friendship-dropdown, .opts-action-dropdown {
+
+
+  width: auto !important;
+  // right: auto !important;
+  padding: {
+  	top: $f-dropdown-content-padding / 2;
+  	bottom: $f-dropdown-content-padding / 2;
+  };
+
+	@include dropdown-container (
+    $content: list,
+    $triangle: false
+  );
+
+	&:not(.no-arrow) {
+		@include dropdown-container (
+	    $content: list,
+	    $triangle: bottom
+	  );
+	}
+
+  &.drop-#{$opposite-direction} {
+    @include dropdown-container(list, #{$default-float});
+  }
+
+  &.drop-#{$default-float} {
+    @include dropdown-container(list, #{$opposite-direction});
+  }
+
+  &.drop-top {
+    @include dropdown-container(list, top);
+  }
+
+  @include box-shadow($drop-box-shadow);
+
+  &.radius {
+  	@include radius($f-dropdown-radius);
+  }
+
+  &.round {
+  	@include radius($global-rounded);
+  }
+
+	// invert arrow vertical
+  &.arrow-inverted-left {
+
+  	&:not(.drop-#{$opposite-direction}):not(.drop-#{$default-float}) {
+
+	  	&:before {
+		  	left: auto !important;
+		  	right: $f-dropdown-triangle-side-offset !important;
+	  	}
+	  	&:after {
+	  		left: auto !important;
+	  		right: $f-dropdown-triangle-side-offset - 1 !important;
+	  	}
+		}
+  }
+
+	// invert arrow horizontal
+  &.arrow-inverted-top {
+
+  	&.drop-#{$opposite-direction}, &.drop-#{$default-float} {
+
+	  	&:before {
+		  	top: auto;
+		  	bottom: $f-dropdown-triangle-side-offset !important;
+	  	}
+	  	&:after {
+	  		top: auto;
+		  	bottom: $f-dropdown-triangle-side-offset - 1 !important;
+	  	}
+  	}
+  }
+
+	> li {
+		@include dropdown-style;
+
+		&:hover, &.active {
+			> a {
+				@extend %color-sky-blue;
+			}
+		}
+
+		> a {
+			color: $jumbo;
+			padding: rem-calc(5 16);
+
+			&:hover, &:focus {
+				@extend %color-sky-blue;
+				text-decoration: none;
+			}
+			white-space: nowrap;
+		}
+	}
+
+	&.items-checked {
+		> li {
+			> a {
+				&.edit-privacy {
+					padding-left: 25px;
+				}
+			}
+
+			&.active {
+				> a {
+					position: relative;
+
+					&:before {
+						content: mdi('check');
+						position: absolute;
+						top: rem-calc(10);
+						left: 6px;
+						font-size: rem-calc(14);
+						color: $jumbo;
+						@extend %font-mdi;
+					}
+				}
+			}
+		}
+	}
+
+	&.items-wrap {
+		> li {
+			a {
+				white-space: normal;
+			}
+		}
+	}
+	&.items-nowrap {
+		> li {
+			a {
+				white-space: nowrap;
+			}
+		}
+	}
+
+  &.drop-shared-social {
+		> li {
+			padding: rem-calc(0 20);
+		}
+  }
+
+  // You can also put custom content in these dropdowns
+  &.content { @include dropdown-container(content, $triangle:false); }
+
+  // Sizes
+  &.tiny    {
+  	max-width: 200px;
+
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			max-width: 200px !important;
+			left: 50% !important;
+			margin-left: -100px !important;
+		}
+	}
+
+  &.small   { max-width: 300px; }
+  &.medium  { max-width: 500px; }
+  &.large   { max-width: 800px; }
+  &.mega    {
+    width:100%!important;
+    max-width:100%!important;
+
+    &.open{
+      left:0!important;
+    }
+  }
+}
+
+// styles for action on dropdown
+.action-state-drop {
+	text-decoration: none;
+	color: $charcoal;
+	display: inline-block;
+	line-height: 1;
+
+	&:hover {
+		text-decoration: none;
+
+		> span {
+			color: $sky-blue;
+		}
+	}
+
+	.icon-drop {
+		color: inherit;
+		vertical-align: middle;
+
+		&.icon-left {
+			margin-right: rem-calc(2);
+		}
+		&.icon-right {
+			margin-left: rem-calc(2);
+		}
+	}
+
+	> span {
+		color: inherit;
+	}
+}

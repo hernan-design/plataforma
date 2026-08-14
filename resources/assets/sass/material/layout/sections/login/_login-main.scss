@@ -1,0 +1,54 @@
+// Styles for login main
+//----------------------
+
+%login-main {
+
+	.inner-signin {
+		padding: rem-calc(40);
+		@include box-shadow(2px 2px 8px $iron);
+	}
+
+	.content-social-register {
+		padding: rem-calc(0);
+	}
+
+	.text-info {
+		line-height: 1;
+	}
+
+	.content-login-inner {
+		margin: rem-calc(0 0 50);
+
+		[type="submit"] {
+			margin: rem-calc(15 0) !important;
+		}
+	}
+
+	.advise-login, .advise-register {
+		margin: {
+			bottom: rem-calc(10);
+		}
+	}
+
+	.widget-login-recaptcha {
+		> div {
+			margin: 0 auto;
+		}	
+	}
+}
+
+.terms-institution {
+	margin: {
+		top: rem-calc(70);
+	}
+	padding: rem-calc(50 100);
+
+	p {
+		@extend .block-text-xmedium;
+		text-align: justify;
+	}
+
+	ul, ol {
+		@extend .text-xmd;
+	}
+}

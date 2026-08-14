@@ -1,0 +1,72 @@
+%innpulsa-emprendedores {
+  #innpulsa-emprendedores {
+    background-color: $innpulsa-dark-blue-color;
+    padding: rem-calc(80 0);
+
+    @media #{$mobile-only}, #{$small-only} {
+      padding: rem-calc(30 0);
+    }
+
+    @media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+      padding: rem-calc(50 0);
+    }
+
+    .section-title {
+      > b {
+        color: $innpulsa-regular-blue-color;
+      }
+    }
+
+    .emprendedores-list {
+      margin: 0;
+
+      &.list-1 {
+        @media #{$tablet-up} {
+          border-bottom: 1px solid $innpulsa-deep-blue-color;
+        }
+      }
+
+      &.list-2 {
+        .emprendedores-item {
+          border-bottom: 0;
+        }
+      }
+
+      .emprendedores-item {
+        padding: rem-calc(30);
+
+        @media #{$tablet-up} {
+          padding: rem-calc(30);
+          border-right: 1px solid $innpulsa-deep-blue-color;
+        }
+
+        @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+          padding: rem-calc(15);
+        }
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+    }
+
+
+    .emprendedores-icon {
+      width: 100px;
+
+      @media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only} {
+        width: 50px;
+      }
+
+      @media #{$large-only}, #{$xlarge-only} {
+        width: 90px;
+      }
+    }
+
+    .emprendedores-text {
+      @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+        font-size: rem-calc(14);
+      }
+    }
+  }
+}

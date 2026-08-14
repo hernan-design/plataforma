@@ -1,0 +1,53 @@
+%innpulsa-about-subscribe {
+	#innpulsa-about-subscribe {
+		background-color: $gray-light;
+
+		.about-video {
+			@media #{$medium-up} {
+				margin-top: rem-calc(60);
+			}
+
+			margin-top: rem-calc(0);
+		}
+
+		.about-text-box {
+			@media #{$medium-up} {
+				margin-bottom: rem-calc(70);
+			}
+
+			.about-title {
+				font-size: rem-calc(32);
+				font-weight: 600;
+				color: $innpulsa-bright-red-color;
+				margin-top: rem-calc(10);
+			}
+
+			.subscribe-text {
+				margin-bottom: 5px;
+			}
+
+			.legal-text {
+				font-size: rem-calc(14);
+				color: $monsoon;
+
+				> a {
+					color: $innpulsa-bright-blue-color;
+				}
+			}
+
+			.subscribe-text, .legal-text {
+				> a {
+					color: $innpulsa-bright-blue-color;
+				}
+			}
+
+			@media #{$medium-up} {
+				.about-title {
+					margin-top: rem-calc(50);
+				}
+			}
+		}
+
+	}
+}
+

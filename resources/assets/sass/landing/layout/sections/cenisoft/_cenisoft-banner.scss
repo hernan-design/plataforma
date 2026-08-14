@@ -1,0 +1,104 @@
+%cenisoft-banner {
+  #cenisoft-banner {
+    height: 100%;
+    position: relative;
+    background: black;
+
+    .slider-img {
+      height: 100%;
+      width: 100%;
+      left: 50%;
+      top: 50%;
+      position: absolute;
+      // margin-left: -960px;
+      // margin-top: -540px;
+      @include translate(-50%, -50%);
+      @media #{$mobile-only}, #{$small-only},#{$tablet-only}, #{$medium-only} {
+      background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/cenisoft/banner_principal_3.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+      @media #{$large-only}, #{$xlarge-only},#{$xxlarge-only} {
+        background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/cenisoft/banner_principal_1.png);
+        background-repeat: no-repeat;
+      }
+      > .slider-opacity{
+        background: rgba(0,0,0,0.7);
+        width: 100%;
+        height: 100vh;
+      }
+    }
+    .slick-slider-default {
+      height: 100%;
+      margin: 0;
+
+      .slick-list {
+        height: 100%;
+
+        .slick-track {
+          height: 100%;
+        }
+      }
+
+      .wrap-img-slider {
+        height: 100%;
+      }
+
+      .slick-slider-content {
+        position: absolute;
+        top: 110px;
+        width: 100%;
+        height: 100%;
+
+        > .rows {
+          height: 100%;
+          width: 100%;
+        }
+
+        .slider-content {
+          margin-top: rem-calc(80);
+          .slick-title-1 {
+            color: #D8D8D8;
+            position: relative;
+            font-weight: 300;
+            font-size: rem-calc(56);
+            line-height: 1.2;
+            @media #{$mobile-only}, #{$small-only} {
+              font-size: rem-calc(28.8);
+              margin-bottom: rem-calc(48);
+            }
+          }
+
+          .signin-button {
+            margin-top: rem-calc(32);
+            border: 0;
+            text-transform: inherit;
+            background-color: #0082CA; // Old browser
+            @include border-radius(15px);
+            padding: rem-calc(8 20.8);
+            font-size: rem-calc(32);
+
+            @media #{$mobile-only}, #{$small-only} {
+              display: block;
+              width: rem-calc(208);
+              margin: auto;
+              font-size: rem-calc(24);
+            }
+
+            &:hover {
+              color: $white;
+            }
+          }
+          span{
+            font-family: 'Sansation Light';
+            font-size: rem-calc(12.8);
+            margin-left: rem-calc(80);
+            @media #{$mobile-only}, #{$small-only} {
+              margin-left: rem-calc(96);
+            }
+          }
+        }
+      }
+    }
+  }
+}

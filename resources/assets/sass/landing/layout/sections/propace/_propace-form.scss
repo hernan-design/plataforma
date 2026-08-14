@@ -1,0 +1,62 @@
+%propace-form{
+  #propace-form{
+    padding: 5rem 0rem;
+    @media #{$mobile-only}{
+      padding: 3rem 0rem;
+    }
+    .row{
+      #contenedor-form{
+        .rows{
+          p#terminos{
+            font-family: 'FiraSans Regular';
+            font-size: .9rem;
+            line-height: 1.2rem;
+            color: #2B337A;
+            a{
+              color: #C81C5F;
+            }
+
+          }
+          #contenedor-formulario{
+            h4{
+              font-family: 'FiraSans Regular';
+              font-size: 1.2rem;
+              color: #2B337A;
+              a{
+                color: #C81C5F;
+              }
+            }
+            #terminos{
+
+              font-family: 'FiraSans Regular';
+              font-size: .9rem;
+              line-height: 1.2rem;
+              color: #2B337A;
+              a{
+                color: #C81C5F;
+              }
+
+            }
+            .row{
+                div{
+                  i{
+                    color: #2B337A;
+                  }
+                  input{
+                    border: 1px solid #2B337A;
+                    margin-left: 2.4rem !important;
+                    text-indent: .5rem;
+                  }
+                  button{
+                    font-family: "FiraSans Bold";
+                    background: #2B337A;
+                    font-size: 1.3rem;
+                  }
+                }
+            }
+          }
+        }
+      }
+    }
+  }
+}

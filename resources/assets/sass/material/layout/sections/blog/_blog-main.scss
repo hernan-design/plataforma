@@ -1,0 +1,58 @@
+// Styles for blog main
+//-------------------------
+%blog-main {
+
+	.article-published {
+		display: inline-block;
+	}
+
+	.content-mostviewed-list {
+		height: auto;
+		max-height: 85%;
+		padding: {
+			right: rem-calc(5);
+		}
+
+		ul.browse-list-most-viewed-articles {
+
+			> li {
+				border: none;
+
+				&:first-of-type {
+					padding-top: 0;
+				}
+
+				.item-data-list, .item-wrap-list {
+					// @include box-shadow($box-shadow-item);
+
+					.content-item-data {
+						> p {
+							overflow: hidden;
+							height: rem-calc(54);
+						}
+					}
+				}
+
+				.article-published {
+					position: absolute;
+					left: rem-calc(15);
+					bottom: rem-calc(10);
+				}
+			}
+		}
+	}
+
+	ul.article-author-details {
+		list-style: outside none none;
+		margin: 0;
+		width: 100%;
+
+		> li {
+
+			&:first-of-type {
+				margin-bottom: rem-calc(8);
+			}
+		}
+	}
+
+}

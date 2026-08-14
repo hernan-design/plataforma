@@ -1,0 +1,425 @@
+/**
+* Customized Media Queries Base
+* ------------------------------
+*/
+
+// Screen less to 480px resolution
+@media #{$mobile-up} {
+
+	// grid
+	.row {
+		@include grid-row();
+	}
+
+	@include grid-greater-than-other($sizeUp:mobile) {
+		// columns grid
+		@include grid-html-classes($size:mobile);
+		// block-grid
+		@include block-grid-html-classes($size:mobile,$include-spacing:false);
+	}
+
+	/*
+	* Header - topbar
+	* ---------------
+	*/
+	#{$header-land}{
+		// top menu
+		#nav-header {
+			.top-bar-section {
+
+				#nav-menus-grid {
+					display: block;
+
+					> li {
+						display: list-item;
+					}
+
+					.right-nav-top-bar {
+						float: none;
+					}
+				}
+
+				li:not(.has-form) {
+					> a:not(.button) {
+						height: auto;
+					}
+				}
+
+				ul.left-top-menu {
+					display: table;
+				}
+
+				ul.right-top-menu {
+					display: block;
+
+					> li {
+						display: list-item;
+						padding: {
+							left: 0;
+							right: 0;
+						}
+
+						> a:not(.button) {
+							height: 2.8em;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/*
+	* Banner landing
+	* ---------------
+	*/
+	#{$banner-land-top}{
+	}
+}
+@media #{$mobile-only} {
+
+	@include block-grid-html-classes($size:mobile-only,$include-spacing:false);
+
+	//Styles landing
+	#{$wrapper-land}{
+
+		/*
+		* Main Content
+		* -------------
+		*/
+		#{$main-land}{
+
+			.work-info-land{
+
+				ul.list-work-info{
+					@include redefine-padding-gb( rem-calc(0 0 20) );
+				}
+			}
+		}
+	}
+}
+
+// Small Resolution Mobile-only
+@media #{$small-only} {
+
+	//Styles landing
+	#{$wrapper-land}{
+		/*
+		* Header - topbar landing
+		* ----------------
+		*/
+		#{$header-land}{
+			.color-register-land {
+				line-height: $topbar-height;
+				padding: {
+					right: $topbar-link-padding;
+				}
+			}
+		}
+
+		/*
+		* Banner landing
+		* ---------------
+		*/
+		#{$banner-land-top}{
+
+			.logo-institution{
+				margin: {
+					top: rem-calc(-150);
+				}
+			}
+
+			.content-banner{
+				.title-content-banner{
+					font: {
+						size: rem-calc(25) !important;
+					}
+				}
+			}
+		}
+
+		/*
+		* Main Content
+		* -------------
+		*/
+		#{$main-land}{
+
+			.events-land{
+				ul.list-events-date{
+					> li{
+						.event-date{
+							font: {
+								size: rem-calc(45);
+							}
+						}
+					}
+				}
+			}
+
+			.work-info-land{
+				ul.list-work-info{
+					@include redefine-padding-gb( rem-calc(0 25 20), rem-calc(5), rem-calc(5));
+				}
+			}
+		}
+	}
+}
+
+// Tablet Specific Resolution
+// 641px, 980px
+@media #{$tablet-up} {
+
+	// grid
+	.row {
+		@include grid-row();
+	}
+
+	@include grid-greater-than-other($sizeUp:tablet) {
+		// columns grid
+		@include grid-html-classes($size:tablet);
+		// block-grid
+		@include block-grid-html-classes($size:tablet, $include-spacing:false);
+	}
+
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-land}{
+
+		// top menu
+		#nav-header {
+			// name institution
+			.institution-name {
+				margin: {
+					left: 0;
+				}
+			}
+
+			.top-bar-section {
+
+				// menus grid
+				#nav-menus-grid {
+					table-layout: fixed;
+				}
+
+				// left and right menus
+				.left-nav-top-bar {
+
+					.field-search {
+						padding: {
+							right: rem-calc(90);
+						}
+					}
+				}
+
+				ul.left-top-menu {
+					padding: {
+						right: 0;
+					}
+
+					.item-field-search {
+						padding-right: 0;
+					}
+				}
+			}
+		}
+
+		// mobile menu
+		// #nav-header-side {
+
+		// 	ul.menu-nav-user {
+		// 		margin: {
+		// 			right: rem-calc(70);
+		// 		}
+		// 	}
+		// }
+	}
+}
+@media #{$tablet-only} {
+
+	@include block-grid-html-classes($size:tablet-only,$include-spacing:false);
+
+	//Styles landing
+	#{$wrapper-land}{
+
+		/*
+		* Main Content
+		* -------------
+		*/
+		#{$main-land}{
+
+			.work-info-land{
+				ul.list-work-info{
+					@include redefine-padding-gb( rem-calc(0 40 20), rem-calc(5), rem-calc(5));
+				}
+			}
+		}
+	}
+}
+
+// Medium Resolution Tablet-up
+@media #{$medium-up} {
+
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-land}{
+		// top menu
+		#nav-header {
+			.top-bar-section {
+
+				#nav-menus-grid {
+					@include base-list-grid;
+
+					.left-nav-top-bar {
+						width: 100%;
+						padding: 0;
+					}
+
+					.right-nav-top-bar {
+						float: right;
+						display: block;
+						width: auto;
+						padding: 0;
+					}
+				}
+
+				li:not(.has-form) {
+					> a:not(.button) {
+						height: $topbar-height;
+					}
+				}
+
+				// left items menu
+				ul.left-top-menu {
+					display: block;
+				}
+				// right items menu
+				ul.right-top-menu {
+					@include base-list-grid;
+
+					> li {
+						padding: 0 !important;
+						// padding: {
+						// 	left: rem-calc(20);
+						// 	right: rem-calc(20);
+						// }
+
+						> a:not(.button) {
+							height: $topbar-height;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/*
+	* Banner landing
+	* ---------------
+	*/
+	#{$banner-land-top}{
+
+	}
+}
+
+// Medium Resolution Tablet-only
+@media #{$medium-only} {
+
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-land}{
+	}
+}
+
+// Desktop Resolution Screen-only
+@media #{$large-up} {
+
+	.md-wrapper{
+		max-width: rem-calc(1025)+$column-gutter;
+		width: rem-calc(1025)+$column-gutter;
+	}
+
+	//Styles landing
+	#{$wrapper-land}{
+		/*
+		* Banner landing
+		* ---------------
+		*/
+		#{$banner-land-top} {
+			.content-banner{
+				.title-content-banner{
+					font: {
+						// size: $fontsize-banner;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Large desktop resolition
+@media #{$xlarge-up} {
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-land} {
+
+		// styles for top menu
+		#nav-header {
+
+			// name institution
+			.institution-name {
+				margin: {
+					left: rem-calc(20);
+				}
+			}
+
+			.top-bar-section {
+
+				// menus grid
+				#nav-menus-grid {
+					table-layout: auto;
+				}
+
+				// left and right menus
+				.left-nav-top-bar {
+					.field-search {
+						padding: {
+							right: 0;
+						}
+
+						// input[type="text"] {
+						// 	width: 100%;
+						// 	clip: rect(0px, auto, auto, 0px);
+						// 	padding: {
+						// 		left: rem-calc(15);
+						// 		right: rem-calc(50);
+						// 	}
+
+						// 	& ~ .btn-search {
+						// 		left: auto;
+						// 		right: rem-calc(10);
+						// 	}
+						// }
+					}
+				}
+				.right-nav-top-bar {
+					width: 1%;
+					display: table-cell;
+					float: none;
+				}
+
+				ul.left-top-menu {
+					padding: {
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+}

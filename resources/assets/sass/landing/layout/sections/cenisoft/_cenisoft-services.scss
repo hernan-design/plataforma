@@ -1,0 +1,111 @@
+%cenisoft-services {
+  #cenisoft-services {
+
+    .container-services{
+      background: #002133;
+      width: 100%;
+      height: 100vh;
+      @media #{$tablet-only}, #{$medium-only} {
+          height: 70vh;
+        }
+        @media #{$mobile-only}, #{$small-only} {
+          height: 100vh;
+        }
+       .background-services{
+        background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/cenisoft/services-image.png);
+        height: 100%;
+        background-repeat:no-repeat;
+        background-position: top;
+
+         .content-services{
+           h3{
+            text-align: center;
+            padding-top: 60px;
+            font-size: 4rem;
+            color: #D8D8D8;
+            letter-spacing: -1.5px;
+            font-weight: 200;
+             @media #{$mobile-only}, #{$small-only} {
+               font-size: 1.8rem;
+               font-weight:400;
+             }
+          }
+          div.row{
+            padding-top: 3rem;
+            @media #{$mobile-only}, #{$small-only} {
+              padding-top: 2rem;
+            }
+            .panel{
+              border: 0;border-radius: 35px;
+              div {
+                border-radius: 35px;
+                padding: 20px;
+                >img{
+                  margin: auto;
+                }
+                > h5{
+                  margin-top: 20px;
+                  font-size: 1.3rem;
+                  letter-spacing: -1.5px;
+                  color:#F7F5F6;
+                  font-weight: 400;
+                }
+              }
+              .panel-header1{
+                background: #E2231A;
+              }
+              .panel-header2{
+                background: #0082CA;
+              }
+              .panel-header3{
+                background: #FDD835;
+              }
+              .panel-header4{
+                background: #00953A;
+              }
+              .panel-body{
+                padding-top: 15px;
+                label{
+                  margin: 5px;
+                  font-size: 1.1rem;
+                  letter-spacing: -1px;
+                  color:#666666;
+                  font-weight: 200;
+                }
+                hr{
+                  width: 40%;
+                  margin: 2% 30% 2% 30%;
+                }
+                a{
+                  border-radius: 10px;
+                  padding: 3px 15px 5px 15px;
+                  margin: 15px 0 25px 0;
+                  text-transform: lowercase;
+                  font-size: 1.3rem;
+                  font-weight: 500;
+                  letter-spacing: -1.3px;
+                }
+                .btn1{
+                  background: #E2231A;
+                }
+                .btn2{
+                  background: #0082CA;
+                }
+                .btn3{
+                  background: #FDD835;
+                }
+                .btn4{
+                  background: #00953A;
+                }
+              }
+              .py{
+                padding: 33px 0px 33px 0 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

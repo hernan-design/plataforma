@@ -1,0 +1,293 @@
+// Styles for pricing
+// -------------------------------------
+
+%pricing-main {
+
+	.pricing-title {
+		margin: 20px 0 30px;
+		color: $black;
+		font-weight: 400;
+		font-size: rem-calc(24);
+	}
+
+	@media #{$medium-only}, #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+		.pricing-title {
+			margin: 15px 0 20px 0;
+
+		}
+	}
+
+	.pricing-large-devices {
+
+		.pricing-items-list-title {
+			border-bottom: 1px solid $gainsboro;
+			color: $black;
+			margin: 120px 17px 0 0;
+			padding: 0 0 10px 17px;
+		}
+
+		.pricing-items-list {
+			margin-left: 0;
+
+			.pricing-item {
+				color: $tuatara;
+				padding: rem-calc(12 17);
+				font-size: rem-calc(15);
+				list-style: none;
+				line-height: 30px;
+        height: 58px;
+
+				&:nth-child(even) {
+					background-color: $gray-light-alt;
+				}
+			}
+		}
+
+		.pricing-plans-boxes {
+			border: 1px solid $iron;
+			margin-right: 10px;
+			@include radius($global-radius);
+
+			&.premium {
+				border: 1px solid $monsoon;
+
+				.pricing-plans-title {
+					background-color: $monsoon;
+					color: $white;
+				}
+
+				.pricing-plans-head {
+					.price-number {
+						color: $monsoon;
+					}
+				}
+
+			}
+
+			.pricing-plans-title {
+				padding: rem-calc(10 7);
+				font-size: rem-calc(18);
+				color: $tuatara;
+				background-color: $gainsboro;
+				margin-bottom: 10px;
+				margin-top: 0;
+			}
+
+			.pricing-plans-head {
+				padding: rem-calc(10 7);
+				height: rem-calc(100);
+
+				.price-number {
+					font-size: rem-calc(22);
+					font-weight: 600;
+					color: $black;
+					margin-bottom: 3px;
+					display: block;
+				}
+
+				.plans-payment-month {
+					color: $jumbo;
+					display: block;
+					height: 15px;
+				}
+
+				.plans-payment-annual {
+					color: $jumbo;
+					display: block;
+					height: 30px;
+
+				}
+
+			}
+
+			.plans-checkbox {
+				padding: rem-calc(12 7);
+				line-height: 30px;
+        height: 58px;
+
+				&:nth-child(even) {
+					background-color: $gray-light-alt;
+				}
+
+				.plans-checkbox-icon {
+					color: $gainsboro;
+					font-size: rem-calc(26);
+
+					&.mdi-check {
+						&:before {
+							color: $monsoon;
+						}
+					}
+
+					&.mdi-close {
+						&:before {
+							color: $gainsboro;
+						}
+					}
+				}
+			}
+
+			.button {
+				font-size: rem-calc(12);
+				margin: 10px;
+			}
+		}
+	}
+
+	@media #{$medium-only}, #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+		.pricing-large-devices {
+			display: none;
+		}
+	}
+
+	.pricing-ms-devices {
+
+		.accordion-pricing-plans {
+
+			.accordion-pricing-plans-item {
+				background-color: $white;
+				margin-bottom: 15px !important;
+				@include radius($global-radius);
+				@include box-shadow($box-shadow-item);
+				// @include box-shadow(4px 4px 8px $iron);
+
+				&.premium {
+					border: 1px solid $secondary-color;
+
+
+					.accordion-plan-name {
+						color: $secondary-color;
+					}
+
+					.accordion-plan-price-number {
+						color: $secondary-color;
+					}
+
+				}
+
+				&.active {
+					.accordion-plan-anchor {
+						.accordion-plans-head-list {
+							.accordion-plans-head-item {
+								.accordion-plan-more {
+									@extend .mdi-rotate-90;
+									// &:after {
+									// }
+								}
+							}
+						}
+					}
+				}
+
+				.accordion-plan-anchor {
+					display: block;
+					background-color: $white;
+					text-decoration: none;
+					@include radius($global-radius);
+
+					.accordion-plans-head-list {
+						margin-left: 0;
+
+						.accordion-plans-head-item {
+							list-style: none;
+
+							&.head-item-title {
+								border-bottom: 1px solid $gainsboro;
+								padding-bottom: rem-calc(10);
+								margin-bottom: 11px;
+							}
+
+							.accordion-plan-name {
+								display: inline;
+								font-size: rem-calc(24);
+								font-weight: 400;
+							}
+
+							.accordion-plan-price-number {
+								font-size: rem-calc(24);
+							}
+
+							.accordion-plan-more {
+								color: $monsoon;
+								font-size: rem-calc(14);
+								font-weight: 600;
+								position: relative;
+
+								&:after {
+									@include transition(all 250ms ease-out);
+									@extend %font-mdi;
+									content: mdi('chevron-right');
+									font-size: 21px;
+							    line-height: 13px;
+							    position: absolute;
+							    bottom: 2px;
+								}
+							}
+
+							.accordion-plan-text {
+								color: $monsoon;
+								line-height: 13px;
+                margin-top: rem-calc(10);
+							}
+						}
+					}
+				}
+
+				.accordion-plans-content-list {
+					margin-left: 0;
+          margin-bottom: rem-calc(20);
+
+					.accordion-plans-content-item {
+						list-style: none;
+						color: $tuatara;
+						padding: rem-calc(12 50 12 17);
+						font-size: rem-calc(15);
+						line-height: 30px;
+						position: relative;
+
+						&.accordion-icon {
+							&:after {
+								@extend %font-mdi;
+								font-size: 21px;
+						    position: absolute;
+						    top: 50%;
+						    right: 0;
+						    padding-right: 10px;
+						    margin-top: -10.5px;
+							}
+
+							&.icon-check {
+								&:after {
+									content: mdi('check');
+									color: $monsoon;
+								}
+							}
+
+							&.icon-close {
+								&:after {
+									content: mdi('close');
+									color: $gainsboro;
+								}
+							}
+						}
+
+						&:nth-child(even) {
+							background-color: $gray-light-alt;
+						}
+					}
+
+				}
+
+				.accordion-pricing-content {
+					@include side-radius(bottom, $global-radius);
+				}
+			}
+		}
+	}
+
+	@media #{$large-up} {
+		.pricing-ms-devices {
+			display: none;
+		}
+	}
+}

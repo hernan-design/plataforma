@@ -1,0 +1,46 @@
+// =================
+// colors of landing
+// =================
+
+// a. Landing customize color
+.landing-color-primary {
+	@extend %landing-color-primary;
+}
+.landing-bgcolor-primary {
+	@extend %landing-bgcolor-primary;
+}
+.landing-color-secondary {
+	@extend %landing-color-secondary;
+}
+.landing-bgcolor-secondary {
+	@extend %landing-bgcolor-secondary;
+}
+
+// b. colors text custom
+// ---------------------
+
+.alert-text {
+	@extend %color-alert;
+}
+
+.success-text {
+	@extend %color-success;
+}
+
+.warning-text {
+	@extend %color-warning;
+}
+
+.info-text {
+	@extend %color-info;
+}
+
+.sky-blue-text {
+	@extend %color-sky-blue;
+}
+
+// c. background colors box
+// ------------------------
+.sky-blue-bg {
+	@extend %bgcolor-sky-blue;
+}

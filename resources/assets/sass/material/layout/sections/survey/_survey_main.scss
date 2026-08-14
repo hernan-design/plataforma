@@ -1,0 +1,221 @@
+// Styles for survays
+// ------------------
+%survey-main {
+	#content-form-survey, #content-review-survey {
+		opacity: .99;
+		@include margin-item-top;
+
+		// styles for detail questions
+		.content-detail-survey, .content-review-survey {
+			padding: 0;
+
+			.title-panel {
+				position: relative;
+				background-color: $gray-base;
+				margin: 0;
+				left: 0px;
+		    top: 0px;
+		    @include box-sizing(border-box);
+			}
+
+			.description-survey {
+				background-color: $gray-lighter;
+				padding: rem-calc(25);
+				line-height: 1.7;
+			}
+		}
+
+		// styles for content questions
+		#content-asked-questions {
+
+			.grouping-survey-questions {
+				background-color: $gray-lighter;
+				padding: 0;
+
+				.title-panel {
+					position: relative;
+					padding: rem-calc(25 25 30);
+					margin: 0;
+					border-bottom: 1px solid $hr-border-color;
+					line-height: $paragraph-line-height;
+					left: 0px;
+			    top: 0px;
+			    @include box-sizing(border-box);
+
+					#{headers(all)} {
+						margin: {
+							top: 0;
+						}
+					}
+
+					p {
+						margin: 0;
+					}
+				}
+
+				.item-question-survey {
+					margin: 0px;
+					border: none;
+					padding: {
+						left: rem-calc(45);
+						right: rem-calc(45);
+					}
+					@include box-shadow(none);
+
+					&:hover {
+						border: none;
+						background-color: $white;
+						@include box-shadow(none);
+					}
+
+					.list-checked-survey {
+						> li {
+							margin-bottom: rem-calc(7);
+
+							.option-check-survey {
+								+ label {
+									padding: {
+										left: 0;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.item-question-survey {
+				background-color: $gray-lighter;
+				padding: rem-calc(20 25 20 40);
+
+				&:hover {
+					background-color: $white;
+				}
+
+				.title-question-survey {
+					position: relative;
+					margin: {
+						bottom: rem-calc(10);
+					}
+					font: {
+						size: rem-calc(16);
+						weight: 300;
+					}
+					color: $oil;
+
+					p {
+						font: {
+							size: inherit;
+						}
+						color: inherit;
+					}
+
+					.pos-question-survey {
+						position: absolute;
+						top: 0px;
+						left: auto;
+						right: 100%;
+						margin: {
+							right: rem-calc(10);
+						}
+						font: {
+							size: inherit;
+							weight: $font-weight-bold;
+						}
+						color: $black;
+					}
+				}
+
+				.list-checked-survey {
+					> li {
+						.option-check-survey {
+							+ label {
+								padding: {
+									left: 0;
+								}
+							}
+						}
+					}
+				}
+
+				.required-msg {
+					display: inline-block;
+					margin-bottom: rem-calc(14);
+				}
+			}
+
+			// uploader survey section
+			.qq-uploader-attachments {
+				.content-list-attachments {
+					height: auto;
+				}
+			}
+
+			// matriz grid
+			.grid-matriz-survey {
+				thead {
+					td, th {
+						text-align: center;
+					}
+				}
+
+				tbody {
+					input,
+					textarea,
+					select,
+					.select2-container,
+					.ui-spinner {
+						margin-bottom: 0;
+					}
+
+					td, th {
+						vertical-align: middle;
+						padding: {
+							top: rem-calc(5);
+							bottom: rem-calc(5);
+						}
+						color: $charcoal; //inherit;
+
+						.field-with-image {
+							width: rem-calc(135);
+							margin: 0 auto;
+
+							@media #{$mobile-only}, #{$small-only} {
+								width: rem-calc(80);
+							}
+
+							@media #{$tablet-only}, #{$medium-only} {
+								width: rem-calc(110);
+							}
+						}
+					}
+
+					th {
+						color: $gray-base;
+					}
+
+					td {
+						text-align: center;
+					}
+				}
+
+				input:disabled, input[readonly], textarea:disabled, textarea[readonly] {
+					color: $black;
+					border-bottom-color: rgba($black, .6);
+					font: {
+						weight: $font-weight-normal;
+					}
+				}
+			}
+		}
+
+		// progress indicator
+		.survey-progress-indicator {
+			> p { margin-bottom: rem-calc(5); }
+
+			.progress-bar {
+				width: 100%;
+			}
+		}
+	}
+}

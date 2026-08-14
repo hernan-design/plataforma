@@ -1,0 +1,198 @@
+%terpel-stages-design-for-change {
+	#stages-design-for-change {
+		background: $white url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/stages-designforchange/terpel-stages-dfc-bg-img.png') repeat;
+
+		&.section-land {
+			.title-section-land {
+				color: $charcoal;
+			}
+		}
+
+		.stages-dfc-head-box {
+			padding: rem-calc(50 0 20 0);
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+					padding: rem-calc(25 0 10 0);
+			}
+
+			.stages-designforchange-header-text {
+				font-size: rem-calc(24);
+				font-family: 'ACMESecretAgentBB';
+				font-weight: 700;
+				font-style: italic;
+				color: $terpel-purple-color;
+
+				@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+					font-size: rem-calc(22);
+					margin-bottom: 20px;
+					line-height: 25px;
+				}
+			}
+		}
+
+		.designforchange-stages-list {
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+				margin-bottom: 30px;
+			}
+
+			@media #{$mobile-only} {
+				> li:first-child {
+					vertical-align: top;
+				}
+			}
+
+
+			.dfc-stages-img-1 {
+				display: none;
+				width: 300px;
+				height: auto;
+
+				@media #{$medium-up} {
+					display: inline-block;
+				}
+			}
+
+			.dfc-stages-img-2 {
+				display: none;
+				width: 157px;
+				height: auto;
+
+				@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+					display: inline-block;
+				}
+			}
+
+			.designforchange-stages-text-box {
+				@media #{$medium-up} {
+					padding-left: 20px;
+				}
+
+				.designforchange-stages-head-title {
+					font-family: 'ACMESecretAgentBB';
+					font-weight: 700;
+					font-style: italic;
+
+					@media #{$medium-up} {
+						font-size: rem-calc(38);
+					}
+
+					@media #{$small-only}, #{$tablet-only} {
+						font-size: rem-calc(30);
+						margin-bottom: 0;
+					}
+
+					@media #{$mobile-only} {
+						font-size: rem-calc(24);
+						margin-bottom: 8;
+					}
+
+					&.stage-1 {
+						color: $terpel-feel-color;
+					}
+
+					&.stage-2 {
+						color: $terpel-imagine-color;
+					}
+
+					&.stage-3 {
+						color: $terpel-do-color;
+					}
+
+					&.stage-4 {
+						color: $terpel-share-color;
+					}
+				}
+
+				.designforchange-stages-subtitle {
+					font-family: 'MuseoSans-700Italic';
+					font-size: rem-calc(26);
+					font-weight: 700;
+					font-style: italic;
+					color: $charcoal;
+					margin-bottom: 0;
+
+					@media #{$small-only}, #{$tablet-only} {
+						font-size: rem-calc(22);
+						margin-bottom: 0;
+					}
+
+					@media #{$mobile-only} {
+						font-size: rem-calc(18);
+						line-height: 20px;
+					}
+				}
+
+				.designforchange-stages-text {
+					font-family: 'MuseoSans-300';
+					font-size: rem-calc(20);
+					color: $gray-deep;
+
+					@media #{$small-only}, #{$tablet-only} {
+						font-size: rem-calc(16);
+						margin-bottom: 0;
+					}
+
+					@media #{$mobile-only} {
+						font-size: rem-calc(14);
+						line-height: 20px;
+						line-height: 16px;
+					}
+				}
+
+				.designforchange-stages-link {
+					font-family: 'ACMESecretAgentBB';
+					font-weight: 700;
+					font-style: italic;
+					display: inline-block;
+					font-size: rem-calc(23);
+					display: inline-block;
+			    position: relative;
+			    padding-right: 8px;
+
+			    @media #{$mobile-only} {
+						font-size: rem-calc(18);
+					}
+
+					&.stage1-link, &.stage2-link, &.stage3-link, &.stage4-link {
+						&:after {
+							position: absolute;
+							top: auto;
+							left: 100%;
+					    width: 44px;
+					    height: auto;
+						}
+					}
+
+					&.stage1-link {
+						color: $terpel-feel-color;
+
+						&:after {
+							content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/stages-designforchange/stages-arrow-step1.png');
+						}
+					}
+
+					&.stage2-link {
+						color: $terpel-imagine-color;
+						&:after {
+							content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/stages-designforchange/stages-arrow-step2.png');
+						}
+					}
+
+					&.stage3-link {
+						color: $terpel-do-color;
+						&:after {
+							content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/stages-designforchange/stages-arrow-step3.png');
+						}
+					}
+
+					&.stage4-link {
+						color: $terpel-share-color;
+						&:after {
+							content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/stages-designforchange/stages-arrow-step4.png');
+						}
+					}
+				}
+			}
+		}
+	}
+}

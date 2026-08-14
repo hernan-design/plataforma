@@ -1,0 +1,188 @@
+%registration-process-main {
+
+	.registration-user-header {
+		@include side-radius(top, $global-radius);
+	}
+
+	.registration-process-title {
+		color: $black;
+		font-size: rem-calc(24);
+		font-weight: 400;
+		padding-top: rem-calc(20);
+	}
+
+	.registration-process-menu {
+		padding: rem-calc(20 20 0 20);
+		border-bottom: 1px solid $iron;
+
+		&.active {
+			color: $charcoal;
+		}
+
+		.tab-title {
+			margin-right: rem-calc(40);
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			.registration-menu-item {
+				border-bottom-width: 3px;
+				padding: rem-calc(13 0);
+				background-color: $white;
+				color: $aluminum;
+
+				&.active {
+					color: $charcoal;
+
+					.registration-circle-number {
+						@include icon-circle ($bgcolor : $charcoal);
+					}
+				}
+
+				.registration-circle-number {
+					margin-right: rem-calc(10);
+					@include icon-circle (
+						$font-size : rem-calc(16),
+						$padding : rem-calc(4),
+						$color : $charcoal,
+						$bgcolor : $silver,
+						$colors-custom : true,
+						$sizes-custom : true,
+						$has-transition : true
+					);
+
+					.registration-steps-number {
+
+						&.number-1 {
+							&:before {
+								content: '1';
+								font-style: normal;
+							}
+						}
+
+						&.number-2 {
+							&:before {
+								content: '2';
+								font-style: normal;
+							}
+						}
+
+						&.number-3 {
+							&:before {
+								content: '3';
+								font-style: normal;
+							}
+						}
+
+						&.number-4 {
+							&:before {
+								content: '4';
+								font-style: normal;
+							}
+						}
+
+						&.registration-check {
+							@extend %font-mdi;
+
+							&:before {
+								content: mdi('check');
+							}
+						}
+
+						&.registration-active {
+							&:before {
+								color: $white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.card-content {
+		padding-bottom: 0;
+		padding-top: 0;
+		background-color: $gray-light-alt;
+	}
+
+	.registration-process-border {
+		padding-right: rem-calc(20);
+		border-right: 1px solid $iron;
+
+		.reg-process-info-box {
+			padding: rem-calc(30 0);
+
+			.reg-process-info-steps {
+				display: block;
+				font-size: rem-calc(12);
+				margin-bottom: rem-calc(20);
+				color: $aluminum;
+			}
+
+			.reg-process-info-title {
+				color: black;
+				font-weight: 400;
+
+			}
+
+			.reg-process-info-text {
+				margin-bottom: rem-calc(20);
+			}
+
+			.upload-profile-img-main {
+			  position: relative;
+		    width: 128px;
+		    margin-bottom: rem-calc(20);
+
+				.upload-profile-img-box {
+					width: 128px;
+			    height: 128px;
+			    background-color: white;
+			    border-radius: 64px;
+			    border: 2px dashed $iron;
+			    overflow: hidden;
+				}
+
+				.upload-img-icon-circle {
+					position: absolute;
+					bottom: 0;
+					right: 0;
+				}
+			}
+		}
+	}
+
+	@media #{$mobile-only}, #{$small-only} {
+		.registration-process-border {
+			border-right: 0;
+			padding: rem-calc(0 20);
+		}
+	}
+
+	.reg-content-box {
+		padding: rem-calc(30 20);
+
+		.registration-next-email-button {
+			margin: rem-calc(20 0 20 20);
+		}
+
+		.nickname-field-path, .nickname-field-message {
+			font-size: rem-calc(12);
+			white-space: pre-wrap; /* css-3 */
+	    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+	    white-space: -pre-wrap; /* Opera 4-6 */
+	    white-space: -o-pre-wrap; /* Opera 7 */
+	    word-wrap: break-word; /* Internet Explorer 5.5+ */
+		}
+
+		.input-field {
+			margin-bottom: rem-calc(35);
+		}
+	}
+
+	.registration-process-form {
+		margin: rem-calc(20 0);
+	}
+}

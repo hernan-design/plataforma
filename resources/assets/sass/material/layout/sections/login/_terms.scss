@@ -1,0 +1,41 @@
+// Styles for terms form
+// ----------------------
+
+%terms-form {
+
+	&#terms-section {
+
+		.inner-signin {
+			margin: {
+				top: rem-calc(30);
+			}
+		}
+
+		.wrap-icon-terms {
+			margin: {
+				bottom: rem-calc(30);
+			}
+		}
+
+		.wrap-description-terms {
+			margin: {
+				bottom: rem-calc(35);
+			}
+		}
+
+		.terms-circle {
+			@include icon-circle(
+				$font-size: rem-calc(65),
+				$padding: rem-calc(20),
+				$color: $white,
+				$bgcolor: $base
+			);
+		}
+
+		[type="submit"] {
+			margin: {
+				top: rem-calc(65);
+			}
+		}
+	}
+}

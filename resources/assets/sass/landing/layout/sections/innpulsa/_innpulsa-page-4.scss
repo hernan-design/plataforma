@@ -1,0 +1,104 @@
+%innpulsa-page4{
+  #banner-us-page{
+    background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/innpulsa2020/announciement+inside+page/Breadc-innpulsa-18%402x.png);
+    background-size: cover;
+    height: 235px;
+    .container-breadcum{
+      padding: 160px 0px 0px 133px;
+      @media #{$mobile-only}{
+        padding: 160px 0px 0px 20px;
+      }
+      .title-breadcum-impact-page{
+          font-family: 'Montserrat Bold';
+          color: white;
+      }
+      .paragraph-breadcum-impact-page{
+          font-family: 'Montserrat Regular';
+          color: white;
+      }
+    }
+  }
+  #video-us-page{
+    padding-bottom: 70px;
+    h3{
+      font-family: 'Montserrat Light';
+      font-weight: 500;
+      color: #0D2467;
+      font-size: 35px;
+      line-height: 60px;
+      margin: 0px 40px;
+      padding: 20px;
+      @media #{$medium-only}, #{$tablet-only}{
+        font-size: 30px;
+      }
+      @media #{$mobile-only}{
+        font-size: 15px;
+      }
+    }
+  }
+  #section2-us-page{
+    background: rgba(250,250,250,0.8);
+    padding: 60px 370px;
+    h2{
+      font-family: 'Montserrat Regular';
+      color: #0C216A;
+      font-size: 26px;
+      line-height: 50px;
+      margin: 0px 40px 40px 40px;
+      @media #{$mobile-only}{
+        font-size: 20px;
+      }
+    }
+    p{
+      font-family: 'Montserrat Medium';
+      color: #0C216A;
+      font-size: 16px;
+      margin: 40px 40px;
+      @media #{$mobile-only}{
+        font-size: 15px;
+      }
+    }
+  }
+  #section3-us-page{
+    padding: 30px;
+    h3{
+      font-family: 'Montserrat Regular';
+      color: #0C216A;
+      font-size: 30px;
+      padding: 40px;
+      @media #{mobile-only}{
+        font-size: 30px;
+      }
+    }
+    #container-items-us-page{
+      h2{
+        font-family: 'Montserrat Regular';
+        color: #0C216A;
+        font-size: 20px;
+        padding: 25px 0px;
+        @media #{$tablet-only},#{$medium-only}{
+          font-size: 20px;
+        }
+      }
+      p{
+        margin-top: 40px;
+        font-family: 'Montserrat Medium';
+        font-size: 14px;
+        color: #5D5D5D;
+      }
+    }
+  }
+  #section4-us-page{
+    background: #EBEBEB;
+    padding: 30px 0px;
+    button{
+      z-index: 1000;
+      background: #FFD535;
+      padding: 8px 18px;
+      color: #0D2467;
+      font-family: 'Montserrat Medium';
+      font-weight: bold;
+      font-size: 10px;
+    }
+  }
+}

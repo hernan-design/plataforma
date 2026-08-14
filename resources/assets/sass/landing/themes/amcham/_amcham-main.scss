@@ -1,0 +1,38 @@
+#{$wrapper-land}.wrapper-creame {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	// Amcham header section
+	// -----------------------
+	#header-land{
+		background-color: rgba(256, 256, 256, 0.9);
+
+	}
+
+	#banner-land-top {
+		background-color: $gray-rain;
+	}
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	@extend %amcham-banner !optional;
+
+	#{$main-land} {
+		#partners-land {
+			.title-section-land {
+				color: $black !important;
+				font-weight: 700;
+			}
+		}
+
+		@extend %amcham-cycle-stages !optional;
+		@extend %amcham-partners-section !optional;
+	}
+}

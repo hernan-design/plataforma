@@ -1,0 +1,35 @@
+// Styles for verify account form
+// ----------------------
+
+%confirm-form {
+
+	&#verify-account-section {
+
+		.inner-signin {
+			margin: {
+				top: rem-calc(30);
+			}
+		}
+
+		.wrap-icon-confirm {
+			margin: {
+				bottom: rem-calc(40);
+			}
+		}
+
+		.confirm-circle {
+			@include icon-circle(
+				$font-size: rem-calc(65),
+				$padding: rem-calc(20),
+				$color: $white,
+				$bgcolor: $base
+			);
+		}
+
+		[type="submit"] {
+			margin: {
+				top: rem-calc(50);
+			}
+		}
+	}
+}

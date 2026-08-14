@@ -1,0 +1,139 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for progress bars
+// -----------------------
+
+// styles for progress bar
+.progress-bar {
+	@include progress-container;
+	margin: 0;
+
+	// Meter
+  .meter {
+    @include progress-meter;
+
+    &.secondary { @include progress-meter($bg:$progress-meter-secondary-color); }
+    &.success { @include progress-meter($bg:$progress-meter-success-color); }
+    &.alert { @include progress-meter($bg:$progress-meter-alert-color); }
+  }
+  &.secondary .meter { @include progress-meter($bg:$progress-meter-secondary-color); }
+  &.success .meter { @include progress-meter($bg:$progress-meter-success-color); }
+  &.alert .meter { @include progress-meter($bg:$progress-meter-alert-color); }
+
+  &.radius { @include radius($progress-bar-border-radius);
+    .meter { @include radius($progress-bar-border-radius - 1); }
+  }
+
+  &.round { @include radius(1000px);
+    .meter { @include radius(999px); }
+  }
+}
+
+// styles for progress with precentage tooltip
+.progress-tooltip {
+	background-color: $iron;
+	height: rem-calc(2);
+	border: none;
+	padding: 0px;
+	margin-bottom: rem-calc(10);
+	position: relative;
+	@include clearfix;
+
+	// Meter
+	.meter {
+		@include progress-meter;
+		position: relative;
+
+		&.has-tip {
+			cursor: default;
+		}
+
+		.tooltip {
+			display: block !important;
+			width: auto;
+			left: 100% !important;
+			right: auto !important;
+			opacity: 1 !important;
+			margin: {
+				right: -900px !important;
+				left: -10px !important;
+			}
+			z-index: 98;
+
+			&.tip-top {
+				top: auto !important;
+				bottom: 100% !important;
+				margin: {
+					bottom: 10px !important;
+				}
+			}
+		}
+	}
+
+	// when the value ends in percentage one hundred
+	&[data-value-progress="100"] {
+		.meter {
+			.tooltip {
+				left: auto !important;
+				right: 0px !important;
+				margin: {
+					right: -10px !important;
+					left: -100% !important;
+				}
+				.nub {
+					left: auto;
+					right: 5px;
+				}
+			}
+		}
+	}
+
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		display: inline-block;
+		vertical-align: top;
+		top: -2px;
+		width: rem-calc(6);
+		height: rem-calc(6);
+		@include radius(50%);
+		background-color: $iron;
+	}
+	&:before {
+		left: -1px;
+		float: left;
+	}
+	&:after {
+		right: -1px;
+		float: right;
+	}
+
+	&.secondary {
+		&:before { background-color: $progress-meter-secondary-color; }
+		&[data-value-progress="100"]:after { background-color: $progress-meter-secondary-color; }
+		.meter { @include progress-meter($bg:$progress-meter-secondary-color); }
+	}
+	&.success {
+		&:before { background-color: $progress-meter-success-color; }
+		&[data-value-progress="100"]:after { background-color: $progress-meter-success-color; }
+		.meter { @include progress-meter($bg:$progress-meter-success-color); }
+	}
+	&.alert {
+		&:before { background-color: $progress-meter-alert-color; }
+		&[data-value-progress="100"]:after { background-color: $progress-meter-alert-color; }
+		.meter { @include progress-meter($bg:$progress-meter-alert-color); }
+	}
+	&.sky-blue {
+		&:before { background-color: $sky-blue; }
+		&[data-value-progress="100"]:after { background-color: $sky-blue; }
+		.meter { @include progress-meter($bg:$sky-blue); }
+	}
+
+	&.radius { @include radius($progress-bar-border-radius);
+		.meter { @include radius($progress-bar-border-radius - 1); }
+	}
+
+	&.round { @include radius(1000px);
+		.meter { @include radius(999px); }
+	}
+}

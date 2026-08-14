@@ -1,0 +1,45 @@
+// Styles for forum main
+%forum-main {
+	@include margin-item-top;
+
+
+	@media #{$mobile-only}, #{$small-only} {
+		.forum-filters {
+			margin-top: 0;
+			border-top: none;
+		}
+
+		#forum-categories-browse {
+			margin-top: rem-calc(15);
+		}
+	}
+
+
+	.forum-theme-user-info {
+		margin: rem-calc(20 0 15);
+	}
+
+	// style for forums list
+	.forums-section-list {
+		.card-forum-info {
+			padding: {
+				top: rem-calc(15);
+				bottom: rem-calc(15);
+			}
+		}
+	}
+
+	// style for forum static data
+	.related-forums-section {
+		padding-bottom: 0px;
+	}
+
+	.no-results-filter {
+		> p {
+			color: $dark-silver;
+			padding-top: rem-calc(20);
+			padding-bottom: rem-calc(20);
+
+		}
+	}
+}

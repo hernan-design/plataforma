@@ -1,0 +1,150 @@
+// Styles for mypurchases marketplace
+// ---------------------------------
+%marketplace-mypurchases {
+
+	#my-purchases {
+
+	}
+
+	// my purchases list
+	ul.list-my-purchases, ul.list-my-sales {
+
+		> li {
+			overflow: visible;
+		}
+
+		.item-wrap-list {
+			padding-bottom: rem-calc(54);
+
+			.content-item-list {
+				padding-bottom: rem-calc(25);
+			}
+
+			.bottom-item-list {
+				position: absolute;
+    		bottom: 0px;
+				border-top: 1px solid $hr-border-color;
+				margin: 0;
+				padding: rem-calc(10 17);
+				height: rem-calc(54);
+
+				.reveal-data-info {
+					margin-top: rem-calc(-53);
+				}
+			}
+
+			.reveal-data-info {
+				.list-info-data {
+					> li {
+						> label {
+							display: block;
+							text-align: left;
+							word-break: normal;
+							white-space: pre-wrap;
+						}
+					}
+				}
+				.card-user-info {
+					background-color: $white;
+					padding: {
+						top: rem-calc(8);
+						bottom: rem-calc(8);
+					}
+				}
+			}
+		}
+
+		// info product purchase
+		.info-project-purchase {
+
+			.has-image {
+				padding-right: rem-calc(10);
+			}
+
+			img.img-project-purchase {
+				width: 100%;
+				height: auto;
+				min-width: rem-calc(100);
+			}
+		}
+
+		// info seller purchase
+		.info-seller-purchase {
+
+			.has-image {
+				padding-right: rem-calc(10);
+			}
+		}
+
+		// info product purchase
+		.info-product-purchase {
+
+			.has-image {
+				padding-right: rem-calc(10);
+			}
+
+			img.img-product-purchase {
+				width: 100%;
+				height: auto;
+				min-width: rem-calc(100);
+			}
+		}
+
+		#buttons-purchase-action, #buttons-sale-action, .buttons-purchase-action, .buttons-sale-action,  {
+			.button, button {
+				background-color: transparent;
+				border: none;
+				@include box-shadow(none !important);
+				text-transform: uppercase !important;
+				margin: 0px;
+				padding: {
+					left: 0;
+					right: 0;
+				}
+				color: inherit;
+			}
+		}
+	}
+
+	// wallet section
+
+	.wallet-section {
+		padding-top: 12px;
+
+		.title-panel {
+			border-bottom: 1px solid $iron;
+		}
+
+		.list-separator {
+			> li {
+				background-color: $gray-light-alt;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+
+		.user-wallet {
+			.list-separatror {
+				> li {
+					margin-left: rem-calc(-20);
+					margin-right: rem-calc(-20);
+				}
+			}
+
+			.wallet-item {
+				.item-label {
+					color: $aluminum;
+					background-color: $white;
+
+					&.wallet-balance {
+						color: $success-color;
+					}
+				}
+
+				.ballance-number {
+					color: $success-color;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+// Styles for deactivation form
+// ----------------------
+
+%deactivation-account-form {
+
+	// content deactivation account confirm
+	&#deactivation-account-confirm {
+
+		#deactivation-account-content {
+			@include margin-item-top;
+		}
+
+		.wrap-icon-deactivation-account {
+			margin: {
+				bottom: rem-calc(35);
+			}
+		}
+
+		.deactivation-account-circle {
+			@include icon-circle(
+				$font-size: rem-calc(65),
+				$padding: rem-calc(20),
+				$color: $white,
+				$bgcolor: $base
+			);
+		}
+
+		.content-deactivation-inner {
+			padding: rem-calc(20 0 15);
+		}
+	}
+
+	// content deactivation account
+	&#deactivation-account {
+
+		#deactivation-account-content {
+			@include margin-item-top;
+		}
+
+		.title-info {
+			margin: {
+				bottom: rem-calc(30);
+			}
+		}
+
+		.wrap-icon-deactivation-account {
+			margin: {
+				bottom: rem-calc(40);
+			}
+		}
+
+		.deactivation-account-circle {
+			@include icon-circle(
+				$font-size: rem-calc(65),
+				$padding: rem-calc(20),
+				$color: $white,
+				$bgcolor: $base
+			);
+		}
+	}
+}
+
+#modal-confirm-deactivation {
+	.confirm-deactivation-circle {
+		@include icon-circle(
+			$font-size: rem-calc(60),
+			$padding: rem-calc(14),
+			$color: $white,
+			$bgcolor: $base
+		);
+
+		margin: {
+			bottom: rem-calc(35);
+		}
+	}
+
+	[type="submit"] {
+		margin: {
+			top: rem-calc(60);
+		}
+	}
+}

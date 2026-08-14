@@ -1,0 +1,29 @@
+%andifuturo-stats-numbers {
+	#andifuturo-stats-numbers {
+		background-color: $white;
+
+		.title-section-land {
+			color: $black;
+			font-weight: 400;
+		}
+
+		.adf-stats-numbers-boxes {
+			// background-color: $snow;
+	    padding: 18px 0 36px 0;
+	  	// border-radius: 15px;
+	  	// border: 1px solid $silver;
+			.stats-number {
+				font-size: rem-calc(60);
+				font-weight: bold;
+				color: $andifuturo-dark-blue-color;
+			}
+
+			.stats-numbers-title {
+				color: $andifuturo-blue-color;
+				font-weight: 400;
+				padding-top: rem-calc(10);
+				padding-bottom: rem-calc(10);
+			}
+		}
+	}
+}

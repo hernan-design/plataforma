@@ -1,0 +1,318 @@
+// Table of Content
+// a. Override Foundation Variables
+// b. Override Fontawesome & Material design icons Variables
+// c. Custom Application Variables
+// 1. Colors
+// 2. Fonts
+// 3. Alert Boxes
+// 4. Images
+// 5. Forms
+// 6. Box, panel & block
+// 7. Institutions variables custom
+// 7.1. Default Landing Variables
+// 7.2. Content's sections variables
+// 7.3. Variables BloqueTexto
+
+// =================================
+// a. Override Foundation Variables
+// =================================
+$white       : #FFFFFF;
+$ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+$vapor       : #F6F6F6;
+$white-smoke : #F5F5F5;
+$silver      : #EFEFEF;
+$smoke       : #EEEEEE;
+$moon        : #E5E5E5;
+$gainsboro   : #DDDDDD;
+$iron        : #CCCCCC;
+$dark-silver : #BBBBBB;
+$base        : #AAAAAA;
+$aluminum    : #999999;
+$jumbo       : #888888;
+$monsoon     : #777777;
+$steel       : #666666;
+$charcoal    : #555555;
+$tuatara     : #444444;
+$oil         : #2E2E2E;
+$jet         : #222222;
+$black       : #000000;
+
+// We use these as default colors throughout
+// -----------------------------------------
+$primary-color: $black !default;
+$secondary-color: #3199D3 !default; //#E1E1E1 !default;
+$alert-color: #F44336;
+$success-color: #5EB741;
+$warning-color: #E2AC00;
+$info-color: #a0d3e8;
+
+// these to define default font weights
+// ------------------------------------
+$font-weight-bold: 700;
+$font-weight-normal: 500;
+$font-weight-lighter: 300;
+
+// set modules for customize
+$modules : ('button');
+
+// =========================================================
+// b. Override Fontawesome & Material design icons Variables
+// =========================================================
+
+$fa-font-path:        "fonts";
+$mdi-css-prefix:      "mdi";
+$mdi-font-path:       "fonts";
+// End Fontawesome & Material design icons Variables
+
+// ==========
+// 1. Colors
+// ==========
+$primary-bg-color: $primary-color !default;
+$secondary-bg-color: $secondary-color !default;
+
+// base colors
+// -----------
+$sky-blue: $secondary-color !default;
+$gray-lighter: #FBFBFB;
+$gray-light: #F7F7F7;
+$gray-cloud: #F2F2F2;
+$gray-rain: #EDEDED;
+$gray-concrete: #E5E5E5;
+$gray-deep : #727272;
+
+// social colors
+// -------------
+$facebook-color: #3b5998 !default;
+$twitter-color: #55acee !default;
+$linkedin-color: #0077b5 !default;
+$youtube-color: #CD201F !default;
+
+// Institutional colors
+// --------------------
+// Terpel colors
+$terpel-magenta-color : #ef2975 !default;
+$terpel-feel-color : #ff3d33 !default;
+$terpel-imagine-color : #ef941d !default;
+$terpel-yellow-color : #ffb53e !default;
+$terpel-do-color : #b2cd52 !default;
+$terpel-bright-green-color : #bed656 !default;
+$terpel-dark-green-color : #436d00 !default;
+$terpel-share-color : #1fa5ff !default;
+$terpel-bright-blue-color : #3bbeff !default;
+$terpel-purple-color :#733490 !default;
+$terpel-redwine-color :#911800 !default;
+
+// rnai
+$rnai-gold-color : #9E804F !default;
+
+// ecopetrol
+$ecopetrol-bright-green-color : #2ece7e !default;
+$ecopetrol-medium-green-color : #1a9158 !default;
+
+// cecar
+$cecar-bright-green-color: #00bc50 !default;
+
+// andifuturo
+$andifuturo-blue-color: #2890dd !default;
+$andifuturo-bright-blue-color: #80cfff !default;
+$andifuturo-bright-medium-blue-color: #43c0ff !default;
+$andifuturo-brighter-blue-color: #d7f0ff !default;
+$andifuturo-dark-blue-color: #3f4a5a !default;
+
+// innpulsa
+$innpulsa-bright-blue-color: #2c9bff !default;
+$innpulsa-regular-blue-color: #7DB8BE !default;
+$innpulsa-dark-blue-color: #3E4792 !default;
+$innpulsa-deep-blue-color: #1F2868 !default;
+$innpulsa-bright-green-color: #27cc7a !default;
+$innpulsa-bright-red-color: #EE3A43 !default;
+$innpulsa-light-red-color: #f2385c !default;
+$innpulsa-bright-yellow-color: #EFCC36 !default;
+$innpulsa-dark-yellow-color: #dbc24f !default;
+$innpulsa-light-pink-color: #FFF7DE !default;
+$innpulsa-background-green-color-stats: #6EA63C !default;
+
+// lafayette
+$lafayette-dark-red-color: #AD0011 !default;
+$lafayette-bright-red-color: #E23042 !default;
+
+// coomeva
+$coomeva-bright-green-color: #8DC63F !default;
+$coomeva-dark-green-color: #40A141 !default;
+
+// mapacine
+$mapacine-bright-red-color: #C43050 !default;
+$mapacine-dark-red-color: #B0253F !default;
+
+// leanstrategy
+$leanstrategy-bright-blue-color: #3da2ff !default;
+$leanstrategy-dark-blue-color: #1d7be4 !default;
+
+// unisabana
+$unisabana-bright-redwine-color: #C53F49 !default;
+$unisabana-dark-redwine-color: #9D0A0E !default;
+
+// reb destapafuturo
+$destapafuturo-bright-red-color: #FF5757 !default;
+
+// selectrain
+$selectrain-bright-green-color: #44e250 !default;
+$selectrain-dark-green-color: #37d146 !default;
+$selectrain-light-green-color: #f4f9f5 !default;
+
+//startupcity
+$startupcitymed-bright-green-color: #62bc33 !default;
+$startupcitymed-brighter-green-color: #70d645 !default;
+$startupcitymed-stage1-color: #70d645 !default;
+$startupcitymed-stage2-color: #f2b800 !default;
+$startupcitymed-stage3-color: #1ba9ef !default;
+$startupcitymed-stage4-color: #e27820 !default;
+$startupcitymed-stage5-color: #e83161 !default;
+
+// demo
+$demo-bright-red-color: #f7286c;
+$demo-dark-red-color: #B5004A;
+$demo-brighter-red-color: #FF92B1;
+
+// koideas
+$koideas-bright-red-color: #ea241f;
+$koideas-dark-red-color: #93120f;
+
+// Copo
+$copo-dark-blue-color: #3EA3FF;
+$copo-bright-blue-color: #39CCFF;
+$copo-medium-blue-color: #67CCF7;
+$copo-light-blue-color: #99E5FF;
+$copo-medium-purple-color: #B974E7;
+
+// Copo emprendimiento
+$copo-dark-purple-color: #7F3C73;
+$copo-pink : #ff99c7;
+$copo-purple : #dc8fea;
+
+// Sena
+$sena-bright-orange-color: #FC7323;
+$sena-bright-green-color: #0bb2ad;
+$sena-light-green-color: #DFF4F3;
+$sena-dark-green-color: #135F60;
+
+// dinamiza
+$dinamiza-light-blue-color: #0085F2;
+$dinamiza-dark-blue-color: #4980ea;
+$dinamiza-yellow-color: #FFDB27;
+$dinamiza-red-color: #e2204a;
+
+// sacudete
+$sacudete-dark-blue-color: #0C4770;
+$sacudete-bright-orange-color: #E6631D;
+
+// compensar
+$compensar-bright-orange-color: #ff6600;
+
+
+
+
+// ==========
+// 2. Fonts
+// ==========
+$font-family-sanfrancisco: "San Francisco", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$font-family-frutiger: Frutiger, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$font-family-frutiger-roman: 'Frutiger Roman' !default;
+$font-family-crimsontext: 'Crimson Text', serif;
+$icon-css-prefix: "icon" !default;
+$social-css-prefix: "social" !default;
+$icon-fontsize-base: 14px !default;
+$facebook-logotype: "f" !default;
+$twitter-logo: "M" !default;
+$youtube-logo: "w" !default;
+
+$text-small: 13px !default;
+$text-medium: 15px !default;
+$text-large: 17px !default;
+
+
+// Variables content landing selector
+// ----------------------------------
+$wrapper-land: '#wrapper-land' !default;
+$header-land: '#header-land' !default;
+$topmenu-main: '#topmenu-main-options' !default;
+$banner-land-top: '#banner-land-top' !default;
+$main-land: '#main-land' !default;
+$footer-land: '#footer-land' !default;
+
+// =====================
+// 6. box, panel & block
+// =====================
+$box-shadow-item: 1px 1px 8px rgba($black, .3) !default;
+$box-shadow-item-hover: 2px 8px 8px rgba($black, .3) !default;
+$panel-shadow: 0px 2px 5px rgba($black, 0.3) !default;
+$gradient-function-factor: 8% !default;
+$box-transition-item: box-shadow 250ms ease-out, background-color 250ms ease-out !default;
+
+// Instituciones
+// -------------
+// 7. Institutions variables custom
+// 7.1. Default Landing Variables
+// ------------------------------
+$color-header-land: rgba($white, .8) !default;
+$color-before-header-land: rgba($white, .8) !default;
+$background-header-land: $white !default;
+$color-hover-header-land: $white !default;
+$background-hover-header-land: scale-color($background-header-land, $lightness: -10%) !default;
+$fontweight-header-land: 300 !default;
+$color-active-header-land: $white !default;
+$color-barsmenu-land: $secondary-color !default;
+$color-title-header-land: #FF2F16 !default;
+$color-banner-land: #FFFFFF !default;
+$background-banner-land: $gray-rain !default;
+$color-gradient-banner-land: $background-banner-land !default;
+$fontsize-banner-land: 30px !default;
+$fontstyle-banner-land: normal !default;
+$fontweight-banner-land: 100 !default;
+$fontfamily-banner-land: $font-family-sanfrancisco !default;
+$color-icon-banner-land: $primary-color !default;
+$imagen-banner-land: '' !default;
+$color-body-land: $black !default;
+$background-body-land: #56D1E6 !default;
+
+$background-sitemap-land: $charcoal !default;
+$color-sitemap-land: $base !default;
+$color-hover-sitemap-land: $white !default;
+$color-icon-sitemap-land: $monsoon !default;
+
+$background-footer-land: $tuatara !default;
+$color-footer-land: $aluminum  !default;
+$background-icon-footer-land: $steel !default;
+$color-icon-footer-land: $vapor !default;
+
+// 7.2. Content's sections variables
+// --------------------------------
+$color-cifras-land: false !default;
+$background-cifras-land: false !default;
+$color-title-cifras-land: false !default;
+$color-beneficios-land: false !default;
+$background-beneficios-land: false !default;
+$color-aliados-land: false !default;
+$background-aliados-land: false !default;
+$color-title-aliados-land: false !default;
+$background-title-aliados-land: false !default;
+$fontsize-title-aliados-land: false !default;
+$color-calendario-land: false !default;
+$background-calendario-land: false !default;
+$color-title-calendario-land: false !default;
+$background-title-calendario-land: false !default;
+$color-blog-land: false !default;
+$background-blog-land: false !default;
+$color-title-blog-land: false !default;
+$background-title-blog-land: false !default;
+$color-proyectos-land: false !default;
+$color-title-proyectos-land: false !default;
+$background-proyectos-land: false !default;
+$color-icon-proyectos-land: false !default;
+$color-sitemap-land: false !default;
+$background-sitemap-land: false !default;
+$color-login-land: false !default;
+$background-login-land: false !default;
+$color-title-login-land: false !default;
+$background-title-login-land: false !default;

@@ -1,0 +1,24 @@
+#{$wrapper-land}.wrapper-sja {
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+  @extend %sja-header !optional;
+  @extend %sja-banner !optional;
+  @extend %sja-campus !optional;
+  @extend %sja-teachers !optional;
+  @extend %sja-footer !optional;
+
+}
+

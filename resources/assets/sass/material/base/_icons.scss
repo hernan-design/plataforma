@@ -1,0 +1,276 @@
+// Icons font social
+.#{$social-css-prefix}-facebook-lt:before {
+  content: $facebook-logotype;
+}
+.#{$social-css-prefix}-twitter-icon:before {
+  content: $twitter-logo;
+}
+.#{$social-css-prefix}-youtube-icon:before {
+  content: $youtube-logo;
+}
+
+// Rules for sizing the icon.
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-12,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-12 { font-size: rem-calc(12) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-14,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-14 { font-size: rem-calc(14) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-16,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-16 { font-size: rem-calc(16) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-18,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-18 { font-size: rem-calc(18) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-21,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-21 { font-size: rem-calc(21) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-24,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-24 { font-size: rem-calc(24) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-30,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-30 { font-size: rem-calc(30) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-36,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-36 { font-size: rem-calc(36) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-42,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-42 { font-size: rem-calc(42) !important; }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-48,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-48 { font-size: rem-calc(48) !important; }
+
+// Rules for using icons as black on a light background.
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-dark,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-dark { color: rgba(0, 0, 0, 0.54); }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-dark.#{$mdi-css-prefix}-inactive,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-dark.#{$icon-css-prefix}-inactive { color: rgba(0, 0, 0, 0.26); }
+
+// Rules for using icons as white on a dark background.
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-light,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-light { color: rgba(255, 255, 255, 1); }
+.#{$mdi-css-prefix}.#{$mdi-css-prefix}-light.#{$mdi-css-prefix}-inactive,
+	.#{$icon-css-prefix}.#{$icon-css-prefix}-light.#{$icon-css-prefix}-inactive { color: rgba(255, 255, 255, 0.3); }
+
+.#{$mdi-css-prefix},
+	.#{$icon-css-prefix} {
+
+	&.gutter-right { margin-right: 5px; }
+	&.gutter-left { margin-left: 5px; }
+
+	// vertical position for icons
+	&.vtop {
+		vertical-align: top !important;
+	}
+	&.vcenter {
+		vertical-align: middle !important;
+	}
+	&.vbottom {
+		vertical-align: bottom !important;
+	}
+
+	// customize color for icons
+	&.white {
+    color: $white;
+    background-color: transparent !important;
+  }
+	&.success{
+    color: $success-color;
+  }
+  &.alert{
+    color: $alert-color;
+  }
+  &.warning{
+    color: $warning-color;
+  }
+  &.info{
+    color: $info-color;
+  }
+  &.secondary {
+    color: scale-color($secondary-color, $lightness: -20%);
+  }
+	&.light-purple-blue {
+		color: $light-purple-blue;
+	}
+	&.purple-blue {
+		color: $purple-blue;
+	}
+  &.sky-blue {
+    color: $sky-blue;
+  }
+  &.gray-base {
+    color: $gray-base;
+  }
+  &.gray-light {
+    color: $gray-light;
+  }
+  &.gray-dark {
+    color: $gray-dark;
+  }
+  &.gray-lighter-alt {
+  	color: $gray-lighter-alt;
+  }
+  &.gray-light-alt {
+  	color: $gray-light-alt;
+  }
+
+  &.facebook {
+		color: $facebook-color
+  }
+  &.twitter {
+		color: $twitter-color;
+  }
+  &.linkedin {
+		color: $linkedin-color;
+  }
+  &.youtube {
+    color: $youtube-color;
+  }
+  &.instagram {
+    color: $instagram-color;
+  }
+
+  &.investor {
+		color: $color-investor;
+	}
+
+	&.entrepreneur {
+		color: $color-entrepreneur;
+	}
+
+	&.mentor {
+		color: $color-mentor;
+	}
+}
+
+// Icons font TuProyecto
+[data-icon]:before {
+  @extend .#{$icon-css-prefix};
+  content: attr(data-icon);
+}
+// alias icons
+
+// originals icons
+.#{$icon-css-prefix}-add-friend:before {
+  content: "\61";
+}
+.#{$icon-css-prefix}-add-product:before {
+  content: "\62";
+}
+.#{$icon-css-prefix}-addfile:before {
+  content: "\63";
+}
+.#{$icon-css-prefix}-fb-f-pos:before {
+  content: "\64";
+}
+.#{$icon-css-prefix}-bases:before {
+  content: "\65";
+}
+.#{$icon-css-prefix}-file:before {
+  content: "\66";
+}
+.#{$icon-css-prefix}-fund-bavaria:before {
+  content: "\67";
+}
+.#{$icon-css-prefix}-group:before {
+  content: "\68";
+}
+.#{$icon-css-prefix}-inst:before {
+  content: "\69";
+}
+.#{$icon-css-prefix}-instagram-logo:before {
+  content: "\6a";
+}
+.#{$icon-css-prefix}-legoflag:before {
+  content: "\6b";
+}
+.#{$icon-css-prefix}-li-logo-neg:before {
+  content: "\6c";
+}
+.#{$icon-css-prefix}-light:before {
+  content: "\6d";
+}
+.#{$icon-css-prefix}-like:before {
+  content: "\6e";
+}
+.#{$icon-css-prefix}-linkedin-logo-pos:before {
+  content: "\6f";
+}
+.#{$icon-css-prefix}-logo-tupro:before {
+  content: "\70";
+}
+.#{$icon-css-prefix}-logotipo-tupro:before {
+  content: "\71";
+}
+.#{$icon-css-prefix}-money:before {
+  content: "\72";
+}
+.#{$icon-css-prefix}-person:before {
+  content: "\73";
+}
+.#{$icon-css-prefix}-product:before {
+  content: "\74";
+}
+.#{$icon-css-prefix}-product-info:before {
+  content: "\75";
+}
+.#{$icon-css-prefix}-profile-edit:before {
+  content: "\76";
+}
+.#{$icon-css-prefix}-project:before {
+  content: "\77";
+}
+.#{$icon-css-prefix}-projection:before {
+  content: "\78";
+}
+.#{$icon-css-prefix}-reward-medal:before {
+  content: "\79";
+}
+.#{$icon-css-prefix}-seed:before {
+  content: "\7a";
+}
+.#{$icon-css-prefix}-stages:before {
+  content: "\41";
+}
+.#{$icon-css-prefix}-tw-bird-neg:before {
+  content: "\42";
+}
+.#{$icon-css-prefix}-tw-bird-pos:before {
+  content: "\43";
+}
+.#{$icon-css-prefix}-video:before {
+  content: "\44";
+}
+.#{$icon-css-prefix}-youtube-logo:before {
+  content: "\45";
+}
+.#{$icon-css-prefix}-yt-neg:before {
+  content: "\46";
+}
+.#{$icon-css-prefix}-yt-pos:before {
+  content: "\47";
+}
+.#{$icon-css-prefix}-bavaria:before {
+  content: "\48";
+}
+.#{$icon-css-prefix}-cam:before {
+  content: "\49";
+}
+.#{$icon-css-prefix}-cam-video:before {
+  content: "\4a";
+}
+.#{$icon-css-prefix}-comment:before {
+  content: "\4b";
+}
+.#{$icon-css-prefix}-commented:before {
+  content: "\4c";
+}
+.#{$icon-css-prefix}-conso:before {
+  content: "\4d";
+}
+.#{$icon-css-prefix}-diskette:before {
+  content: "\4e";
+}
+.#{$icon-css-prefix}-facebook-logo:before {
+  content: "\4f";
+}
+.#{$icon-css-prefix}-fb-f-neg:before {
+  content: "\50";
+}
+.#{$icon-css-prefix}-model:before {
+  content: "\51";
+}
+.#{$icon-css-prefix}-twitter-logo:before {
+  content: "\52";
+}

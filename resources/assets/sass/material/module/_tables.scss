@@ -1,0 +1,188 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for tables
+// --------------------------------
+
+
+// =====================
+// Styles for tables
+// =====================
+table {
+	width: 100%;
+
+	&.layout-fixed {
+		table-layout: fixed;
+	}
+
+	&.align-top {
+		td {
+			vertical-align: top !important;
+		}
+	}
+
+	&.align-center {
+		td {
+			vertical-align: middle !important;
+		}
+	}
+
+	&.align-bottom {
+		td {
+			vertical-align: bottom !important;
+		}
+	}
+
+	&.radius {
+		tr {
+			td {
+				&:first-of-type { @include side-radius(left); }
+				&:last-of-type { @include side-radius(right); }
+			}
+		}
+	}
+	&.rounded {
+		tr {
+			td {
+				&:first-of-type { @include side-radius(left, $global-rounded); }
+				&:last-of-type { @include side-radius(right, $global-rounded); }
+			}
+		}
+	}
+
+	tr {
+		th {
+			color: $body-font-color;
+			font: {
+				weight: $font-weight-normal;
+			}
+		}
+		td {
+			// color: $purple-blue;
+
+			&.vtop {
+	    	vertical-align: top;
+	    }
+
+			&.vcenter {
+				vertical-align: middle;
+			}
+
+			&.vbottom {
+				vertical-align: bottom;
+			}
+		}
+	}
+
+	&.highlight-light {
+		tr:not(:first-child) {
+			background-color: rgba($white, 0.07);
+
+			// &:hover {
+			// 	background-color: rgba($white, 0.3);
+			// }
+
+			td, th {
+				@include border-radius(0px);
+			}
+		}
+	}
+
+	&.table-content {
+
+		thead {
+			background: transparent;
+			border-bottom: none;
+
+			tr {
+				border-bottom: none;
+			}
+		}
+
+		tr {
+			background: transparent;
+			border-bottom: 1px solid $hr-border-color;
+
+			th, td {
+				@include border-radius(0px);
+
+				> i {
+					font: {
+						size: rem-calc(16);
+					}
+				}
+
+				a {
+					font: {
+						size: $table-row-font-size;
+						weight: 300;
+					}
+
+					&.link-title {
+						display: block;
+						color: scale-color($body-font-color, $lightness: -20%);
+					}
+				}
+			}
+
+			th {
+				color: $jumbo;
+				font: {
+					weight: $font-weight-bold;
+				}
+			}
+
+			td {
+				vertical-align: top;
+				color: $body-font-color;
+				font: {
+					weight: 300;
+				}
+				// padding: {
+				// 	top: rem-calc(9);
+				// 	bottom: rem-calc(10);
+				// }
+			}
+		}
+
+		&.no-border {
+			tr {
+				border-bottom: none;
+			}
+		}
+	}
+
+	&.strip-separate {
+		border-collapse: separate;
+		border-spacing: 0px 14px;
+
+		tr {
+			td, th {
+				&:first-of-type { padding-left: rem-calc(15); }
+				&:last-of-type { padding-right: rem-calc(15); }
+			}
+		}
+
+		thead {
+			background: transparent;
+
+			tr {
+				border-bottom: none;
+			}
+		}
+
+		tbody {
+			tr {
+				&:nth-child(odd) {
+					background-color: $gray-light-alt;
+				}
+				&:nth-child(even) {
+					background-color: $gray-lighter;
+				}
+
+				&:hover {
+					background-color: $gray-cloud;
+				}
+			}
+		}
+	}
+}

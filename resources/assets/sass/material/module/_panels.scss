@@ -1,0 +1,399 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for panels
+// ---------------------
+
+//
+// @Variables
+//
+$panel-padding: rem-calc(25 20);
+
+//
+// @mixins
+//
+// based in foundation panel mixin with the next arguments:
+// $bg:$panel-bg,
+// $padding:$panel-padding,
+// $adjust:$panel-header-adjust,
+// $border:true
+@mixin panel-base($args...) {
+	@include panel($args...);
+	@include box-shadow($panel-shadow);
+	@include margin-item-bottom;
+	position: relative;
+
+	@media #{$mobile-only}, #{$small-only} {
+		@include box-shadow(none);
+		margin: rem-calc(3 -10 3 -10);
+		border-bottom: 1px solid $gainsboro;
+		border-top: 1px solid $gainsboro;
+	}
+
+	&.with-title {
+		padding: {
+			top: 0;
+		}
+	}
+
+	&.with-header {
+		.content-header-panel {
+			position: relative;
+			top: -#{nth($panel-padding, 1)};
+			left: -#{nth($panel-padding, 2)};
+			@include box-sizing(content-box);
+			padding: $panel-padding;
+		}
+	}
+
+	&.radius {
+		@include border-radius($global-radius);
+
+		.title-panel {
+			@include side-radius(top, $global-radius);
+		}
+	}
+
+	&.round {
+		@include border-radius($global-rounded);
+
+		.title-panel {
+			@include side-radius(top, $global-rounded);
+		}
+	}
+
+	.panel-content:not(.radius):not(.round), .panel-info:not(.radius):not(.round), .panel-detail:not(.radius):not(.round) {
+		.title-panel {
+			@include side-radius(top, 0px);
+		}
+	}
+
+	.title-panel {
+		@include box-sizing(content-box);
+		width: 100%;
+		line-height: rem-calc(55);
+		font-weight: normal;
+		position: relative;
+		color: $black;
+		top: 0;
+		left: -#{nth($panel-padding, 2)};
+		padding: {
+			left: nth($panel-padding, 2);
+			right: nth($panel-padding, 2);
+		}
+		margin: {
+			top: 0px;
+		}
+
+		.icon-title {
+			margin-right: rem-calc(10);
+			// color: $white;
+
+			&:not(i){
+				background-color: $iron;
+			}
+		}
+
+		> div:not(.icon-title) {
+			display: inline-block;
+			vertical-align: middle;
+			width: 100%;
+		}
+	}
+
+	// styles actions for panels
+	.panel-actions {
+		display: block;
+		border-top: 1px solid $hr-border-color;
+		padding: rem-calc(15) nth($panel-padding, 2);
+		margin: {
+			top: nth($panel-padding, 2);
+			left: -#{nth($panel-padding, 2)};
+			right: -#{nth($panel-padding, 2)};
+			bottom: -#{nth($panel-padding, 1)};
+		}
+
+		&.top-pos {
+			border: none;
+			border-bottom: 1px solid $hr-border-color;
+		}
+	}
+
+	// styles discussion for panels
+	.discussion-wrapper {
+		border-top: 1px solid $hr-border-color;
+		padding: 0 nth($panel-padding, 2) 0;
+		margin: {
+			top: rem-calc(15);
+			left: -#{nth($panel-padding, 2)};
+			right: -#{nth($panel-padding, 2)};
+		}
+	}
+
+	// styles side navs for panels
+	.side-navigation {
+		padding: 0;
+		margin: {
+			left: -#{nth($panel-padding, 2)};
+			right: -#{nth($panel-padding, 2)};
+		}
+
+		> li a:not(.button) {
+			padding: {
+				left: nth($panel-padding, 2);
+				right: nth($panel-padding, 2);
+			}
+		}
+
+		.side-navigation {
+			margin: {
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+	.side-nav-slide {
+		padding: 0;
+		margin: {
+			left: -#{nth($panel-padding, 2)};
+			right: -#{nth($panel-padding, 2)};
+		}
+
+		> li {
+			padding: {
+				left: nth($panel-padding, 2);
+				right: nth($panel-padding, 2);
+			}
+		}
+	}
+
+	// styles for list inside for panels
+	.content-data-list, &.content-data-list {
+		> ul[class*="browse-list"] {
+			margin: {
+				left: -#{nth($panel-padding, 2)};
+				right: -#{nth($panel-padding, 2)};
+			}
+		}
+	}
+
+	// styles for cards info inside for panels
+	.card-data-info, .card-user-info {
+		margin: {
+			left: -#{nth($panel-padding, 2)};
+			right: -#{nth($panel-padding, 2)};
+		}
+	}
+
+	// styles for list types for panels
+	.list-separator, .list-highlighted {
+
+		> li {
+			@media #{$mobile-only}, #{$small-only} {
+				margin: {
+					left: -#{nth($panel-padding, 2)};
+					right: -#{nth($panel-padding, 2)};
+				}
+				padding: {
+					left: nth($panel-padding, 2);
+					right: nth($panel-padding, 2);
+				}
+			}
+		}
+	}
+}
+
+// panel for info
+// --------------
+.panel-info {
+	@include panel-base(
+		$padding: $panel-padding,
+		$border: false
+	);
+
+	.title-panel {
+		.edit-field-button {
+			margin: {
+				right: 0;
+			}
+		}
+	}
+
+	.title-panel-single {
+		margin-bottom: rem-calc(25);
+		font: {
+			weight: $font-weight-bold;
+		}
+	}
+}
+
+// panel for content
+// -----------------
+.panel-content {
+	@include panel-base(
+		$padding: $panel-padding,
+		$border: false
+	);
+
+	.title-panel {
+		color: $tuatara;
+
+		.icon-title {
+			color: $white;
+		}
+	}
+}
+
+// panel for detail
+// ----------------
+.panel-detail {
+	@include panel-base(
+		$bg: $gray-lighter,
+		$padding: $panel-padding,
+		$border: false
+	);
+
+	.title-panel {
+		color: $tuatara;
+	}
+}
+
+// ============
+// list panels
+// ============
+.content-panels {
+	margin: {
+		bottom: rem-calc(10);
+	}
+
+	&.radius { @include border-radius($global-radius); }
+	&.round { @include border-radius($global-rounded); }
+
+	.panel-item {
+		@include panel( $bg: $white, $padding: $panel-padding );
+		border: 0;
+		border-top: 3px solid transparent;
+		position: relative;
+		@include box-shadow(1px 1px 10px $base);
+		margin: 0;
+
+		&:not(:nth-last-of-type(1)) {
+			margin: {
+				bottom: rem-calc(20);
+			}
+		}
+	}
+}
+
+// Header panel
+.content-header-panel {
+	display: block;
+	position: relative;
+	padding: rem-calc(30) nth($panel-padding, 2);
+	background-color: $secondary-bg-color;
+	width: 100%;
+	border-bottom: 10px solid $gray-lighter;
+	z-index: 1;
+
+	&:not(.no-shadow) {
+		@include box-shadow(0px 1px 6px rgba($black, .2));
+	}
+	&.no-border {
+		border: none;
+	}
+
+	.hpanel-title {
+		padding: 0;
+		font: {
+			size: rem-calc(26);
+		}
+		color: $white;
+
+		.icon-hpanel {
+			margin-left: rem-calc(15);
+			background-color: rgba($white, .1);
+
+			&.is-right {
+				float: right;
+				margin-top: -#{ ((1em + em-calc(16.2, inherit)) / 2) / 2 };
+			}
+		}
+	}
+
+	&.radius-top {
+		@include side-radius(top);
+	}
+
+	&.radius-bottom {
+		@include side-radius(bottom);
+	}
+
+	&.header-section {
+		padding: {
+			top: rem-calc(25);
+			bottom: rem-calc(25);
+		}
+		border-bottom: none;
+	}
+
+	.circle-icon-hpanel {
+		@include icon-circle(
+			$font-size: rem-calc(48),
+			$padding: rem-calc(22),
+			$color: $base,
+			$bgcolor: $white,
+			$colors-custom: false,
+			$sizes-custom: false,
+			$has-transition: false
+		);
+		position: absolute;
+		right: nth($panel-padding, 2);
+		bottom: -#{nth($panel-padding, 2)};
+		@include box-shadow(0px 0px 0px 1px $white, 0px 4px 10px rgba($black, .2));
+		@include background-clip(padding-box);
+
+		&:not(.no-border) {
+			border: 7px solid transparent;
+
+			&:after {
+				content: '';
+		    position: absolute;
+		    width: 100%;
+		    height: 100%;
+		    top: 0px;
+		    left: 0px;
+		    bottom: 0px;
+		    background-color: transparent;
+		    border-radius: 50%;
+		    @include box-shadow(0px 4px 20px rgba($black, .3));
+			}
+		}
+	}
+
+	@media #{$mobile-only}, #{$small-only} {
+
+		padding: rem-calc(20) nth($panel-padding, 2);
+
+		.hpanel-title {
+			font-size: rem-calc(26);
+		}
+
+		.icon-hpanel {
+			display: none;
+		}
+
+		&.header-section {
+			padding: rem-calc(15) #{$column-gutter / 2};
+		}
+
+		.circle-icon-hpanel {
+			@include icon-circle(
+				$font-size: rem-calc(25),
+				$padding: rem-calc(12),
+				$color: $base,
+				$bgcolor: $white
+			);
+
+			right: 0;
+		}
+	}
+}

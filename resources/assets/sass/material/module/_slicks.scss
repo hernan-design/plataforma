@@ -1,0 +1,369 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for slicks
+// ----------------------------
+
+// overflow hidden button slick title
+.slick-slider {
+	.slick-prev, .slick-next {
+		overflow: hidden;
+		@extend %font-mdi;
+		font-size: 38px;
+		width: 27px;
+    height: 50px;
+
+		&:before {
+		  @extend %font-mdi;
+			color: $dark-silver;
+		}
+
+		&.slick-diasbled {
+			&:hover {
+				cursor: default;
+			}
+		}
+	}
+
+  .slick-prev {
+		&:before {
+	    content: mdi('chevron-left');
+		}
+	}
+
+	.slick-next {
+		&:before {
+	    content: mdi('chevron-right');
+		}
+	}
+}
+
+// Styles for slick browse
+.slick-browse {
+
+	.slick-prev, .slick-next {
+		top: rem-calc(-10);
+		// margin-top: rem-calc(-50);
+		font-size: rem-calc(25);
+		width: 1em;
+		height: 1em;
+		bottom: 0;
+		top: auto;
+		margin: rem-calc(0 0 5);
+
+		&:before{
+			@extend %font-mdi;
+			color: $charcoal;
+		}
+	}
+
+	.slick-prev {
+		left: auto;
+		right: rem-calc(195);
+
+		&:before{
+			content: mdi('chevron-left');
+		}
+	}
+
+	.slick-next {
+		right: rem-calc(20);
+
+		&:before{
+			content: mdi('chevron-right');
+		}
+	}
+
+	.slick-dots {
+		bottom: 0;
+    right: 0px;
+    width: auto;
+    margin: rem-calc(0 40 5);
+
+    > li {
+    	margin: 0;
+
+    	button {
+    		&:before {
+    			font-size: 7px;
+    		}
+
+    		&:hover {
+    			&:before {
+    				color: $sky-blue;
+    			}
+    		}
+    	}
+
+    	&.slick-active {
+    		button {
+    			&:before {
+    				color: $sky-blue;
+    			}
+    		}
+    	}
+    }
+	}
+}
+
+.slick-browse-events, .browse-list-programs {
+	margin-left: 0;
+
+	.slick-slide {
+		padding: rem-calc(0 10);
+
+		> a {
+			&:hover {
+				text-decoration: none;
+
+				p, div, h5 {
+				  text-decoration: none;
+				}
+			}
+		}
+	}
+
+	@media #{$tablet-up} {
+	  .slick-prev, .slick-next {
+      top: -50px;
+	  }
+
+	  .slick-next {
+		  right: 11px;
+	  }
+
+	  .slick-prev {
+		  right: 40px;
+		  left: auto;
+	  }
+	}
+
+	.slick-dots {
+		text-align: right;
+		bottom: 0;
+		right: 20px;
+		position: relative;
+
+		> li {
+			width: auto;
+			height: auto;
+
+			> button {
+			  width: auto;
+			  height: auto;
+
+				&:before {
+					width: auto;
+			    height: auto;
+				}
+			}
+		}
+	}
+}
+
+// Style for carousel form's arrows
+.slick-form {
+	.slick-prev, .slick-next{
+		top: 25%;
+		// margin-top: rem-calc(-50);
+		font-size: rem-calc(100);
+		width: 1em;
+		height: 1em;
+		overflow: hidden;
+
+		&:before{
+			@extend %font-mdi;
+			color: scale-color($color-alt-form, $lightness: 0%);
+		}
+
+		&:disabled, &.disabled{
+			background: transparent;
+			color: transparent;
+		}
+	}
+	.slick-prev{
+		left: rem-calc(-125);
+		&:before{
+			content: mdi('chevron-left');
+		}
+	}
+
+	.slick-next{
+		right: rem-calc(-125);
+		&:before{
+			content: mdi('chevron-right');
+		}
+	}
+}
+
+// styles for carousel form's gallery
+.slick-gallery {
+	margin: 0;
+	padding: rem-calc(0 20);
+
+	.slick-prev, .slick-next {
+		top: 50%;
+		// margin-top: rem-calc(-50);
+		font-size: rem-calc(20);
+		width: 1em;
+		height: 1em;
+		bottom: 0;
+		margin: rem-calc(-10 0 5);
+
+		&:before{
+			@extend %font-mdi;
+			color: $jumbo;
+		}
+	}
+
+	.slick-prev {
+		left: 0;
+
+		&:before{
+			content: mdi('chevron-left');
+		}
+	}
+
+	.slick-next {
+		right: 0;
+
+		&:before{
+			content: mdi('chevron-right');
+		}
+	}
+
+	.item-gallery-image {
+		padding: rem-calc(0 5);
+	}
+}
+
+// Style for carousel survey's arrows
+.slick-survey {
+	.slick-prev, .slick-next{
+		top: 100%;
+		width: auto;
+		height: auto;
+		bottom: auto;
+		// margin-top: rem-calc(-50);
+		overflow: hidden;
+		margin: rem-calc(25 0 5);
+		line-height: 1.5;
+
+		&:before {
+			content: '';
+		}
+
+		&:disabled, &.disabled{
+			background: transparent;
+			color: transparent;
+		}
+	}
+	.slick-prev{
+		left: auto;
+		right: 12%;
+	}
+
+	.slick-next{
+		left: auto;
+		right: 0;
+	}
+}
+
+// Styles for tabs carousel
+.slick-tabs {
+
+	.slick-prev, .slick-next {
+		top: 50%;
+		margin-top: -.5em;
+		margin-bottom: 0px;
+		font-size: rem-calc(30);
+		width: 1em;
+		height: 1em;
+
+		&:before{
+			@extend %font-mdi;
+			color: $charcoal;
+		}
+	}
+
+	.slick-prev {
+		left: -35px;
+
+		&:before{
+			content: mdi('chevron-left');
+		}
+	}
+
+	.slick-next {
+		right: -35px;
+
+		&:before{
+			content: mdi('chevron-right');
+		}
+	}
+
+	.slick-list {
+		padding-bottom: rem-calc(100) !important;
+    margin-bottom: rem-calc(-100);
+	}
+}
+
+// Styles for slick tabs programs
+.slick-tabs-programs {
+
+	.slick-prev, .slick-next {
+		top: 50%;
+		margin-top: -30px;
+		margin-bottom: 0px;
+		font-size: rem-calc(30);
+		width: 25px;
+    height: 25px;
+
+		@media #{$mobile-only}, #{$small-only}, #{$medium-only} {
+			top: 83px;
+			margin-top: 0px;
+		}
+
+		&:before {
+			color: $black;
+			@extend %font-mdi;
+			font-size: rem-calc(45);
+			position: absolute;
+			left: -10px;
+		}
+	}
+
+	.slick-prev {
+
+		@media #{$mobile-only}, #{$small-only}, #{$medium-only} {
+			left: 25px;
+		}
+
+		@media #{$xlarge-up} {
+			left: -35px;
+		}
+
+		&:before{
+			content: mdi('chevron-left');
+		}
+	}
+
+	.slick-next {
+
+		@media #{$mobile-only}, #{$small-only}, #{$medium-only} {
+			right: 25px;
+		}
+
+		@media #{$xlarge-up} {
+		  right: -35px;
+		}
+
+		&:before{
+			content: mdi('chevron-right');
+		}
+	}
+
+	.slick-list {
+		padding-bottom: rem-calc(100) !important;
+    margin-bottom: rem-calc(-100);
+	}
+}

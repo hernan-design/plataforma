@@ -1,0 +1,88 @@
+// Styles for programs main
+// ------------------------
+%programs-main {
+
+	.stage-label-content {
+    display: inline-block;
+    position: relative;
+    top: rem-calc(-28);
+    left: auto;
+    right: auto;
+    font: {
+    	size: rem-calc(100);
+    	weight: 700;
+    }
+    line-height: normal;
+    padding: 0;
+    margin-bottom: rem-calc(-28);
+
+    color: $gray-base;
+
+    > sup {
+			font: {
+				size: .65em;
+			}
+			color: $iron;
+    }
+
+    > span {
+	    position: relative;
+	    left: -1em;
+	    font: {
+	    	size: .35em;
+	    	weight: $font-weight-normal;
+	    }
+    }
+	}
+}
+
+.program-main-title {
+	font-size: rem-calc(34);
+}
+
+// icon circle program
+.wrap-icon-program {
+	margin: {
+		bottom: rem-calc(45);
+	}
+
+	.program-circle {
+		@include icon-circle(
+			$font-size: rem-calc(60),
+			$padding: rem-calc(20),
+			$color: $white,
+			$bgcolor: $base
+		);
+	}
+}
+
+.program-participation {
+
+	.definition-info-participation {
+		> dd, > li {
+			margin: {
+				top: rem-calc(50);
+			}
+		}
+	}
+}
+
+#program-preview-diagnostic{
+	.inner-panel-program-review{
+		#chart-area-result-program{
+            margin-top: -60px;
+            margin-bottom: -105px;
+            @media #{$mobile-only} {
+                margin-bottom: -50px;
+                margin-top:-60px;
+            }
+		}
+	}
+}
+
+#program-preview-opportunities{
+	.inner-panel-program-review{
+		margin-top: -50px;
+	}
+}
+

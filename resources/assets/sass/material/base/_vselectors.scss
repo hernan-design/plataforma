@@ -1,0 +1,212 @@
+// Content variable selectors
+// a. Institutions variable selectors
+// b. List variable selectors
+// c. Fonts variable selectors
+
+// a. Institutions variable selectors
+// ----------------------------------
+%inst-color-body {
+	color: #{$color-body} !important;
+	* {
+		color: #{$color-body};
+	}
+}
+%inst-bgcolor-body {
+	background-color: #{$background-body} !important;
+	// *{
+	// 	background-color: #{$background-body};
+	// }
+}
+%inst-color-body-invert {
+	color: #{$background-body} !important;
+	* {
+		color: #{$background-body};
+	}
+}
+%inst-bgcolor-body-invert {
+	background-color: #{$color-body} !important;
+	// *{
+	// 	background-color: #{$background-body};
+	// }
+}
+%inst-color-body-active {
+	color: #{$color-active-header} !important;
+	* {
+		color: #{$color-active-header};
+	}
+}
+%inst-bgcolor-body-active {
+	background-color: #{$color-active-header} !important;
+}
+
+//Institution Base color
+%inst-color-primary {
+	color: #{$primary-color} !important;
+	// * {
+	// 	color: #{$primary-color};
+	// }
+}
+%inst-bgcolor-primary {
+	background-color: #{$primary-bg-color} !important;
+	// *{
+	// 	background-color: #{$background-body};
+	// }
+}
+%inst-color-secondary {
+	color: #{$secondary-color} !important;
+	// * {
+	// 	color: #{$secondary-color};
+	// }
+}
+%inst-bgcolor-secondary {
+	background-color: #{$secondary-bg-color} !important;
+	// *{
+	// 	background-color: #{$background-body};
+	// }
+}
+%inst-endbgcolor-secondary {
+	background-color: lighten($secondary-bg-color, $gradient-function-factor) !important;
+	// *{
+	// 	background-color: #{$background-body};
+	// }
+}
+%inst-dgradient-secondary {
+	@include gradient-diagonal($secondary-bg-color, lighten($secondary-bg-color, $gradient-function-factor));
+}
+%inst-vgradient-secondary {
+	@include gradient-vertical($secondary-bg-color, lighten($secondary-bg-color, $gradient-function-factor));
+}
+
+%box-bgcolor {
+	background-color: $lighter-blue;
+}
+
+// b. List variable selectors
+// --------------------------
+
+// c. Fonts variable selectors
+// ---------------------------
+
+%color-white {
+	color: #{$white} !important;
+	* {
+		color: #{$white};
+	}
+}
+%bgcolor-white {
+	background-color: #{$white} !important;
+}
+
+%color-alert {
+	color: #{$alert-color} !important;
+	* {
+		color: #{$alert-color};
+	}
+}
+%bgcolor-alert {
+	background-color: #{$alert-color} !important;
+}
+
+%color-success {
+	color: #{$success-color} !important;
+	* {
+		color: #{$success-color};
+	}
+}
+%bgcolor-success {
+	background-color: #{$success-color} !important;
+}
+
+%color-warning {
+	color: #{$warning-color} !important;
+	* {
+		color: #{$warning-color};
+	}
+}
+%bgcolor-warning {
+	background-color: #{$warning-color} !important;
+}
+
+%color-info {
+	color: #{$info-color} !important;
+	* {
+		color: #{$info-color};
+	}
+}
+%bgcolor-info {
+	background-color: #{$info-color} !important;
+}
+
+%color-sky-blue {
+	color: #{$sky-blue} !important;
+	* {
+		color: #{$sky-blue};
+	}
+}
+%bgcolor-sky-blue {
+	background-color: #{$sky-blue} !important;
+}
+
+%color-purple-blue {
+	color: #{$purple-blue} !important;
+	* {
+		color: #{$purple-blue};
+	}
+}
+%bgcolor-purple-blue {
+	background-color: #{$purple-blue} !important;
+}
+
+%color-gray-base {
+	color: #{$gray-base} !important;
+	* {
+		color: #{$gray-base};
+	}
+}
+%bgcolor-gray-base {
+	background-color: #{$gray-base} !important;
+}
+
+%color-gray-light {
+	color: #{$gray-light} !important;
+	* {
+		color: #{$gray-light};
+	}
+}
+%bgcolor-gray-light {
+	background-color: #{$gray-light} !important;
+}
+
+%color-gray-dark {
+	color: #{$gray-dark} !important;
+	* {
+		color: #{$gray-dark};
+	}
+}
+%bgcolor-gray-dark {
+	background-color: #{$gray-dark} !important;
+}
+
+%color-gray-lighter-alt {
+	color: #{$gray-lighter-alt} !important;
+	* {
+		color: #{$gray-lighter-alt};
+	}
+}
+%bgcolor-gray-lighter-alt {
+	background-color: #{$gray-lighter-alt} !important;
+}
+
+%color-gray-light-alt {
+	color: #{$gray-light-alt} !important;
+	* {
+		color: #{$gray-light-alt};
+	}
+}
+%bgcolor-gray-light-alt {
+	background-color: #{$gray-light-alt} !important;
+}
+
+%font-mdi {
+	@extend .#{$mdi-css-prefix}-set;
+}

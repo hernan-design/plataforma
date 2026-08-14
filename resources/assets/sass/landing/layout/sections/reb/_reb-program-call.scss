@@ -1,0 +1,68 @@
+%reb-program-call {
+	#reb-program-call {
+		background-color: $gray-cloud;
+
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			.reb-df-logo {
+				text-align: center;
+			}
+		}
+
+		.reb-program-call-list {
+			background: {
+				image: url("http://static.tuproyecto.com/images/landing/redbavaria/bracket-left.svg");
+				repeat: no-repeat;
+				position: left center;
+			}
+			padding: rem-calc(15 0 5 80);
+
+			.program-call-list-title {
+				font-size: rem-calc(24);
+				font-weight: 100;
+				margin-bottom: rem-calc(16);
+			}
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+				.program-call-list-title {
+					text-align: center;
+				}
+			}
+
+			.program-call-boxes {
+				padding: rem-calc(8 8 2 8);
+
+				.program-box-list {
+					display: inline-block;
+					margin-left: 0;
+
+					.reb-programs-icons-box {
+
+						.reb-programs-icons {
+							min-width: 82px;
+							min-height: 82px;
+						}
+					}
+
+					.reb-program-text-box {
+
+						.reb-program-text {
+							font-size: rem-calc(18);
+							font-weight: 100;
+							color: $aluminum;
+							padding-left: rem-calc(10);
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			.reb-program-call-list {
+				background-image: none;
+				padding: 0;
+				margin-top: 40px;
+			}
+		}
+	}
+}

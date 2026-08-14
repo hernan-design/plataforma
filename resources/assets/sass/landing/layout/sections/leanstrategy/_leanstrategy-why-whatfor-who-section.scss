@@ -1,0 +1,50 @@
+%leanstrategy-why-whatfor-who-section {
+	#leanstrategy-why-whatfor-who-section {
+		background-color: $gray-cloud;
+		position: relative;
+
+		.entrepreneurship-section-title {
+			color: $terpel-purple-color;
+			margin-bottom: rem-calc(50);
+		}
+
+		.ls-why-whatfor-who-box {
+
+			.why-whatfor-who-title {
+				color: $oil;
+				font-size: rem-calc(18);
+				font-weight: 200;
+				margin-top: rem-calc(20);
+				margin-bottom: rem-calc(17);
+			}
+
+			@media #{$small-only}, #{$tablet-only} {
+				.why-whatfor-who-title {
+					margin-top: rem-calc(0);
+				}
+			}
+
+			@media #{$mobile-only} {
+				.why-whatfor-who-title {
+					margin-top: rem-calc(18);
+				}
+			}
+
+			.why-whatfor-who-list {
+				li {
+					color: $gray-deep;
+					font-weight: 100;
+					font-size: rem-calc(15);
+					line-height: 1.3;
+					margin-bottom: rem-calc(8);
+				}
+			}
+		}
+
+		@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+			.ls-why-whatfor-who-box {
+				margin-bottom: rem-calc(35);
+			}
+		}
+	}
+}

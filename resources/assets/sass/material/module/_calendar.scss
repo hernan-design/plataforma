@@ -1,0 +1,311 @@
+#calendar-user {
+	@include panel-base;
+	@include border-radius;
+	border: 0;
+
+	@media #{$mobile-only} {
+		@include border-radius(0);
+		border-left: 0;
+		border-right: 0;
+	}
+
+	&.fc-unthemed {
+		thead, td, th {
+			border-color: transparent;
+		}
+
+		.fc-today:not(.fc-day-number) {
+			background-color: rgba($black, 0.04);
+		}
+
+		.fc-agendaDay-view {
+			.fc-today {
+				background-color: transparent;
+			}
+		}
+	}
+
+	.fc-toolbar {
+		.fc-center {
+			> h2 {
+				color: $monsoon;
+				font-size: rem-calc(22);
+
+				@media #{$mobile-only}, #{$small-only} {
+					margin-top: rem-calc(30);
+				}
+
+			}
+		}
+
+		.fc-left {
+			.fc-button:not(.fc-today-button) {
+				border: 0;
+			}
+
+			.fc-today-button {
+				@media only screen and (max-width: 400px)  {
+					margin-left: 0;
+				}
+			}
+
+			.fc-button-group {
+				@media #{$mobile-only}, #{$small-only} {
+					margin-left: 0;
+				}
+			}
+		}
+
+		.fc-button {
+			background-image: none;
+			background-color: $white;
+			border-color: $gainsboro;
+			text-shadow: none;
+			box-shadow: none;
+			text-transform: lowercase;
+			font-size: rem-calc(14);
+			color: $monsoon;
+
+			&:disabled, {
+				opacity: 1;
+			}
+
+			&.fc-nextYear-button, &.fc-prevYear-button {
+				@media #{$mobile-only}, #{$small-only} {
+					display: none;
+				}
+			}
+
+			&.fc-state-active, &.fc-state-disabled {
+				box-shadow: none;
+				background-color: $jumbo;
+				border-color: $jumbo;
+				color: $white;
+			}
+
+			&.fc-state-active:hover, &.fc-state-disabled:hover {
+				cursor: default;
+			}
+
+			&:hover:not(.fc-state-active):not(.fc-state-disabled) {
+				color: $jumbo;
+
+				.fc-icon {
+					color: $jumbo;
+				}
+			}
+
+			.fc-icon {
+				@extend %font-mdi;
+				color: $dark-silver;
+
+    		&:after {
+    			top: -5px;
+    			left: auto;
+    			font-size: rem-calc(24);
+    		}
+
+				&.fc-icon-left-double-arrow {
+					&:after {
+						content: mdi('chevron-double-left');
+					}
+				}
+
+				&.fc-icon-right-double-arrow {
+					&:after {
+						content: mdi('chevron-double-right');
+					}
+				}
+
+				&.fc-icon-left-single-arrow {
+					&:after {
+						content: mdi('chevron-left');
+					}
+				}
+
+				&.fc-icon-right-single-arrow {
+					&:after {
+						content: mdi('chevron-right');
+					}
+				}
+			}
+		}
+	}
+
+	.fc-view-container {
+		.fc-head {
+			background-color: transparent;
+
+			table {
+				background: transparent;
+
+				thead {
+					background: transparent;
+				}
+			}
+
+			.fc-day-header {
+				@media #{$tablet-up} {
+					text-align: left;
+				}
+
+				font-size: rem-calc(12);
+			}
+		}
+
+		.fc-body {
+			table {
+				background: transparent;
+
+				thead {
+					background: transparent;
+				}
+			}
+
+			.fc-day-grid-container {
+				@include border-radius;
+				border: 1px solid $gris;
+
+				.fc-day-number {
+					text-align: left;
+					padding: rem-calc(8 8 8 13);
+    			font-size: rem-calc(14);
+    			font-weight: 300;
+    			color: $monsoon;
+
+    			&:hover {
+    				cursor: pointer;
+    			}
+
+    			&.fc-today {
+						color: $jumbo;
+					}
+				}
+
+				.fc-day {
+					border: 1px solid $gris;
+
+					&:hover {
+						cursor: pointer;
+					}
+
+					&.fc-other-month {
+						background-color: $vapor;
+						border: 1px solid $white;
+
+						&:last-child {
+							border-right: 1px solid $gris;
+						}
+					}
+
+					&.fc-today {
+						background-color: rgba($black, 0.04);
+					}
+				}
+
+				.fc-content-skeleton {
+					&:hover {
+						cursor: pointer;
+					}
+
+					table {
+						tbody {
+							tr {
+								background-color: transparent;
+							}
+						}
+					}
+
+					.fc-event-container {
+						.fc-event, .fc-day-grid-event  {
+							background-color: rgba(255, 255, 255, 0.5);
+							border-color: $jumbo;
+
+							.fc-content {
+								padding-left: rem-calc(2);
+
+								> span {
+									color: $monsoon;
+								}
+							}
+						}
+					}
+				}
+
+				.fc-highlight-skeleton {
+					.fc-highlight {
+						background-color: rgba($black, 0.2);
+					}
+				}
+			}
+		}
+
+		.fc-month-view {
+			.fc-day-grid-container {
+				.fc-content-skeleton {
+					.fc-event-container {
+						.fc-event, .fc-day-grid-event  {
+							background-color: $jumbo;
+							border-color: $jumbo;
+
+							.fc-content {
+
+								> span {
+									color: $white;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.fc-agendaWeek-view, .fc-agendaDay-view {
+			.fc-time-grid-container {
+				table {
+					tr {
+						background-color: transparent;
+						border-bottom: 1px solid $gris;
+					}
+				}
+
+				.fc-event-container {
+					.fc-event {
+						background-color: $white;
+						margin {
+							left: rewm-calc(0);
+							right: rewm-calc(0);
+						}
+						border-color: $jumbo;
+
+						.fc-content {
+							padding: {
+								left: rem-calc(5);
+								top: rem-calc(5);
+							}
+
+							.fc-time, .fc-title {
+								color: $monsoon;
+								font-size: rem-calc(13);
+							}
+
+							.fc-time {
+								margin-bottom: rem-calc(5);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.fc-agendaDay-view {
+			.fc-time-grid-container {
+				.fc-event-container {
+					.fc-event {
+						background-color: rgba($black, 0.06);
+					}
+				}
+			}
+		}
+	}
+}

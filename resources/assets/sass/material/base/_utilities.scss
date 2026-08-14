@@ -1,0 +1,147 @@
+/**
+* Styles utilities for application
+* --------------------------------
+*/
+
+.full-width {
+	width: 100% !important;
+	max-width: 100vw !important;
+}
+
+.video-center {
+	width: 100% !important;
+	max-width: 100vw !important;
+	text-align: center;
+}
+
+.disabled {
+	// color: $aluminum !important;
+	opacity: .8;
+	pointer-events: none;
+	cursor: default !important;
+}
+
+.as-block { display: block; }
+
+hr {
+	&.no-margin {
+		margin: 0;
+	}
+
+	// customize color for icons
+	&.success{
+    border-color: $success-color;
+  }
+  &.alert{
+    border-color: $alert-color;
+  }
+  &.warning{
+    border-color: $warning-color;
+  }
+  &.info{
+    border-color: $info-color;
+  }
+  &.secondary {
+    border-color: scale-color($secondary-color, $lightness: -20%);
+  }
+	&.light-purple-blue {
+		border-color: $light-purple-blue;
+	}
+	&.purple-blue {
+		border-color: $purple-blue;
+	}
+  &.sky-blue {
+    border-color: $sky-blue;
+  }
+  &.gray-base {
+    border-color: $gray-base;
+  }
+  &.gray-light {
+    border-color: $gray-light;
+  }
+  &.gray-dark {
+    border-color: $gray-dark;
+  }
+}
+
+.vertical-separator {
+	display: inline-block;
+	vertical-align: middle;
+	padding: rem-calc(0 5);
+	font: {
+		size: 1.3em;
+	}
+}
+.slah-separator {
+	display: inline-block;
+	vertical-align: middle;
+	margin: rem-calc(0 5);
+	font: {
+		size: inherit;
+	}
+}
+.divider {
+	border: 1px;
+	overflow: hidden;
+	background-color: $hr-border-color;
+	padding: 0px !important;
+}
+.vdivider {
+	width: 1px;
+	height: 100%;
+  overflow: hidden;
+  background-color: $hr-border-color;
+}
+
+// Styles for hollow horizontal separator
+// ------------------------------------------
+.h-hollow-top {
+	position: relative;
+	border-top: 1px solid scale-color($bgcolor-main-wrap, $lightness: -12%);
+
+	@media #{$mobile-only}, #{$small-only} {
+		margin-left: -10px;
+		margin-right: -10px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	&:before{
+		content: "";
+		position: absolute;
+		display: block;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		border-top: 1px solid $white;
+	}
+}
+.h-hollow-bottom {
+	position: relative;
+	border-bottom: 1px solid $white;
+
+	@media #{$mobile-only}, #{$small-only} {
+		margin-left: -10px;
+		margin-right: -10px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	&:after{
+		content: "";
+		position: absolute;
+		display: block;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+		border-bottom: 1px solid scale-color($bgcolor-main-wrap, $lightness: -12%);
+	}
+}
+.h-hollow-both {
+	@extend .h-hollow-top;
+	@extend .h-hollow-bottom;
+}
+
+.no-change {
+	cursor: default;
+}

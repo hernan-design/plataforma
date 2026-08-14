@@ -1,0 +1,82 @@
+%programs-landing {
+
+	#programs-land {
+		background-color: $gray-lighter;
+		@extend %top-line-transition !optional;
+
+		.title-section-land {
+			text-align: center;
+		}
+
+		ul.list-programs-land {
+			overflow: hidden;
+			background-color: transparent;
+
+			li.item-programs {
+				padding: rem-calc(0 13);
+
+				.programs-item-land {
+					background-color: $white;
+					padding: rem-calc(30);
+
+					&:hover {
+						background-color: $white;
+						box-shadow: 4px 4px 8px $iron;
+						@include transition(all ease-out 300ms);
+					}
+
+					// .slick-list {
+					// 	padding-left: 0 !important;
+					// }
+
+					.programs-call-category-title {
+						color: $charcoal;
+						font-weight: 700;
+						font-size: rem-calc(18);
+						padding-bottom: rem-calc(27);
+						position: relative;
+						margin-bottom: 0;
+
+						&:after {
+							content: "";
+					    display: inline-block;
+					    height: 4px;
+					    width: 48px;
+					    position: absolute;
+					    left: 0;
+					    bottom: 0;
+						}
+					}
+
+					.programs-title {
+						height: rem-calc(115);
+						overflow: hidden;
+						padding-top: rem-calc(18);
+						margin-bottom: rem-calc(20);
+
+						.programs-title-anchor-land {
+							font: {
+								size: rem-calc(24);
+								weight: 100;
+							}
+							line-height: 1.4;
+						}
+					}
+
+					.programs-call-date {
+						color: $jumbo;
+						font-size: rem-calc(14);
+						b {
+							color: $tuatara;
+						}
+					}
+
+					.view-programs-cta {
+						display: inline-block;
+						margin-top: rem-calc(20);
+					}
+				}
+			}
+		}
+	}
+}

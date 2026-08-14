@@ -1,0 +1,27 @@
+#{$wrapper-land}.wrapper-cenisoft {
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+  // @extend %bolivar-header !optional;
+  @extend %cenisoft-header !optional;
+  @extend %cenisoft-banner !optional;
+  @extend %cenisoft-services !optional;
+  @extend %cenisoft-us !optional;
+  @extend %cenisoft-events !optional;
+  @extend %cenisoft-news !optional;
+  @extend %cenisoft-partners !optional;
+
+}
+

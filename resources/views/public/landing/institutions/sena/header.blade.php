@@ -1,0 +1,199 @@
+<header id="header-land" class="fixed header">
+	<div class="contain-top-bar sticky-top-menu">
+		<nav id="nav-header" class="top-bar" data-topbar role="navigation" {{-- data-options="sticky_on: small" --}}>
+
+			{{-- tablet navigation top menu --}}
+			<ul class="title-area tablet-navigation-menu">
+				<li class="name">
+					<ul class="right inline-list-items hide-for-medium-up sign-in-links singin-buttons-top-menu">
+						@if(Auth::guest())
+							{{-- <li>
+								<a href="{{ URL::route('register') }}" class="button xtiny radius button-inst-secondary">{{ transtp('register.principalbutton') }}</a>
+							</li> --}}
+							<li>
+								<a href="{{ URL::route('login') }}" title="Iniciar sesión" class="small icon-login-land">
+									<i class="mdi mdi-24 mdi-account-key"></i>
+								</a>
+							</li>
+						@else
+							<li>
+								<ul class="notifications-items inline-list-items right">
+									{{-- Notification dropdowns --}}
+									@if (Auth::check())
+										@include('layout.notifydrops')
+									@endif
+								</ul>
+							</li>
+							<li class="content-opt-avatar-land">
+								<div id="drop-avatar-land" class="drop-options-md">
+									<a class="avatar avatar-small" data-dropdown="drop-opt-avatar-land" data-options="align:right;is_hover:false;hover_timeout:0" aria-controls="drop-opt-avatar-land" aria-expanded="false" tabindex="-1">
+						    			<img src="{{ Auth::user()->imagen_usuario }}" alt="{{ Auth::user()->nombre_usuario }}" onerror="imageDefault(this, '{{ config('tuproyecto.avatar_image') }}')">
+									</a>
+									<ul id="drop-opt-avatar-land" class="drop-opt-md" data-dropdown-content aria-hidden="true">
+										<li>
+											<a href="{{ url(Auth::user()->getProfileUrl()) }}" title="{{ Lang::get('app.profile') }}">
+												<label class="label radius">{{ Lang::get('app.profile') }}</label>
+												<span class="icon-drop icon-circle-o circle-shadow white landing-color-secondary"><i class="mdi mdi-account"></i></span>
+											</a>
+										</li>
+										<li>
+											<a href="{{ URL::route('usuario.index') }}" title="{{ Lang::get('user.search') }}">
+												<label class="label radius">{{ Lang::get('user.search') }}</label>
+												<span class="icon-drop icon-circle-o circle-shadow white landing-color-secondary"><i class="mdi mdi-account-search"></i></span>
+											</a>
+										</li>
+										<li>
+											<a href="{{ URL::route('logout') }}" title="{{ Lang::get('app.logout') }}">
+												<label class="label radius">{{ Lang::get('app.logout') }}</label>
+												<span class="icon-drop icon-circle-o circle-shadow white landing-color-secondary"><i class="mdi mdi-logout"></i></span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						@endif
+						<li>
+							<a href="{{ $institution->url_helpdesk_institucion }}" target="_blank" title="Ayuda rápida" class="has-icon-help">
+								<span class=""><i class="mdi mdi-help-circle mdi-24"></i></span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="toggle-topbar icon-bars-menu">
+					<a href="#"><i class="mdi mdi-24 mdi-menu"></i></a>
+				</li>
+			</ul>
+
+			{{-- navigation top menu --}}
+			<section class="top-bar-section">
+				<ul id="nav-menus-grid" class="inline-list-grid">
+					<li class="left-nav-top-bar">
+						{{-- Left Nav Section --}}
+						<div class="left wrap-inst-logo show-for-medium-up">
+							<a href="{{ URL::route('comunidad.index') }}" class="left inst-logo" title="{{ Lang::get('app.home') }}">
+							{!! HTML::image( (isset($parameters['imagen_header']) ? $parameters['imagen_header'] : App\RegistroSesion::getInstitutionImg()), App\RegistroSesion::getInstitutionName()) !!}
+							</a>
+						</div>
+						<ul class="left-top-menu inline-list-grid">
+							<li>&nbsp;</li>
+							{{-- Form search --}}
+							<li class="has-form item-field-search">
+								{!! Form::open(['route' => 'search.index', 'method' => 'GET', 'id' => 'form-search']) !!}
+									<div class="field-search text-left">
+										<input type="text" name="search" id="search-txt" value="" placeholder="Buscar en la red." style="display: none">
+										{{-- <button type="button" class="btn-search text-left" data-focuses="search-txt">
+											<i class="mdi mdi-24 mdi-magnify icon-search"></i>
+										</button> --}}
+									</div>
+								{!! Form::close() !!}
+							</li>
+						</ul>
+					</li>
+					<li class="right-nav-top-bar">
+						<ul class="right-top-menu inline-list-grid show-for-medium-up">
+							@if(Auth::guest())
+								<li>
+									{{-- sign-in buttons --}}
+									<ul class="right singin-buttons-top-menu inline-list-grid valign-center">
+										<li class="no-warp">
+											<a href="{{ URL::route('login') }}" class="button radius tiny inst-secondary-outline">Iniciar sesión</a>
+										</li>
+										{{-- <li class="no-warp">
+											<a href="{{ URL::route('register') }}" class="button radius xtiny button-inst-secondary">{{ transtp('register.principalbutton') }}</a>
+										</li> --}}
+									</ul>
+								</li>
+								<li>
+									<a href="{{ $institution->url_helpdesk_institucion }}" target="_blank" title="Ayuda rápida" class="has-icon-help">
+										<span class=""><i class="mdi mdi-help-circle mdi-24"></i></span>
+									</a>
+								</li>
+								<li>
+						    		<a href="#" class="menu-icon-custom">
+						    			<div class="md-animated-icon bubbleback md-hamburger-close__icon main-menu-toggle">
+											<span class="md-hamburger__layer"></span>
+											{{-- <span class="text-sm reset-case-text label-icon">Menú</span> --}}
+						    			</div>
+									</a>
+						    	</li>
+							@endif
+							@if (Auth::check())
+								{{-- Notification dropdowns --}}
+								@include('layout.notifydrops')
+
+						    	<li class="has-dropdown">
+						    		<a class="avatar" data-options="align:bottom;is_hover:false;hover_timeout:0" data-dropdown="user-opt-menu">
+						    			<img src="{{ Auth::user()->imagen_usuario }}" alt="{{ Auth::user()->nombre_usuario }}" onerror="imageDefault(this, '{{ config('tuproyecto.avatar_image') }}')">
+									</a>
+									<ul id="user-opt-menu" class="notification-layer-dropdown gutter-side small radius" data-dropdown-content aria-autoclose="false" aria-hidden="true">
+										<li>
+											<a href="{{ url(Auth::user()->getProfileUrl()) }}" title="{{ Lang::get('app.profile') }}">
+												<ul class="inline-list-grid valign-center">
+													<li>{{ Lang::get('app.profile') }} </li>
+													<li class="has-image text-right"><i class="mdi mdi-account mdi-21 vcenter"></i></li>
+												</ul>
+											</a>
+										</li>
+										<li>
+											<a href="{{ URL::route('usuario.index') }}" title="{{ Lang::get('user.search') }}">
+												<ul class="inline-list-grid valign-center">
+													<li>{{ Lang::get('user.search') }}</li>
+													<li class="has-image text-right"><i class="mdi mdi-account-search mdi-24 vcenter"></i></li>
+												</ul>
+											</a>
+										</li>
+										<li class="divider"><hr class="no-margin"></li>
+										<li>
+											<a href="{{ URL::route('logout') }}" title="{{ Lang::get('app.logout') }}">
+												<ul class="inline-list-grid valign-center">
+													<li>{{ Lang::get('app.logout') }}</li>
+													<li class="has-image text-right"><i class="mdi mdi-logout mdi-21 vcenter"></i></li>
+												</ul>
+											</a>
+										</li>
+									</ul>
+						    	</li>
+						    	<li>
+									<a href="{{ $institution->url_helpdesk_institucion }}" target="_blank" title="Ayuda rápida" class="has-icon-help">
+										<span class=""><i class="mdi mdi-help-circle mdi-24"></i></span>
+									</a>
+								</li>
+						    	<li>
+						    		<a href="#" class="menu-icon-custom" >
+						    			<div class="md-animated-icon bubbleback md-hamburger-close__icon main-menu-toggle">
+											<span class="md-hamburger__layer"></span>
+											{{-- <span class="text-sm reset-case-text label-icon">Menú</span> --}}
+						    			</div>
+									</a>
+						    	</li>
+					    	@endif
+						</ul>
+
+						{{-- Show for mobiles device only --}}
+						<ul class="right-top-menu off-canvas-list inline-list-grid hide-for-medium-up scroll-general-v">
+							@php $parents = App\Menu::getParents(App\TipoMenu::getType('platform')); @endphp
+							@foreach ($parents as $parent)
+								<li>
+									<label>
+										<ul class="inline-list-grid valign-center">
+											<li>{{ $parent->nombre_item_menu }}</li>
+											<li class="has-image">
+												<li class="has-image text-right"><i class="mdi mdi-web mdi-30 gray-base"></i></li>
+											</li>
+										</ul>
+									</label>
+								</li>
+								@php $children = App\Menu::getChildren(App\TipoMenu::getType('platform'), $parent->codigo_menu_institucion); @endphp
+								@foreach ($children as $son)
+									<li><a href="{{ $son->tipo_enlace_menu_institucion == App\Menu::getTypeLink('internal') ? ($son->ruta_menu_institucion ? url($son->ruta_menu_institucion) : '#') : $son->ruta_menu_institucion }}" target="{{ $son->tipo_enlace_menu_institucion == App\Menu::getTypeLink('external') ? '_blank' : ''}}" data-section="{{ $son->seccion_menu_institucion }}">{{ $son->nombre_item_menu }}</a></li>
+								@endforeach
+							@endforeach
+						</ul>
+					</li>
+				</ul>
+			</section>
+		</nav>
+	</div>
+</header>
+{{-- Main menu options --}}
+@include('layout.mainmenu')

@@ -1,0 +1,74 @@
+// Styles for mentoring feedback
+// -----------------------------
+%mentoring-feedback {
+	#mentoring-feedback-section {
+
+		#header-mentoring-feedback {
+			margin-bottom: rem-calc(15);
+			padding: {
+				top: rem-calc(30);
+				bottom: rem-calc(30);
+			}
+
+			ul.images-profile-feedback {
+				position: relative;
+				margin-bottom: rem-calc(-100);
+		    bottom: rem-calc(-40);
+
+		    > li:not(:last-of-type) {
+					padding-right: rem-calc(30);
+		    }
+
+				.image-user-profile {
+					border: 2px solid $white;
+					background-color: $white;
+				}
+			}
+      .conclude__Mentoring{
+        padding: 5px 10px;
+      }
+      #container-buttons{
+        margin-top:20px;
+        button{
+          padding: 5px 10px;
+        }
+      }
+		}
+
+		#content-mentoring-feedback {
+			.panel-content {
+				margin-top: rem-calc(20);
+			}
+
+			.attachments-mentoring-feedback {
+				margin: {
+					top: rem-calc(50);
+				}
+			}
+		}
+	}
+  #mentoring-feedback-form{
+    #container-sessions-proccess-list{
+      .panel{
+        .no-decoration{
+          text-decoration: none;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+        .panel-header{
+          padding:15px;
+          margin:0;
+          padding: 11px 20px 6px 20px;
+        }
+        .panel-body{
+          padding: 15px;
+        }
+      }
+    }
+  }
+  #mentoring-task-session-list{
+    margin:0;
+    list-style-type:none;
+  }
+}

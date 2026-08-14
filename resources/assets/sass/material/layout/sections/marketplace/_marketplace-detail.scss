@@ -1,0 +1,129 @@
+// Styles for marketplace product detail
+// -----------------------------
+%marketplace-detail {
+
+	#wrapper-detail-product {
+		margin-top: 20px;
+
+		// top product detail
+		.top-product-detail {
+
+			.title-detail-product-main {
+			}
+
+			.card-product-detail {
+				max-width: 100%;
+				padding-bottom: rem-calc(70);
+				margin-top: 0;
+
+				.product-action-detail {
+					position: absolute;
+					width: 100%;
+					bottom: 0;
+				}
+			}
+
+			.card-product-detail-info {
+				margin-top: 0;
+
+				.panel-section-form {
+					padding: rem-calc(15);
+				}
+			}
+
+			.product-img-main {
+				position: relative;
+				max-height: rem-calc(336);
+				min-height: rem-calc(220);
+				overflow: hidden;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+
+				@media #{$mobile-only} {
+					min-height: auto;
+				}
+			}
+
+			.text-summary-product {
+				.wrapper-more {
+					display: inline;
+    			margin-right: rem-calc(10);
+				}
+			}
+
+			ul.product-detail-features {
+				list-style: outside none none;
+				margin: {
+					top: rem-calc(10);
+					left: 0;
+				}
+
+				> li {
+					label {
+						font: {
+							weight: $font-weight-lighter;
+						}
+						// color: $sky-blue;
+						margin: 0;
+					}
+
+					input[type="text"], textarea, select {
+						margin: {
+							bottom: 0;
+						}
+					}
+
+					&:nth-last-of-type(1n+2) {
+						margin: {
+							bottom: rem-calc(10);
+						}
+					}
+				}
+			}
+
+			.product-list-info {
+
+				> li:not(:last-of-type) {
+					margin-bottom: rem-calc(20);
+				}
+			}
+		}
+
+		// content product detail
+		.content-product-detail {
+			padding: {
+				top: rem-calc(20);
+			}
+
+			// .card-user-product-detail {
+			// 	margin: {
+			// 		left: rem-calc(-25);
+			// 		right: rem-calc(-25);
+			// 	}
+			// }
+
+			.product-result-average-evaluation {
+				margin: rem-calc(10 0 50);
+			}
+		}
+
+		// content product states
+		.content-state-product {
+			margin: {
+				bottom: rem-calc(25);
+			}
+		}
+
+		// product gallery image
+		ul#product-gallery-marketplace {
+			margin: rem-calc(0 0 10);
+
+			.product-gallery-image {
+				padding: rem-calc(0 5);
+			}
+		}
+	}
+}

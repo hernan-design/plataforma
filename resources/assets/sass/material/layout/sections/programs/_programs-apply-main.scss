@@ -1,0 +1,176 @@
+// Styles for programs apply main
+// ------------------------------
+%programs-apply-main {
+
+	#content-apply-program {
+    #anounciement-terms{
+      width: auto;
+      background: #FFDB70;
+      padding: 1rem 3rem;
+      margin: 1rem 0.6rem 1rem 0.6rem;
+      border-radius: 3px;
+      > p {
+        font-size: 0.8rem;
+        line-height: 1rem;
+      }
+      @media #{$mobile-only}, #{$small-only}, #{$tablet-only},#{$medium-only} {
+        margin: 1rem 1rem 1rem 1rem;
+        padding: 0.3rem 1rem;
+      }
+    }
+
+		.content-progress-apply-program {
+			margin-bottom: rem-calc(30);
+			padding: rem-calc(45 100 85);
+		}
+
+		.content-step-apply-program {
+			padding: rem-calc(50 80);
+
+			.header-panel-program {
+				top: rem-calc(-50);
+				left: rem-calc(-80);
+				padding: rem-calc(35 80);
+
+				.hpanel-title {
+					#{headers(all)} {
+						margin-right: rem-calc(95);
+					}
+				}
+
+				.circle-icon-hpanel {
+					right: rem-calc(80);
+				}
+			}
+
+			.image-profile-entity, .video-profile-entity, .image-profile-user {
+				width: 100%;
+				border: 2px solid $white;
+				margin-top: rem-calc(40);
+				@include box-shadow(1px 1px 8px rgba($black, .4));
+				max-width: rem-calc(335);
+				min-height: rem-calc(335) / 1.7;
+
+				> img {
+					width: 100%;
+					height: auto;
+				}
+
+				.flex-video {
+					margin-bottom: 0;
+				}
+
+				.edit-photo, .change-photo, .edit-video, .change-video {
+					width: auto;
+					height: auto;
+					left: auto;
+					right: 10px;
+					bottom: 10px;
+					clip: auto;
+					@include opacity(1);
+				}
+			}
+
+			.image-profile-user {
+				max-width: rem-calc(240);
+				min-height: rem-calc(240);
+			}
+		}
+
+		#apply-survey-program {
+
+			.content-step-apply-program {
+				padding: {
+					top: 0;
+					left: 0;
+		    	right: 0;
+		    }
+		    background-color: transparent;
+		    @include box-shadow(none);
+
+				.header-panel-program {
+					top: 0;
+					left: 0;
+					@include box-sizing(border-box);
+				}
+			}
+		}
+
+		#apply-entity-program {
+
+			.btn-floating {
+				width: rem-calc(45);
+				height: rem-calc(45);
+
+				> i {
+					line-height: rem-calc(45);
+				}
+			}
+		}
+
+		.content-progress-apply-program {
+
+			dd, .tab-title {
+				@include flex(0 0 percentage(1/3));
+
+				> a {
+					position: relative;
+					width: 8px;
+				}
+
+				&:last-of-type {
+					@include flex(0);
+				}
+			}
+		}
+
+		@media #{$mobile-only}, #{$small-only} {
+
+			.content-progress-apply-program {
+				padding: rem-calc(30 35 85);
+				overflow-x: scroll;
+				text-align: center;
+			}
+
+			.content-step-apply-program {
+				padding: rem-calc(30 25);
+
+				.header-panel-program {
+					top: rem-calc(-30);
+			    left: rem-calc(-25);
+			    padding: rem-calc(30 25);
+
+					.hpanel-title {
+						#{headers(all)} {
+							margin-right: 0px;
+						}
+					}
+
+			    .circle-icon-hpanel {
+			    	right: rem-calc(25);
+			    }
+				}
+
+				.image-profile-entity, .video-profile-entity {
+					max-width: none;
+					min-height: auto;
+				}
+
+				.save-section {
+					button, .button {
+						padding: rem-calc(9 18 10);
+						font-size: rem-calc(13);
+					}
+				}
+			}
+		}
+	}
+
+	#container-form-videodata {
+		width: rem-calc(700);
+
+		@media #{$mobile-only}, #{$small-only} {
+			width: auto;
+		}
+	}
+}

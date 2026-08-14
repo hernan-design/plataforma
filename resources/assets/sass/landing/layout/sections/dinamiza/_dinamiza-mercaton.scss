@@ -1,0 +1,102 @@
+%dinamiza-mercaton {
+	#dinamiza-mercaton {
+		background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/mercaton/mercaton-bg.jpg') no-repeat center;
+		position: relative;
+		overflow: hidden;
+
+		&:before {
+			background-size: 100% 100%;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/mercaton/mercaton-celebrate-bg.png');
+		}
+
+		.mercaton-container {
+			padding: rem-calc(40 0);
+			@media #{$mobile-only}, #{$small-only} {
+				padding: rem-calc(0);
+			}
+
+			@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding: rem-calc(40 0);
+			}
+		}
+
+		.mercaton-logo {
+			@media #{$mobile-only}, #{$small-only} {
+				margin: rem-calc(40 0);
+			}
+		}
+
+		.mercaton-title {
+			font-family: 'AkzidenzGroteskBQ-BdCnd';
+		}
+
+		.mercaton-title-bold {
+			font-family: 'AkzidenzGroteskBQ-XBold';
+			margin-bottom: rem-calc(42);
+			padding-bottom: rem-calc(42);
+			position: relative;
+
+			@media #{$mobile-only}, #{$small-only} {
+				font-size: rem-calc(28);
+			}
+
+			span {
+				color: $dinamiza-yellow-color;
+			}
+
+			&:after {
+				position: absolute;
+				content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/mercaton/title-divline.png');
+				height: 13px;
+				width: 95px;
+				bottom: 28px;
+				left: 50%;
+				margin-left: -42px;
+
+				@media #{$tablet-up} {
+					left: 0;
+					margin-left: 0;
+				}
+			}
+		}
+
+		.mercaton-button {
+			text-transform: none;
+			background-color: $dinamiza-light-blue-color; // Old browsers
+			@include filter-gradient($dinamiza-light-blue-color, $dinamiza-dark-blue-color, vertical);
+			@include background-image(linear-gradient(top, rgba($dinamiza-light-blue-color,1) 0%,rgba($dinamiza-dark-blue-color,1) 100%));
+			border: 0;
+			z-index: 5;
+			@include border-radius(8px);
+			text-shadow: 2px 2px 0px rgba($black, 0.2);
+			padding: rem-calc(20 70);
+			font-size: rem-calc(21);
+
+			@media #{$mobile-only}, #{$small-only} {
+				padding: rem-calc(20 30);
+				font-size: rem-calc(16);
+				width: 100%;
+			}
+
+			@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding: rem-calc(15 50);
+			}
+
+			&:hover {
+				color: $white;
+			}
+		}
+
+		.mercaton-categories-list {
+			.mercaton-categories-item {
+				img {
+					width: 140px;
+					height: auto;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+// Styles for discussion main
+// -------------------------
+%discussion-main {
+	#main-wrapper-discussion {
+
+		.detail-content-discussion {
+
+			.info-detail-discussion {
+				@include border-radius( $global-radius );
+				background-color: $gray-lighter;
+				border: 1px solid $gainsboro;
+				margin: rem-calc(0 0 30);
+				@include box-shadow( 0px 0px 1px rgba($black,.3) inset);
+				overflow: hidden;
+
+				.image-info-discussion {
+					width: rem-calc(150);
+					max-width: rem-calc(150);
+					height: auto;
+				}
+
+				.description-post-discussion {
+					padding: rem-calc(8 10);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+%cecar-intro-section {
+	#cecar-intro-section {
+		background-color: $gray-rain;
+		position: relative;
+
+		.intro-boxes {
+			background-color: $gray-rain;
+			padding-top: rem-calc(10);
+			padding-bottom: rem-calc(10);
+			@include box-shadow(none);
+
+			&:hover {
+				background-color: $vapor;
+				@include box-shadow(4px 4px 8px $iron);
+				@include transition(all ease-out 300ms);
+			}
+
+			.title-box {
+				height: 80px;
+				text-align:center;
+    			display:table;
+    			width:100%;
+
+				.title-intro-boxes {
+					color: $steel;
+					font-weight: 100;
+					vertical-align:middle;
+    				display:table-cell;
+				}
+			}
+
+			.cecar-intro-icons {
+				font-size: rem-calc(86);
+				color: $cecar-bright-green-color;
+				margin-bottom: rem-calc(20);
+			}
+
+			.view-more-cta {
+				color: $aluminum;
+				display: block;
+				font-weight: 200;
+				margin-top: rem-calc(0);
+				margin-bottom: rem-calc(30);
+			}
+		}
+
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

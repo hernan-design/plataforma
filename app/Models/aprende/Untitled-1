@@ -1,0 +1,19 @@
+app/Console/Commands/GoogleApi/MakeCalendarConference.php
+U       app/Http/Controllers/AsesoriaController.php
+U       app/Models/aprende/Mentoria.php
+U       config/app.php
+U       resources/assets/js/views/mentoring/mentoringquestionlist.js
+U       resources/assets/js/views/mentoring/mentoringsessionlist.js
+U       resources/assets/js/views/mentoring/mentoringsessionlistitem.js
+U       resources/assets/js/views/mentoring/process/processmentor.js
+U       resources/assets/js/views/mentoring/profilementor.js
+U       resources/views/core/mentoring/form/creatementor.blade.php
+U       resources/views/core/mentoring/main.blade.php
+U       resources/assets/js/views/mentoring/mentoringquestionlist.js
+U       resources/assets/js/views/mentoring/mentoringsessionlist.js
+U       resources/assets/js/views/mentoring/mentoringsessionlistitem.js
+U       resources/assets/js/views/mentoring/process/processmentor.js
+U       resources/assets/js/views/mentoring/profilementor.js
+U       resources/views/core/mentoring/form/creatementor.blade.php
+U       resources/views/core/mentoring/main.blade.php
+U

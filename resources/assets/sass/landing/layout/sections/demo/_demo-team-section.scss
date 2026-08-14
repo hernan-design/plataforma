@@ -1,0 +1,55 @@
+%demo-team-section {
+
+	#demo-team-section {
+		background-color: $gray-light;
+		@extend %top-line-transition !optional;
+
+		.demo-team-member-box {
+			padding: rem-calc(20);
+			@include box-shadow(none);
+			@include border-radius($global-radius);
+
+			&:hover {
+				background-color: $white;
+				@include box-shadow($box-shadow-item);
+				@include transition($box-transition-item);
+			}
+
+			.demo-team-member-img {
+				margin-bottom: rem-calc(20);
+			}
+
+			.demo-team-member-name {
+				font-size: rem-calc(18);
+				font-weight: 200;
+				margin-bottom: rem-calc(10);
+			}
+
+			.cecar-member-email {
+				font-size: rem-calc(12);
+				font-weight: 100;
+				display: block;
+				margin-bottom: rem-calc(15);
+			}
+
+			.demo-team-member-profession {
+				color: $jumbo;
+				font-size: rem-calc(12);
+				font-weight: 100;
+				font-style: italic;
+				height: 33px;
+				margin-bottom: rem-calc(15);
+				display: block;
+				line-height: 1.5;
+			}
+
+			.demo-team-member-description {
+				color: $charcoal;
+				font-size: rem-calc(14);
+				font-weight: 200;
+				height: 102px;
+				margin-bottom: 0;
+			}
+		}
+	}
+}

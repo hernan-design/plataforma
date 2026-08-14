@@ -1,0 +1,121 @@
+// Styles for marketplace main
+// -----------------------------
+%marketplace-main {
+
+	// styles global for icon panel
+	.wrap-icon-marketplace {
+		margin: {
+			bottom: rem-calc(35);
+		}
+	}
+
+	.marketplace-circle {
+		@include icon-circle(
+			$font-size: rem-calc(65),
+			$padding: rem-calc(20),
+			$color: $white,
+			$bgcolor: $base
+		);
+	}
+
+	.description-content {
+		.title-info {
+			margin: {
+				bottom: rem-calc(30);
+			}
+		}
+	}
+
+	// trending marketplace
+	#content-marketplace-trending-list {
+		padding: {
+			bottom: rem-calc(15);
+		}
+	}
+
+	// content create seller
+	#content-create-seller {
+		padding: {
+			top: rem-calc(20);
+		}
+
+		p {
+			font: {
+				weight: 200;
+			}
+		}
+
+		#section-create-seller {
+			position: relative;
+
+			.confirm-creation-seller {
+				padding: rem-calc(50 80 40);
+
+				.title-info {
+					margin: {
+						bottom: rem-calc(30);
+					}
+				}
+
+				.description-info {
+					margin: {
+						bottom: rem-calc(40);
+					}
+				}
+			}
+
+			.wrap-icon-confirm-seller {
+				margin: {
+					bottom: rem-calc(35);
+				}
+			}
+
+			.confirm-seller-circle {
+				@include icon-circle(
+					$font-size: rem-calc(65),
+					$padding: rem-calc(20),
+					$color: $white,
+					$bgcolor: $base
+				);
+			}
+		}
+	}
+
+	// submenu main marketplace
+	#marketplace-submenu-nav {
+		background-color: $color-main-wrap-alt;
+	}
+
+	// container sections marketplace
+	#marketplace-content-main {
+
+		.section-content-marketplace {
+			// padding-top: rem-calc(15);
+		}
+	}
+
+	// options of submenu
+	ul.links-option-submenu {
+		display: inline-block;
+		vertical-align: middle;
+		margin: rem-calc(13 0 0);
+
+		> li {
+			list-style: outside none none;
+			font: {
+				size: rem-calc(15);
+				weight: $font-weight-bold;
+			}
+
+			a {
+				color: $gray-base;
+
+				> i {
+					margin: {
+						right: rem-calc(5);
+					}
+				}
+			}
+		}
+	}
+}

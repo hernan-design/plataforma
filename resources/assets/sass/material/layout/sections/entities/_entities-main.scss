@@ -1,0 +1,58 @@
+// Styles for entities main
+//-------------------------
+%entities-main {
+
+	ul.project-creator-list {
+		padding-top: 0;
+		@include redefine-padding-gb(rem-calc(0), $p-right: rem-calc(20), $p-left: rem-calc(20) );
+
+		> li {
+			padding: {
+				left: 0 !important;
+				right: 0 !important;
+			}
+		}
+
+		.item-wrap-list {
+			padding: rem-calc(15 20);
+			background-color: transparent;
+			@include border-radius($global-radius);
+			@include box-shadow(none);
+
+			&:hover {
+				background-color: $gray-cloud !important;
+				@include box-shadow(none !important);
+			}
+		}
+	}
+
+	ul.list-members-project {
+		padding-top: 0;
+		margin: 0 !important;
+		@include redefine-padding-gb(rem-calc(0), $p-right: rem-calc(25), $p-left: rem-calc(25) );
+
+		> li {
+
+			padding: {
+				left: 0 !important;
+				right: 0 !important;
+			}
+		}
+
+		.item-wrap-list {
+			padding: rem-calc(15 25);
+			@include border-radius($global-radius);
+			@include box-shadow(none);
+
+			.item-thumb {
+				margin-right: rem-calc(12);
+				display: block;
+			}
+
+			&:hover {
+				background-color: $gray-light-alt !important;
+				@include box-shadow(none !important);
+			}
+		}
+	}
+}

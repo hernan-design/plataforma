@@ -1,0 +1,950 @@
+/**
+* Styles base application
+* ---------------------------
+*/
+// Table of Contents
+// a. Styles Base
+// 01. Styles link close inside content
+// 02. Styles for jQuery-ui
+
+// 05. Styles for stars rating
+// 09. Styles for share buttons
+// 10. Styles for calendars
+// 11. Styles for content notification
+// 12. Styles for content svg animation
+
+// ==============
+// a. Styles Base
+// ==============
+
+a:focus {
+  outline: 0;
+}
+*:focus {
+	outline: 0;
+}
+.close {
+	opacity: 1;
+}
+
+.f-topbar-fixed {
+  @media #{$mobile-only}, #{$small-only} {
+    padding-top: rem-calc(60) !important;
+  }
+
+  @media #{$tablet-only}, #{$medium-only}, #{$large-up} {
+    padding-top: rem-calc(65) !important;
+  }
+}
+
+.tab-highlight-search {
+	background-color: $sky-blue !important;
+	color: $white;
+}
+
+.no-results-filter {
+	// margin-top: rem-calc(20);
+	@include margin-item-top;
+	@include margin-item-bottom;
+	font: {
+		family: $font-family-sanfrancisco;
+		style: italic;
+		weight: 600;
+		size: $alert-font-size;
+	}
+	text-align: center;
+	color: $steel;
+
+	p {
+		margin-bottom: 0;
+		font-style: normal;
+	}
+
+	.no-results-create {
+		text-decoration: none;
+		margin: 8px 0;
+    display: block;
+    font-style: normal;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+// custom initial list style
+ul {
+	list-style-type: initial;
+
+	li {
+		list-style-type: inherit;
+	}
+}
+
+.ui-autocomplete {
+	z-index: 1006;
+}
+
+// Styles for selection text
+.container-selection-text {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: rem-calc(20);
+	padding: rem-calc(2 6 6);
+	padding-left: rem-calc(38);
+	width: 60%;
+	height: auto;
+	@include border-radius($global-rounded);
+	background: transparent;
+
+	&:hover {
+		background: $gray-light-alt;
+	}
+
+	&:after {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		content: '';
+		z-index: 1;
+		width: 15px;
+		height: 100%;
+		background-color: rgba($white, .7);
+		@include box-shadow(-12px 0px 16px $white);
+		@include side-radius(right, $global-rounded);
+	}
+
+	.activator-selection {
+		position: absolute;
+		top: 2px;
+		left: 6px;
+		cursor: pointer;
+		font-size: rem-calc(24);
+		padding-top: rem-calc(1px);
+	}
+
+	.selection-text {
+    display: inline-block;
+    vertical-align: middle;
+		position: relative;
+		width: rem-calc(310);
+		max-width: 100%;
+    white-space: nowrap;
+		overflow-y: hidden;
+		overflow-x: auto;
+		// @include selection(transparent);
+	}
+}
+
+.tooltip {
+	&.was-copied {
+		background-color: $gray-concrete;
+		border: 1px solid $iron;
+		color: $secondary-color;
+
+		&.tip-top {
+			.nub {
+				border-color: $gray-concrete transparent transparent transparent;
+			}
+		}
+	}
+}
+
+.text-line-through {
+    text-decoration: line-through;   
+}
+
+// ====================================
+// 01. Styles link close inside content
+// ====================================
+a.content-close {
+	position: absolute;
+	top: 4px;
+	right: 13px;
+	line-height: 1;
+	font:{
+		weight: $font-weight-lighter;
+		size: rem-calc(22);
+	}
+	cursor: pointer;
+	text-decoration: none !important;
+	color: $iron;
+	z-index: 90;
+	@include transition(all .2s linear 0s);
+
+	&:hover{
+		 @include text-shadow(0px 0px 3px rgba($black, .2));
+		 color: $iron;
+	}
+}
+
+// ========================
+// 02. Styles for jQuery-ui
+// ========================
+
+.ui-state-default .ui-icon {
+	background-image: tp-image-url('jquery.ui/ui-icons_222222_256x240.png');
+}
+.ui-widget-header .ui-state-default {
+	background-image: tp-image-url('jquery.ui/ui-bg_glass_75_e6e6e6_1x400.png');
+}
+
+.ui-widget-content {
+	background-image: tp-image-url('jquery.ui/ui-bg_flat_75_ffffff_40x100.png');
+}
+
+
+// ===========================
+// 05. Styles for stars rating
+// ===========================
+.uploader-wrapper {
+  #button-upload {
+    padding: rem-calc(9 20);
+    font-size: rem-calc(12);
+    line-height: normal;
+  }
+
+  .date-file, .date-file em {
+    font-size: rem-calc(11);
+    color: $aluminum;
+    font-style: normal;
+  }
+
+  .uploaded-files-list {
+
+    .preview-link {
+      font-size: rem-calc(13);
+      font-weight: 800;
+      position: relative;
+      padding-right: rem-calc(40);
+    }
+
+    > li {
+      margin-bottom: rem-calc(5);
+      position: relative;
+      padding-right: rem-calc(40);
+      @include border-radius;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        .icon-option {
+          > i {
+            background-color: $smoke;
+            color: $monsoon;
+          }
+        }
+      }
+
+      &:nth-of-type(2n+2) {
+        background-color: $white-smoke;
+      }
+
+      > span {
+        display: block;
+      }
+
+      .cancel-button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        margin-top: -13px;
+      }
+    }
+
+    .icon-option {
+      position: absolute;
+      right: rem-calc(10);
+      top: 50%;
+      margin-top: rem-calc(-15);
+
+      > i {
+        color: $aluminum;
+      }
+    }
+  }
+}
+
+
+// ===========================
+// 05. Styles for stars rating
+// ===========================
+.assessment-stars {
+	padding: rem-calc(5 0);
+	line-height: 1;
+
+	ul.list-stars-assessment {
+		margin: 0px;
+
+		> li {
+			list-style: outside none none;
+			display: inline-block;
+			vertical-align: middle;
+
+			> i[class*='star'] {
+				font: {
+					size: rem-calc(20);
+				}
+				color: $sky-blue;
+			}
+		}
+	}
+}
+
+.stars-rating:not(old) {
+  display        : inline-block;
+  width          : 5em; //7.5em;
+  height  			 : 1em;
+  overflow       : hidden;
+  vertical-align : bottom;
+  font-size: rem-calc(24);
+
+  > input[type="radio"] {
+		position: absolute;
+		left: -9999px;
+		@include opacity(0);
+  }
+
+  > label {
+  	font-size: rem-calc(24);
+  	display         : block;
+	  // position        : relative;
+	  // background      : red;
+	  float           : right;
+	  background-size : contain;
+	  padding: 0 !important;
+	  line-height: 1;
+	  height: auto;
+
+		i[class*=star] {
+			@extend %font-mdi;
+			&:before {
+				content: mdi('star-outline');
+			}
+			color: $base;
+			transition : all 0.2s linear;
+			// opacity : 0;
+		}
+
+		&:after, &:before {
+			display: none;
+		}
+  }
+
+	&.error {
+		i[class*=star] {
+			color: $alert-color;
+		}
+	}
+
+	&.stars-18 {
+		font-size: rem-calc(18) !important;
+		label{ font-size: rem-calc(18) !important; }
+	}
+	&.stars-21 {
+		font-size: rem-calc(21) !important;
+		label{ font-size: rem-calc(21) !important; }
+	}
+	&.stars-24 {
+		font-size: rem-calc(24) !important;
+		label{ font-size: rem-calc(24) !important; }
+	}
+	&.stars-30 {
+		font-size: rem-calc(30) !important;
+		label{ font-size: rem-calc(30) !important; }
+	}
+	&.stars-36 {
+		font-size: rem-calc(36) !important;
+		label{ font-size: rem-calc(36) !important; }
+	}
+	&.stars-42 {
+		font-size: rem-calc(42) !important;
+		label{ font-size: rem-calc(42) !important; }
+	}
+	&.stars-48 {
+		font-size: rem-calc(48) !important;
+		label{ font-size: rem-calc(48) !important; }
+	}
+
+	&:not(:hover) > :checked ~ label {
+
+		i[class*=star] {
+			color: $sky-blue;
+
+			&:before {
+				content: mdi('star');
+			}
+		}
+
+		&.star-half {
+			i[class*=star] {
+				&:before {
+					content: mdi('star-half');
+				}
+			}
+		}
+	}
+
+	&:not(.readonly) {
+		> label {
+			&:hover, &:hover ~ label {
+				i[class*=star] {
+					color: $sky-blue;
+
+					&:before {
+						content: mdi('star');
+					}
+				}
+			}
+		}
+	}
+	&.readonly {
+		> label { cursor: default; }
+		> :checked ~ label {
+
+			i[class*=star] {
+				color: $sky-blue;
+
+				&:before {
+					content: mdi('star');
+				}
+			}
+
+			&.star-half {
+				i[class*=star] {
+					&:before {
+						content: mdi('star-half');
+					}
+				}
+			}
+		}
+	}
+}
+
+// ============================
+// 09. Styles for share buttons
+// ============================
+.v-share-buttons {
+	display: inline-block;
+	list-style: outside none none;
+
+	> dd, li {
+		display: block;
+		padding: {
+			left: 0;
+			right: 0;
+			bottom: rem-calc(10);
+		}
+
+		&:not(:first-child) {
+			padding: {
+				top: rem-calc(10);
+			}
+		}
+	}
+}
+
+// Styles of favorite
+// ------------------
+.TPfavoritelink {
+	display: inline-block;
+	font-size: rem-calc(18);
+	@include transition(color .3s ease);
+
+	&:hover, &.on-favorite {
+		color: $sky-blue !important;
+		text-decoration: none;
+
+		* {
+			color: inherit !important;
+		}
+	}
+
+	i {
+		@extend %font-mdi;
+		&:before {
+			content: mdi('heart-outline');
+		}
+	}
+
+	&.on-favorite {
+		i {
+			@include animation(favorite-grow 2.5s linear -2s);
+
+			@include keyframes(favorite-grow) {
+				0%, 100% {
+					@include transform( scale(1) );
+				}
+				50% {
+					@include transform( scale(1.3) );
+				}
+			}
+
+			&:before {
+				content: mdi('heart');
+			}
+		}
+	}
+
+
+	&.button {
+		@include button-style($bg:$white, $bg-hover: $white, $border-color: scale-color($white, $lightness: -5%));
+		color: $gray-base;
+
+		&:hover {
+			@include box-shadow( 2px 2px 10px $base !important );
+			color: $sky-blue;
+		}
+		&:focus {
+			color: $sky-blue;
+		}
+	}
+}
+
+// Styles for list user likes
+// --------------------------
+ul.list-user-likes {
+	list-style: outside none none;
+	width: 100%;
+	margin: 0;
+
+	> li{
+		padding: rem-calc(10 0);
+
+		&:first-of-type{
+			padding: {
+				top: rem-calc(0);
+			}
+		}
+
+		&:nth-last-child(1n+2){
+			border-bottom: 1px solid $hr-border-color;
+		}
+	}
+
+	ul.info-basic-user{
+		margin: 0px;
+		list-style: outside none none;
+
+		> li{
+			display: inline-block;
+			vertical-align: middle;
+			font: {
+				size: rem-calc(14);
+			}
+
+			.avatar-user{
+				margin: {
+					right: rem-calc(5);
+				}
+				img{
+					width: rem-calc(45);
+					height: rem-calc(45);
+				}
+			}
+
+			.name-user {
+				display: block;
+				text-transform: capitalize;
+				font: {
+					size: rem-calc(15);
+				}
+			}
+
+			.name-user, .nickname-user {
+				color: $body-font-color;
+			}
+		}
+	}
+
+	.btn-add-friend{
+		margin: 0px;
+	}
+}
+
+// ========================
+// 10. Styles for calendars
+// ========================
+.fc-unthemed {
+	.fc-toolbar{
+		h2{
+			color: $body-font-color;
+			font: {
+				size: rem-calc(25);
+			}
+		}
+	}
+	.fc-event {
+		&.available {
+
+		}
+		&.confirm {
+			background-color: $warning-color;
+			.fc-title {
+			}
+		}
+		&.confirmed {
+			background-color: $success-color;
+			.fc-title {
+			}
+		}
+		&.disabled {
+			@include opacity(.6);
+		}
+	}
+}
+
+// card show day and month of date
+.card-date {
+	display: block;
+	@include border-radius(8px);
+	border: 1px solid $hr-border-color;
+	line-height: 1;
+	overflow: hidden;
+
+	> span {
+		display: inline-block;
+		vertical-align: top;
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+		padding: rem-calc(3 10);
+		color: $gray-light;
+		background-color: $white;
+		line-height: 1;
+		font: {
+			size: rem-calc(18);
+			weight: 700;
+		}
+
+		&.major {
+			color: $gray-base;
+			background-color: $gray-light-alt;
+			font: {
+				size: rem-calc(35);
+				weight: 800;
+			}
+		}
+	}
+}
+
+// stages of connect users
+ul.stages-friendship-user {
+	list-style: outside none none;
+	width: 100%;
+	margin: 0;
+
+  > li {
+  	float: left;
+  	width: 100%;
+
+  	.btn-friendship {
+			margin: {
+				top: 0;
+				bottom: 0;
+			}
+			padding: {
+				top: rem-calc(5);
+				bottom: rem-calc(5);
+			}
+  	}
+
+  	.action-friendship {
+  		@include transition(all .3s ease);
+  	}
+  }
+}
+
+// social accounst list
+.social-accounts-container {
+	padding: rem-calc(0 0 12);
+
+	ul.list-social-accounts {
+		list-style: outside none none;
+		margin: 0px;
+
+		> li {
+			display: inline-block;
+			vertical-align: middle;
+
+			&:not(:last-child) {
+				margin: {
+					right: rem-calc(10);
+				}
+			}
+
+			.circle-social {
+				@include icon-circle(
+					$font-size: rem-calc(18),
+					$padding: rem-calc(4),
+					$color: $white,
+					$bgcolor: $iron,
+					$sizes-custom: true
+				);
+
+				&.youtube {
+					@include icon-circle( $color: $white, $bgcolor: $youtube-color );
+				}
+				&.twitter {
+					@include icon-circle( $color: $white, $bgcolor: $twitter-color );
+				}
+				&.facebook {
+					@include icon-circle( $color: $white, $bgcolor: $facebook-color );
+				}
+			}
+		}
+	}
+}
+
+// Styles for countdown
+ul.format-countdown {
+	> li {
+		margin: 0 !important;
+		vertical-align: top;
+
+		> span {
+			display: block;
+			width: auto;
+			line-height: 1;
+			text-align: center;
+
+			&.digit-date, &:only-child {
+				font-size: rem-calc(22);
+			}
+		}
+	}
+}
+
+// ===================================
+// 11. Styles for content notification
+// ===================================
+
+// Styles notifications
+// --------------------
+.notify-quantity {
+	position: relative;
+	line-height: 0;
+	display: inline-block;
+	height: auto;
+
+	.quantity-value {
+		@include icon-circle(
+			$font-size: 10px,
+			$padding: rem-calc(2),
+			$color: $white,
+			$bgcolor: $alert-color,
+			$colors-custom: true,
+			$sizes-custom: true,
+			$has-transition: false
+		);
+		position: absolute;
+		bottom: -3px;
+		right: -9px;
+		font-weight: 500;
+	}
+}
+// notification content dropdown
+.content-notifications {
+	width: rem-calc(450) !important;
+	padding: rem-calc(30 0 30) !important;
+	@include box-sizing(content-box);
+
+	@media #{$mobile-only}, #{$small-only} {
+		position: fixed !important;
+		width: 100% !important;
+		min-width: 100% !important;
+		height: 70% !important;
+		max-height: 100% !important;
+
+		&.open {
+			right: 0px !important;
+			left: auto !important;
+		}
+
+		&:before, &:after {
+			border: none !important;
+		}
+	}
+
+	.no-results-filter {
+		// position: absolute;
+		width: 100%;
+		// top: rem-calc(30);
+	}
+
+	ul.notifications-list {
+		display: block;
+		position: relative;
+		height: 100% !important;
+		max-height: inherit;
+		overflow-y: auto;
+
+		> li {
+			width: 100%;
+			list-style: outside none none;
+    	padding: 0px;
+
+			.content-close {
+				top: 50%;
+				margin-top: rem-calc(-11);
+				font: {
+					weight: $font-weight-lighter;
+				}
+				@include opacity(0);
+			}
+
+    	&:hover, &.without-read {
+				background-color: $gray-light-alt;
+
+				.item-friendship-notify, .item-notify {
+					background-color: $gray-light-alt;
+
+					a {
+						background: inherit;
+					}
+
+					ul {
+						li {
+							font: inherit;
+							color: inherit;
+							background: inherit;
+						}
+					}
+				}
+			}
+			&:hover {
+				.content-close {
+					@include opacity(1);
+				}
+			}
+
+			.item-friendship-notify {
+				position: relative;
+				padding: rem-calc(15);
+
+				li {
+					&:first-child {
+						padding-right: rem-calc(10) !important;
+					}
+				}
+			}
+
+			.item-notify {
+				position: relative;
+				background-color: $white;
+				padding: rem-calc(15);
+
+				.description-item-notify {
+					line-height: normal;
+					margin-bottom: rem-calc(3);
+					word-break: break-word;
+					overflow: hidden;
+					max-height: 36px;
+
+					p {
+						margin-bottom: 0;
+					}
+				}
+
+				ul.card-info-notify {
+
+					> li {
+						&:not(:last-child) {
+							padding-right: rem-calc(10) !important;
+						}
+					}
+
+					.image-item-notify {
+						width: 100%;
+						height: auto;
+						min-width: rem-calc(50);
+					}
+				}
+
+				ul.sub-items-notification {
+					> li {
+						&:not(:first-of-type) {
+				      margin: {
+				        left: rem-calc(5);
+				      }
+				    }
+					}
+				}
+
+				.wrapper-link-notify {
+					display: block;
+					padding: rem-calc(0 15 0 0) !important;
+					margin: 0 !important;
+
+					&:hover, &:focus {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+
+	.settings-top-notificication, .settings-bottom-notificication {
+		position: absolute;
+		width: 100%;
+		margin: 0;
+		padding: rem-calc(0 10);
+
+		li {
+			list-style: outside none none;
+			width: 100%;
+			line-height: 1;
+
+			a {
+				display: inline-block;
+				padding: 0 !important;
+				height: auto !important;
+    		text-transform: none;
+
+				&:hover {
+					text-decoration: underline !important;
+					border-bottom: none !important;
+				}
+			}
+		}
+	}
+
+	.settings-top-notificication {
+		top: 0px;
+		height: rem-calc(30) !important;
+		border-bottom: 1px solid $hr-border-color;
+
+		li {
+			height: 100%;
+			a {
+				line-height: rem-calc(29) !important;
+			}
+		}
+	}
+	.settings-bottom-notificication {
+		bottom: 0px;
+		height: rem-calc(30) !important;
+		// border-top: 1px solid $hr-border-color;
+
+		li {
+			height: 100%;
+			a {
+				line-height: rem-calc(29) !important;
+			}
+		}
+	}
+}
+
+// ====================================
+// 12. Styles for content svg animation
+// ====================================
+.preloader-shape {
+	width: 100%;
+
+	> svg {
+		width: 100%;
+	}
+}

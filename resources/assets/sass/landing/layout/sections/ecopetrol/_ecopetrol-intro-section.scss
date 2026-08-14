@@ -1,0 +1,48 @@
+%ecopetrol-intro-section {
+
+	#ecopetrol-intro-section {
+		background-color: $gray-rain;
+
+		.intro-boxes {
+			background-color: $gray-lighter;
+			padding-top: rem-calc(10);
+			padding-bottom: rem-calc(10);
+
+			&:hover {
+				background-color: $white;
+				.view-more-cta, .view-more-dots {
+					color: $ecopetrol-bright-green-color;
+				}
+			}
+			.text-paragraph-medium {
+				margin-bottom: 0;
+			}
+			.view-more-dots {
+				color: $gainsboro;
+				font-size: rem-calc(32);
+				display: block;
+			}
+			.view-more-cta {
+				color: $monsoon;
+				display: block;
+				font-weight: 100;
+				margin-top: rem-calc(30);
+				margin-bottom: rem-calc(40);
+			}
+		}
+		.ecop-intro-icons {
+			font-size: rem-calc(64);
+			color: $ecopetrol-bright-green-color;
+			padding-top: rem-calc(35);
+			padding-bottom: rem-calc(25);
+		}
+		.title-small {
+			color: $tuatara;
+			font-weight: 400;
+			padding-bottom: rem-calc(20);
+		}
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

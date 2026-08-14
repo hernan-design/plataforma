@@ -1,0 +1,134 @@
+/**
+* Class ProjectEditPageWeb extends of Backbone View
+* @author TuProyecto || Desarrollador : @xindykatalina
+* @link http://TuProyecto.com
+*/
+
+//Global App Backbone
+app || (app = {});
+
+(function ($, window, document, undefined) {
+
+    app.ProjectEditPageWeb = Backbone.View.extend({
+
+        tagName: 'div',
+        className: 'edit-form',
+        template: _.template( ($('#edit-project-pageweb-form-tpl').html() || '') ),
+        events: {
+            'submit #form-edit-project-pageweb': 'onEditForm',
+            'blur .edit-field-text': 'onEditForm',
+            'keydown .edit-field-text': 'revertOnEscape'
+        },
+
+        /**
+        * Constructor Method
+        */
+        initialize : function(opts) {
+            // Init Attributes
+            // Events Listener
+            this.listenTo( this.model, 'request', this.loadSpinner );
+            this.listenTo( this.model, 'sync', this.responseServer );
+        },
+
+        /*
+        * Render View Element
+        */
+        render: function() {
+            var attributes = this.model.toJSON();
+            this.$el.html( this.template(attributes) );
+
+            // Initialize references
+            this.$editFieldTxt = this.$('.edit-field-text');
+            this.$formEdit = this.$('#form-edit-project-pageweb');
+
+            return this;
+        },
+
+        /**
+        * update user fields
+        */
+        onEditForm: function (e) {
+            e.preventDefault();
+            // if it is not editing
+            if( !this.$el.parents('.editable-item').hasClass('editing') ){
+                return;
+            }
+
+            var data = window.Misc.formToJson( this.$formEdit );
+            // if the value was not modified
+            if( window.Misc.trim(data['pagina_web_usuario']) == window.Misc.trim(this.model.get('pagina_web_usuario')) ){
+                this.close();
+                this.$editFieldTxt.blur();
+
+                return;
+            }
+
+            if (this.validateUrl(data)) {
+                this.model.save(data, {patch:true, wait:true});
+                $( "#errorUrl" ).css( "display", "none" );
+            } else {
+                $( "#errorUrl" ).css( "display", "block" );
+
+            }
+            // this.close(); // call before, because in the server response already the element doesn't exist
+           // this.model.save(data, {patch:true, wait:true});
+        },
+
+        /**
+         * valida url ingresada
+         */
+        validateUrl: function (data) {
+            if (data.pagina_web_usuario != "") {
+                //var pattern = /^(http|https)\:\/\/[a-z0-9\.-]+\.[a-z]{2,4}/gi;
+                var pattern = /^((http|https)\:\/\/)?[a-z0-9\.-]+\.[a-z]{2,4}$/gi;
+ 
+                if (data.pagina_web_usuario.match(pattern) != null) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        },
+
+        /**
+        * Load spinner on the request
+        */
+        loadSpinner: function ( target, xhr, opts ) {
+            window.Misc.setSpinner( this.$el );
+        },
+
+        /**
+        * response of server
+        */
+        responseServer: function ( target, resp, opts ) {
+
+            if( resp.success ) {
+                this.close();
+            }
+        },
+
+        /**
+        *
+        */
+        revertOnEscape: function  (e) {
+
+            if( e.which === 27 ){
+                this.close();
+                this.$editFieldTxt.blur();
+            }
+        },
+
+        /**
+        *
+        */
+        close: function () {
+
+            this.$el.parents('.editable-item').removeClass('editing');
+            this.$editFieldTxt.val( this.model.get('pagina_web_usuario') );
+            this.$editFieldTxt.trigger('autoresize');
+        }
+    });
+
+})(jQuery, this, this.document);

@@ -1,0 +1,236 @@
+/**
+* Mixins Custom
+* @author TuProyecto | Frontend: @krobing
+* @link tuproyecto.com
+* ---------------
+*/
+
+//
+// Table of content
+//
+// 01. grid mixins
+// 02. colors mixins
+
+//
+// Variables
+//
+
+
+// 01. grid mixins
+// ---------------
+$breakpoint-sizes:
+	mobile,
+	small,
+	tablet,
+	medium,
+	large,
+	xlarge,
+	xxlarge;
+
+$breakpoint-queries:
+	unquote($mobile-up),
+	unquote($small-up),
+	unquote($tablet-up),
+	unquote($medium-up),
+	unquote($large-up),
+	unquote($xlarge-up),
+	unquote($xxlarge-up);
+
+// Mixin Redifine padding in a Block Grid
+@mixin redefine-padding-gb( $padding, $p-right: false, $p-left: false ) {
+
+	@each $m-short, $m-large  in ( mobile: $mobile-up, small: $small-up, tablet: $tablet-up, medium: $medium-up, large: $large-up ) {
+
+		$p-left: if($p-left, $p-left, nth($padding, 2));
+		$p-right: if($p-right, $p-right, nth($padding, 2));
+
+		@media #{$m-large} {
+
+			@for $i from 1 through $block-grid-elements {
+
+				&.#{$m-short}-block-grid-#{$i} {
+					margin: {
+						left: -#{$p-left};
+						right: -#{$p-right};
+					}
+
+					> li {
+						&:nth-of-type(n){
+							padding: $padding;
+						}
+
+						@if $p-right {
+							&:nth-of-type(#{$i}n+#{$i}){
+								padding: {
+									right: $p-right;
+								}
+							}
+						}
+						@if $p-left {
+							&:nth-of-type(#{$i}n+1){
+								padding: {
+									left: $p-left;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Hide last items of block grid list
+@mixin hide-last-items-blockgrid() {
+
+	@each $m-short, $m-large  in ( small: $small-up, medium: $medium-up, large: $large-up) {
+
+		@media #{$m-large} {
+
+			@for $i from 1 through 12 {
+
+				&.#{$m-short}-block-grid-#{$i} {
+
+					> li{
+						&:nth-of-type(n){
+							display: block !important;
+						}
+
+						&:nth-of-type(1n+#{$i+1}){
+							display: none !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// reassign classes grid to the resolutions
+@mixin grid-greater-than-other ($sizeUp) {
+
+	@content;
+
+	@each $m-name in $breakpoint-sizes {
+
+		@at-root (with: rule) {
+			@media #{nth($breakpoint-queries, index($breakpoint-sizes, $m-name))} {
+
+				@if index($breakpoint-sizes, $m-name) > index($breakpoint-sizes, $sizeUp) {
+
+					@include grid-html-classes($size:$m-name);
+					@include block-grid-html-classes($size:$m-name, $include-spacing:false);
+				}
+			}
+		}
+	}
+}
+
+// 02. colors mixins
+// -----------------
+
+// Set color and background color on a element
+@mixin set-color-and-bgcolor($color: false, $bgcolor: false) {
+	@if $bgcolor {
+		background-color: #{$bgcolor};
+	}
+	@if $color {
+		color: #{$color};
+		*{
+			color: #{$color};
+		}
+	}
+}
+
+// Gradient diagonal
+@mixin gradient-diagonal($startColor: #3C3C3C, $endColor: #999999, $image: false) {
+	@if opacity($startColor) == 1 {
+		background-color: $startColor;
+	}
+
+	@if $image {
+		background-image: url($image);
+	}
+  // background-image: -webkit-gradient(-45deg, left top, left bottom, from($startColor), to($endColor)) if($image, unquote(", url(#{$image})"), '');
+  background-image: if($image, unquote("url(#{$image}), "), null) -webkit-linear-gradient(-45deg, $startColor, $endColor);
+  background-image: if($image, unquote("url(#{$image}), "), null)    -moz-linear-gradient(-45deg, $startColor, $endColor);
+  background-image: if($image, unquote("url(#{$image}), "), null)     -ms-linear-gradient(-45deg, $startColor, $endColor);
+  background-image: if($image, unquote("url(#{$image}), "), null)      -o-linear-gradient(-45deg, $startColor, $endColor);
+  background-image: if($image, unquote("url(#{$image}), "), null)         linear-gradient(135deg, $startColor, $endColor);
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', GradientType=1);
+
+}
+
+// Gradient vertical
+@mixin gradient-vertical( $startColor: #3C3C3C, $endColor: #999999, $image: false ) {
+	@if opacity($startColor) == 1 {
+		background-color: $startColor;
+	}
+
+	@if $image {
+		background-image: url($image);
+	}
+
+	background-image: if($image, unquote("url(#{$image}), "), null) -webkit-linear-gradient(top, $startColor 0%, $endColor 99%);
+  background-image: if($image, unquote("url(#{$image}), "), null)    -moz-linear-gradient(top, $startColor 0%, $endColor 99%);
+  background-image: if($image, unquote("url(#{$image}), "), null)     -ms-linear-gradient(top, $startColor 0%, $endColor 99%);
+  background-image: if($image, unquote("url(#{$image}), "), null)      -o-linear-gradient(top, $startColor 0%, $endColor 99%);
+  background-image: if($image, unquote("url(#{$image}), "), null)         linear-gradient(top bottom, $startColor 0%, $endColor 99%);
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', GradientType=0);
+}
+
+// margins and paddings general items
+
+@mixin margin-item-top {
+
+	@media #{$mobile-only} {
+		margin-top: 0;
+	}
+
+	margin-top: rem-calc(10);
+
+	@media #{$xlarge-up} {
+		margin-top: rem-calc(20);
+	}
+}
+
+
+@mixin padding-item-top {
+
+  @media #{$mobile-only} {
+    margin-top: 0;
+  }
+
+  margin-top: rem-calc(10);
+
+  @media #{$xlarge-up} {
+    margin-top: rem-calc(20);
+  }
+  .margin-item-top {
+    @include margin-item-top;
+
+  }
+}
+@mixin margin-item-bottom {
+	margin-bottom: rem-calc(10);
+
+	@media #{$xlarge-up} {
+		margin-bottom: rem-calc(20);
+	}
+}
+
+.margin-item-bottom {
+	@include margin-item-bottom;
+}
+
+// margins and paddings specific items
+
+// for module menu
+@mixin margin-top-module-menu {
+	margin-top: rem-calc(55);
+
+	@media #{$large-up} {
+		margin-top: rem-calc(45);
+	}
+}

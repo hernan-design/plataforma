@@ -1,0 +1,53 @@
+.wrapper-premioecopetrol {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	// Paddings
+	.ecopetrol-padding-right-limit {
+		padding-right: rem-calc(60);
+	}
+	.ecopetrol-padding-left-limit {
+		padding-left: rem-calc(60);
+	}
+
+	// section header titles
+	.ecopetrol-section-header {
+		padding-top: rem-calc(30);
+		padding-bottom: rem-calc(30);
+	}
+	.ecopetrol-section-title {
+		color: $ecopetrol-bright-green-color;
+		font-size: rem-calc(36);
+		font-weight: 100;
+		.ecopetrol-section-icon {
+			font-size: rem-calc(48);
+			padding-right: rem-calc(20);
+			padding-bottom: rem-calc(3);
+		}
+	}
+
+	/**
+	* =========================
+	* Structure styles
+	* =========================
+	*/
+	@extend %ecopetrol-banner !optional;
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	@extend %ecopetrol-institution-description !optional;
+	@extend %ecopetrol-intro-section !optional;
+	@extend %ecopetrol-program-call !optional;
+	@extend %ecopetrol-community-news !optional;
+	@extend %ecopetrol-timeline !optional;
+	@extend %ecopetrol-support-organizers-companies !optional;
+
+}

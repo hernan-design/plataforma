@@ -1,0 +1,124 @@
+/*
+* Banner landing
+* ---------------
+*/
+#{$banner-land-top}{
+
+	position: relative;
+	overflow: hidden;
+	background-color: $background-banner-land;
+	width: 100%;
+	height: auto;
+	padding-bottom: rem-calc(20);
+	// margin-top: -#{$topbar-height};
+
+	// Styles for slick slider banner
+	// ----------------------------
+	.slick-slider-banner {
+		overflow: hidden;
+		height: rem-calc(500);
+		max-height: rem-calc(500);
+	}
+
+	// banner background image
+	.content-image-banner {
+		position: relative;
+		top: 0px;
+		left: 0px;
+		margin: 0px;
+		width: 100%;
+		height: rem-calc(500);
+		overflow: hidden;
+		background: transparent url($imagen-banner-land) 50% 30%/cover no-repeat;
+		image-rendering: -moz-crisp-edges;         /* Firefox */
+    image-rendering:   -o-crisp-edges;         /* Opera */
+    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+
+		img {
+			width: 100%;
+			height: auto;
+			min-height: auto;
+			min-width: 100%;
+		}
+	}
+
+	// banner central content
+	.content-banner {
+		position: relative;
+		width: 100%;
+		z-index: 2;
+		margin: {
+			top: rem-calc(-70);
+		}
+		color: $color-banner-land;
+
+		.text-content-banner {
+			padding: rem-calc(30);
+			margin: 0;
+
+			.text-banner {
+				font: {
+					family: $fontfamily-banner-land;
+					weight: $fontweight-banner-land;
+					size: rem-calc($fontsize-banner-land);
+					style: $fontstyle-banner-land;
+				}
+				color: $body-font-color;
+
+				p {
+					font: inherit;
+					color: inherit;
+				}
+			}
+
+			@media #{$mobile-only}, #{$small-only} {
+				padding: rem-calc(20 10);
+
+				.text-banner {
+					font: {
+						size: rem-calc(20) !important;
+					}
+
+					p {
+						font-size: inherit;
+					}
+
+					button, .button {
+						padding: rem-calc(8 16 9);
+						font-size: rem-calc(13);
+					}
+				}
+			}
+		}
+	}
+
+	// icon play video
+	.play-video-land {
+		position: absolute;
+		top: 35%;
+		left: 50%;
+		margin:{
+			top: rem-calc(-30);
+			left: rem-calc(-30);
+		}
+		z-index: 3;
+		color: $color-icon-banner-land;
+		text-align: center;
+
+		> span {
+			display: block;
+			width: 100%;
+			font: {
+				size: rem-calc(16);
+				weight: $font-weight-bold;
+			}
+		}
+
+		.icon-play-land {
+			font-size: rem-calc(64);
+			color: $color-icon-banner-land;
+		}
+	}
+}

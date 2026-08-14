@@ -1,0 +1,101 @@
+// Styles for blog article
+//-------------------------
+%blog-article {
+
+	.article-detail-content {
+
+		.pull-border-side {
+			margin: {
+				left: rem-calc(30);
+				right: rem-calc(30);
+			}
+		}
+		.fill-border-side {
+			padding: {
+				left: rem-calc(30);
+				right: rem-calc(30);
+			}
+		}
+
+		// inner content detail article
+		#inner-article-detail {
+			background-color: $white;
+			padding: rem-calc(0 0 30);
+			@include box-shadow($box-shadow-item);
+			@include border-radius($global-radius);
+		}
+
+		// Article header
+		.article-header {
+			position: relative;
+			background-color: $white;
+
+			.mask-article-header {
+				width: 100%;
+				padding: rem-calc(20 0 20 30);
+			}
+		}
+
+		// Article main image
+		.article-main-image {
+			position: relative;
+			width: 100%;
+			height: auto;
+			min-height: rem-calc(150);
+			margin: 0px;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: auto;
+				@include side-radius(top);
+			}
+		}
+
+		// icons shared article
+		ul.article-icons-shared {
+			margin: rem-calc(20 30 20 0);
+
+			> li {
+				&:not(:first-child) {
+					margin-left: rem-calc(12);
+				}
+			}
+		}
+
+		// buttoms shared social article
+		ul#drop-shared-social-article {
+			> li {
+				padding: {
+					left: rem-calc(20);
+					right: rem-calc(20);
+				}
+			}
+		}
+
+		// Article title
+		.article-title {
+			margin : {
+				bottom: rem-calc(10);
+			}
+		}
+
+		// Article detail info
+		.article-detail-info {
+			padding: rem-calc(20 30);
+			background-color: $white;
+		}
+
+		// Article content
+		.article-content {
+			padding: rem-calc(20 30);
+			background-color: $white;
+		}
+
+		// Article comments
+		.article-comments {
+			padding: rem-calc(20 30);
+			background-color: $white;
+		}
+	}
+}

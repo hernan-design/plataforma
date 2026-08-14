@@ -1,0 +1,90 @@
+%propace-banner {
+  #propace-banner{
+    height: 700px;
+    @media #{$mobile-only}{
+      height: 590px;
+    }
+    .propace-background{
+      padding-top: 250px;
+      height: 700px;
+      background-image: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/propace/backgrounds/hero_image_comunidad.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top;
+      @media #{$tablet-only}{
+        padding-top: 200px;
+      }
+      @media #{$mobile-only}{
+        padding-top: 215px;
+        height: 590px;
+      }
+      .rows{
+        #propace-banner-content{
+          h1 {
+            text-align: center;
+            font-family: 'FiraSans Bold';
+            font-size: 75px;
+            line-height: 5.5rem;
+            letter-spacing: 0px;
+            color: #EB1C5F;
+            opacity: 1;
+            @media #{$medium-only}{
+              font-size: 60px;
+              line-height: 4rem;
+            }
+            @media #{$tablet-only}{
+              font-size: 60px;
+              line-height: 4rem;
+
+            }
+            @media #{$mobile-only}{
+              font-size: 40px;
+              line-height: 3rem;
+
+            }
+          }
+          p{
+            text-align: center;
+            font-family: 'FiraSans Regular';
+            font-size: 20px;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            opacity: 1;
+            margin-top:3rem;
+            @media #{$medium-only}{
+              width: 70%;
+              margin-left: 15%;
+            }
+            @media #{$tablet-only}{
+              width: 70%;
+              margin-left: 15%;
+              font-size: 30px;
+            }
+            @media #{$mobile-only}{
+              width: 80%;
+              margin-left: 10%;
+              font-size: 17px;
+              margin-top:0rem;
+          }
+
+          }
+          button{
+            display: block;
+            margin:auto;
+            font-size:20px;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            background: #2B337A 0% 0% no-repeat padding-box;
+            box-shadow: 2px 2px 9px 2px #2B337A93;
+            border-radius: 15px;
+            opacity: 1;
+            margin-top:3rem;
+            @media #{$mobile-only}{
+              margin-top: 0rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

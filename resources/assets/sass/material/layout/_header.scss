@@ -1,0 +1,610 @@
+/*
+* Header - topbar
+* ----------------
+*/
+#{$header-wrap}{
+	// @include box-shadow( 0px 1px 3px rgba($black,.5) );
+    @media #{$tablet-only} {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 99;
+        left: 0;
+
+
+        .top-bar {
+            &.expanded {
+                background-color: $white;
+            }
+        }
+    }
+
+	border-top: 4px solid #{$background-header};
+	border-bottom: 1px solid $gainsboro;
+
+	#nav-header, #nav-header-side, #nav-bottom-bar {
+		a {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		.institution-name {
+			text-transform: $texttransform-header;
+			@extend %inst-color-body-invert;
+		}
+
+		.avatar {
+			position: relative;
+			padding: rem-calc(0 10);
+
+			img {
+				min-width: rem-calc(32);
+				width: rem-calc(32);
+				height: rem-calc(32);
+				@include border-radius(50%);
+			}
+		}
+
+		.tab-bar-section {
+			right: 99px;
+		}
+
+		.right-small {
+			width: auto;
+
+			.menu-nav-user {
+				> li {
+					padding-right: 0;
+				}
+			}
+
+			.has-icon-help {
+				padding: rem-calc(0 10);
+
+				&:hover {
+					> span {
+						> i {
+							color: $jumbo;
+						}
+					}
+				}
+
+				> span {
+					display: inline-block;
+			    vertical-align: middle;
+			    line-height: 1;
+
+			    > i {
+			    	color: $base;
+			    }
+				}
+			}
+		}
+	}
+
+	// styles for top menu
+	#nav-header {
+		padding: {
+			left: rem-calc(15);
+			right: rem-calc(15);
+		}
+
+		.row {
+			max-width: $row-width;
+		}
+
+		// logo institution
+		.inst-logo {
+			display: inline-block;
+			padding: rem-calc(10 0) !important;
+			@include clearfix;
+
+			img{
+				width: auto;
+				height: rem-calc(40);
+				float: left;
+			}
+		}
+
+		// name institution
+		.institution-name {
+			font: {
+				size: rem-calc(18);
+			}
+			line-height: $topbar-height;
+			margin: rem-calc(0 0 0 20);
+		}
+
+		// hamburger icon menu
+		.menu-icon-custom {
+			font-size: rem-calc(23);
+
+			.md-animated-icon {
+				font-size: inherit;
+				top: -3px;
+				padding-right: 0;
+				padding-left: 0;
+			}
+		}
+
+		.has-dropdown {
+			> a {
+				&.avatar{
+					margin: 0px;
+				}
+			}
+		}
+
+		.top-bar-section {
+
+			@media #{$tablet-only} {
+				.has-form {
+					padding: rem-calc(0 20);
+				}
+			}
+
+			li:not(.has-form) {
+				padding: 0;
+
+				@media #{$tablet-only} {
+					line-height: 56px;
+				}
+
+				> a {
+					white-space: nowrap;
+
+					&:not(.button) {
+						height: $topbar-height;
+					}
+
+					&.has-icon-notify {
+						color: $base;
+						font-size: rem-calc(30);
+
+						// &.message-notify { font-size: rem-calc(30) }
+						// &.friendship-notify { font-size: rem-calc(35) }
+						// &.notification-notify { font-size: rem-calc(34) }
+					}
+
+					&:hover:not(.button):not(.inst-logo),
+					&.active:not(.button):not(.inst-logo) {
+							color: $topbar-link-color-active;
+							border-bottom: 3px solid #{$background-header};
+
+							&.has-icon-notify {
+								color: $jumbo;
+							}
+					}
+				}
+			}
+
+			.dropdown {
+				@include box-shadow(0px 1px 2px $iron);
+
+				li {
+					&:not(.has-form) {
+						a:not(.button):not(.inst-logo) {
+							text-transform: none;
+							line-height: $topbar-height / 2;
+							height: $topbar-height / 2;
+							padding: rem-calc(0 10);
+							font: {
+								size: rem-calc(14);
+							}
+
+							&:hover {
+								background-color: $silver;
+								border: none;
+							}
+						}
+						a.active:not(.button):not(.inst-logo) {
+							background-color: $silver;
+							border: none;
+						}
+					}
+				}
+			}
+
+			.left-nav-top-bar {
+				width: 100%;
+			}
+
+			// Left nav menu
+			ul.left-top-menu {
+				display: block;
+
+				.item-field-search {
+					width: 100%;
+				}
+			}
+
+			// Right nav menu
+			ul.right-top-menu {
+				> li:not(.has-form) {
+					> a:not(.menu-icon-custom) {
+						border: none !important;
+						padding: rem-calc(0 10) !important;
+					}
+
+					.menu-icon-custom {
+						padding: 0 !important;
+						margin-left: rem-calc(10);
+						display: inline;
+
+						&:hover {
+							border: none !important;
+						}
+					}
+				}
+
+				ul.singin-buttons-top-menu {
+					> li {
+						height: $topbar-height;
+
+						&:not(:first-child) {
+							padding-left: rem-calc(15);
+						}
+
+						&:last-child {
+							padding-right: rem-calc(10);
+						}
+					}
+				}
+			}
+
+			ul li {
+				> button, > .button {
+					&.inst-secondary-outline {
+						@include button-style($bg: transparent, $bg-hover: $secondary-button-bg-hover, $border-color: $secondary-color);
+						color: $secondary-color;
+
+						&:hover, &:focus {
+							color: $white;
+						}
+					}
+
+					&.sky-blue { @include button-style($bg:$sky-blue, $bg-hover:$sky-blue-button-bg-hover, $border-color:$sky-blue-button-border-color); }
+				}
+			}
+		}
+	}
+
+	// tab menu for off canvas menu
+	#nav-header-side, #nav-bottom-bar {
+		.tab-bar-section {
+			text-align: left;
+		}
+
+		.institution-name {
+			font: {
+				size: rem-calc(18);
+			}
+			line-height: $tabbar-height;
+		}
+
+		.inst-logo {
+			display: inline-block;
+			position: relative;
+			text-align: center;
+			z-index: 1;
+
+			img {
+				width: auto;
+				height: rem-calc(36);
+				max-width: rem-calc(150);
+			}
+		}
+
+		.notification-layer-dropdown {
+			margin-top: 0;
+
+			&:before {
+				left: auto;
+				right: 13px;
+			}
+			&:after {
+				left: auto;
+				right: 12px;
+			}
+		}
+
+		// Settings section
+		ul.settings-nav-menu {
+			height: $tabbar-height;
+
+			> li {
+				position: relative;
+
+				&:first-of-type {
+					padding-left: rem-calc(8);
+				}
+			}
+
+			.show-strip-signup {
+				padding: 0 10px;
+    		display: block;
+    		color: $base;
+
+    		&:hover {
+					color: $jumbo;
+    		}
+			}
+		}
+
+		// Notifications items
+		ul.notifications-items {
+			height: $tabbar-height;
+
+			> li {
+				position: relative;
+				margin: 0;
+
+				> a {
+					display: block;
+					padding: rem-calc(0 10);
+					height: $tabbar-height;
+					line-height: $tabbar-height;
+
+					&.has-icon-notify {
+						color: $base;
+						font-size: rem-calc(30);
+
+						// &.message-notify { font-size: rem-calc(30) }
+						// &.friendship-notify { font-size: rem-calc(35) }
+						// &.notification-notify { font-size: rem-calc(34) }
+					}
+
+					&:hover, &.active {
+						&.has-icon-notify {
+							color: $jumbo;
+						}
+					}
+				}
+			}
+		}
+
+		// User menu
+		ul.menu-nav-user {
+			list-style: outside none none;
+			height: $tabbar-height;
+
+			> li {
+				&:first-child {
+					margin: {
+						left: 0;
+					}
+				}
+
+				> a {
+					display: block;
+					height: $tabbar-height;
+					line-height: $tabbar-height;
+					text-align: center;
+				}
+			}
+
+			.avatar {
+				img {
+					min-width: rem-calc(35);
+					width: rem-calc(35);
+					height: rem-calc(35);
+				}
+			}
+
+			#user-opt {
+				height: auto;
+				min-height: 100vh;
+				overflow: auto;
+			}
+		}
+
+		.menu-icon-custom {
+			padding: 0;
+			width: 100%;
+			height: auto;
+			line-height: 1;
+			text-align: center;
+			font: {
+				size: rem-calc(23);
+			}
+			padding: rem-calc(0 10);
+			vertical-align: baseline;
+		}
+
+		// search
+		.item-field-search {
+			position: absolute;
+			top: 0px;
+			left: 8px;
+			height: 100%;
+			width: 100%;
+
+			.field-search {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0px;
+				left: 0px;
+
+				.btn-search {
+					top: 0;
+					width: auto;
+					height: 100%;
+					line-height: 1;
+				}
+
+				input[type="text"] {
+					top: 0;
+					height: auto;
+				}
+			}
+		}
+	}
+
+	#nav-bottom-bar {
+		position: fixed;
+		z-index: 1002;
+    top: auto;
+    bottom: 0px;
+    @include box-shadow(0px -1px 8px rgba($black,.2));
+	}
+
+	// Styles for wrapper sticky off canvas menu
+	.sticky-wrapper-side-menu {
+		position: fixed;
+		height: 100% !important;
+		width: 100%;
+	}
+
+	// menu left off canvas
+	#left-side-menu, #bottom-offcanvas-menu {
+		@include box-shadow(1px 2px 2px $base);
+
+		ul.off-canvas-list {
+			border-top: $off-canvas-link-border-bottom;
+
+			> li {
+
+				label {
+					li {
+						font-size: $off-canvas-label-font-size;
+					}
+				}
+
+				a {
+					font: {
+						size: rem-calc(15);
+						weight: 200;
+					}
+					&:hover, a:focus {
+						color: $sky-blue;
+						text-decoration: none;
+					}
+					&.active:not(.button):not(.inst-logo) {
+							color: $topbar-link-color-active;
+							background-color: $off-canvas-bg-hover;
+					}
+				}
+			}
+		}
+
+		&.left-off-canvas-menu, &.bottom-off-canvas-menu {
+			// @include translate3d(-105%, 0px, 0px);
+
+			&.show-right-off-canvas, &.show-top-off-canvas {
+				@include translate3d(0, 0px, 0px);
+			}
+		}
+	}
+
+	#bottom-offcanvas-menu {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		max-height: 100vh;
+		top: $tabbar-height + rem-calc(4);
+		padding-bottom: ($tabbar-height * 2) + rem-calc(4);
+		border-top: 1px solid $hr-border-color;
+		@include box-shadow(none);
+		@include box-sizing(border-box);
+	}
+
+	.content-btn-create {
+		position: relative;
+	}
+}
+
+// Menu items options
+// ------------------
+#{$topmenu-main} {
+	position: fixed;
+	overflow-y: auto;
+	width: 100%;
+	max-width: 100vw;
+	height: 100%;
+	max-height: 100vh;
+	z-index: 98;
+	background-color: $white;
+	padding: rem-calc(50 0 110);
+	background-color: transparentize($white, .05);
+
+	.top-menu-opts {
+		img.welcome-image-menu {
+			min-width: rem-calc(55);
+			width: auto;
+			height: auto;
+			margin-right: rem-calc(25);
+		}
+	}
+
+	.bottom-menu-opts {
+
+		.content {
+			padding: rem-calc(35 20);
+			background: $gray-light-alt;
+			border-radius: $global-radius;
+		}
+		.option-description {
+			background: $sky-blue;
+		}
+
+		* {
+			color: $white;
+		}
+	}
+
+	ul.wrapper-item-options {
+		@include redefine-padding-gb($padding: rem-calc(10 20));
+		margin: rem-calc(20 0);
+
+		> li {
+			.item-menu-opts {
+				border: 1px solid $gris;
+				background-color: $white;
+				padding: rem-calc(20);
+				height: rem-calc(205);
+				@include border-radius($global-radius);
+
+				.title-category-opts {
+					margin: rem-calc(0 0 15);
+					border-bottom: 1px solid $hr-border-color;
+					font: {
+						weight: 200;
+					}
+
+					li {
+						font-size: inherit;
+					}
+				}
+
+				&:hover, &.active {
+					border-color: $white;
+					background-color: $white;
+					@include box-shadow( 2px 2px 15px rgba($black,.3) );
+				}
+
+				ul.list-menu-opts {
+					list-style: none none outside;
+					margin: 0;
+
+					> li {
+						color: $tuatara;
+
+						&:hover, &:focus {
+							color: $sky-blue;
+							text-decoration: none;
+						}
+						> a {
+							color: inherit;
+							font: {
+								size: rem-calc(15);
+							}
+
+						}
+					}
+				}
+			}
+		}
+	}
+}

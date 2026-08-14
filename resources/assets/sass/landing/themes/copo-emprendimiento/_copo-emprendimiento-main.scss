@@ -1,0 +1,58 @@
+#{$wrapper-land}.wrapper-copo {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+
+	@extend %copo-emprendimiento-header !optional;
+	@extend %copo-emprendimiento-banner !optional;
+
+	#{$main-land} {
+
+		.section-title {
+			color: $copo-dark-purple-color;
+			font-weight: 700;
+		}
+
+		.section-subtitle {
+			color: $gray-deep;
+			font-weight: 700;
+			position: relative;
+			margin-bottom: rem-calc(22);
+			padding-bottom: rem-calc(22);
+
+			&:after {
+	      position: absolute;
+	      content: '';
+	      height: 2px;
+	      background-color: $iron;
+	      width: 50px;
+	      bottom: 0;
+	      left: 50%;
+	      margin-left: -25px;
+			}
+		}
+
+		.section-header-text {
+			font-size: rem-calc(14);
+		}
+
+		.section-header-text {
+			color: $gray-deep;
+		}
+
+		@extend %copo-emprendimiento-form !optional;
+		@extend %copo-emprendimiento-tools !optional;
+		@extend %copo-emprendimiento-community !optional;
+		@extend %copo-emprendimiento-news !optional;
+		@extend %copo-emprendimiento-management !optional;
+		@extend %copo-emprendimiento-partners !optional;
+		@extend %copo-emprendimiento-contact !optional;
+
+	}
+
+	@extend %copo-emprendimiento-footer-land !optional;
+}

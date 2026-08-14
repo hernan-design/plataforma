@@ -1,0 +1,186 @@
+%startupcitymed-stages {
+	#startupcitymed-stages {
+		background-color: $white;
+		position: relative;
+
+		&.section-land {
+			.title-section-land {
+				color: $black;
+			}
+		}
+		.list-stages {
+			width: 100%;
+
+			.startupcitymed-stages-item {
+				padding: rem-calc(33 13);
+
+				.item-wrap-list {
+					background-color: transparent;
+				}
+
+				> a {
+					display: block;
+					@include clearfix;
+					padding: 0;
+					background-color: $vapor;
+					@include side-radius(bottom, $global-radius);
+					@include transition(box-shadow ease-out 300ms);
+
+					&:hover {
+						background-color: $white;
+						box-shadow: 0px 4px 12px 1px rgba(0, 0, 0, 0.22);
+					}
+				}
+
+				&.active, &.slick-center {
+
+					> a {
+						background-color: $white;
+						@include box-shadow (0px 5px 10px 0px rgba($black, 0.22));
+						z-index: 3;
+					}
+
+					&:after {
+						content: '';
+				    width: 0;
+				    height: 0;
+				    position: absolute;
+				    z-index: 2;
+				    border: 20px solid rgb(255, 255, 255);
+				    bottom: 18px;
+				    left: 50%;
+				    margin-left: -20px;
+				    transform: rotate(45deg);
+					}
+
+					&:before {
+						content: '';
+				    width: 0;
+				    height: 0;
+				    border: 30px solid rgba(255, 255, 255, 0);
+				    position: absolute;
+				    bottom: 16px;
+				    left: 50%;
+				    margin-left: -15px;
+				    z-index: 1;
+				    -webkit-transition: all 300ms ease-out;
+				    transition: all 300ms ease-out;
+				    background: transparent;
+				    box-shadow: 4px 4px 8px 1px rgba(0, 0, 0, 0.14), -2px -2px 0px #ffffff;
+				    transform: rotate(45deg);
+				    border-top: 0px;
+				    border-left: 0px;
+					}
+				}
+
+				.startupcitymed-stages-boxes {
+					position: relative;
+					@include box-shadow(none);
+
+					// &:not(:hover) {
+					// 	@include box-shadow(none);
+					// }
+
+					.startupcitymed-item-img-box {
+						padding: rem-calc(25 0);
+						@include side-radius(top, $global-radius);
+
+						&.stage1 {
+							background-color: $startupcitymed-stage1-color;
+						}
+
+						&.stage2 {
+							background-color: $startupcitymed-stage2-color;
+						}
+
+						&.stage3 {
+							background-color: $startupcitymed-stage3-color;
+						}
+
+						&.stage4 {
+							background-color: $startupcitymed-stage4-color;
+						}
+
+						&.stage5 {
+							background-color: $startupcitymed-stage5-color;
+						}
+
+						.startupcitymed-item-img {
+							width: 139px;
+							height: 103px;
+							min-width: 139px;
+							min-height: auto;
+							margin: 0 auto;
+						}
+					}
+
+					.startupcitymed-title-box {
+
+						margin: rem-calc(30 0);
+						height: 78px;
+						display:table;
+			  			width:100%;
+
+						.startupcitymed-title {
+							display: block;
+							font-weight: 200;
+							font-size: rem-calc(18);
+							color: $monsoon;
+							vertical-align:middle;
+		    				display:table-cell;
+
+		    			b {
+								font-weight: 400;
+		    			}
+						}
+					}
+				}
+			}
+		}
+
+		.startupcity-stages-content {
+
+
+
+			.content {
+				padding: rem-calc(0 13);
+
+				.startupcity-stages-content-item {
+					background-color: $vapor;
+					border-radius: $global-radius;
+					margin-top: 4px;
+
+					.startupcitymed-stages-content-title {
+						color: $startupcitymed-brighter-green-color;
+						margin-bottom: rem-calc(34);
+
+						&.title-stage-1 {
+							color: $startupcitymed-stage1-color;
+						}
+
+						&.title-stage-2 {
+							color: $startupcitymed-stage2-color;
+						}
+
+						&.title-stage-3 {
+							color: $startupcitymed-stage3-color;
+						}
+
+						&.title-stage-4 {
+							color: $startupcitymed-stage4-color;
+						}
+
+						&.title-stage-5 {
+							color: $startupcitymed-stage5-color;
+						}
+					}
+
+					.startupcitymed-stages-date {
+				    margin-bottom: 20px;
+				    display: block;
+					}
+				}
+			}
+		}
+	}
+}

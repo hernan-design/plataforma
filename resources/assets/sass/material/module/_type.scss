@@ -1,0 +1,45 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for Utility Classes
+// --------------------------------
+
+// 
+// Variables
+// 
+
+// Text alignment class names
+$align-class-names:
+	mobile-only,
+	mobile,
+	small-only,
+	small,
+	tablet-only,
+	tablet,
+	medium-only,
+	medium,
+	large-only,
+	large,
+	xlarge-only,
+	xlarge,
+	xxlarge-only,
+	xxlarge;
+
+// Text alignment breakpoints
+$align-class-breakpoints:
+	$mobile-only,
+	$mobile-up,
+	$small-only,
+	$small-up,
+	$tablet-only,
+	$tablet-up,
+	$medium-only,
+	$medium-up,
+	$large-only,
+	$large-up,
+	$xlarge-only,
+	$xlarge-up,
+	$xxlarge-only,
+	$xxlarge-up;
+
+// Responsive Text alignment
+	@include align-classes;

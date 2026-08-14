@@ -1,0 +1,296 @@
+%dinamiza-activate {
+	#dinamiza-activate {
+		background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/activate/activate-bg.jpg') no-repeat center;
+
+		.activate-container {
+			padding: rem-calc(40 0);
+
+			@media #{$mobile-only}, #{$small-only} {
+				padding: rem-calc(20 0);
+			}
+
+			@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding: rem-calc(30 0);
+			}
+		}
+
+		.tabs-activate {
+			#activate-tabs-filter {
+				background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/activate/activate-tabs-shadow.png') no-repeat center bottom;
+				padding-top: rem-calc(40);
+
+				@media #{$mobile-only}, #{$small-only} {
+					background-size: 199%;
+				}
+
+				.tab-title {
+					&:hover {
+						.activate-tabs {
+							border-bottom: 0 !important;
+							color: $white;
+						}
+					}
+
+					@include transition(box-shadow ease-out 300ms);
+
+					.activate-tabs {
+						color: $white;
+						font-size: rem-calc(18);
+						padding: rem-calc(15);
+						font-family: 'AkzidenzGroteskBQ-BdCnd';
+						background-color: rgb(48,133,170); // Old browsers
+						@include filter-gradient(#3085aa, #2a6c91, vertical); // IE6-9
+						@include background-image(linear-gradient(top, rgba(48,133,170,1) 0%,rgba(42,108,145,1) 100%));
+						@include side-radius(top, 6px);
+
+						@media #{$tablet-only}, #{$medium-only} {
+							font-size: rem-calc(18);
+							padding: rem-calc(20 50);
+							@include side-radius(top, 16px);
+						}
+
+						@media #{$large-up} {
+							font-size: rem-calc(21);
+							padding: rem-calc(30 80);
+							@include side-radius(top, 16px);
+						}
+
+						&:hover {
+							background-color: rgb(86,180,214); // Old browsers
+							@include filter-gradient(#56b4d6, #3085aa, vertical); // IE6-9
+							@include background-image(linear-gradient(top, rgba(86,180,214,1) 0%,rgba(48,133,170,1) 100%));
+							color: $white;
+
+							> span {
+								color: $white;
+							}
+						}
+
+						> span {
+							position: relative;
+
+							@media #{$tablet-up} {
+								padding-left: rem-calc(48);
+
+								&.sime, &.side, &.mercaton {
+									&:before {
+										position: absolute;
+										left: 0;
+									}
+								}
+
+								&.sime {
+									&:before {
+										content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/activate/icon-tab-sime.png');
+									}
+								}
+
+								&.side {
+									&:before {
+										content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/activate/icon-tab-side.png');
+									}
+								}
+
+								&.mercaton {
+									&:before {
+										content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/activate/icon-tab-mercaton.png');
+									}
+								}
+							}
+						}
+					}
+
+					&.active {
+						.activate-tabs {
+							color: $white;
+							border-bottom: 0 !important;
+							background-color: rgb(255,145,46); // Old browsers
+							@include filter-gradient(#ff912e, #c11410, vertical); // IE6-9
+							@include background-image(linear-gradient(top, rgba(255,145,46,1) 0%,rgba(193,20,16,1) 100%));
+
+							> span {
+								color: $white;
+							}
+
+							&:hover {
+								cursor: default;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.tabs-content {
+
+			.activate-title {
+				font-family: 'AkzidenzGroteskBQ-BdCnd';
+
+				> span {
+					color: $dinamiza-yellow-color;
+				}
+			}
+
+      @media #{$mobile-only}, #{$small-only} {
+        .slick-carousel-activate-dinamiza {
+          margin-bottom: rem-calc(30);
+        }
+      }
+
+      .wrap-img-slider {
+        > img {
+          margin: 0 auto;
+          width: 100%;
+        }
+      }
+
+			.activate-text {
+				@media #{$tablet-up} {
+					text-align: justify;
+				}
+			}
+		}
+
+		#sime, #side, #mercaton {
+			overflow: visible;
+			height: 800px;
+		}
+
+		.activate-content {
+			.activate-content-text {
+				font-weight: 300;
+				font-size: rem-calc(20);
+				line-height: 1.3;
+
+				@media #{$mobile-only}, #{$small-only} {
+					font-size: rem-calc(17);
+				}
+
+				@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+					font-size: rem-calc(19);
+				}
+
+			}
+
+			.activate-content-section {
+				.activate-icon-content {
+					font-size: rem-calc(40);
+					background-color: rgba($white, 0.15);
+
+					@media #{$tablet-up} {
+						font-size: rem-calc(64);
+					}
+				}
+
+				.activate-content-item-list {
+					background-color: rgba($white, 0.15);
+					padding: rem-calc(14);
+					@include border-radius(8px);
+					margin-bottom: rem-calc(14);
+				}
+
+				.activate-icon-check {
+					&:before {
+						content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/activate/item-check-icon.png');
+					}
+				}
+
+				.activate-item-text {
+					font-size: rem-calc(13);
+
+					@media #{$tablet-up} {
+						font-size: rem-calc(16);
+					}
+				}
+			}
+		}
+
+
+		.slick-carousel-activate-dinamiza {
+			padding-bottom: rem-calc(25);
+			position: relative;
+
+			.slick-prev, .slick-next {
+				border-top: 1px solid $white;
+				bottom: -7px;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 3px; /*set the size for arrow*/
+				height: 4em;
+				overflow: hidden;
+				position: absolute;
+				top: auto;
+				width: 4em;
+
+				&:hover {
+					border-top-color: $white;
+				}
+			}
+
+			.slick-prev {
+				right: rem-calc(18);
+				left: auto;
+				border-left: 1px solid $white;
+				transform: rotate(-45deg);
+
+				&:hover {
+					border-left-color: $dinamiza-yellow-color;
+					border-top-color: $dinamiza-yellow-color;
+				}
+
+				&:before {
+					content: '';
+				}
+			}
+
+			.slick-next {
+				right: 0;
+				border-right: 1px solid $white;
+				transform: rotate(45deg);
+
+				&:hover {
+					border-right-color: $dinamiza-yellow-color;
+					border-top-color: $dinamiza-yellow-color;
+				}
+
+				&:before {
+					content: '';
+				}
+			}
+
+			.slick-dots {
+				bottom: 0;
+				text-align: left;
+				width: auto;
+
+				li {
+					width: 8px;
+					height: 8px;
+					margin: rem-calc(0 7);
+
+					button {
+						border-radius: 5px;
+						background-color: rgba($white, 0.3);
+
+						width: 6px;
+						height: 6px;
+
+						&:before {
+							content: none;
+						}
+					}
+
+					&.slick-active {
+						button {
+							background-color: $dinamiza-yellow-color;
+							border: 0;
+							@include box-shadow( 0px 0px 14px $dinamiza-yellow-color);
+						}
+					}
+				}
+			}
+
+		}
+
+	}
+}

@@ -1,0 +1,85 @@
+%innpulsa-banner {
+	#innpulsa-banner {
+		padding-bottom: 0;
+
+		// banner background image
+		.content-image-banner {
+			margin: 0;
+			position: relative;
+			height: rem-calc(795);
+			background: transparent url('http://static.tuproyecto.com/images/landing/innpulsa/aldeainnpulsa-banner-img-1.png') 50% 30%/cover no-repeat;
+			padding-top: rem-calc(126);
+
+	    .aldeainnpulsa-logo-banner {
+	    	margin-bottom: rem-calc(30);
+	    }
+
+			.banner-intro-text-title {
+				font-size: rem-calc(42);
+				font-weight: 300;
+				color: $innpulsa-dark-blue-color;
+				margin-bottom: rem-calc(20);
+				line-height: 1.1;
+				position: relative;
+			}
+
+			.banner-intro-text {
+				color: $innpulsa-dark-blue-color;
+				font-size: rem-calc(22);
+				font-weight: 300;
+				margin-bottom: rem-calc(20);
+
+			}
+
+			@media #{$mobile-only}, #{$small-only} {
+
+				.banner-intro-text-title {
+					font-size: rem-calc(32);
+				}
+
+				.banner-intro-text {
+					font-size: rem-calc(18);
+				}
+
+			}
+
+			.aldeainnpulsa-banner-social-list {
+				.aldeainnpulsa-banner-social-icons {
+
+					&.social-icon-fb {
+						background-color: #3b5998;
+					}
+
+					&.social-icon-tw {
+						background-color: #1da1f2;
+					}
+
+					&.social-icon-yt {
+						background-color: #ff0000;
+					}
+
+					.mdi-aldeainnpulsa-banner-icon {
+						color: $white;
+					}
+
+				}
+			}
+		}
+
+		@media #{$mobile-only} {
+			.content-image-banner {
+				padding-top: rem-calc(120);
+			}
+		}
+
+		// banner central content
+		.content-banner {
+			margin-top: rem-calc(-102);
+		}
+	}
+}
+
+
+
+
+

@@ -1,0 +1,26 @@
+%compensar-info-talk {
+  #compensar-info-talk {
+		background-color: $silver;
+
+		.info-events-list {
+			background-color: $white;
+			padding: rem-calc(20);
+			@include box-shadow(4px 4px 8px $iron);
+
+			> li {
+				&:nth-child(2) {
+					border-left: 4px solid $compensar-bright-orange-color;
+					padding-left: rem-calc(10);
+				}
+
+				p {
+					margin-bottom: 0;
+				}
+
+				i {
+					color: $compensar-bright-orange-color;
+				}
+			}
+		}
+	}
+}

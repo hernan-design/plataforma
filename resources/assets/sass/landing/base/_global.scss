@@ -1,0 +1,95 @@
+/**
+* =========================
+* General styles
+* =========================
+*/
+
+// Paddings
+// --------
+
+// ajuste paddings pendiente
+// -------------------------
+
+// .block-vpadding-top {
+// 	padding-top: rem-calc(100);
+
+// 	@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+// 		padding-top: rem-calc(50);
+// 	}
+
+// 	@media #{$mobile-only}, #{$small-only} {
+// 		padding-top: rem-calc(30);
+// 	}
+// }
+
+// .block-vpadding-bottom {
+// 	padding-bottom: rem-calc(100);
+
+// 	@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+// 		padding-top: rem-calc(50);
+// 	}
+
+// 	@media #{$mobile-only}, #{$small-only} {
+// 		padding-bottom: rem-calc(30);
+// 	}
+// }
+// --------------------------------------------------------------------------
+
+.block-vpadding-top {
+	padding-top: rem-calc(15);
+
+	@media  #{$tablet-only}, #{$medium-only} {
+		padding-top: rem-calc(30);
+	}
+
+	@media #{$xlarge-up} {
+		padding-top: rem-calc(50);
+	}
+}
+
+.block-vpadding-bottom {
+	padding-bottom: rem-calc(15);
+
+	@media  #{$tablet-only}, #{$medium-only} {
+		padding-bottom: rem-calc(30);
+	}
+
+	@media #{$xlarge-up} {
+		padding-bottom: rem-calc(50);
+	}
+}
+
+.block-vpadding-both {
+	@extend .block-vpadding-top;
+	@extend .block-vpadding-bottom;
+}
+
+// spacing vertical
+
+.block-spacing-top {
+	padding-top: rem-calc(50);
+}
+
+.block-spacing-bottom {
+	padding-bottom: rem-calc(50);
+}
+
+.block-vspacing-both {
+	@extend .block-spacing-top;
+	@extend .block-spacing-bottom;
+}
+
+// spacing horizontal
+
+.block-spacing-left {
+	padding-left: rem-calc(50);
+}
+
+.block-spacing-right {
+	padding-right: rem-calc(50);
+}
+
+.block-hspacing-both {
+	@extend .block-spacing-left;
+	@extend .block-spacing-right;
+}

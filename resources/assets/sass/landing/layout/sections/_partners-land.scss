@@ -1,0 +1,49 @@
+%partners-landing {
+
+	#partners-land {
+
+		.title-section-land {
+			text-align: center;
+		}
+
+		.partners-section-title {
+			font-weight: 100;
+			font-size: rem-calc(34);
+		}
+
+		&.partners-logos {
+			padding: {
+				bottom: rem-calc(40);
+			}
+			.partner-title {
+				// padding: {
+				// 	top: rem-calc(10);
+				// }
+			}
+
+			ul.list-partners {
+				text-align: center;
+				padding: 0;
+
+				> li {
+
+					display: inline-block;
+					vertical-align: middle;
+					margin: rem-calc(30 48);
+					&:hover{
+
+						img {
+							@include filter( grayscale(0%) );
+							@include opacity(1);
+						}
+					}
+
+					img {
+						@include filter( grayscale(100%) );
+						@include opacity(.5);
+					}
+				}
+			}
+		}
+	}
+}

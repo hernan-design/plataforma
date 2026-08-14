@@ -1,0 +1,35 @@
+%mentoring-create-mentor{
+  #create-mentor{
+    .mt-2{
+        padding-top: 2rem;
+        @media #{$mobile-only}, #{$small-only} {
+          padding-top: 0rem;
+        }
+        .form-create-mentor{
+          .panel{
+            .panel-body{
+              .row{
+                .description-container{
+                  margin-top:30px;
+                  .input-field{
+                    label{
+                      left:0px;
+                    }
+                    label.active{
+                      margin-top:1rem;
+                    }
+                  }
+                }
+                ul.list-specialities-mentor{
+                  list-style:none;
+                }
+                ul.list-economic-sector-mentor{
+                  list-style:none;
+                }
+              }
+            }
+          }
+        }
+    }
+  }
+}

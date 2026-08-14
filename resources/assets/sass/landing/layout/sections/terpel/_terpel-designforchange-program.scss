@@ -1,0 +1,193 @@
+%terpel-designforchange-program {
+	#terpel-designforchange-program {
+		background-color: $terpel-yellow-color;
+		position: relative;
+
+		&:after {
+			content: '';
+			background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/program-designforchange/designforchange-program-arrowdown.png') repeat-x;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			height: 22px;
+		}
+
+		&.section-land {
+			.title-section-land {
+				color: $white;
+				margin-bottom: 12px;
+			}
+		}
+
+		.terpel-dfc-program-head-box {
+			padding: rem-calc(50 0 20 0);
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+					padding: rem-calc(0);
+			}
+
+			.designforchange-program-dates {
+				font-family: 'MuseoSans-300';
+				color: #ce4500;
+				font-weight: 700;
+				font-size: rem-calc(26);
+
+				@media #{$mobile-only}, #{$small-only} {
+					margin-bottom: 10px;
+				}
+
+				@media #{$large-only}, #{$xlarge-only} {
+					font-size: rem-calc(24);
+				}
+
+				@media #{$medium-only} {
+					font-size: rem-calc(22);
+				}
+
+				@media #{$small-only}, #{$tablet-only} {
+					font-size: rem-calc(20);
+				}
+
+				@media #{$mobile-only} {
+					font-size: rem-calc(16);
+				}
+
+				> span {
+					color: $terpel-redwine-color;
+				}
+			}
+
+			.designforchange-program-text {
+				font-family: 'MuseoSans-300';
+				font-size: rem-calc(24);
+				margin-bottom: 40px;
+
+				@media #{$mobile-only}, #{$small-only} {
+					margin-bottom: 15px;
+				}
+
+				@media#{$tablet-only} {
+					margin-bottom: 20px;
+				}
+
+				@media #{$large-only}, #{$xlarge-only} {
+					font-size: rem-calc(22);
+				}
+
+				@media #{$medium-only} {
+					font-size: rem-calc(20);
+				}
+
+				@media #{$small-only}, #{$tablet-only} {
+					font-size: rem-calc(18);
+				}
+
+				@media #{$mobile-only} {
+					font-size: rem-calc(14);
+				}
+
+				> span {
+					color: #ce4500;
+					font-weight: 700;
+				}
+			}
+		}
+
+		.designforchange-steps-list {
+
+				@media #{$tablet-only} {
+					margin-bottom: 20px;
+				}
+
+				@media #{$small-only}, #{$mobile-only} {
+					margin-bottom: 10px;
+				}
+
+			.designforchange-steps-img {
+				width: 182px;
+				height: auto;
+
+				@media #{$large-only}, #{$medium-only} {
+					width: 155px;
+				}
+
+				@media #{$tablet-only} {
+					width: 115px;
+				}
+
+				@media #{$small-only}, #{$mobile-only} {
+					width: 120px;
+				}
+			}
+
+			.designforchange-steps-text-box {
+				margin-top: 10px;
+				margin-left: -50px;
+				background-color: $white;
+				@include side-radius(right, 17px);
+				padding: rem-calc(15 15 15 55);
+
+				@media #{$mobile-only} {
+					&.step-1-box {
+						line-height: 1.2;
+					}
+				}
+
+				.dfc-steps-text {
+					font-family: 'ACMESecretAgentBB';
+					font-weight: 700;
+					font-style: italic;
+					font-size: rem-calc(23);
+					line-height: 26px;
+
+					@media #{$large-only}, #{$medium-only} {
+						font-size: rem-calc(18);
+    				line-height: 17px;
+					}
+
+					@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+						font-size: rem-calc(20);
+    				line-height: 17px;
+					}
+
+					&.step-1 {
+						color: $terpel-share-color;
+					}
+
+					&.step-2 {
+						color: $terpel-feel-color;
+					}
+
+					&.step-3 {
+						color: $terpel-do-color;
+					}
+
+					> span {
+						color: $charcoal;
+					}
+				}
+
+			}
+		}
+
+		.terpel-dfc-button-box {
+			padding-bottom: rem-calc(50);
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+					padding: rem-calc(0);
+			}
+
+			.designforchange-program-button {
+				background-color: #ef2920;
+				color: $white;
+				font-family: 'ACMESecretAgentBB';
+				font-size: rem-calc(24);
+
+				@media #{$mobile-only}, #{$small-only} {
+					font-size: rem-calc(18);
+				}
+			}
+		}
+	}
+}

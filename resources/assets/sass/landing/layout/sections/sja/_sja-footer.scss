@@ -1,0 +1,31 @@
+%sja-footer{
+  .rows{
+    .espaciador{
+      margin-top: 50px;
+
+      h3,h4{
+        font-family: 'Lato';
+        color: #361399;
+      }
+      p{
+        color: #333333;
+        font-size: 12px;
+        line-height: 30px;
+      }
+      img{
+        margin-bottom:15px;
+      }
+      h4{
+        font-size: 14px;
+        @media #{$tablet-only},#{$medium-only}{
+          font-size: 10px;
+        }
+      }
+      input{
+        border: 1px solid #E1E1E1;
+        border-radius: 6px;
+        text-indent: 18px;
+      }
+    }
+  }
+}

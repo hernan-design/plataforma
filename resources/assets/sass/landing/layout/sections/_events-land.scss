@@ -1,0 +1,105 @@
+%events-landing {
+
+	#events-land {
+		background-color: $gray-lighter;
+		@extend %top-line-transition !optional;
+
+		.title-section-land {
+			text-align: center;
+		}
+
+		ul.list-events-land {
+			overflow: hidden;
+			background-color: transparent;
+
+			li.item-events {
+
+				.events-item-land {
+					background-color: $white;
+
+					&:hover {
+						background-color: $white;
+					}
+
+					.events-title-land {
+						background-color: transparent;
+						overflow: hidden;
+						height: rem-calc(75);
+						padding: rem-calc(20 20 0);
+						margin: 0;
+
+						.events-title-anchor-land {
+							font: {
+								size: rem-calc(21);
+								weight: 100;
+							}
+						}
+					}
+
+				 	.event-date{
+						font: {
+							size: rem-calc(32);
+							weight: 300;
+						}
+						padding: rem-calc(20 20 0);
+
+						.event-date-month-year {
+							padding-bottom: rem-calc(20);
+							position: relative;
+							line-height: 1;
+
+							.event-date-month,
+							.event-date-year {
+								display: inline-block;
+								font: {
+									size: rem-calc(16);
+									weight: 200;
+								}
+								color: $base;
+							}
+
+							&:after {
+								content: "";
+						    display: inline-block;
+						    height: 1px;
+						    width: 45px;
+						    position: absolute;
+						    left: 0;
+						    bottom: 0;
+							}
+						}
+
+						.event-date-day {
+							font: {
+								size: rem-calc(32);
+								weight: 200;
+							}
+							color: $base;
+
+							b {
+								color: $charcoal;
+							}
+						}
+
+				 	}
+
+				 	.event-place {
+				 		height: rem-calc(103);
+				 		overflow: hidden;
+						padding: rem-calc(20 20 20);
+
+				 		.place {
+							color: $monsoon;
+							font: {
+								size: rem-calc(14);
+								weight: 100;
+							}
+							line-height: 1.5;
+							margin-bottom: 0;
+						}
+				 	}
+				}
+			}
+		}
+	}
+}

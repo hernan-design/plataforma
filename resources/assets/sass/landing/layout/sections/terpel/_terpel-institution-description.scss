@@ -1,0 +1,15 @@
+%terpel-institution-description {
+	#institution-description {
+		background-color: $gray-lighter;
+
+		em {
+			font-style: normal;
+			font-weight: 400;
+		}
+
+		.feel {color: $terpel-feel-color;}
+		.imagine {color: $terpel-imagine-color;}
+		.do {color: $terpel-do-color;}
+		.share {color: $terpel-share-color;}
+	}
+}

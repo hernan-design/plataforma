@@ -1,0 +1,135 @@
+// Styles for course lecture
+//-------------------------
+%course-lecture {
+	#lecture-course {
+		// content main, where the player will be
+		.course-lecture-main {
+      padding:6rem 4.3rem 4.3rem 4.3rem;
+      overflow: auto;
+      @media #{$mobile-only}, #{$small-only}{
+        padding: 4rem 1rem 3rem 1rem;
+      }
+      >p#description-lecture-main{
+        margin-bottom:2.3rem;
+      }
+		}
+		// side menu of course lecture
+		.sidemenu-course-lecture {
+      border-left:1px solid #C9C9C9;
+      padding:10rem 0 0 0;
+      height: 100%;
+      position:fixed;
+      bottom:0;
+      right:0;
+      overflow:auto;
+      @media #{$mobile-only}, #{$small-only},#{$medium-only},#{$tablet-only} {
+         position:relative;
+         padding:0;
+      }
+      .tabs-sidemenu{
+        border: none;
+        .disappear{
+          pointer-events: none;
+        }
+        .tab-title {
+          background:white;
+          > a {
+            padding: 0.7rem;
+            border-bottom:1px solid #C9C9C9;
+          }
+        }
+        .active{
+          > a {
+            border-radius: 6px 6px 0px 0px;
+            border: 1px solid #C9C9C9;
+            border-bottom: 0px !important;
+            background: white;
+          }
+        }
+        .tab-title:hover{
+          a{
+            background: white !important;
+          }
+        }
+      }
+		}
+		// side themes of course lecture
+		#side-course-themes {
+      dl{
+        dd.active{
+          border: none !important;
+        }
+      }
+		}
+		// side attachements of course lecture
+		#side-course-attachments {
+			#course-attachments-wrap {
+				background-color: $white;
+        border:none;
+				> li {
+					padding: rem-calc(15 15);
+
+					.link-attached-theme {
+						font: {
+							size: rem-calc(14);
+							weight: 500;
+						}
+					}
+				}
+			}
+		}
+		// side notes of course lecture
+		#side-course-notes {
+			form#form-note-course {
+				.wrap-field-comment {
+					border: none;
+					border-bottom: 1px solid $hr-border-color;
+					padding: rem-calc(5 5 5 10);
+				}
+			}
+			#notes-posts-wrap {
+        padding: 0.5rem 1rem;
+				background-color: $white;
+
+				> li {
+					.text-description-post {
+						font: {
+							size: rem-calc(14)
+						}
+						> * {
+							font: {
+								size: inherit;
+							}
+						}
+					}
+					.link-more, .link-less {
+						font: {
+							size: rem-calc(14);
+						}
+					}
+				}
+			}
+		}
+		// side discussions of course lecture
+		#wrapper-posts-discussion {
+			background-color: $white;
+			padding: rem-calc(5 15);
+		}
+		.top-lecture-player, .bottom-lecture-player {
+			.controls-lecture {
+				line-height: rem-calc(50);
+				height: rem-calc(50);
+			}
+		}
+		.top-lecture-player {
+			top: 0px;
+		}
+		.bottom-lecture-player {
+			bottom: 0px;
+		}
+
+	}
+}
+
+
+

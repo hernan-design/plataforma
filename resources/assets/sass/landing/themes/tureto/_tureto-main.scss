@@ -1,0 +1,24 @@
+#{$wrapper-land}.wrapper-tureto {
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+  @extend %tureto-header !optional;
+  @extend %tureto-banner !optional;
+  @extend %tureto-campus !optional;
+  @extend %tureto-teachers !optional;
+  @extend %tureto-footer !optional;
+
+}
+

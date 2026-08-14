@@ -1,0 +1,38 @@
+// Styles for mentoring evaluation mentor
+// --------------------------------------
+%mentoring-evaluation-mentor {
+	#becoming-mentor-section {
+		@include margin-item-top;
+
+		#header-becoming-a-mentor {
+			background-color: $gray-light-alt;
+			border-bottom: none;
+      height: 90px;
+
+			.becoming-mentor-image {
+        margin-left: 10px;
+				position: absolute;
+				img {
+					border: 2px solid $white;
+					@include box-shadow(2px 2px 20px rgba($black,0.7));
+				}
+			}
+
+			.hpanel-title {
+				padding-left: 110px;
+			}
+		}
+
+		ul.list-mentor-evaluation-item {
+			margin-top: rem-calc(35);
+
+			> li {
+				padding: {
+					left: 0;
+					right: 0;
+				}
+        border-bottom: 1px solid gray;
+			}
+		}
+	}
+}

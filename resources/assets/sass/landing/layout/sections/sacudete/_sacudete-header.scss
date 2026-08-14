@@ -1,0 +1,54 @@
+%sena-header {
+	#{$header-land}{
+		background-color: $white;
+
+		.contain-top-bar {
+			&.sticky-menu-limit {
+				#nav-header {
+					background-color: rgba($black, 0.6) !important;
+
+					&.expanded {
+						background-color: rgba($black, 0.6) !important;
+					}
+
+					.icon-login-land {
+						color: $white !important;
+					}
+				}	
+			}
+		}
+
+		#nav-header {
+			&.expanded {
+				background-color: rgba($black, 0.8);
+			}
+
+			.icon-login-land {
+				color: $white !important;
+			}
+
+			.icon-bars-menu {
+				> a {
+					color: $white !important;
+
+					&:hover {
+						color: $dinamiza-light-blue-color;
+					}
+				}
+			} 
+		}
+
+		ul.off-canvas-list {
+			> li {
+				label {
+					background-color: rgba($black, 0.6);
+					color: $white;
+
+					i {
+						color: $white;
+					} 
+				}
+			}
+		}
+	}
+}

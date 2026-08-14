@@ -1,0 +1,33 @@
+%hilandoempresa-feature-videos {
+	#feature-videos {
+		background-color: $white-smoke;
+
+		.feature-videos-section-title {
+			padding: rem-calc(30 0);
+			color: $lafayette-bright-red-color;
+			font-weight: 100;
+		}
+
+		.feature-videos-boxes {
+			background-color: $gray-lighter;
+			position: relative;
+
+			&:hover {
+				background-color: $white;
+			}
+
+			.flex-video {
+				iframe {
+					border-radius: 3px 3px 0 0;
+				}
+			}
+
+			.feature-videos-title {
+				margin-bottom: rem-calc(20);
+				overflow: hidden;
+				height: 54px;
+				color: $lafayette-bright-red-color;
+			}
+		}
+	}
+}

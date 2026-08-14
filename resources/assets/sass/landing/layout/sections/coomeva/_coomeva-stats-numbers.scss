@@ -1,0 +1,59 @@
+%coomeva-stats-numbers {
+	#coomeva-stats-numbers {
+		background-color: $gray-rain;
+		position: relative;
+
+		.coomeva-stats-numbers-boxes {
+			background-color: $gray-rain;
+			padding-top: rem-calc(10);
+			padding-bottom: rem-calc(10);
+			@include box-shadow(none);
+
+			&:hover {
+				background-color: $vapor;
+				@include box-shadow(4px 4px 8px $iron);
+				@include transition(all ease-out 300ms);
+			}
+
+			.stats-numbers-box {
+				height: 80px;
+	  			display:table;
+	  			width:100%;
+
+				.stats-numbers {
+					color: $charcoal;
+					font-weight: 400;
+					vertical-align:middle;
+    				display:table-cell;
+				}
+			}
+
+			.stats-numbers-icons {
+				font-size: rem-calc(86);
+				color: $coomeva-bright-green-color;
+				margin-bottom: rem-calc(20);
+			}
+
+			.stats-numbers-title-box {
+				margin-top: rem-calc(0);
+				margin-bottom: rem-calc(30);
+				height: 44px;
+				display:table;
+	  			width:100%;
+
+				.stats-numbers-title {
+					display: block;
+					font-weight: 400;
+					font-family: 'Josefin Sans', sans-serif;
+					color: $monsoon;
+					vertical-align:middle;
+    				display:table-cell;
+				}
+			}
+		}
+
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

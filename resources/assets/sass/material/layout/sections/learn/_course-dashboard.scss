@@ -1,0 +1,136 @@
+// Styles for course themes
+//-------------------------
+%course-dashboard {
+	.wrapper-content-course {
+		padding: {
+			bottom: rem-calc(30);
+		}
+    .row{
+      .medium-12{
+        padding: rem-calc(25.6);
+      }
+      .columns{
+        .title-course-main{
+          margin-bottom: 0;
+          font-size: rem-calc(32);
+          font-weight: bold !important;
+          margin-top: rem-calc(24);
+        }
+        .description-course-main{
+          color: #5c5c5c;
+          font-size: rem-calc(14.4);
+          line-height: 1.3;
+          margin-bottom: rem-calc(48);
+        }
+      }
+    }
+		// interactive navegation for dashboard
+		ul.nav-interactive {
+			@include base-list-grid($width-tb:100%);
+			background-color: $white;
+
+			> li {
+				@extend .vtop;
+			}
+		}
+    ul.nav-interactive{
+      .tab-title{
+        border-bottom:1px solid #c7c7c7 !important;
+        border-radius: 7px 7px 0 0;
+        padding: rem-calc(10);
+        > a{
+          text-decoration: none;
+          font-size: rem-calc(14.4);
+          font-weight: 600;
+          color: #424242;
+          @media #{$mobile-only}, #{$small-only},#{$medium-only},#{$large-only},#{$tablet-only} {
+            font-size: rem-calc(11.2);
+          }
+        }
+      }
+      .active{
+        border-bottom: 0 !important;
+        border-left:1px solid #c7c7c7 !important;
+        border-right:1px solid #c7c7c7 !important;
+        border-top:1px solid #c7c7c7 !important;
+      }
+      .spacing{
+        width: 30%;
+        @media #{$mobile-only}, #{$small-only}{
+          display: none;
+        }
+      }
+      @media #{$mobile-only}, #{$small-only},#{$tablet-only}{
+        margin-top: rem-calc(32);
+      }
+    }
+		.tabs-content {
+      .content {
+        background-color: $white;
+      }
+    }
+		// progress course panel
+		.panel-progress-course {
+			padding: {
+				top: rem-calc(41.6);
+			}
+			@include box-shadow(none);
+			border: none;
+		}
+		// unsubscribe panel
+		.panel-unsubscribe {
+			margin: {
+				top: rem-calc(20);
+			}
+			@include box-shadow(none);
+			border: none;
+
+			.on-unsubscribe-course {
+				color: $sky-blue;
+			}
+		}
+		// students list course
+		#students-course-wrap {
+			.item-student-course {
+				padding: rem-calc(0 15);
+
+				.has-image {
+					padding: {
+						right: rem-calc(15);
+					}
+				}
+				.name-user {
+					&:hover, &:focus {
+						color: $sky-blue !important;
+						.carduser-name {
+							color: $sky-blue;
+						}
+					}
+				}
+				.carduser-name {
+					margin: {
+						bottom: 0;
+					}
+				}
+			}
+		}
+
+		#wrapper-posts-discussion {
+			padding: rem-calc(5 15);
+		}
+
+		// course sponsors list
+		ul.list-sponsors-course {
+			margin: 0px;
+			list-style: outside none none;
+
+			> li {
+				padding: rem-calc(20 25);
+				img {
+					width: auto;
+					height: rem-calc(40);
+				}
+			}
+		}
+	}
+}

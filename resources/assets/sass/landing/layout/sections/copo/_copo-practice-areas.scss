@@ -1,0 +1,76 @@
+%copo-practice-areas {
+	#copo-practice-areas {
+		background-color: $gray-lighter;
+		padding-top: rem-calc(40);
+
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+			padding-top: rem-calc(0);
+		}
+
+		.practice-areas-rows {
+			&:nth-child(even) {
+				background-color: $gray-lighter;
+			}
+
+			&:nth-child(odd) {
+				background-color: $white;
+			}
+
+			padding: rem-calc(40);
+
+			@media #{$xlarge-up} {
+				padding-left: rem-calc(0);
+				padding-right: rem-calc(0);
+			}
+
+			.practice-areas-text-box {
+				margin: rem-calc(70 0 0 0);
+
+				@media #{$medium-only}, #{$tablet-only} {
+					margin: rem-calc(30 0 0 0);
+				}
+
+				@media #{$small-only}, #{$mobile-only} {
+					margin: rem-calc(0);
+				}
+
+				.practice-areas-title {
+					font-weight: 400;
+					font-family: 'Ubuntu', sans-serif;
+					margin-bottom: rem-calc(35);
+
+				}
+
+				.practice-areas-text {
+					font-weight: 300;
+					font-family: 'Ubuntu', sans-serif;
+
+					@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+						font-size: rem-calc(14);
+					}
+
+					.selectrain {
+						color: $selectrain-dark-green-color;
+
+
+					}
+				}
+			}
+
+			.copo-practice-areas-button {
+				font-weight: 400;
+				font-family: 'Ubuntu', sans-serif;
+				background-color: $copo-bright-blue-color;
+				margin-top: rem-calc(10);
+
+				@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
+					text-align: center;
+				}
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+}

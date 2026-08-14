@@ -1,0 +1,33 @@
+#{$wrapper-land}.wrapper-redemprendedoresbavaria {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	@extend %reb-header !optional;
+	@extend %reb-banner !optional;
+
+	#{$main-land} {
+		@extend %reb-entrepreneurship !optional;
+		// @extend %reb-navmenu !optional;
+		// @extend %reb-program-call !optional;
+		// @extend %reb-tenth-cycle-stages !optional;
+		// @extend %reb-stats-section !optional;
+		// @extend %reb-redds-banner !optional;
+		@extend %reb-institution-description !optional;
+
+		@extend %destapafuturo-navmenu !optional;
+		@extend %destapafuturo-program-call !optional;
+		@extend %destapafuturo-tenth-cycle-stages !optional;
+		@extend %destapafuturo-stats-section !optional;
+		@extend %destapafuturo-feature-entrepreneurship !optional;
+		@extend %destapafuturo-redds-banner !optional;
+	}
+}

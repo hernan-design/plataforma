@@ -1,0 +1,60 @@
+%andifuturo-characteristics-section {
+	#andifuturo-characteristics-section {
+		background-color: $moon;
+		position: relative;
+
+		.title-section-land {
+			color: $black;
+		}
+
+		.intro-boxes {
+			background-color: $vapor;
+			padding: rem-calc(34 34);
+			border: 1px solid $silver;
+			@include transition(all ease-out 300ms);
+
+			&:hover {
+				background-color: $white;
+
+			}
+
+
+			.description-box {
+				height: 138px;
+				text-align:center;
+  			width:100%;
+
+				.text-intro-boxes {
+					font-weight: 300;
+					margin-bottom: 0;
+				}
+			}
+
+			@media #{$tablet-only}, #{$small-only},#{$mobile-only} {
+				.description-box {
+					height: auto;
+
+					.text-paragraph-medium {
+						height: auto;
+					}
+				}
+			}
+
+
+			.andifuturo-intro-icons {
+				margin-bottom: rem-calc(30);
+			}
+
+			.view-more-cta {
+				color: $aluminum;
+				display: block;
+				font-weight: 200;
+				margin-top: rem-calc(0);
+			}
+		}
+
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

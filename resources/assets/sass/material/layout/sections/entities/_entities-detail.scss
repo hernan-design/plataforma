@@ -1,0 +1,495 @@
+// Styles for entities detail
+//---------------------------
+%entities-detail {
+
+	#wrapper-detail-project {		
+		.header-section { 
+			padding-bottom: rem-calc(65);
+		}
+
+		#project-header-content {
+			background-color: transparent;
+			padding: rem-calc(0);
+			position: relative;
+			z-index: 81;
+
+			.card-project-detail, .card-project-detail-info {
+				max-width: 100%;
+				padding-bottom: rem-calc(70);
+				margin: {
+					top: 0;
+				}
+
+				.project-action-detail {
+					position: absolute;
+					width: 100%;
+					bottom: 0;
+
+				}
+
+				ul.project-list-info {
+					list-style: outside none none;
+					margin: 0;
+				}
+			}
+
+			.card-project-detail {
+				.project-action-detail {
+					z-index: 3;
+				}
+			}
+
+			#project-main-image {
+				min-height: auto;
+
+				@media #{$xlarge-up} {
+					min-height: rem-calc(345);
+				}
+			}
+
+			.project-top-info-item {
+				margin: {
+					bottom: rem-calc(15);
+				}
+			}
+		}
+
+		#project-submenu-tabs {
+			background-color: $white;
+			@include box-shadow($panel-shadow);
+			@include border-radius($global-radius);
+			padding: rem-calc(0 15);
+
+			#project-tabs-filter {
+				border-bottom: none;
+			}
+		}
+
+		#project-detail-content {
+			padding: {
+				top: rem-calc(20);
+			}
+
+			.project-bottom-info-item {
+				margin: {
+					bottom: rem-calc(20);
+				}
+			}
+
+			.content-sponsor-list {
+
+				ul.list-sponsor-project {
+
+					@include redefine-padding-gb( rem-calc(0 10 20) );
+
+					> li {
+						text-align: center;
+					}
+				}
+			}
+		}
+
+		// editing content
+		// project summary edit
+		#project-summary-container {
+
+			.text-summary-project {
+				word-break: break-word;
+
+				.wrapper-more {
+					display: inline;
+					margin: {
+						right: rem-calc(10);
+					}
+				}
+			}
+		}
+
+		// editing content
+		// project page web edit
+		#project-pageweb-container {
+
+			.text-pageweb-project {
+				word-break: break-word;
+
+				.wrapper-more {
+					display: inline;
+					margin: {
+						right: rem-calc(10);
+					}
+				}
+			}
+		}
+
+		#project-numerowhatsapp-container {
+
+			.text-numerowhatsapp-project {
+				word-break: break-word;
+
+				.wrapper-more {
+					display: inline;
+					margin: {
+						right: rem-calc(10);
+					}
+				}
+			}
+		}
+
+		// project video edit
+		#project-video-container {
+
+			.wrapper-video-edit {
+				.edit-video {
+					top: 0px;
+					bottom: auto;
+				}
+			}
+
+			.video-content-preview {
+				margin: {
+					bottom: rem-calc(20);
+				}
+			}
+		}
+
+		// project share edit
+		#project-share-container {
+			padding: 0;
+
+			ul.list-share-project {
+				list-style: none none outside;
+
+				> li {
+					padding: rem-calc(15);
+				}
+			}
+		}
+
+		// project socials edit
+		#project-socials-container {
+
+			ul.socials-project-share {
+				list-style: outside none none;
+				margin: 0;
+				display: inline-block;
+				vertical-align: middle;
+
+				> li {
+				  display: inline-block;
+				  vertical-align: middle;
+
+				  &:not(:first-of-type) {
+				    margin: {
+				      left: rem-calc(10);
+				    }
+				  }
+
+				  a {
+				    color: $gray-base;
+				    font-size: rem-calc(24);
+				    line-height: normal;
+				  }
+				}
+			}
+		}
+
+		#marketplace-submenu-nav {
+			background-color: $color-main-wrap-alt;
+			@include box-shadow(0px 2px 2px $iron);
+		}
+
+		// list options share
+		ul.project-share-items {
+			margin-top: rem-calc(20);
+
+			> li {
+				&:not(:last-of-type) {
+					margin-bottom: rem-calc(15);
+				}
+
+				a {
+					display: inline-block;
+					line-height: 1;
+					color: $gray-dark;
+					font: {
+						size: rem-calc($text-small) !important;
+						weight: $font-weight-normal !important;
+					}
+
+					> i {
+						font-size: rem-calc(21) !important;
+						vertical-align: middle !important;
+						color: $gray-base;
+
+						&:first-of-type {
+							margin-right: rem-calc(5);
+						}
+					}
+				}
+			}
+		}
+
+		// styles for content program review
+		.submenu-tabs-review-program {
+			background-color: $white;
+			padding: rem-calc(0 25);
+			@include box-sizing(border-box);
+			@include side-radius(top);
+
+			.project-program-submenu-review {
+				border-bottom: none;
+			}
+		}
+		#content-review-program-project {
+
+			.panel-review-program-project {
+				padding: rem-calc(0 0 0);
+
+				table {
+					margin: 0;
+
+					tr {
+						th, td {
+							padding: rem-calc(15 25);
+						}
+					}
+				}
+
+				ul.list-detail-program-review {
+
+					label {
+						margin-bottom: 0;
+					}
+
+					> li:not(:last-of-type) {
+						margin-bottom: rem-calc(10);
+					}
+				}
+
+				.inner-panel-program-review {
+					background-color: $white;
+					padding: rem-calc(35 25);
+
+					& + table {
+						thead {
+							background-color: $white;
+							border-bottom: none;
+						}
+					}
+
+					&.has-table {
+						padding: {
+							top: 0;
+							bottom: 0;
+						}
+					}
+
+					table {
+						thead { border-bottom: none; }
+						tr {
+							td, th {
+								&:first-of-type { padding-left: 0; }
+								&:last-of-type { padding-right: 0; }
+							}
+						}
+					}
+				}
+			}
+
+			.inner-section-program-review {
+				background-color: $gray-light-alt;
+				padding: rem-calc(35 25);
+
+				& + table {
+					thead {
+						background-color: $gray-light-alt;
+						border-bottom: none;
+					}
+				}
+
+				&.has-table {
+					padding: {
+						top: 0;
+						bottom: 0;
+					}
+				}
+
+				table {
+					thead { border-bottom: none; }
+					tr {
+						td, th {
+							&:first-of-type { padding-left: 0; }
+							&:last-of-type { padding-right: 0; }
+						}
+					}
+				}
+			}
+
+			.title-inner-program-review {
+				padding: rem-calc(0 25);
+				margin-top: rem-calc(35);
+			}
+
+			.collapsible-table {
+				border: none;
+				margin: 0;
+				@include box-shadow(none);
+
+				i {
+					width: auto;
+					line-height: normal;
+					display: inline-block;
+					float: none;
+					text-align: center;
+					margin-right: 0;
+			  }
+
+				.collapsible-header {
+					padding: 0;
+
+					table {
+						tr:last-of-type {
+							border-bottom: none;
+						}
+					}
+
+					&:hover, &.active {
+						color: #{$secondary-color};
+
+						* {
+							color: #{$secondary-color};
+						}
+					}
+
+					&:hover {
+						background-color: $gray-lighter;
+
+						.inner-panel-program-review, .inner-section-program-review {
+							background-color: inherit;
+						}
+					}
+					&.active {
+						background-color: $gray-light-alt;
+						border-bottom: none;
+
+						.inner-panel-program-review, .inner-section-program-review {
+							background-color: inherit;
+						}
+					}
+
+					.inner-panel-program-review, .inner-section-program-review {
+						padding: {
+							top: 0;
+							bottom: 0;
+						}
+
+						table {
+							tr {
+								td, th {
+									&:first-of-type { padding-left: 0; }
+									&:last-of-type { padding-right: 0; }
+								}
+							}
+						}
+					}
+				}
+
+				.collapsible-body {
+					p {
+						padding: initial;
+						margin: initial;
+					}
+
+					> ul.list-detail-program-review {
+						padding: rem-calc(15 50);
+						background-color: $gray-light-alt;
+					}
+
+					.inner-section-program-review, .inner-panel-program-review {
+						padding-top: 0;
+
+						table {
+							tr {
+								td, th {
+									&:first-of-type { padding-left: 0; }
+									&:last-of-type { padding-right: 0; }
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.content-data-program-review-list {
+
+				// &:not(:last-of-type) {
+				// 	padding-bottom: rem-calc(30);
+				// }
+
+				ul.browse-list-program-review {
+					margin-left: 0;
+					margin-right: 0;
+
+					.wrapper-pointer-item {
+						display: block;
+						cursor: pointer;
+
+						&:hover, &:focus {
+							text-decoration: none;
+						}
+					}
+
+					.item-wrap-list {
+						@include box-shadow(none);
+
+						&:hover {
+							background-color: $gray-light-alt;
+							@include box-shadow(none);
+						}
+
+						.top-item-list {
+							padding: rem-calc(20 0 20 25);
+						}
+
+						.content-item-list {
+							padding: rem-calc(20 25 20 20);
+
+							.description-piece-content {
+								max-height: rem-calc(66);
+								overflow: hidden;
+							}
+
+							.footer-piece-content {
+								padding: inherit;
+								padding-top: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// product gallery image
+		ul#project-gallery {
+			margin: rem-calc(0 0 10);
+		}
+	}
+
+	// containers edit form
+	#container-form-videodata {
+		width: rem-calc(700);
+	}
+	#container-form-name, #container-form-location, #container-form-industry {
+		width: rem-calc(360);
+	}
+}
+div.hide-for-mobile-only{
+    div{
+        a{
+            img{
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+    }
+}

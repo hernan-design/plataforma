@@ -1,0 +1,143 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for flex box
+// ----------------------
+
+.fx-main-content {
+	width: 100%;
+	@include flexbox((
+		display: box,
+		box-orient: vertical
+	), $version: 1);
+	@include flexbox((
+		display: flexbox,
+		flex-direction: row
+	), $version: 2);
+	@include flexbox((
+		display: flex,
+		flex-direction: row
+	));
+	@include flex-flow(row wrap);
+	@include align-items(stretch);
+	@include justify-content(flex-end);
+
+	.fx-col-left, .fx-col-right {
+		// min-width: rem-calc(240);
+		background-color: transparent;
+		@include flex(0 1 auto);
+		z-index: 3;
+	}
+
+	.fx-col-left {
+		@include transition(margin-left 250ms ease);
+		will-change: margin-left;
+
+		&.is-hide {
+			margin: {
+				left: rem-calc(-245) !important;
+			}
+		}
+	}
+
+	.fx-col-right {
+		@include transition(margin-right 250ms ease);
+
+		&.is-hide {
+			margin: {
+				right: rem-calc(-245) !important;
+			}
+		}
+	}
+
+	.fx-col-content {
+		min-width: 1px;
+		max-width: 100%;
+		width: 1px;
+		@include flex(1 0 auto);
+	}
+
+	// icon arrow side
+	.side-nav-arrow {
+		position: absolute;
+		display: inline-block;
+		right: rem-calc(15);
+		top: 50%;
+		font-size: rem-calc(20);
+		text-align: right;
+		line-height: 1;
+		margin-top: rem-calc(-10);
+		@extend %font-mdi;
+
+		&:before {
+			content: mdi('chevron-double-right');
+		}
+	}
+
+	// buttons for hide panel
+	.hide-fx-left-btn, .hide-fx-right-btn {
+		width: 100%;
+		position: relative;
+		display: inline-block;
+		background-color: $white;
+		color: inherit;
+		padding: rem-calc(0 10);
+
+		&:hover, &:focus {
+			color: $sky-blue;
+			text-decoration: none;
+		}
+	}
+
+	.hide-fx-left-btn {
+		@include transition(right .3s linear);
+		&.on {
+			right: rem-calc(-40);
+			padding-right: rem-calc(35);
+			@include box-shadow($box-shadow-item);
+
+			.side-nav-arrow {
+				&:before{
+					content: mdi('chevron-double-right');
+				}
+			}
+		}
+
+		&:not(.on) {
+			.side-nav-arrow {
+				&:before{
+					content: mdi('chevron-double-left');
+				}
+			}
+		}
+	}
+
+	.hide-fx-right-btn {
+		@include transition(left .3s linear);
+		&.on {
+			left: rem-calc(-40);
+			@include box-shadow($box-shadow-item);
+
+			.side-nav-arrow {
+				&:before{
+					content: mdi('chevron-double-left');
+				}
+			}
+		}
+
+		&:not(.on) {
+			.side-nav-arrow {
+				&:before{
+					content: mdi('chevron-double-right');
+				}
+			}
+		}
+	}
+
+	@media #{$mobile-only}, #{$small-only} {
+
+		.fx-col-left, .fx-col-right {
+			// width: 100%;
+			z-index: 80;
+		}
+	}
+}

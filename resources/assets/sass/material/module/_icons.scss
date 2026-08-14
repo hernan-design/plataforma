@@ -1,0 +1,557 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles icons custom
+// --------------------
+
+// Table of Contents
+// -----------------
+// 01. Styles for material icons
+// 02. Circle icons custom
+
+//
+// Variables
+//
+$material-animated-icon-prefix: "md-animated-icon" !default;
+$material-animated-icon-color: $sky-blue !default;
+$material-animated-icon-padding: rem-calc(5 8) !default;
+$material-animated-icon-size: rem-calc(30) !default;
+$material-animated-icon-duration: 350ms !default;
+$material-animated-icon-timing-function: ease-out !default;
+$material-animated-icon-delay: 0s !default;
+$material-transition-icon-duration: 200ms !default;
+$material-transition-icon-timing-function: ease !default;
+$material-transition-icon-delay: 0s !default;
+
+//
+// Mixin
+//
+// Mixin create circle icon
+// @param $font-size
+// @param $padding
+// @param $color
+// @param $bgcolor
+// @param $colors-custom
+// @param $sizes-custom
+// @param $has-transition
+//
+@mixin icon-circle($font-size:false, $padding: false, $color:$purple-blue, $bgcolor:$vapor, $colors-custom:false, $sizes-custom:false, $has-transition:false) {
+
+	min-width: 1em;
+	min-height: 1em;
+	width: auto;
+	height: auto;
+	display: inline-block;
+	line-height: 1 !important;
+	color: $color;
+	background-color: $bgcolor;
+	text-align: center;
+	@if $padding { padding: $padding; }
+	@if $font-size { font-size: $font-size; }
+	@include border-radius(50%);
+	@include box-sizing(content-box);
+
+	> i {
+		vertical-align: top;
+	}
+
+	// colors custom
+	@if $colors-custom == true {
+		&.white {
+			color: $color;
+			background-color: $white;
+		}
+		&.success {
+			color: $white;
+			background-color: $success-color;
+		}
+		&.alert {
+			color: $white;
+			background-color: $alert-color;
+		}
+		&.warning {
+			color: $white;
+			background-color: $warning-color;
+		}
+		&.info {
+			color: $white;
+			background-color: $info-color;
+		}
+		&.secondary {
+			color: $white;
+			background-color: $secondary-color;
+		}
+		&.purple-blue {
+			color: $white;
+			background-color: $purple-blue;
+		}
+		&.sky-blue {
+			color: $white;
+			background-color: $sky-blue;
+		}
+		&.gray {
+			color: $white;
+			background-color: $base;
+		}
+		&.gray-base {
+			color: $white;
+			background-color: $gray-base;
+		}
+		&.gray-light {
+			color: $white;
+			background-color: $gray-light;
+		}
+		&.gray-lighter {
+			color: $white;
+			background-color: $gray-lighter-alt;
+		}
+		&.gray-dark {
+			color: $white;
+			background-color: $gray-dark;
+		}
+	}
+
+	// sizes custom circle
+	@if $sizes-custom == true {
+		&.xtiny {
+			padding: rem-calc(2);
+		}
+		&.tiny {
+			padding: rem-calc(4);
+		}
+		&.xsmall {
+			padding: rem-calc(6);
+		}
+		&.small {
+			padding: rem-calc(8);
+		}
+		&.medium {
+			padding: rem-calc(10);
+		}
+		&.large {
+			padding: rem-calc(13);
+		}
+		&.xlarge {
+			padding: rem-calc(15);
+		}
+
+		&.icon-12 { font-size: rem-calc(12); }
+		&.icon-14 { font-size: rem-calc(14); }
+		&.icon-16 { font-size: rem-calc(16); }
+		&.icon-18 { font-size: rem-calc(18); }
+		&.icon-21 { font-size: rem-calc(21); }
+		&.icon-24 { font-size: rem-calc(24); }
+		&.icon-30 { font-size: rem-calc(30); }
+		&.icon-36 { font-size: rem-calc(36); }
+		&.icon-42 { font-size: rem-calc(42); }
+		&.icon-48 { font-size: rem-calc(48); }
+	}
+
+	// vertical position for icons
+	&.vtop {
+		vertical-align: top;
+	}
+	&.vcenter {
+		vertical-align: middle;
+	}
+	&.vbottom {
+		vertical-align: bottom;
+	}
+
+	// shadow to circle
+	&.circle-shadow {
+		@include box-shadow(1px 1px 4px transparentize($black, .3));
+	}
+
+	&.circle-reflex-bottom {
+		position: relative;
+		&:after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			background-color: #CACACA;
+			width: 35%;
+			height: 2px;
+			left: 32%;
+			@include border-radius(50%);
+			@include box-shadow(10px 0px 3px #D2D0D0, -10px 0px 3px #D2D0D0);
+		}
+	}
+
+	@if $has-transition == true {
+		@include transition-property(all);
+		@include transition-duration($material-transition-icon-duration);
+		@include transition-timing-function($material-transition-icon-timing-function);
+		@include transition-delay($material-transition-icon-delay);
+	}
+
+}
+
+// 01. Styles for material icons
+// -----------------------------
+.#{$material-animated-icon-prefix} {
+	position: relative;
+	display: inline-block;
+	border: none;
+	outline: 0;
+	background: none;
+	cursor: pointer;
+	padding: $material-animated-icon-padding;
+	line-height: .8;
+	font: {
+		family: 'Roboto', sans-serif;
+		size: $material-animated-icon-size;
+	}
+	white-space: normal;
+  text-align: center;
+  vertical-align: middle;
+
+	> span {
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		width: 1em;
+		height: 1em;
+		background-color: #{$material-animated-icon-color};
+		// @include transition(all 500ms ease-out);
+		// @include transition-delay(100ms);
+		@include animation-duration($material-animated-icon-duration);
+		@include animation-timing-function($material-animated-icon-timing-function);
+		@include animation-delay($material-animated-icon-delay);
+	}
+
+	.label-icon {
+		width: auto;
+		height: auto;
+    display: inline-block;
+    background: transparent;
+    font: {
+    	size: rem-calc(14);
+    	weight: 400;
+    }
+	}
+
+	&.bubbleback {
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 2px;
+			height: 2px;
+			margin: {
+				top: -2px;
+				left: -2px;
+			};
+			background-color: $white;//$purple-blue;
+			@include border-radius(50%);
+			@include scale(0);
+			@include opacity(1);
+		}
+	}
+}
+// hamburger material icon
+.md-hamburger__icon, .md-hamburger-close__icon {
+
+	&.bubbleback {
+		&:before {
+			background-color: $tabbar-menu-icon-color;
+		}
+	}
+
+	.md-hamburger__layer {
+		height: .1em;
+		background-color: $tabbar-menu-icon-color;
+		@include border-radius(3px);
+
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			display: block;
+			width: inherit;
+			height: .1em;
+			background: inherit;
+			@include border-radius(3px);
+			@include animation-duration($material-animated-icon-duration);
+			@include animation-timing-function($material-animated-icon-timing-function);
+			@include animation-delay($material-animated-icon-delay);
+		}
+
+		&:before {
+			bottom: .27em; //200%;
+		}
+		&:after {
+			top: .27em; //200%;
+		}
+	}
+}
+// Plus material icon
+.md-plus__icon {
+	.md-plus__layer {
+		background-color: transparent;
+		height: .1em;
+
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			display: block;
+			width: inherit;
+			height: inherit;
+			background: $white;
+			@include transition-property(all);
+			@include transition-duration($material-transition-icon-duration);
+			@include transition-timing-function($material-transition-icon-timing-function);
+			@include transition-delay($material-transition-icon-delay);
+		}
+
+		&:before {
+			@include rotate(90deg);
+		}
+		&:after {
+		}
+	}
+}
+// toggle reveal icon
+.toggle-reveal-info {
+	position: absolute;
+	left: -9999px;
+	@include opacity(0);
+
+	& + label {
+		@include icon-circle(
+			$font-size: rem-calc(24),
+			$padding: rem-calc(10),
+			$color: $white,
+			$colors-custom: true,
+			$sizes-custom: true,
+			$has-transition: true
+		);
+
+		&:before {
+			content: none;
+			position: static;
+			width: auto;
+			height: auto;
+			margin: 0;
+			padding: 0;
+			border: none;
+			@include transform(none);
+			@extend %font-mdi;
+			color: inherit !important;
+			content: mdi('eye');
+		}
+
+		&:after {
+			display: none;
+		}
+
+		&:hover {
+			color: $white !important;
+		}
+	}
+
+	&:checked {
+		& + label {
+			color: $white !important;
+
+			&:before {
+				position: static;
+				width: auto;
+				height: auto;
+				margin: 0;
+				padding: 0;
+				border: none;
+				color: inherit !important;
+				@include transform(none);
+				content: mdi('window-close');
+				@include transform-origin(initial, false);
+
+				@include animation(x-rotate 0.5s ease);
+				@include keyframes( x-rotate ) {
+					0% { @include transform( rotate(0deg) ); }
+					70% { @include transform( rotate(405deg) ); }
+					100% { @include transform( rotate(360deg) ); }
+				}
+			}
+
+			&:after { display: none; }
+
+			&:hover {
+				color: $white !important;
+			}
+		}
+	}
+}
+
+// 02. Circle icons custom
+// -----------------------
+.icon-circle, .icon-circle-o, .md-circle, .circle-outline, .circle-entrepreneurship {
+
+	@include icon-circle(
+		$font-size: rem-calc(20),
+		$padding: rem-calc(6)
+	);
+
+	margin: 0;
+}
+
+// standard circle icon
+// --------------------
+.icon-circle {
+	@include icon-circle(
+		$colors-custom: true,
+		$sizes-custom: true,
+		$has-transition: true
+	);
+}
+
+// circle icon transparent
+// -----------------------
+.icon-circle-o {
+	@include icon-circle(
+		$color: $iron,
+		$bgcolor: transparent,
+		$colors-custom: true,
+		$sizes-custom: true,
+		$has-transition: true
+	);
+}
+
+// material design icon
+// --------------------
+.md-circle {
+	@include icon-circle(
+		$color: $white,
+		$padding: rem-calc(15),
+		$colors-custom: true,
+		$sizes-custom: true
+	);
+}
+
+// contoured circle
+// ----------------
+.circle-outline {
+	@include icon-circle(
+		$color: $sky-blue,
+		$bgcolor: transparent,
+		$colors-custom: false,
+		$sizes-custom: true,
+		$has-transition: true
+	);
+
+	border-width: 1px;
+	border-style: solid;
+	border-color: $sky-blue;
+
+	&.success {
+		color: $success-color;
+		border-color: $success-color;
+	}
+	&.alert {
+		color: $alert-color;
+		border-color: $alert-color;
+	}
+	&.warning {
+		color: $warning-color;
+		border-color: $warning-color;
+	}
+	&.info {
+		color: $info-color;
+		border-color: $info-color;
+	}
+	&.secondary {
+		color: $secondary-color;
+		border-color: $secondary-color;
+	}
+	&.purple-blue {
+		color: $purple-blue;
+		border-color: $purple-blue;
+	}
+	&.sky-blue {
+		color: $sky-blue;
+		border-color: $sky-blue;
+	}
+	&.gray {
+		color: $jumbo;
+		border-color: $jumbo;
+	}
+	&.gray-base {
+		color: $gray-base;
+		border-color: $gray-base;
+	}
+	&.gray-light {
+		color: $gray-light;
+		border-color: $gray-light;
+	}
+	&.gray-dark {
+		color: $gray-dark;
+		border-color: $gray-dark;
+	}
+}
+
+// roles circle icons
+// ------------------
+.circle-entrepreneurship {
+	@include icon-circle(
+		$font-size: rem-calc(20),
+		$color: $white,
+		$bgcolor: $color-investor,
+		$padding: rem-calc(5),
+		$colors-custom: false,
+		$sizes-custom: true,
+		$has-transition: true
+	);
+
+	&.investor {
+		background-color: $color-investor;
+
+		&.invert {
+			background-color: $white;
+			color: $color-investor;
+		}
+	}
+
+	&.entrepreneur {
+		background-color: $color-entrepreneur;
+
+		&.invert {
+			background-color: $white;
+			color: $color-entrepreneur;
+		}
+	}
+
+	&.mentor {
+		background-color: $color-mentor;
+
+		&.invert {
+			background-color: $white;
+			color: $color-mentor;
+		}
+	}
+}
+
+// action hover circle
+// hover circle icon close
+// -----------------------
+.action-hover-circle, .close-hover-circle {
+	@include icon-circle(
+		$font-size : rem-calc(24),
+		$padding : rem-calc(2),
+		$color : $gray-base,
+		$bgcolor : transparent,
+		$colors-custom : true,
+		$sizes-custom : true,
+		$has-transition : true
+	);
+	border: none;
+	margin: 0;
+
+	&:hover, &:focus {
+		@include icon-circle(
+			$color : $gray-base,
+			$bgcolor: $gray-cloud
+		);
+		text-decoration: none;
+	}
+}

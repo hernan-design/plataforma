@@ -1,0 +1,137 @@
+%sena-about {
+	#sena-about {
+    padding: rem-calc(80 0);
+
+    @media #{$mobile-only}, #{$small-only} {
+      padding: rem-calc(30 0);
+    }
+
+    @media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+      padding: rem-calc(50 0);
+    }
+
+    p, ul, li, a, h4 {
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+    a {
+      font-weight: 400;
+      color: $jumbo;
+      text-transform: none;
+      @include border-radius(32px);
+      padding-left: rem-calc(50);
+      padding-right: rem-calc(50);
+    }
+
+    .about-content-blocks {
+      padding: rem-calc(80 0);
+      position: relative;
+      overflow: hidden;
+
+      @media #{$mobile-only}, #{$small-only} {
+        padding: rem-calc(30 0);
+      }
+
+      @media #{$large-only}, #{$xlarge-only}, #{$tablet-only}, #{$medium-only} {
+        padding: rem-calc(50 0);
+      }
+
+      &:first-child {
+        padding: 0;
+
+        &:before {
+          content: none;
+        }
+      }
+
+      &:before {
+        position: absolute;
+        bottom: -37px;
+        right: -14px;
+        content: url("https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/sena/about/square-pattern-bg.png");
+      }
+
+      &:nth-child(odd) {
+        &:before {
+          left: -14px;
+          right: auto;
+        }
+      }
+    }
+
+    .section-title {
+      font-weight: 700;
+      margin-bottom: rem-calc(15);
+      position: relative;
+      padding-bottom: rem-calc(20);
+      margin-top: 0;
+
+      @media #{$mobile-only}, #{$small-only} {
+        margin-top: rem-calc(20);
+      }
+
+      @media #{$xlarge-up} {
+        margin-bottom: rem-calc(20);
+      }
+
+      &:after {
+        content: '';
+        width: 50px;
+        height: 1px;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        background-color: $gainsboro;
+      }
+    }
+
+    .subtitle {
+      color: $sena-bright-green-color;
+      font-size: rem-calc(24);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .benefits-list {
+      margin-bottom: rem-calc(40);
+
+      > li {
+        padding-left: 50px;
+        line-height: 190%;
+        margin-bottom: 20px;
+        font-size: rem-calc(16);
+        color: $steel;
+
+        &:before {
+          position: absolute;
+          left: 15px;
+          content: url("https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/sena/about/check.png");
+        }
+      }
+    }
+
+    .diagnosis-list {
+
+      .has-image {
+        > img {
+          width: 87px;
+        }
+      }
+    }
+
+    .about-img {
+      display: block;
+      margin: 0 auto;
+
+      width: 420px;
+
+      @media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only} {
+        width: 280px;
+      }
+
+      @media #{$xlarge-only} {
+        width: 320px;
+      }
+    }
+	}
+}

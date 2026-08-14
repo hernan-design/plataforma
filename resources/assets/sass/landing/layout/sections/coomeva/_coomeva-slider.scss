@@ -1,0 +1,211 @@
+%coomeva-slider {
+	#coomeva-slider {
+		@include box-shadow (1px 20px 50px -4px rgba($black, 0.25));
+	/*
+	* Banner landing
+	* ---------------
+	*/
+
+		.slick-slider-coomeva {
+			margin: rem-calc(64 0 0 0);
+			overflow: hidden;
+			height: 720px;
+			position: relative;
+
+			@media #{$xlarge-only} {
+	 			height: 600px;
+			}
+
+			@media #{$large-only}, #{$medium-only}, #{$tablet-only} {
+				height: 500px;
+			}
+
+			@media #{$small-only}, #{$mobile-only} {
+				height: 400px;
+			}
+
+			.slick-slide, .wrap-img-slider {
+				position: relative;
+				width: 100%;
+				height: auto;
+				overflow: hidden;
+
+				&:before {
+					content: '';
+			    display: block;
+			    padding-left: 100%;
+				}
+
+				img {
+					position: relative;
+			    max-width: none;
+			    min-height: auto;
+			    width: 100%;
+			    height: auto;
+			    bottom: -30%;
+			    left: auto;
+			    top: auto;
+			    margin: 0 auto;
+			    @include transform(translate(0, -30%));
+				}
+			}
+
+			.slick-prev, .slick-next {
+				cursor: pointer;
+				font-size: rem-calc(32);
+				overflow: hidden;
+				width: 56px;
+				height: 56px;
+				background: rgba($white, 0.1);
+				position: absolute;
+				top: 50%;
+				margin-top: -25px;
+
+				&:before{
+					@extend %font-mdi;
+					font-size: rem-calc(40);
+			    line-height: 0;
+			    opacity: .75;
+			    -webkit-font-smoothing: antialiased;
+				}
+
+				&:hover {
+					background: rgba($white, 0.6);
+				}
+			}
+
+			.slick-prev {
+				left: rem-calc(0);
+				@include side-radius(right, 3px);
+				padding: rem-calc(11 11 11 7);
+
+				&:before {
+					content: mdi('chevron-left');
+				}
+			}
+
+			.slick-next {
+				right: rem-calc(0);
+				@include side-radius(left, 3px);
+				padding: rem-calc(11 7 11 11);
+
+				&:before {
+					content: mdi('chevron-right');
+				}
+			}
+
+			.wrap-img-slider {
+
+				// banner background image
+				.content-image-banner1, .content-image-banner2, .content-image-banner3, .content-image-banner4, .content-image-banner5 {
+					background-repeat: no-repeat;
+					background-position: center top;
+					background-size: auto 100%;
+					height: 720px;
+					min-height: 100%;
+
+					@media #{$xlarge-only} {
+	 					height: 600px;
+					}
+				}
+
+				.content-image-banner1 {
+
+					background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-1/coomeva-banner-img1-1920x720.jpg');
+
+					@media #{$large-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-1/coomeva-banner-img1-1200x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$medium-only}, #{$tablet-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-1/coomeva-banner-img1-1024x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$small-only}, #{$mobile-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-1/coomeva-banner-img1-640x400.jpg');
+	 					height: 400px;
+					}
+				}
+
+
+				.content-image-banner2 {
+					background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-2/coomeva-banner-img2-1920x720.jpg');
+
+					@media #{$large-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-2/coomeva-banner-img2-1200x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$medium-only}, #{$tablet-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-2/coomeva-banner-img2-1024x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$small-only}, #{$mobile-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-2/coomeva-banner-img2-640x400.jpg');
+	 					height: 400px;
+					}
+				}
+
+				.content-image-banner3 {
+					background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-3/coomeva-banner-img3-1920x720.jpg');
+
+					@media #{$large-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-3/coomeva-banner-img3-1200x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$medium-only}, #{$tablet-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-3/coomeva-banner-img3-1024x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$small-only}, #{$mobile-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-3/coomeva-banner-img3-640x400.jpg');
+	 					height: 400px;
+					}
+				}
+
+				.content-image-banner4 {
+					background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-4/coomeva-banner-img4-1920x720.jpg');
+
+					@media #{$large-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-4/coomeva-banner-img4-1200x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$medium-only}, #{$tablet-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-4/coomeva-banner-img4-1024x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$small-only}, #{$mobile-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-4/coomeva-banner-img4-640x400.jpg');
+	 					height: 400px;
+					}
+				}
+
+				.content-image-banner5 {
+					background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-5/coomeva-banner-img5-1920x720.jpg');
+
+					@media #{$large-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-5/coomeva-banner-img5-1200x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$medium-only}, #{$tablet-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-5/coomeva-banner-img5-1024x500.jpg');
+	 					height: 500px;
+					}
+
+					@media #{$small-only}, #{$mobile-only} {
+						background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/coomeva/coomeva-slider/slide-5/coomeva-banner-img5-640x400.jpg');
+	 					height: 400px;
+					}
+				}
+			}
+		}
+	}
+}

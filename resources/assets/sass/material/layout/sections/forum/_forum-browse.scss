@@ -1,0 +1,40 @@
+// Styles for forum browse
+%forum-browse {
+
+	#forum-browse-wrap {
+
+		.forum-list-content {
+			padding: {
+				top: 0;
+				bottom: 0;
+			};
+
+			.card-forum-info {
+				position: relative;
+				&:hover, &:focus {
+					background-color: inherit;
+				}
+			}
+		}
+
+		// panel to publish a forum
+		#panel-forum-publishing {
+			padding: {
+				top: rem-calc(18);
+				bottom: rem-calc(18);
+			}
+
+			a {
+				font-size: rem-calc(11);
+
+				@media #{$medium-up} {
+					font-size: rem-calc(13);
+				}
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

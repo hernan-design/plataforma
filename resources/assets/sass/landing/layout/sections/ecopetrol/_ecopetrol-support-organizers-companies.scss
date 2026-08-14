@@ -1,0 +1,44 @@
+%ecopetrol-support-organizers-companies {
+
+	#ecopetrol-support-organizers-companies {
+		background-color: $gray-lighter;
+
+		.logo-support-organizers-companies {
+			background-color: $gray-lighter;
+			@include box-shadow(none);
+
+			&:hover {
+				box-shadow: 1px 4px 8px $iron;
+				background-color: $white;
+			}
+
+			img {
+				@include filter(grayscale(100%));
+				@include opacity(.6);
+				image-rendering: -moz-crisp-edges;         /* Firefox */
+		    image-rendering:   -o-crisp-edges;         /* Opera */
+		    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+		    image-rendering: crisp-edges;
+		    -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+
+				&:hover {
+					@include opacity(1);
+					@include filter(grayscale(0%));
+					@include transition(all ease-out 500ms);
+				}
+			}
+		}
+
+		.ecopetrol-section-title {
+			font-size: rem-calc(28);
+		}
+
+		.support-organizers-logos {
+			list-style: none;
+    	text-align: left;
+    	li {
+    		display: inline-block;
+    	}
+		}
+	}
+}

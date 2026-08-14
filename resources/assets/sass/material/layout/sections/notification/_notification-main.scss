@@ -1,0 +1,17 @@
+%notification-main {
+	@include margin-item-top;
+
+	#content-notification-list {
+		width: 100% !important;
+		padding: 0 !important;
+
+		ul.browse-list-notification {
+			width: 100%;
+
+			> li {
+				list-style: outside none none;
+				padding: 0;
+			}
+		}
+	}
+}

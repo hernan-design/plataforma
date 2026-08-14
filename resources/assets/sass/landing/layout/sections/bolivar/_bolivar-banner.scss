@@ -1,0 +1,117 @@
+%bolivar-banner {
+  #bolivar-banner {
+    height: 100%;
+    position: relative;
+    background-color: white;
+
+    .slider-img {
+      height: 100%;
+      width: 100%;
+      left: 50%;
+      top: 50%;
+      position: absolute;
+      // margin-left: -960px;
+      // margin-top: -540px;
+      @include translate(-50%, -50%);
+      @media #{$mobile-only}, #{$small-only},#{$tablet-only}, #{$medium-only} {
+        background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/fundacion-bolivar/fundacion-bolivar-banner_tablet.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+      @media #{$large-only}, #{$xlarge-only},#{$xxlarge-only} {
+        background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/fundacion-bolivar/fundacion-bolivar-banner.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+    }
+
+    .slick-slider-default {
+      height: 100%;
+      margin: 0;
+
+      .slick-list {
+        height: 100%;
+
+        .slick-track {
+          height: 100%;
+        }
+      }
+
+      .wrap-img-slider {
+        height: 100%;
+      }
+
+      .slick-slider-content {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        height: 100%;
+
+        > .rows {
+          height: 100vh;
+          width: 100vw;
+        }
+
+        .slider-content {
+          margin-top: rem-calc(80);
+          .slick-text-1{
+            line-height:1.8;
+            font-family: 'Sansation Light';
+            font-size: rem-calc(20.8);
+            font-weight: 700;
+            color:#69696B;
+            letter-spacing: 1.1px;
+            @media #{$mobile-only}, #{$small-only} {
+              display:none;
+            }
+            >strong{
+              font-family: 'Sansation bold';
+              color:#515151;
+            }
+
+          }
+          .slick-title-1 {
+            color: #E3531F;
+            position: relative;
+            font-family: 'Sansation Light';
+            font-weight: 700;
+            font-size: rem-calc(63.2);
+            line-height: 1.2;
+
+            @media #{$mobile-only}, #{$small-only} {
+             display: none;
+            }
+          }
+
+          .signin-button {
+            margin-top: rem-calc(32);
+            border: 0;
+            font-family: 'Sansation Bold';
+            text-transform: lowercase;
+            background-color: #E3531F; // Old browser
+            @include border-radius(5px);
+
+            padding: rem-calc(18 85);
+            font-size: rem-calc(19.2);
+            @media #{$mobile-only}, #{$small-only} {
+              margin-top: rem-calc(176);
+              margin-left: rem-calc(16);
+              font-size: rem-calc(24);
+            }
+            &:hover {
+              color: $white;
+            }
+          }
+          span{
+            font-family: 'Sansation Light';
+            font-size: rem-calc(12.8);
+            margin-left: rem-calc(80);
+            @media #{$mobile-only}, #{$small-only} {
+              margin-left: rem-calc(96);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+%andifuturo-success-stories {
+	#andifuturo-success-stories {
+		background-color: $white-smoke;
+
+		.title-section-land {
+			color: $black;
+		}
+
+		.success-stories-boxes {
+			background-color: $gray-lighter;
+
+			.flex-video {
+				margin-bottom: 0;
+
+				iframe {
+					@include border-radius(3px);
+				}
+			}
+		}
+	}
+}

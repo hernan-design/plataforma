@@ -1,0 +1,639 @@
+/**
+* Fonts of application
+* -----------------------
+*/
+// google fonts
+// ---------------------------
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text:700italic); //Crimson text
+@import url(https://fonts.googleapis.com/css?family=Roboto); //Roboto font
+
+// San Francisco Text Web font
+// ---------------------------
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-heavy-webfont.woff',
+		'sanfranciscotext-heavy-webfont.ttf',
+		'sanfranciscotext-heavy-webfont.svg#san_francisco_textheavy'
+	),
+	'sanfranciscotext-heavy-webfont.eot',
+	900,
+	normal
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-heavyitalic-webfont.woff',
+		'sanfranciscotext-heavyitalic-webfont.ttf',
+		'sanfranciscotext-heavyitalic-webfont.svg#san_francisco_textheavyitalic'
+	),
+	'sanfranciscotext-heavyitalic-webfont.eot',
+	900,
+	italic
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-bold-webfont.woff',
+		'sanfranciscotext-bold-webfont.ttf',
+		'sanfranciscotext-bold-webfont.svg#san_francisco_textbold'
+	),
+	'sanfranciscotext-bold-webfont.eot',
+	700,
+	normal
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-bolditalic-webfont.woff',
+		'sanfranciscotext-bolditalic-webfont.ttf',
+		'sanfranciscotext-bolditalic-webfont.svg#san_francisco_textbolditelic'
+	),
+	'sanfranciscotext-bolditalic-webfont.eot',
+	700,
+	italic
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-semibold-webfont.woff',
+		'sanfranciscotext-semibold-webfont.ttf',
+		'sanfranciscotext-semibold-webfont.svg#san_francisco_textsemibold'
+	),
+	'sanfranciscotext-semibold-webfont.eot',
+	600,
+	normal
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-semibolditalic-webfont.woff',
+		'sanfranciscotext-semibolditalic-webfont.ttf',
+		'sanfranciscotext-semibolditalic-webfont.svg#san_francisco_textsemibolditalic'
+	),
+	'sanfranciscotext-semibolditalic-webfont.eot',
+	600,
+	italic
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-medium-webfont.woff',
+		'sanfranciscotext-medium-webfont.ttf',
+		'sanfranciscotext-medium-webfont.svg#san_francisco_textmedium'
+	),
+	'sanfranciscotext-medium-webfont.eot',
+	500,
+	normal
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-mediumitalic-webfont.woff',
+		'sanfranciscotext-mediumitalic-webfont.ttf',
+		'sanfranciscotext-mediumitalic-webfont.svg#san_francisco_textmediumitalic'
+	),
+	'sanfranciscotext-mediumitalic-webfont.eot',
+	500,
+	italic
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-regular-webfont.woff',
+		'sanfranciscotext-regular-webfont.ttf',
+		'sanfranciscotext-regular-webfont.svg#san_francisco_textregular'
+	),
+	'sanfranciscotext-regular-webfont.eot',
+	300,
+	normal
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-regularitalic-webfont.woff',
+		'sanfranciscotext-regularitalic-webfont.ttf',
+		'sanfranciscotext-regularitalic-webfont.svg#san_francisco_textregularitalic'
+	),
+	'sanfranciscotext-regularitalic-webfont.eot',
+	300,
+	italic
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-light-webfont.woff',
+		'sanfranciscotext-light-webfont.ttf',
+		'sanfranciscotext-light-webfont.svg#san_francisco_textlight'
+	),
+	'sanfranciscotext-light-webfont.eot',
+	200,
+	normal
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-lightitalic-webfont.woff',
+		'sanfranciscotext-lightitalic-webfont.ttf',
+		'sanfranciscotext-lightitalic-webfont.svg#san_francisco_textlightitalic'
+	),
+	'sanfranciscotext-lightitalic-webfont.eot',
+	200,
+	italic
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-thin-webfont.woff',
+		'sanfranciscotext-thin-webfont.ttf',
+		'sanfranciscotext-thin-webfont.svg#san_francisco_textthin'
+	),
+	'sanfranciscotext-thin-webfont.eot',
+	100,
+	normal
+);
+@include font-face(
+	"San Francisco",
+	font-files(
+		'sanfranciscotext-thinitalic-webfont.woff',
+		'sanfranciscotext-thinitalic-webfont.ttf',
+		'sanfranciscotext-thinitalic-webfont.svg#san_francisco_textthinitalic'
+	),
+	'sanfranciscotext-thinitalic-webfont.eot',
+	100,
+	italic
+);
+
+// Frutiger Text Web font
+// ----------------------
+@include font-face(
+	"Frutiger Roman",
+	font-files(
+		'FrutigerLTStd-Roman.woff',
+		'FrutigerLTStd-Roman.ttf',
+		'FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman'
+	),
+	'FrutigerLTStd-Roman.eot',
+	500,
+	normal
+);
+@include font-face(
+	"Frutiger",
+	font-files(
+		'FrutigerLTStd-Black.woff',
+		'FrutigerLTStd-Black.ttf',
+		'FrutigerLTStd-Black.svg#FrutigerLTStd-Black'
+	),
+	'FrutigerLTStd-Black.eot',
+	900,
+	normal
+);
+@include font-face(
+	"Frutiger",
+	font-files(
+		'FrutigerLTStd-BlackItalic.woff',
+		'FrutigerLTStd-BlackItalic.ttf',
+		'FrutigerLTStd-BlackItalic.svg#FrutigerLTStd-BlackItalic'
+	),
+	'FrutigerLTStd-BlackItalic.eot',
+	900,
+	italic
+);
+@include font-face(
+	"Frutiger",
+	font-files(
+		'FrutigerLTStd-Bold.woff',
+		'FrutigerLTStd-Bold.ttf',
+		'FrutigerLTStd-Bold.svg#FrutigerLTStd-Bold'
+	),
+	'FrutigerLTStd-Bold.eot',
+	600,
+	normal
+);
+@include font-face(
+	"Frutiger",
+	font-files(
+		'FrutigerLTStd-BoldItalic.woff',
+		'FrutigerLTStd-BoldItalic.ttf',
+		'FrutigerLTStd-BoldItalic.svg#FrutigerLTStd-BoldItalic'
+	),
+	'FrutigerLTStd-BoldItalic.eot',
+	600,
+	italic
+);
+@include font-face(
+	"Frutiger",
+	font-files(
+		'FrutigerLTStd-Roman.woff',
+		'FrutigerLTStd-Roman.ttf',
+		'FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman'
+	),
+	'FrutigerLTStd-Roman.eot',
+	500,
+	normal
+);
+@include font-face(
+	"Frutiger",
+	font-files(
+		'FrutigerLTStd-Italic.woff',
+		'FrutigerLTStd-Italic.ttf',
+		'FrutigerLTStd-Italic.svg#FrutigerLTStd-Italic'
+	),
+	'FrutigerLTStd-Italic.eot',
+	500,
+	italic
+);
+@include font-face(
+	"Frutiger",
+	font-files(
+		'FrutigerLTStd-Light.woff',
+		'FrutigerLTStd-Light.ttf',
+		'FrutigerLTStd-Light.svg#FrutigerLTStd-Light'
+	),
+	'FrutigerLTStd-Light.eot',
+	200,
+	normal
+);
+@include font-face(
+	"Frutiger",
+	font-files(
+		'FrutigerLTStd-LightItalic.woff',
+		'FrutigerLTStd-LightItalic.ttf',
+		'FrutigerLTStd-LightItalic.svg#FrutigerLTStd-LightItalic'
+	),
+	'FrutigerLTStd-LightItalic.eot',
+	200,
+	italic
+);
+
+// Web font for icon social
+// ------------------------
+@include font-face("Social", font-files('social-logos.ttf'), false);
+/*Base class definition for social icons*/
+.#{$social-css-prefix} {
+	display: inline-block;
+	font: normal normal normal #{$icon-fontsize-base}/1 Social; // shortening font declaration
+	font-size: inherit; // can't have font-size inherit on line above, so need to override
+	text-rendering: auto; // optimizelegibility throws things off #1094
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+}
+
+// Web font for TuProyecto icons
+// -----------------------------
+@include font-face(
+	"FontTuProyecto",
+	font-files(
+		'tupro-icons-font.woff',
+		'tupro-icons-font.ttf',
+		'tupro-icons-font.svg#tupro-icons-font'
+	),
+	'tupro-icons-font.eot',
+	normal,
+	normal
+);
+/*Base class definition for tuproyecto icons*/
+.#{$icon-css-prefix} {
+	display: inline-block;
+	font: normal normal normal #{$icon-fontsize-base}/1 FontTuProyecto; // shortening font declaration
+	font-size: inherit; // can't have font-size inherit on line above, so need to override
+	text-rendering: auto; // optimizelegibility throws things off #1094
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+	speak: none;
+}
+// Summernote fonts
+// ----------------
+@include font-face(
+	"summernote",
+	font-files(
+		'summernote.woff',
+		'summernote.ttf'
+	),
+	"summernote.eot",
+	normal,
+	normal
+);
+
+// ======================
+// Styles for text global
+// ======================
+
+html, html a {
+	text-rendering: auto;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+// styles font weight
+.thin-text {
+	font:{
+		weight: 200 !important;
+	}
+}
+.lighter-text {
+	font:{
+		weight: 300 !important;
+	}
+}
+.normal-text {
+	font-weight: $font-weight-normal !important;
+}
+.bold-text {
+	font-weight: $font-weight-bold !important;
+}
+.heavy-text {
+	font-weight: 800 !important;
+}
+
+// styles text transform
+.upper-text {
+	text-transform: uppercase !important;
+}
+.lower-text {
+	text-transform: lowercase !important;
+}
+.reset-case-text {
+	text-transform: none !important;
+}
+
+// style text vertical align
+.vtop-text {
+	display: inline;
+	vertical-align: top;
+}
+.vcenter-text {
+	display: inline;
+	vertical-align: middle;
+}
+.vbottom-text {
+	display: inline;
+	vertical-align: bottom;
+}
+
+// styles text lightness
+.light-text {
+	color: scale_color($body-font-color, $lightness: 30%) !important;
+
+	*:not(a) {
+		color: scale_color($body-font-color, $lightness: 30%);
+	}
+}
+.dark-text {
+	color: scale_color($body-font-color, $lightness: -35%) !important;
+
+	*:not(a) {
+		color: scale_color($body-font-color, $lightness: -35%);
+	}
+}
+
+.wrap-text {
+	word-break: break-word;
+}
+
+// styles font sizes
+// ------------------
+.text-xsm {
+	font-size: rem-calc($text-small - 1) !important;
+	* {
+		font-size: rem-calc($text-small - 1);
+	}
+}
+.text-sm {
+	font-size: rem-calc($text-small) !important;
+	* {
+		font-size: rem-calc($text-small);
+	}
+}
+.text-xmd {
+	font-size: rem-calc($text-medium - 1) !important;
+	* {
+		font-size: rem-calc($text-medium - 1);
+	}
+}
+.text-md {
+	font-size: rem-calc($text-medium) !important;
+	* {
+		font-size: rem-calc($text-medium);
+	}
+}
+.text-dmd {
+	font-size: $paragraph-font-size !important;
+	* {
+		font-size: $paragraph-font-size;
+	}
+}
+.text-lg {
+	font-size: rem-calc($text-large) !important;
+	* {
+		font-size: rem-calc($text-large);
+	}
+}
+.text-xlg {
+	font-size: rem-calc($text-large + 1) !important;
+	* {
+		font-size: rem-calc($text-large + 1);
+	}
+}
+.text-bg {
+	font-size: rem-calc($text-large + 2) !important;
+	* {
+		font-size: rem-calc($text-large + 2);
+	}
+}
+
+.text-xbg {
+	font-size: rem-calc($text-large + 3) !important;
+	* {
+		font-size: rem-calc($text-large + 3);
+	}
+}
+
+.text-h-lg {
+	font-size: rem-calc($text-large * 2);
+	font-weight: 700;
+}
+
+// Style for headers
+// -----------------
+#{headers(all)} {
+	line-height: 1.2;
+
+	&.thin-header {
+		font: {
+			weight: $font-weight-lighter !important;
+		}
+	}
+	&.lighter-header {
+		font: {
+			weight: $font-weight-normal !important;
+		}
+	}
+	&.bold-header {
+		font: {
+			weight: $font-weight-bold !important;
+		}
+	}
+
+	&.heavy-header {
+		font: {
+			weight: 800 !important;
+		}
+	}
+
+	&.purple-blue {
+		color: $purple-blue;
+		> * {
+			color: $purple-blue;
+		}
+	}
+
+	&.light-purple-blue {
+		color: $light-purple-blue;
+		> * {
+			color: $light-purple-blue;
+		}
+	}
+
+	&.sky-blue {
+		color: $sky-blue;
+		> * {
+			color: $sky-blue;
+		}
+	}
+
+	&.clean-top {
+		margin-top: 0px !important;
+	}
+
+	&.clean-bottom {
+		margin-bottom: 0px !important;
+	}
+
+	&.clean-header {
+		margin: {
+			top: 0px !important;
+			bottom: 0px !important;
+		}
+	}
+}
+
+// Styles for paragraphs
+// ---------------------
+p {
+	&.clean-bottom {
+		margin-bottom: 0px !important;
+	}
+
+	&.block-text-xsmall {
+		font: {
+			size: rem-calc($text-small - 1);
+		}
+	}
+	&.block-text-small {
+		font: {
+			size: rem-calc($text-small);
+		}
+	}
+	&.block-text-xmedium {
+		font: {
+			size: rem-calc($text-medium - 1);
+		}
+	}
+	&.block-text-medium {
+		font: {
+			size: rem-calc($text-medium);
+		}
+	}
+	&.block-text-large {
+		font: {
+			size: rem-calc($text-large);
+		}
+	}
+	&.block-text-xlarge {
+		font: {
+			size: rem-calc($text-large + 1);
+		}
+	}
+}
+
+// Styles for span elements
+//-------------------------
+span {
+	a {
+		color: $purple-blue;
+		&:hover {
+			color: $sky-blue;
+		}
+	}
+
+	&.span-xsmall {
+		font-size: rem-calc($text-small - 1) !important;
+		a {
+			font-size: rem-calc($text-small - 1);
+		}
+	}
+
+	&.span-small {
+		font-size: rem-calc($text-small) !important;
+		a {
+			font-size: rem-calc($text-small);
+		}
+	}
+	&.span-xmedium {
+		font-size: rem-calc($text-medium -1) !important;
+		a {
+			font-size: rem-calc($text-medium - 1);
+		}
+	}
+	&.span-medium {
+		font-size: rem-calc($text-medium) !important;
+		a {
+			font-size: rem-calc($text-medium);
+		}
+	}
+	&.span-large {
+		font-size: rem-calc($text-large) !important;
+		a {
+			font-size: rem-calc($text-large);
+		}
+	}
+	&.span-xlarge {
+		font-size: rem-calc($text-large + 1) !important;
+		a {
+			font-size: rem-calc($text-large + 1);
+		}
+	}
+
+	&.linear-span {
+    display: inline-block;
+		line-height: 1.1;
+	}
+}
+
+// labels
+// ------
+.label {
+	&.single {
+		@include label($bg: transparent);
+		color: $gray-dark;
+		padding: {
+			left: 0px;
+		}
+		margin-top: inherit;
+		line-height: $base-line-height;
+	}
+	&.title {
+		@include label($bg: transparent);
+		white-space: normal;
+		color: $body-font-color;
+		padding-left: 0;
+		line-height: 1.2;
+		padding: {
+			bottom: rem-calc(20);
+		}
+	}
+}

@@ -1,0 +1,93 @@
+%coomeva-benefits {
+	#coomeva-benefits {
+
+		.title-section-land {
+			color: $coomeva-dark-green-color;
+			font-weight: 700;
+			font-family: 'Josefin Sans', sans-serif;
+			font-style: italic;
+			margin-bottom: 60px;
+	    border-left: 3px solid $coomeva-dark-green-color;
+	    padding-left: 30px;
+		}
+
+		.coomeva-benefits-boxes {
+
+			.icon-box {
+				margin-bottom: rem-calc(30);
+
+				.coomeva-benefits-icons {
+					width: 182px;
+					height: 182px;
+					display: block;
+					background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/coomeva/coomeva-benefits-icons.png');
+					margin: auto;
+					background-position-y: -0px;
+
+					&:hover {
+						background-position-y: -182px;
+					}
+
+					&.icon-ing {
+						background-position-x: -1px;
+					}
+
+					&.icon-doc {
+						background-position-x: -183px;
+					}
+
+					&.icon-eco {
+						background-position-x: -365px;
+					}
+
+					&.icon-hea {
+						background-position-x: -547px;
+					}
+
+					&.icon-art {
+						background-position-x: -729px;
+					}
+
+
+				}
+			}
+
+			.coomeva-benefits-title-box {
+				margin-top: rem-calc(0);
+				margin-bottom: rem-calc(30);
+				height: 44px;
+				display:table;
+	  			width:100%;
+
+				.coomeva-benefits-title {
+					display: block;
+					font-weight: 700;
+					font-family: 'Josefin Sans', sans-serif;
+					color: $monsoon;
+					vertical-align:middle;
+    				display:table-cell;
+
+    			&.title-ing {
+    				color: #FF5252;
+    			}
+
+    			&.title-doc {
+    				color: #42D342;
+    			}
+
+    			&.title-eco {
+						color: #FF8F3B;
+    			}
+
+    			&.title-hea {
+						color: #5FB7FF;
+    			}
+
+    			&.title-art {
+    				color: #C65AFF;
+    			}
+				}
+			}
+		}
+	}
+}

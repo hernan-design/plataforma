@@ -1,0 +1,74 @@
+%dinamiza-programs {
+	#dinamiza-programs {
+    position: relative;
+    overflow: hidden;
+    padding: rem-calc(80);
+    background-color: $vapor;
+
+    @media #{$mobile-only}, #{$small-only} {
+      padding: rem-calc(40 0);
+    }
+
+    @media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+      padding: rem-calc(50 0);
+    }
+
+    @media #{$tablet-only} {
+      padding: rem-calc(30 0);
+    }
+
+    &:before {
+      background-size: 100% 100%;
+      width: 110%;
+      position: absolute;
+      bottom: -4px;
+      content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/convocatorias/dinamiza-programs-bg.png');
+      left: -10px;
+
+      @media #{$mobile-only}, #{$small-only} {
+        width: 200%;
+        left: -50%;
+      }
+
+      @media #{$tablet-only}, #{$medium-only}, #{$large-only} {
+        width: 150%;
+        left: -25%;
+      }
+    }
+
+    .programs-title {
+      font-family: 'AkzidenzGroteskBQ-BdCnd';
+      margin-bottom: rem-calc(22);
+      padding-bottom: rem-calc(22);
+      position: relative;
+      font-size: rem-calc(32);
+      color: $charcoal;
+      display: block;
+
+      @media #{$mobile-only}, #{$small-only} {
+        font-size: rem-calc(28);
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 50px;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $dinamiza-yellow-color;
+      }
+    }
+
+    .programs-date-place {
+      font-size: rem-calc(21);
+      font-weight: 600;
+      color: $charcoal;
+    }
+
+    .participantes-icon {
+      color: $dinamiza-dark-blue-color;
+      border-color: $dinamiza-dark-blue-color;
+    }
+	}
+}

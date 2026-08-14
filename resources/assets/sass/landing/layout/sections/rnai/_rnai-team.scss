@@ -1,0 +1,25 @@
+%rnai-team {
+
+	#rnai-team {
+		background-color: $tuatara;
+		.team-members {
+			margin-bottom: rem-calc(30);
+			.members-name {
+				color: $base;
+				font-size: rem-calc(16);
+				font-weight: 200;
+				margin-bottom: 0;
+				padding-top: rem-calc(10);
+			}
+			.profession-name {
+				color: $jumbo;
+				font-size: rem-calc(14);
+				font-weight: 100;
+				font-style: italic;
+			}
+			.profile-team-member-button {
+				margin-top: rem-calc(10);
+			}
+		}
+	}
+}

@@ -1,0 +1,99 @@
+// Styles for mentoring mentor
+// ----------------------------
+%mentoring-mentor {
+	#profile-mentor-section {
+    #mentor-list-tabs-filter{
+
+    }
+		#header-profile-mentor {
+			margin-bottom: rem-calc(15);
+			padding: {
+				top: rem-calc(30);
+				bottom: rem-calc(30);
+			}
+
+			.main-image-profile-mentor {
+				// position: relative;
+		    margin-bottom: rem-calc(-150);
+		    top: -5px;
+		    border: 2px solid $white;
+		    overflow: visible;
+			}
+		}
+
+		#content-profile-mentor {
+			.panel-content {
+				margin-top: rem-calc(20);
+			}
+
+			.description-knowledge-mentor {
+				margin-bottom: rem-calc(40);
+			}
+		}
+    .container-profile{
+      #content-profile-mentor{
+        margin: 2rem 0rem;
+        padding: 0rem 0.6rem;
+        .container-information-mentor{
+          padding: .6rem;
+        }
+        .header-profile{
+          border-bottom: 1px solid gray;
+          .padding-1{
+            padding: 1rem;
+            .no-bullet{
+              margin-left: 110px;
+              li{
+                #myModal{
+                  .gray-dark-bg{
+                    padding:15px 0px;
+
+                  }
+                  .body-modal{
+                    padding:25px;
+                  }
+                  button.white-bg{
+                    border:0;
+                  }
+                }
+              }
+            }
+          }
+          .container-tab{
+            @media #{$mobile-only}{
+              display: none;
+            }
+            .tabs{
+              position: relative;
+              bottom: -119px;
+              right: -6px;
+
+              .tab-title{
+                padding: 0px 20px;
+                border-bottom: 1px solid gray;
+                a{
+                  border:none;
+                }
+              }
+              .active{
+                background: white;
+                border-top: 1px solid grey;
+                border-left: 1px solid grey;
+                border-right: 1px solid gray;
+                border-bottom: 0px;
+                padding: 0px 20px;
+                border-radius: 5px 5px 0px 0px;
+                a{
+                  border:none;
+                }
+              }
+            }
+          }
+        }
+        .container-mentor-profile{
+          padding: 3.5rem 1rem 1rem;
+        }
+      }
+    }
+	}
+}

@@ -1,0 +1,78 @@
+	.paragraph-hpadding-right {
+		padding-right: rem-calc(20);
+	}
+
+	.paragraph-hpadding-left {
+		padding-left: rem-calc(20);
+	}
+
+	.paragraph-hpadding-both {
+		@extend .paragraph-hpadding-right;
+		@extend .paragraph-hpadding-left;
+	}
+
+	.paragraph-vpadding-top {
+		padding-top: rem-calc(20);
+	}
+
+	.paragraph-vpadding-bottom {
+		padding-bottom: rem-calc(20);
+	}
+
+	.paragraph-vpadding-both {
+		@extend .paragraph-vpadding-top;
+		@extend .paragraph-vpadding-bottom;
+	}
+
+	// Text
+
+	.title-large {
+		font-weight: 300;
+		font-size: rem-calc(32);
+		margin-bottom: rem-calc(30);
+		color: $charcoal;
+	}
+
+	.title-medium {
+		font-weight: 300;
+		font-size: rem-calc(28);
+		color: $charcoal;
+	}
+
+	.title-small {
+		font-weight: 300;
+		font-size: rem-calc(22);
+		color: $charcoal;
+	}
+
+	.text-paragraph-large {
+		color: $monsoon;
+		font-weight: 200;
+		font-size: rem-calc(20);
+		line-height: 1.5;
+		margin-bottom: rem-calc(30);
+	}
+
+	.text-paragraph-normal {
+		color: $monsoon;
+		font-weight: 200;
+		font-size: rem-calc(18);
+		line-height: 1.5;
+		margin-bottom: rem-calc(30);
+	}
+
+	.text-paragraph-medium {
+		color: $monsoon;
+		font-weight: 200;
+		font-size: rem-calc(16);
+		line-height: 1.5;
+		margin-bottom: rem-calc(30);
+	}
+
+	.text-paragraph-small {
+		color: $monsoon;
+		font-weight: 200;
+		font-size: rem-calc(14);
+		line-height: 1.5;
+		margin-bottom: rem-calc(30);
+	}

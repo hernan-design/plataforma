@@ -1,0 +1,449 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for editors
+// ------------------
+
+//
+// @variables
+//
+$editor-box-shadow: box-shadow( 1px 1px 4px $iron ) !default;
+$editor-font-size: rem-calc(12) !default;
+$editor-icon-color: $gray-base !default;
+
+//
+// @mixins
+//
+
+// mixin for editors
+// @param $padding list
+// @param $separator value for margin bottom
+// @param $bgcolor background color
+@mixin editor-post($padding:false, $separator:false, $bgcolor:$white, $radius:false) {
+	$top-spacing: false;
+	$right-spacing: false;
+	$left-spacing: false;
+	$bottom-spacing: false;
+
+	position: relative;
+	@if $padding != false { padding: $padding };
+	@include box-shadow( $editor-box-shadow );
+	@if $separator != false { margin-bottom: $separator };
+	background-color: $bgcolor;
+
+	@if $radius == true { @include radius; }
+
+	@if length($padding) == 3 {
+		$top-spacing: nth($padding, 1);
+		$right-spacing: nth($padding, 2);
+		$left-spacing: nth($padding, 2);
+		$bottom-spacing: nth($padding, 3);
+
+	}@else if length($padding) == 2 {
+		$top-spacing: nth($padding, 1);
+		$right-spacing: nth($padding, 2);
+		$left-spacing: nth($padding, 2);
+		$bottom-spacing: nth($padding, 1);
+
+	} @else {
+		$top-spacing: nth($padding, 1);
+		$right-spacing: nth($padding, 2);
+		$bottom-spacing: nth($padding, 3);
+		$left-spacing: nth($padding, 4);
+	}
+
+	@if $include-html-form-classes {
+		&.error{
+			margin: {
+				bottom: $separator * 2;
+			}
+		}
+
+		& span, & small {
+			&.error{
+				position: absolute;
+				top: 101%;
+				left: 0px;
+				width: 100%;
+			}
+		}
+	}
+
+
+	textarea {
+		resize: none;
+		border-color: transparent;
+		border: none;
+		@include box-shadow( none );
+		margin: 0px;
+		padding: 0;
+		border-bottom: 1px solid $hr-border-color;
+
+		&:not(.materialize-textarea) {
+			min-height: rem-calc(36);
+		}
+
+		&[aria-invalid*="true"]{
+      margin: {
+        bottom: 0;
+      }
+    }
+
+    &.invalid + label:after {
+		  top: 44px;
+    }
+
+		&:focus {
+			background-color: $white;
+		}
+	}
+
+	.button, button {
+		position: absolute;
+		right: 0px;
+		bottom: 10px;
+		margin: {
+			top: $top-spacing / 2;
+			right: $right-spacing;
+			bottom: $bottom-spacing;
+			left: $left-spacing;
+		}
+	}
+	&.no-inside-btn {
+	 	.button, button {
+			position: static;
+			margin: {
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+	 	}
+	}
+}
+
+// Wysiwyg Editor General Styles
+// -----------------------------
+.textarea-post {
+	@include editor-post(
+		$padding: rem-calc(20 20 10),
+		$separator: rem-calc(15),
+		$bgcolor: $white
+	);
+}
+
+.textarea-panel {
+	@include editor-post(
+		$padding: rem-calc(15 0 0),
+		$bgcolor: $white
+	);
+
+	textarea {
+		border-bottom: none;
+	}
+}
+
+.textarea-post-discussion {
+	@include editor-post(
+		$padding: rem-calc(15 0 0),
+		$separator: rem-calc(30),
+		$bgcolor: $white
+	);
+	@include box-shadow(none);
+
+	textarea {
+		min-height: rem-calc(25);
+		height: rem-calc(25);
+	}
+
+	&.main-comment {
+		margin-top: rem-calc(25);
+		margin-bottom: rem-calc(25);
+	}
+}
+
+// field text like app to send message
+// -----------------------------------
+.textarea-post-message {
+	@include editor-post(
+		$padding: rem-calc(10 12),
+		$separator: 0,
+		$bgcolor: $white-smoke
+	);
+
+	textarea, input[type="text"] {
+		position: relative;
+		border-color: transparent;
+		border: none;
+		@include box-shadow( none );
+		margin: 0px;
+		min-height: rem-calc(36);
+		padding: rem-calc(0 10);
+		@include border-radius(6px);
+		background-color: $silver;
+		height: 25px;
+		line-height: 2.5;
+
+		&[aria-invalid*="true"]{
+      margin: {
+        bottom: 0;
+      }
+    }
+
+		&:hover, &:focus {
+			background-color: $silver;
+		}
+	}
+
+	button.postfix, button.prefix {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		background-color: transparent;
+		color: $iron;
+	}
+
+	@include box-shadow(none);
+	border-bottom: 1px solid $hr-border-color;
+}
+
+// Wysiwyg js Library
+// ------------------
+.wysiwyg-container {
+	border: none;
+	@include border-radius(0px);
+	border-bottom: 1px solid $hr-border-color;
+
+	.wysiwyg-editor {
+		word-break: break-word;
+
+		font: {
+			size: rem-calc(15);
+		}
+    min-height: 3.5em;
+
+		#{headers(all)} {
+			color: $black;
+		}
+
+		a {
+			@include link-colors(
+				$normal: $link-normal-color,
+				$visited: $link-visited-color
+			);
+			@include hover-link;
+			text-decoration: underline;
+			cursor: auto;
+		}
+	}
+
+	.wysiwyg-placeholder {
+		color: $input-placeholder-color;
+		text-transform: $input-placeholder-text-transform;
+		font: {
+			family: $input-font-family;
+			size: $input-placeholder-font-size;
+			weight: $input-placeholder-font-weight;
+		}
+	}
+}
+.wysiwyg-toolbar {
+	border: 0px;
+	white-space: normal;
+
+	.wysiwyg-toolbar-icon {
+		color: $editor-icon-color !important;
+	}
+}
+
+// Styles for comment field post
+// -----------------------------
+.wrap-field-comment {
+  background-color: $white;
+  min-height: rem-calc(36);
+  border: 1px solid $white;
+
+  &:hover {
+    background-color: $white;
+    border: solid 1px $sky-blue;
+    textarea {
+      background-color: $white;
+    }
+  }
+
+  textarea {
+    height: rem-calc(42);
+    min-height: rem-calc(36);
+    -moz-appearance:none;
+    -webkit-appearance: none;
+    outline: 0px none transparent;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    padding: rem-calc(9);
+    resize: none;
+    &:focus {
+      background-color: $white;
+    }
+
+    &[aria-invalid*="true"]{
+      margin: {
+        bottom: 0;
+      }
+    }
+  }
+  .button-user-comment {
+    background-color: $purple-blue;
+    color: $white;
+    border: 1px solid $purple-blue;
+    margin-top: rem-calc(7);
+    margin-right: rem-calc(7);
+    padding: {
+      top: rem-calc(5);
+      right: rem-calc(21);
+      bottom: rem-calc(5);
+      left: rem-calc(21);
+    }
+    font: {
+      family: $font-family-sanfrancisco;
+      weight: 100;
+      size: rem-calc(12);
+    }
+    &:hover {
+      border-color: $sky-blue;
+      background-color: $sky-blue;
+      color: $white;
+    }
+  }
+}
+
+// Editor wysiwyg for summernote
+// -----------------------------
+.editor-content {
+	&.error {
+		.note-toolbar {
+			border-bottom-color: $input-error-color;
+		}
+	}
+}
+.note-editor {
+	padding: 0;
+
+  .note-toolbar {
+  	border-bottom: 1px solid $gray-light;
+  	padding: {
+  		left: 0;
+  		bottom: 3px;
+  	}
+
+  	> .note-btn-group {
+			border-right: 1px solid $gray-lighter-alt;
+  		margin: {
+  			top: 3px;
+  		}
+
+  		&:last-of-type {
+				border-right: none;
+  		}
+  	}
+
+  	.note-btn-group {
+  		> .note-btn {
+  			margin: 0;
+  		}
+  	}
+  }
+
+  &.note-frame {
+  	border: none;
+
+  	.note-editing-area {
+  		.note-editable {
+				color: $input-font-color;
+				// font: {
+				// 	size: $input-font-size;
+				// }
+  		}
+  	}
+
+  	.note-status-output {
+  		height: auto;
+  		border: none;
+  	}
+  }
+}
+.note-frame {
+	* {
+		color: $input-font-color;
+	}
+}
+.note-placeholder {
+	color: $input-placeholder-color !important;
+	font:{
+		size: $input-placeholder-font-size;
+		weight: $input-placeholder-font-weight;
+	}
+	text-transform: $input-placeholder-text-transform;
+}
+.note-btn {
+	color: $editor-icon-color;
+	font: {
+		size: $editor-font-size;
+	}
+
+	* {
+		color: $editor-icon-color;
+	}
+
+	&:hover, &:focus, &.focus {
+		color: $secondary-color;
+		background-color: transparent;
+		@include border-radius(4px);
+
+		* {
+			color: $secondary-color;
+		}
+	}
+
+	&.active {
+		color: $secondary-color;
+
+		* {
+			color: $secondary-color;
+		}
+	}
+}
+.note-tooltip {
+
+	&.bottom .note-tooltip-arrow {
+    border-bottom-color: $tooltip-bg;
+  }
+
+  &.top .note-tooltip-arrow {
+    border-top-color: $tooltip-bg;
+  }
+
+  &.right .note-tooltip-arrow {
+    border-right-color: $tooltip-bg;
+  }
+  &.left .note-tooltip-arrow {
+    border-left-color: $tooltip-bg;
+  }
+
+	.note-tooltip-content {
+		padding: $tooltip-padding;
+		color: $tooltip-font-color;
+		background: $tooltip-bg;
+		font: {
+			size: $tooltip-font-size;
+			weight: $tooltip-font-weight;
+		}
+		@include border-radius($tooltip-radius);
+	}
+}
+.note-modal {
+	.note-group-image-url {
+		display: none;
+		position: absolute;
+		left: -99999px;
+		height: 0px;
+	}
+}

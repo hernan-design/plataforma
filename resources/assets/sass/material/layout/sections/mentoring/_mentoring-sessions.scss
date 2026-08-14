@@ -1,0 +1,57 @@
+// Styles for mentoring sessions
+//-------------------------------
+%mentoring-sessions {
+
+	.section-content-mentoring {
+
+    #mentoring-sessions {
+			#{headers(all)} {
+				margin: {
+					bottom: rem-calc(20);
+				}
+			}
+
+			.img-user-evaluated {
+				width: 100%;
+				height: auto;
+			}
+
+			ul.card-user-session {
+		  	> li {
+					&:not(:last-of-type) {
+						padding: {
+							right: rem-calc(10);
+						}
+					}
+				}
+		  }
+    }
+  }
+
+	// detail view mentoring session
+  #container-mentoring-session {
+
+  	.top-mentoring-session {
+
+			.container-users-session {
+				margin: {
+					bottom: rem-calc(45);
+				}
+
+				ul.card-user-evaluated {
+					> li {
+						&:not(:last-of-type) {
+							padding: {
+								right: rem-calc(10);
+							}
+						}
+					}
+				}
+			}
+  	}
+  }
+
+	// evaluation mentor for mentoring question
+	#container-mentoring-eval-session {
+	}
+}

@@ -1,0 +1,45 @@
+%mapacine-institution-description {
+
+	#mapacine-institution-description {
+		background-color: $white;
+		.inst-desc-video {
+			margin-top: rem-calc(10);
+			// @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			// }
+		}
+
+		@media screen and (max-width: 980px) {
+			.inst-desc-video {
+				margin-top: rem-calc(0);
+			}
+		}
+
+		.inst-desc-title {
+			margin-bottom: rem-calc(20);
+		}
+
+		// @media screen and (max-width: 460px) {
+		// 	.inst-desc-title {
+		// 		margin-top: rem-calc(10);
+		// 	}
+		// }
+
+
+		// .inst-reg-paragraph {
+		// 	em {
+		// 		font-style: normal;
+		// 		font-weight: 400;
+		// 	}
+		// }
+		// .challenge-register-date {
+		// 	color: $terpel-share-color;
+		// 	font-style: normal;
+		// }
+		// .challenge-register-note {
+		// 	font-size: rem-calc(14);
+		// 	color: $tuatara;
+		// 	font-style: normal;
+		// 	font-weight: 400;
+		// }
+	}
+}

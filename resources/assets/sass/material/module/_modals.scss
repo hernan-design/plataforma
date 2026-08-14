@@ -1,0 +1,680 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for main reveal modal
+// ----------------------------
+
+//
+// @Variables
+//
+$modal-text-color: $oil !default;
+$modal-function-factor: -10% !default;
+$modal-action-font-size: $text-small !default;
+$modal-action-font-weight: $font-weight-bold !default;
+$modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-padding, 2), $reveal-modal-padding) !default;
+
+// Styles for reveal modal base
+// ----------------------------
+.#{$reveal-modal-class}-main {
+
+	@include reveal-modal-base;
+	@include reveal-modal-style(
+		$bg: $reveal-modal-bg,
+		$padding: 0,
+		$border: false,
+		$box-shadow: true,
+		$top-offset: $reveal-position-top,
+		$radius: true
+	);
+
+	&.radius { @include reveal-modal-style($radius:true); }
+	&.round  { @include reveal-modal-style($radius:$reveal-round); }
+	&.collapse { @include reveal-modal-style($padding:0); }
+	&.xtiny  { @include reveal-modal-base(false, rem-calc(480)); }
+	&.tiny  { @include reveal-modal-base(false, rem-calc(575)); }
+	&.xsmall { @include reveal-modal-base(false, rem-calc(670)); }
+	&.small { @include reveal-modal-base(false, rem-calc(766)); }
+	&.xmedium  { @include reveal-modal-base(false, rem-calc(958)); }
+	&.medium  { @include reveal-modal-base(false, rem-calc(1150)); }
+	&.large { @include reveal-modal-base(false, rem-calc(1200)); }
+	&.xlarge { @include reveal-modal-base(false, rem-calc(1200)); }
+	&.full {
+		@include reveal-modal-base(false, 100vw);
+		top:0;
+		left:0;
+		height:100%;
+		height: 100vh;
+		min-height:100vh;
+		max-width: none !important;
+		margin-left: 0 !important;
+	}
+
+	// modal close button
+	@at-root .#{$close-reveal-modal-class} {
+		@include reveal-close($color: $gray-light);
+		@include transition(all .2s linear 0s);
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+		&:hover{
+			@include text-shadow(0px 0px 3px rgba($black, .3));
+		}
+	}
+
+	@at-root .title-modal-top {
+    @include border-top-radius($reveal-radius);
+    // @extend .content-header-panel;
+    background-color: $gray-light-alt;
+    padding: $reveal-modal-padding;
+    border-bottom: 1px solid $hr-border-color;
+
+    .icon-title-modal {
+			vertical-align: middle;
+			margin-right: rem-calc(10);
+			color: $modal-text-color;
+			line-height: 1.1;
+    }
+
+		.inner-title-modal {
+      margin: 0;
+      color: $modal-text-color;
+      font: {
+      	weight: $font-weight-bold;
+      }
+		}
+	}
+	@at-root .content-modal {
+		position: relative;
+		width: 100%;
+		height: auto;
+		padding: $reveal-modal-padding;
+		// padding-top: rem-calc(30);
+		color: $gray-dark;
+	}
+	@at-root .footer-modal {
+		width: 100%;
+		height: auto;
+		padding: if(length($reveal-modal-padding) > 1, nth($reveal-modal-padding, 2), $reveal-modal-padding);
+		text-align: right;
+
+		a:not(.btn):not(.btn-large):not(.btn-floating):not(.button) {
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: $modal-margin-action;
+			text-transform: uppercase;
+			color: $modal-text-color;
+			font: {
+				size: $modal-action-font-size;
+				weight: $modal-action-font-weight;
+			}
+			@include transition(color .3s ease);
+
+			&:hover, &:active, &:focus {
+				text-decoration: none;
+				color: scale-color($modal-text-color, $lightness: $modal-function-factor * -1);
+			}
+		}
+
+		.close-reveal-modal {
+			position: static;
+	    color: $modal-text-color;
+	    font: {
+				size: $modal-action-font-size;
+				weight: $modal-action-font-weight;
+			}
+
+			&:hover, &:active, &:focus {
+				color: scale-color($modal-text-color, $lightness: $modal-function-factor * -1);
+	    	text-shadow: none;
+			}
+		}
+
+		ul.share-modal-btns {
+			> li{
+				padding: {
+					bottom: 0;
+				}
+			}
+		}
+	}
+
+	.alert-box-tp {
+		position: absolute;
+		top: 0px;
+	}
+
+	&.is-fixed {
+		position: fixed;
+		top: #{$topbar-height + rem-calc(10)} !important;
+	}
+
+	&.content-scroll {
+		@include flexbox((
+			display: box !important,
+			box-orient: horizontal
+		), $version: 1);
+		@include flexbox((
+			display: flexbox !important,
+			flex-direction: column
+		), $version: 2);
+		@include flexbox((
+			display: flex !important,
+			flex-direction: column
+		));
+		@include flex-flow(column nowrap);
+
+		.title-modal-top {
+      @include flex(0 0 auto);
+		}
+
+		.content-modal {
+			@include flex(1 1 auto);
+			height: rem-calc(450);
+			overflow-y: auto;
+			overflow-x: visible;
+		}
+
+		.footer-modal {
+			@include flex(0 0 auto);
+		}
+
+		&.is-fixed {
+			height: auto;
+			max-height: 80%;
+	  	min-height: rem-calc(200);
+
+			.content-modal {
+				overflow-y: auto;
+				overflow-x: hidden;
+		    min-height: auto;
+		    height: auto;
+		    max-height: 100%;
+			}
+		}
+	}
+
+	&#modal-base-tp,
+		&#modal-base-material,
+			&.modal-base-tp,
+				&.modal-base-material,
+					&.dialog-confirm {
+		height: auto;
+		overflow: visible;
+		@include flexbox((
+			display: box !important,
+			box-orient: horizontal
+		), $version: 1);
+		@include flexbox((
+			display: flexbox !important,
+			flex-direction: column
+		), $version: 2);
+		@include flexbox((
+			display: flex !important,
+			flex-direction: column
+		));
+		@include flex-flow(column nowrap);
+
+
+		.title-modal-top {
+      @include flex(0 0 auto);
+		}
+
+		.content-modal {
+			@include flex(1 1 auto);
+			height: rem-calc(450);
+			overflow-y: auto;
+			overflow-x: hidden;
+
+			&.reset-content {
+				height: auto;
+				overflow: visible;
+			}
+		}
+
+		.footer-modal {
+			@include flex(0 0 auto);
+		}
+
+		&:not(.no-fixed), &.is-fixed {
+			position: fixed;
+			top: #{$topbar-height + rem-calc(20)} !important;
+			height: auto;
+			max-height: 80%;
+    	min-height: rem-calc(450);
+
+			.content-modal {
+				overflow-y: auto;
+				overflow-x: hidden;
+			    min-height: auto;
+			    height: auto;
+			    max-height: 100%;
+			}
+		}
+	}
+
+	@media #{$mobile-only}, #{$small-only} {
+		top: 0px !important;
+
+		&.is-fixed,
+			&#modal-base-tp:not(.no-fixed),
+			&#modal-base-material:not(.no-fixed),
+			&.modal-base-tp:not(.no-fixed),
+			&.modal-base-material:not(.no-fixed),
+			&.content-scroll.is-fixed,
+			&.dialog-confirm:not(.no-fixed) {
+			top: 0px !important;
+			max-height: 90%;
+			max-height: 90vh;
+		}
+	}
+}
+
+// Reveal modals overlay forms
+.reveal-modal-bgform {
+	@include reveal-bg;
+	background: rgba($white, .9) !important;
+	// top: $topbar-height;
+}
+// Styles for forms reveal modal
+//------------------------------
+.#{$reveal-modal-class}-form {
+
+	@include reveal-modal-base;
+	@include reveal-modal-style(
+		$bg: $white,
+		$padding: false,
+		$border: false,
+		$box-shadow: true,
+		$top-offset: $reveal-position-top,
+		$radius: true
+	);
+
+
+	&.radius { @include reveal-modal-style($radius:true); }
+	&.round  { @include reveal-modal-style($radius:$reveal-round); }
+	&.collapse { @include reveal-modal-style($padding:0); }
+	&.xtiny  { @include reveal-modal-base(false, rem-calc(480)); }
+	&.tiny  { @include reveal-modal-base(false, rem-calc(575)); }
+	&.xsmall { @include reveal-modal-base(false, rem-calc(670)); }
+	&.small { @include reveal-modal-base(false, rem-calc(766)); }
+	&.xmedium  { @include reveal-modal-base(false, rem-calc(958)); }
+	&.medium  { @include reveal-modal-base(false, rem-calc(1150)); }
+	&.large { @include reveal-modal-base(false, rem-calc(1200)); }
+	&.xlarge { @include reveal-modal-base(false, rem-calc(1200)); }
+	&.full {
+		@include reveal-modal-base(false, 100vw);
+		top: $topbar-height;
+		left:0;
+		height: auto;//100%;
+		// height: 100vh;
+		min-height:100vh;
+		max-width: 100vw !important;
+		margin-left: 0 !important;
+	}
+
+	.#{$close-reveal-modal-class} {
+		@extend .#{$close-reveal-modal-class};
+	}
+
+	.title-modal-top {
+		@extend .title-modal-top;
+	}
+	.content-modal {
+		@extend .content-modal;
+	}
+	.footer-modal {
+		@extend .footer-modal;
+	}
+
+	// Style modal create project
+	&#modal-create-project {
+		top: rem-calc(70);
+
+		.content-modal {
+			padding: rem-calc(15 85 24);
+		}
+	}
+
+	&#modal-form-project, &.modal-form-resource {
+		position: fixed;
+		height: 100%;
+		overflow-y: auto;
+		top: 0px !important;
+
+		.content-modal {
+			padding: {
+				top: rem-calc(60);
+			}
+			.alert-box-tp {
+				position: absolute;
+			}
+		}
+	}
+
+	&#modal-login {
+		position: fixed;
+		height: auto;
+		max-height: 80%;
+		// max-height: rem-calc(550);
+		top: 15% !important;
+
+		.content-modal {
+			height: 100%;
+			// overflow-y: auto;
+		}
+
+		.#{$close-reveal-modal-class} {
+			color: $gray-base;
+		}
+	}
+
+	&#modal-user-vote {
+		position: fixed;
+		height: auto;
+		max-height: 80%;
+		// max-height: rem-calc(550);
+		top: 15% !important;
+
+		.content-modal {
+			height: 100%;
+			// overflow-y: auto;
+		}
+
+		.#{$close-reveal-modal-class} {
+			color: $gray-base;
+		}
+	}
+
+
+	&#modal-base-create-entity {
+		position: fixed;
+		height: 80%;
+		overflow: hidden;
+		top: #{$topbar-height + rem-calc(10)} !important;
+
+		.content-modal {
+			position: absolute;
+			top: rem-calc(120);
+			bottom: rem-calc(90);
+			left: 0px;
+			overflow-y: auto;
+			height: auto;
+			padding-bottom: 0;
+		}
+
+		.footer-modal {
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			height: rem-calc(90);
+			overflow: hidden;
+			padding: rem-calc(30 30);
+			@include box-sizing(border-box);
+		}
+
+		#content-modal-create-entity {
+			position: static !important;
+			> form { position: static !important; }
+		}
+	}
+
+	@media #{$mobile-only}, #{$small-only} {
+		top: 0px !important;
+
+		&.is-fixed,
+			&#modal-form-project:not(.no-fixed),
+				&.modal-form-resource:not(.no-fixed),
+					&#modal-login:not(.no-fixed),
+						&#modal-user-vote:not(.no-fixed),
+							&#modal-base-create-entity:not(.no-fixed) {
+
+			top: 0px !important;
+		}
+	}
+}
+
+// Style for dialog windows
+// ------------------------
+.dialog-confirm {
+	// position: fixed;
+	// top: 25% !important;
+	// z-index: 1020;
+	min-height: auto !important;
+
+	p {
+		margin: {
+			bottom: rem-calc(10);
+		}
+	}
+}
+
+// Styles modal jQuery.ui
+// ----------------------////////////////////----------------------////////////////////----------------------////////////////////----------------------////////////////////----------------------////////////////////----------------------////////////////////----------------------////////////////////
+.modal-basic-jq {
+	// position: fixed;
+	z-index: 1005;
+	padding: 0px;
+	@include border-radius($global-radius);
+	border: none;
+
+
+
+	img.image-to-crop {
+		margin: 0 auto;
+		width: 100%;
+		height: auto;
+	}
+
+	.jcrop-holder{
+		margin: {
+			left: auto;
+			right: auto;
+		}
+	}
+
+	.ui-dialog-titlebar {
+		@include border-top-radius($reveal-radius);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+    // @extend .content-header-panel;
+    background-color: $gray-light-alt;
+    padding: $reveal-modal-padding;
+		border-top: 0;
+		border-right: 0;
+		border-left: 0;
+    border-bottom: 1px solid $hr-border-color;
+
+		.ui-dialog-title {
+			margin: 0;
+      color: $modal-text-color;
+      font: {
+      	weight: $font-weight-bold;
+      }
+      text-align: center;
+      font-size: rem-calc(26);
+			font-family: "San Francisco";
+      width: auto;
+      display: block;
+      float: none;
+		}
+
+
+
+		.ui-dialog-titlebar-close {
+			background: transparent;
+			border-radius: 0px;
+			border: none;
+			font: {
+				size: rem-calc(16);
+			}
+			@include transition(all 5s ease-in 0s);
+
+			&:before{
+				@extend %font-mdi;
+				content: mdi('window-close');
+				color: scale-color($color-alt-form, $lightness: 0%);
+			}
+
+			&:hover, &:focus{
+				&:before{
+					color: scale-color($color-alt-form, $lightness: 20%);
+				}
+			}
+
+			.ui-icon-closethick, .ui-icon {
+				background-image: none;
+			}
+		}
+	}
+
+	.ui-dialog-content {
+		input {
+			font-family: "San Francisco";
+			width: 100%;
+		}
+	}
+
+	.alert-box-tp {
+		position: absolute;
+		top: 0px;
+	}
+}
+
+// Customize alertify
+// -----------------
+.alertify-cover {
+	background: $reveal-overlay-bg-old;
+	background: $reveal-overlay-bg;
+	@include opacity(1);
+}
+.alertify {
+
+	@include reveal-modal-base($base-style: false, $width: 40%);
+	@include reveal-modal-style(
+		$bg: $bgcolor-main-wrap,
+		$padding: 0px,
+		$border: false,
+		$box-shadow: true,
+		$top-offset: $reveal-position-top,
+		$radius: 0px
+	);
+	border: none;
+
+	.alertify-dialog {
+		padding: rem-calc(15);
+	}
+
+	.alertify-inner {
+
+		.alertify-message {
+			text-align: left;
+			font: {
+				family: $font-family-sanfrancisco;
+				size: $paragraph-font-size;
+			};
+			color: $oil;
+		}
+
+		.alertify-buttons {
+			text-align: right;
+
+			.alertify-button {
+				border: none;
+				background-color: $white;
+				@include box-shadow(0px 1px 4px $iron);
+				font: {
+					family: $font-family-sanfrancisco;
+					weight: 300;
+				};
+				color: $oil;
+				width: rem-calc(90);
+				@include border-radius(0px);
+				@include text-shadow(none);
+			}
+
+			.alertify-button-cancel {
+			}
+
+			.alertify-button-ok {
+			}
+		}
+	}
+}
+
+// Styles for wysiwyg editor modal
+.note-modal-content {
+	@include reveal-modal-base($base-style: false, $width: rem-calc(600px));
+	@include reveal-modal-style(
+		$bg: $reveal-modal-bg,
+		$padding: 0,
+		$border: false,
+		$box-shadow: true,
+		$top-offset: $reveal-position-top,
+		$radius: true
+	);
+
+	&.radius { @include reveal-modal-style($radius:true); }
+	&.round  { @include reveal-modal-style($radius:$reveal-round); }
+	&.collapse { @include reveal-modal-style($padding:0); }
+	&.xtiny  { @include reveal-modal-base(false, rem-calc(480)); }
+	&.tiny  { @include reveal-modal-base(false, rem-calc(575)); }
+	&.xsmall { @include reveal-modal-base(false, rem-calc(670)); }
+	&.small { @include reveal-modal-base(false, rem-calc(766)); }
+	&.xmedium  { @include reveal-modal-base(false, rem-calc(958)); }
+	&.medium  { @include reveal-modal-base(false, rem-calc(1150)); }
+	&.large { @include reveal-modal-base(false, rem-calc(1200)); }
+	&.xlarge { @include reveal-modal-base(false, rem-calc(1200)); }
+	&.full {
+		@include reveal-modal-base(false, 100vw);
+		top:0;
+		left:0;
+		height:100%;
+		height: 100vh;
+		min-height:100vh;
+		max-width: none !important;
+		margin-left: 0 !important;
+	}
+
+	.note-btn {
+		@extend .flat;
+		@extend .small;
+		margin: 0;
+		@include border-radius($button-radius);
+		float: none;
+	}
+
+	.close {
+		@extend .#{$close-reveal-modal-class};
+		color: $gray-light !important;
+		position: absolute !important;
+		margin: 0;
+
+		&:hover, &:focus {
+			background: transparent;
+		}
+	}
+
+	.note-modal-header {
+		border: none;
+		@extend .title-modal-top;
+	}
+
+	.note-modal-body {
+		@extend .content-modal;
+	}
+
+	.note-modal-footer {
+		@extend .footer-modal;
+	}
+
+	input[type=checkbox], input[type=radio] {
+		position: static;
+		left: 0;
+		opacity: 1;
+		margin-right: 5px;
+	}
+}
+.note-modal-backdrop {
+	background: $reveal-overlay-bg;
+	opacity: 1;
+}

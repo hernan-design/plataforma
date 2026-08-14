@@ -1,0 +1,61 @@
+%dinamiza-video {
+	#dinamiza-video {
+		position: relative;
+		overflow: hidden;
+
+		.bg-container {
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/2019/video/video-bg.jpg') no-repeat center;
+      @include border-radius(50%);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      
+			left: -150vw;
+      right: -150vw;
+      position: absolute;
+      height: 100%;
+      width: 400vw;
+
+			@media #{$mobile-only}, #{$small-only} {
+				padding: rem-calc(20 0);
+
+				// height: 600px;
+			}
+
+			@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding: rem-calc(30 0);
+			}
+		}
+
+		.video-container {
+			padding: rem-calc(60 0);
+			height: 950px;
+
+			@media #{$mobile-only} {
+				padding: rem-calc(30 0);
+				height: 350px;
+			}
+
+			@media #{$small-only} {
+				height: 500px;
+			}
+
+			@media #{$tablet-only} {
+				padding: rem-calc(40 0);
+				height: 700px;
+			}
+
+			@media #{$medium-only}, #{$large-only} {
+				height: 800px;
+			}
+
+			@media #{$large-only}, #{$xlarge-only} {
+				height: 950px;
+			}
+
+			.flex-video {
+				margin: rem-calc(20);
+			}
+		}
+	}
+}

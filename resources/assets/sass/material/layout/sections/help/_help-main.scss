@@ -1,0 +1,245 @@
+%help-main {
+
+	.help-banner {
+		background-color: $vapor;
+
+		.help-title {
+			font-weight: 400;
+	    color: #FF7110;
+	    position: relative;
+	    margin-bottom: rem-calc(3);
+	    margin-top: rem-calc(15);
+
+	    @media #{$tablet-up} {
+	    	margin-top: rem-calc(40);
+	    	margin-bottom: rem-calc(15);
+	    	font-size: rem-calc(36);
+	    }
+		}
+	}
+
+
+	.help-menu {
+		background-color: $white;
+		border-bottom: 1px solid $gainsboro;
+		margin-bottom: rem-calc(40);
+	}
+
+	.help-tabs-answers-container {
+		position: relative;
+
+		.help-answers-action {
+
+			width: auto;
+			position: absolute;
+
+			@media #{$mobile-only}, #{$small-only} {
+				width: 100%;
+				margin-top: rem-calc(30);
+
+				> ul {
+					> li {
+						display: block;
+
+						&:first-child {
+    					margin-bottom: rem-calc(15);
+    				}
+					}
+				}
+			}
+
+      a.button {
+        margin-top: rem-calc(4);
+        font-weight: 700;
+      }
+
+			@media #{$tablet-up} {
+				right: 0;
+				top: 50%;
+    		margin-top: -18px;
+
+    		> ul {
+    			> li {
+    				&:first-child {
+    					padding-right: rem-calc(17);
+    				}
+
+    				&:last-child {
+    					float: right;
+    				}
+    			}
+    		}
+			}
+		}
+	}
+
+	.help-answers {
+
+		@media #{$mobile-only}, #{$small-only} {
+			margin-top: 128px;
+		}
+
+		.collapsible {
+			@include box-shadow(none);
+			border: 0;
+
+			.collapsible-body {
+				border: 0;
+				padding: rem-calc(0 16);
+
+				> span {
+					color: $monsoon;
+					font-size: rem-calc(14);
+				}
+
+				> p {
+					font-size: rem-calc(14);
+					margin-bottom: rem-calc(10);
+					padding: 0;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+
+			> li.collapsible-question-group {
+				margin-bottom: rem-calc(20);
+				border: 3px solid $white;
+				background-color: $white; // Old browsers
+				@include filter-gradient($white, $smoke, vertical); // IE6-9
+				@include background-image(linear-gradient(top, $white 0%, $smoke 100%));
+				@include border-radius($global-radius);
+				@include transition(all ease-in 300ms);
+				@include box-shadow(0px 2px 3px $iron);
+
+				&.active {
+					background: none $white;
+				}
+
+				.collapsible-header {
+					margin-bottom: 0;
+
+					&.group {
+						font-size: rem-calc(18);
+						border: 0;
+						background-color: transparent;
+						font-weight: 700;
+						color: $black;
+						line-height: 1.5;
+						font-size: 16px;
+				    padding-top: 10px;
+				    padding-right: 50px;
+				    padding-bottom: 15px;
+				    position: relative;
+						@include transition(all ease-in 300ms);
+
+						> i {
+							margin-right: rem-calc(8);
+							position: absolute;
+					    right: 0px;
+					    top: 0;
+							@include transition(all ease-in 300ms);
+						}
+					}
+				}
+
+				&.active {
+					.collapsible-header {
+						&.group {
+							color: #70bf16;
+
+							> i {
+								@include transform(rotate(90deg));
+							}
+						}
+					}
+				}
+
+				.collapsible-body {
+					margin-bottom: rem-calc(15);
+				}
+			}
+
+			.collapsible-list-item {
+				border-bottom: 1px solid $gainsboro;
+				@include transition(all ease-in 300ms);
+
+				&:hover {
+					background-color: $color-main-wrap-alt;
+				}
+
+				&:first-child {
+					@include side-radius(top, $global-radius);
+				}
+
+				&:last-child {
+					border-bottom: 0;
+					@include side-radius(bottom, $global-radius);
+				}
+
+				.collapsible-header {
+					background-color: transparent;
+					border: 0;
+					font-size: rem-calc(14);
+					font-weight: 400;
+					line-height: 1.4;
+    			margin-bottom: rem-calc(10);
+    			padding: rem-calc(13 63 13 13);
+					position: relative;
+					@include transition(all ease-in 300ms);
+
+					@media #{$tablet-up} {
+						font-size: rem-calc(16);
+					}
+
+					> i {
+						color: $base;
+						margin-right: rem-calc(7);
+						position: absolute;
+					  right: 0;
+					  top:0;
+					  @include transition(all ease-in 300ms);
+					}
+
+					&:hover {
+						> i {
+							color: $black;
+						}
+					}
+				}
+
+				&.active {
+					background-color: $color-main-wrap-alt;
+					border: 0;
+					padding-bottom: rem-calc(15);
+					@include border-radius($global-radius);
+
+					.collapsible-header {
+						color: $black;
+
+						> i {
+							color: $black;
+					    @include transform(rotate(90deg));
+						}
+					}
+				}
+
+				.collapsible-body {
+					line-height: 1.3;
+				}
+
+				@media #{$tablet-only}, #{$medium-only} {
+					.collapsible-body {
+						> span {
+							font-size: rem-calc(14);
+
+						}
+					}
+				}
+			}
+		}
+	}
+
+}

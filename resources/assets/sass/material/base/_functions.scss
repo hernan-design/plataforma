@@ -1,0 +1,43 @@
+/**
+* Functions Custom
+* @author TuProyecto | Frontend: @krobing
+* @link tuproyecto.com
+* ---------------
+*/
+
+//
+// Table of Content
+//
+// a. Utilities mixins
+
+//
+// Variables
+//
+$tp-loader-path : '../../' !default;
+
+// -------------------
+// a. Utilities mixins
+// -------------------
+
+// Make url with path and image url
+@function tp-image-url($url) {
+	@if function-exists(image-url) {
+		@return image-url($url);
+	}
+	@else {
+		@return url($tp-loader-path + $url);
+	}
+}
+
+// ============================================
+// function return a icon name of material icon
+// @param $name icon name
+// @return String
+// @function mdi($name) {
+
+// 	@if function-exists('char') {
+// 		@return char( nth($hexes, index($names, $name)) );
+// 	} @else {
+// 		@return '';
+// 	}
+// }

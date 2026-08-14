@@ -1,0 +1,37 @@
+#{$wrapper-land}.wrapper-sacudete {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+
+
+	/**
+	* =========================
+	* Structure styles
+	* =========================
+	*/
+
+	.section-land {
+		.title-section-land {
+			font-weight: 300;
+		}
+	}
+
+	@extend %sacudete-header !optional;
+	@extend %sacudete-banner !optional;
+
+	#{$main-land} {
+		@extend %sacudete-about !optional;
+		@extend %sacudete-news !optional;
+		@extend %sacudete-programs !optional;
+
+		/**
+		* =========================
+		* Sections styles
+		* =========================
+		*/
+	}
+}

@@ -1,0 +1,250 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for buttons
+// ----------------------
+
+//
+// Variables
+//
+$box-shadow-button: 0px 3px 6px rgba($black, .3) !default;
+$box-shadow-button-active: 0px 3px 12px rgba($black, .3) !default;
+
+@if $include-html-button-classes {
+	button, .button {
+		// Foundation's styles
+		@include button-base;
+    @include button-size;
+    @include button-style;
+
+    @include single-transition(background-color, 200ms, ease);
+
+    &.secondary { @include button-style($bg:$secondary-button-bg-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color); }
+    &.success   { @include button-style($bg:$success-button-bg-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color); }
+    &.alert     { @include button-style($bg:$alert-button-bg-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color); }
+    &.warning   { @include button-style($bg:$warning-button-bg-color, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color); }
+    &.info      { @include button-style($bg:$info-button-bg-color, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color); }
+    &.flat {
+    	@include button-style($bg:transparent, $bg-hover:transparent, $border-color:transparent);
+    	color: $button-font-color-alt;
+
+    	&:hover, &:focus {
+    		color: scale-color($button-font-color-alt, $lightness: 10%);
+    	}
+    }
+    &.flat-skyblue, &.flat-inst-secondary {
+    	@include button-style($bg:transparent, $bg-hover:transparent, $border-color:transparent);
+    	color: $secondary-color;
+
+    	&:hover, &:focus {
+    		color: scale-color($secondary-color, $lightness: 10%);
+    	}
+    }
+
+    &.large  { @include button-size($padding:$button-lrg); }
+    &.small  { @include button-size($padding:$button-sml); }
+    &.tiny   { @include button-size($padding:$button-tny); }
+    &.expand { @include button-size($padding:null, $full-width:true); }
+
+    &.left-align  { text-align: left; text-indent: rem-calc(12); }
+    &.right-align { text-align: right; padding-right: rem-calc(12); }
+
+    &.radius { @include button-style($bg:false, $radius:true); }
+    &.round  { @include button-style($bg:false, $radius:$button-round); }
+
+    &.disabled, &[disabled] { @include button-style($bg:$button-bg-color, $disabled:true, $bg-hover:$button-bg-hover, $border-color:$button-border-color);
+      &.secondary { @include button-style($bg:$secondary-button-bg-color, $disabled:true, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color); }
+      &.success { @include button-style($bg:$success-button-bg-color, $disabled:true, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color); }
+      &.alert { @include button-style($bg:$alert-button-bg-color, $disabled:true, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color); }
+      &.warning { @include button-style($bg:$warning-button-bg-color, $disabled:true, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color); }
+      &.info { @include button-style($bg:$info-button-bg-color, $disabled:true, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color); }
+      &.flat {
+	    	@include button-style($bg:transparent, $disabled:true, $bg-hover:transparent, $border-color:transparent);
+	    	color: $button-font-color-alt;
+	    }
+    }
+
+		// Custome styles
+		text-transform: uppercase;
+		text-decoration: none;
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+
+		&:focus {
+			background-color: $secondary-color;
+		}
+
+		// reset case
+		&.btn-lowerc, &.btn-resetc {
+			text-transform: none !important;
+		}
+
+		// button forn weights
+		&.btn-bold, &.bold-btn {
+			font-weight: $font-weight-bold !important;
+		}
+
+		&.sky-blue { @include button-style($bg:$sky-blue, $bg-hover:$sky-blue-button-bg-hover, $border-color:$sky-blue-button-border-color); }
+
+		&.purple-blue { @include button-style($bg:$purple-blue, $bg-hover:$sky-blue-button-bg-hover, $border-color:$sky-blue-button-border-color); }
+
+		&.white { @include button-style($bg:$white, $bg-hover: scale-color($white, $lightness: -5%), $border-color: scale-color($white, $lightness: -5%));
+			color: $button-font-color-alt !important;
+		}
+
+	  &.white-skyblue { @include button-style($bg:$white, $bg-hover: scale-color($white, $lightness: -5%), $border-color: scale-color($white, $lightness: -5%));
+	  	color: $sky-blue;
+	  }
+
+	  &.secondary-skyblue {
+	    @include button-style($bg:$secondary-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color);
+	    color: $sky-blue;
+	  }
+
+	  &.social-btn-facebook, &.facebook {
+	    @include button-style($bg:$facebook-color, $bg-hover: scale-color($facebook-color, $lightness: $button-function-factor), $border-color: scale-color($facebook-color, $lightness: $button-function-factor));
+	    color: $white;
+	  }
+
+	  &.social-btn-twitter, &.twitter {
+	    @include button-style($bg:$twitter-color, $bg-hover: scale-color($twitter-color, $lightness: $button-function-factor), $border-color: scale-color($twitter-color, $lightness: $button-function-factor));
+	    color: $white;
+	  }
+
+	  &.social-btn-linkedin, &.linkedin {
+	    @include button-style($bg:$linkedin-color, $bg-hover: scale-color($linkedin-color, $lightness: $button-function-factor), $border-color: scale-color($linkedin-color, $lightness: $button-function-factor));
+	    color: $white;
+	  }
+
+	  &.inst-secondary-outline {
+			@include button-style($bg: transparent, $bg-hover: $secondary-button-bg-hover, $border-color: $secondary-color);
+			color: $secondary-color;
+
+			&:hover, &:focus {
+				color: $white;
+			}
+		}
+
+		&.button-outline {
+			@include button-style($bg: transparent, $bg-hover: transparent, $border-color: $monsoon);
+			color: $monsoon;
+
+			&:hover, &:focus {
+				border-color: $secondary-color;
+				color: $secondary-color;
+			}
+		}
+
+	  &.btn-view-more {
+	  	background: transparent;
+	  	color: $base;
+	  	border: none;
+	  	border-top: 1px solid $hr-border-color;
+	  }
+
+		// buttons disabled
+		&.disabled, &[disabled] {
+			&.sky-blue { @include button-style($bg:$sky-blue, $disabled:true, $bg-hover:$sky-blue-button-bg-hover, $border-color:$sky-blue-button-border-color); }
+			&.purple-blue{ @include button-style($bg:$purple-blue, $disabled:true, $bg-hover:$sky-blue-button-bg-hover, $border-color:$sky-blue-button-border-color); }
+
+			&.white{ @include button-style($bg:$white, $disabled:true, $bg-hover: scale-color($white, $lightness: -5%), $border-color: scale-color($white, $lightness: -5%));
+				color: $button-font-color-alt !important;
+			}
+
+			&.white-skyblue { @include button-style($bg:$white, $disabled:true, $bg-hover: scale-color($white, $lightness: -5%), $border-color: scale-color($white, $lightness: -5%));
+		  	color: $sky-blue;
+		  }
+		  &.secondary-skyblue {
+		    @include button-style($bg:$secondary-color, $disabled:true, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color);
+		    color: $sky-blue;
+		  }
+		  &.social-btn-facebook, &.facebook {
+		    @include button-style($bg:$facebook-color, $disabled:true, $bg-hover: scale-color($facebook-color, $lightness: $button-function-factor), $border-color: scale-color($facebook-color, $lightness: $button-function-factor));
+		    color: $white;
+		  }
+		  &.social-btn-twitter, &.twitter {
+		    @include button-style($bg:$twitter-color, $disabled:true, $bg-hover: scale-color($twitter-color, $lightness: $button-function-factor), $border-color: scale-color($twitter-color, $lightness: $button-function-factor));
+		    color: $white;
+		  }
+		  &.social-btn-linkedin, &.linkedin {
+		    @include button-style($bg:$linkedin-color, $disabled:true, $bg-hover: scale-color($linkedin-color, $lightness: $button-function-factor), $border-color: scale-color($linkedin-color, $lightness: $button-function-factor));
+		    color: $white;
+		  }
+		}
+
+		// buttons sizes
+		&.xtiny { @include button-size($padding:$button-xtny); font-size: $button-font-xtny; }
+		&.xsmall { @include button-size($padding:$button-xsml); font-size: $button-font-xsml; }
+		&.xmedium { @include button-size($padding:$button-xmed); font-size: $button-font-xmed; }
+		&.expand { @include button-size($padding:null,$full-width:true); }
+
+		// button shadow
+		&.btn-shadow {
+			@include box-shadow( $box-shadow-button !important );
+		}
+
+		// buttons social
+		&.social-btn-register {
+			padding: {
+				left: rem-calc(20);
+				right: rem-calc(10);
+			}
+		}
+
+		// button clean margin
+		&.btn-clean-margin {
+			margin: 0;
+		}
+
+	  .icon-btn {
+	    vertical-align: middle;
+	    font-size: 1.2em;
+	    margin: {
+	      right: rem-calc(5);
+	    }
+	  }
+
+	  // modal close button
+	  &.#{$close-reveal-modal-class} {
+	    color: initial;
+	    position: static !important;
+
+	    font: {
+	      family: $button-font-family !important;
+	      weight: $button-font-weight !important;
+	    }
+	    line-height: normal !important;
+
+	    &.xtiny{ @include button-size($padding:$button-xtny); font-size: $button-font-xtny; }
+	    &.tiny{ @include button-size($padding:$button-tny); }
+	    &.small{ @include button-size($padding:$button-sml); }
+	    &.medium{ @include button-size($button-med); }
+	    &.large{ @include button-size($padding:$button-lrg); }
+
+	    &.xtiny { @include button-size($padding:$button-xtny); font-size: $button-font-xtny; }
+			&.xsmall { @include button-size($padding:$button-xsml); font-size: $button-font-xsml; }
+			&.xmedium { @include button-size($padding:$button-xmed); font-size: $button-font-xmed; }
+			&.expand { @include button-size($padding:null,$full-width:true); }
+
+	    &:hover{
+	      text-decoration: none;
+	      text-shadow: none;
+	    }
+
+	    &:not(.white):not(.white-skyblue):not(.flat) {
+	    	color: $white;
+	    }
+	  }
+	}
+
+	//firefox 2px fix
+  button::-moz-focus-inner {border:0; padding:0;}
+
+  @media #{$medium-up} {
+    button, .button {
+      @include button-base($style:false, $display:inline-block);
+      @include button-size($padding:false, $full-width:false);
+    }
+  }
+}

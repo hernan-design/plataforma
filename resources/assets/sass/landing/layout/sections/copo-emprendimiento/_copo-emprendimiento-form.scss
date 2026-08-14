@@ -1,0 +1,173 @@
+%copo-emprendimiento-form {
+	#copo-emprendimiento-form {
+		background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/form/copo-form-bg.svg') 50% 30%/cover no-repeat;
+		height: 800px;
+		padding: rem-calc(40 0);
+
+		@media #{$tablet-only} {
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/form/copo-form-bg.svg') no-repeat;
+	    height: 500px;
+	    background-position: 50% bottom;
+	    background-size: 140%;
+	    padding: 0;
+		}
+
+		@media #{$medium-only}, #{$large-only} {
+			height: 630px;
+		}
+
+		@media #{$xlarge-up} {
+			padding: rem-calc(80 0);
+		}
+
+		position: relative;
+
+		@media #{$tablet-only} {
+			&:before {
+				content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-2.svg');
+				position: absolute;
+				top: -80px;
+		    left: 50%;
+		    margin-left: -90px;
+		    width: 400px;
+		    height: auto;
+			}
+		}
+
+		@media #{$medium-up} {
+			&:before {
+				content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-2.svg');
+				position: absolute;
+				top: -48px;
+		    left: 50%;
+		    margin-left: -200px;
+		    width: 600px;
+		    height: auto;
+			}
+		}
+
+		.form-title {
+			color: $copo-dark-purple-color;
+			font-weight: 900;
+		}
+
+		.form-subtitle {
+			color: $copo-medium-blue-color;
+			font-weight: 700;
+		}
+
+		#mc-embedded-subscribe-form {
+			.form-copo-input {
+				// padding-left: rem-calc(20);
+				margin-bottom: rem-calc(14);
+				padding: rem-calc(15 0 15 10);
+				width: 100%;
+				height: auto;
+		    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+		    box-sizing: border-box;
+
+				&:focus, &:hover {
+					@include box-shadow (12px 12px 49px -11px rgba($black, 0.41));
+				}
+
+				@media #{$xlarge-up} {
+					padding: rem-calc(24 0 24 22);
+				}
+
+				@include box-shadow (0px 1px 3px 1px rgba($black, 0.18));
+				@include transition(all ease-out 300ms);
+				@include border-radius(6px);
+				border-bottom: 0;
+				background-color: $white;
+
+				// > input {
+				// 	padding: rem-calc(7 0);
+				// 	border: 0;
+				// 	margin-bottom: 0;
+
+				// 	&:focus {
+				// 		@include box-shadow(none);
+
+				// 	}
+				// }
+			}
+
+			.legal-form {
+
+				padding: rem-calc(15 0);
+
+				@media #{$tablet-up} {
+					padding: rem-calc(20 0 40);
+				}
+
+				.legal-label {
+					padding-left: rem-calc(30);
+					line-height: normal;
+					cursor: default;
+
+					@media #{$mobile-only}, #{$small-only} {
+						padding-left: rem-calc(20);
+						margin-bottom: rem-calc(56);
+					}
+
+					@media #{$tablet-only} {
+						margin-bottom: rem-calc(26);
+					}
+
+					@media #{$medium-up}{
+						margin-bottom: rem-calc(30);
+					}
+
+					> span {
+						font-size: rem-calc(14);
+						color: $jumbo;
+						margin-bottom: rem-calc(20);
+
+						> a {
+							color: $copo-pink;
+						}
+					}
+
+					&:hover {
+						color: $jumbo;
+					}
+
+					&:before {
+						cursor: pointer;
+					}
+				}
+
+				[type="checkbox"]:not(:checked) + label {
+					&.legal-label {
+						&:before {
+							border-color: $base;
+							@include border-radius($global-radius);
+						}
+					}
+				}
+
+				.copo-form-button {
+					color: $white;
+					font-weight: 600;
+					padding: rem-calc(12 60);
+					border: 1px solid $white;
+					@include border-radius($global-radius);
+					background-color: $copo-pink; // Old browsers
+					@include filter-gradient($copo-pink, $copo-purple, vertical); // IE6-9
+					@include background-image(linear-gradient(top, $copo-pink 0%,$copo-purple 100%));
+
+					&:hover {
+						@include filter-gradient($copo-pink, $copo-purple, vertical); // IE6-9
+						@include background-image(linear-gradient(top, rgba($copo-pink,0.6) 0%,rgba($copo-purple,0.6) 100%));
+					}
+
+					@media #{$large-up} {
+						font-size: rem-calc(18);
+						padding: rem-calc(15 115);
+					}
+				}
+			}
+		}
+	}
+}

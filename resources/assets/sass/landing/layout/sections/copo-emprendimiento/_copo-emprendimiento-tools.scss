@@ -1,0 +1,520 @@
+%copo-emprendimiento-tools {
+	#copo-emprendimiento-tools {
+
+
+		.our-tools-title {
+			font-weight: 600;
+			background-color: $white;
+			color: $dark-silver;
+			text-transform: none;
+			padding: rem-calc(15 28);
+			font-size: rem-calc(16);
+			margin-top: rem-calc(-80);
+			display: block;
+
+			@media #{$tablet-only}, #{$medium-only} {
+				margin-top: rem-calc(-65);
+				font-size: rem-calc(21);
+				// padding: rem-calc(35 54);
+				display: inline-block;
+			}
+
+			@media #{$large-up} {
+				margin-top: rem-calc(-50);
+				padding: rem-calc(35 54);
+				font-size: rem-calc(28);
+				display: inline-block;
+			}
+		}
+
+		.tools-title {
+			color: $copo-dark-purple-color;
+			font-size: rem-calc(32);
+			font-weight: 700;
+			margin-bottom: 20px;
+			padding-bottom: 20px;
+			position: relative;
+
+			&:after {
+				position: absolute;
+	      content: '';
+	      height: 2px;
+	      background-color: $smoke;
+	      width: 50px;
+	      bottom: 0;
+				left: 0;
+			}
+
+			@media #{$tablet-only}, #{$medium-only} {
+				font-size: rem-calc(24);
+			}
+
+			> span {
+				font-size: rem-calc(20);
+				color: $jumbo;
+			}
+		}
+
+		.tools-head-text {
+			color: $aluminum;
+			font-size: rem-calc(15);
+			margin-bottom: rem-calc(20);
+
+			@media #{$tablet-only}, #{$medium-only} {
+				font-size: rem-calc(14);
+			}
+		}
+
+		.collapsible {
+			@include box-shadow(none);
+			border: 0;
+
+			.collapsible-body {
+				border: 0;
+				padding: rem-calc(0 16);
+
+				> span {
+					color: $monsoon;
+					font-size: rem-calc(14);
+				}
+			}
+
+			.collapsible-list-item {
+				margin-bottom: rem-calc(5);
+
+				.collapsible-header {
+					background-color: transparent;
+					position: relative;
+					border: 0;
+					font-weight: 700;
+					line-height: 1.4;
+    			padding-top: rem-calc(13);
+    			padding-right: rem-calc(63);
+    			padding-bottom: rem-calc(13);
+    			margin-bottom: rem-calc(10);
+					@include border-radius($global-radius);
+
+					@media #{$tablet-only}, #{$medium-only} {
+						font-size: rem-calc(14);
+					}
+
+					&:hover {
+						background-color: $gray-light;
+					}
+
+					> i {
+						position: absolute;
+					  right: 0;
+					  top:0;
+					  @include transition(all ease-in 300ms);
+					}
+				}
+
+				&.active {
+					padding-bottom: rem-calc(15);
+					background-color: $gray-light;
+					@include border-radius($global-radius);
+
+					.collapsible-header {
+						color: $copo-bright-blue-color;
+
+						> i {
+							color: $copo-bright-blue-color;
+					    @include transform(rotate(180deg));
+						}
+					}
+				}
+
+				.collapsible-body {
+					line-height: 1.3;
+				}
+
+				@media #{$tablet-only}, #{$medium-only} {
+					.collapsible-body {
+						> span {
+							font-size: rem-calc(14);
+
+						}
+					}
+				}
+			}
+		}
+
+		// * * * * * * * * * * * * *
+		//	CONVOCATION
+		//	-----------
+		//	-----------
+		// * * * * * * * * * * * * *
+		#tools-convocation {
+			background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/herramientas/svg/copo-tools-convocatorias.svg');
+			background-repeat: no-repeat;
+			background-position: 25px top;
+			background-size: 500px;
+			padding: rem-calc(360 0 50);
+
+			@media #{$tablet-only} {
+				padding: rem-calc(80 0);
+				background-position: 166% 60px;
+				background-size: 63%;
+			}
+
+			@media #{$medium-only}, #{$large-only} {
+				padding: rem-calc(100 0 60);
+				background-position: 160% 60px;
+				background-size: 63%;
+			}
+
+			@media #{$xlarge-only} {
+				padding: rem-calc(120 0 100);
+				background-position: right center;
+				background-size: 48%;
+			}
+
+			@media only screen and (min-width: 1440px) {
+				padding: rem-calc(200 0 100);
+				background-position: right center;
+				background-size: 48%;
+			}
+
+		}
+
+		// * * * * * * * * * * * * *
+		//	AUTODIANOGOSIS
+		//	--------------
+		//	--------------
+		// * * * * * * * * * * * * *
+		#tools-autodiagnosis {
+			background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/herramientas/svg/copo-tools-autodiagnostico.svg');
+			background-repeat: no-repeat;
+			background-position: -147px top;
+    	background-size: 505px;
+			padding: rem-calc(360 0 50);
+			position: relative;
+
+			@media #{$tablet-only} {
+				padding: rem-calc(50 0 0);
+				background-position: 0 70px;
+    		background-size: 40%;
+
+    		&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-1.svg');
+					position: absolute;
+					top: -45px;
+			    left: 56%;
+			    margin-left: -100px;
+			    width: 80px;
+			    height: auto;
+				}
+			}
+
+			@media #{$medium-only}, #{$large-only} {
+				padding: rem-calc(100 0 60);
+				background-position: -70px 60px;
+				background-size: 46%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-1.svg');
+					position: absolute;
+					top: -45px;
+			    left: 55%;
+			    margin-left: -227px;
+			    width: 108px;
+			    height: auto;
+				}
+			}
+
+			@media #{$xlarge-only} {
+				padding: rem-calc(120 0 100);
+				background-position: left center;
+				background-size: 37%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-1.svg');
+					position: absolute;
+					top: -100px;
+			    left: 50%;
+			   	margin-left: -234px;
+    			width: 170px;
+			    height: auto;
+				}
+			}
+
+			@media only screen and (min-width: 1440px) {
+				padding: rem-calc(200 0 100);
+				background-position: left center;
+				background-size: 41%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-1.svg');
+					position: absolute;
+					top: -100px;
+			    left: 50%;
+			    margin-left: -276px;
+			    width: 165px;
+			    height: auto;
+				}
+			}
+
+			.diagnosis-content-box {
+				.user-company-content-list {
+					h5 {
+						margin-top: rem-calc(7);
+					}
+
+					> li {
+						margin-bottom: rem-calc(20);
+					}
+
+					.diagnosis-icon {
+						width: 60px;
+						height: 60px;
+
+						@media #{$large-only} {
+							width: 100px;
+							height: 100px;
+						}
+
+						@media #{$xlarge-up} {
+							width: 120px;
+							height: 120px;
+						}
+					}
+				}
+			}
+		}
+
+		// * * * * * * * * * * * * *
+		//	MARKETPLACE
+		//	-----------
+		//	-----------
+		// * * * * * * * * * * * * *
+		#tools-marketplace {
+			background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/herramientas/svg/copo-tools-marketplace.svg');
+			background-repeat: no-repeat;
+			background-position: 25px top;
+			background-size: 500px;
+			padding: rem-calc(360 0 50);
+			position: relative;
+
+			@media #{$tablet-only} {
+				padding: rem-calc(80 0 0);
+				background-position: 166% 60px;
+				background-size: 63%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-2.svg');
+					position: absolute;
+					top: -25px;
+			    left: 50%;
+			    margin-left: -150px;
+			    width: 300px;
+			    height: auto;
+				}
+			}
+
+			@media #{$medium-only}, #{$large-only} {
+				padding: rem-calc(100 0 0);
+				background-position: 160% 60px;
+				background-size: 63%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-2.svg');
+					position: absolute;
+					top: -73px;
+			    left: 50%;
+			    margin-left: -257px;
+			    width: 500px;
+			    height: auto;
+				}
+			}
+
+			@media #{$xlarge-only} {
+				padding: rem-calc(120 0 80);
+				background-position: right center;
+				background-size: 48%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-2.svg');
+					position: absolute;
+					top: -73px;
+			    left: 50%;
+			    margin-left: -257px;
+			    width: 500px;
+			    height: auto;
+				}
+			}
+
+			@media only screen and (min-width: 1440px) {
+				padding: rem-calc(200 0 100);
+				background-position: right 106px;
+				background-size: 48%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-2.svg');
+					position: absolute;
+					top: -70px;
+			    left: 50%;
+			    margin-left: -359px;
+			    width: 693px;
+			    height: auto;
+				}
+			}
+		}
+
+		// * * * * * * * * * * * * *
+		//	MENTORING
+		//	---------
+		//	---------
+		// * * * * * * * * * * * * *
+		#tools-mentoring {
+			background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/herramientas/svg/copo-tools-mentorias.svg');
+			background-repeat: no-repeat;
+			background-position: -156px top;
+			background-size: 500px;
+			padding: rem-calc(360 0 50);
+			position: relative;
+
+			@media #{$tablet-only} {
+				padding: rem-calc(80 0 0);
+				background-position: -178px 60px;
+				background-size: 63%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-3.svg');
+					position: absolute;
+					top: -10px;
+			    left: 50%;
+			    margin-left: -150px;
+			    width: 300px;
+			    height: auto;
+				}
+			}
+
+			@media #{$medium-only}, #{$large-only} {
+				padding: rem-calc(100 0 60);
+				background-position: -240px 82px;
+				background-size: 63%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-3.svg');
+					position: absolute;
+					top: -20px;
+			    left: 50%;
+			    margin-left:-238px;
+			    width: 450px;
+			    height: auto;
+				}
+			}
+
+			@media #{$xlarge-only} {
+				padding: rem-calc(120 0 100);
+				background-position: left center;
+				background-size: 48%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-3.svg');
+					position: absolute;
+					top: -73px;
+			    left: 50%;
+			    margin-left: -340px;
+			    width: 680px;
+			    height: auto;
+				}
+			}
+
+			@media only screen and (min-width: 1440px) {
+				padding: rem-calc(200 0 100);
+				background-position: left 170px;
+				background-size: 48%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-3.svg');
+					position: absolute;
+					top: -26px;
+			    left: 50%;
+			    margin-left: -405px;
+			    width: 810px;
+			    height: auto;
+				}
+			}
+		}
+
+		// * * * * * * * * * * * * *
+		//	LEARN
+		//	-----------
+		//	-----------
+		// * * * * * * * * * * * * *
+		#tools-learn {
+			background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/herramientas/svg/copo-tools-aprende.svg');
+			background-repeat: no-repeat;
+			background-position: 25px top;
+			background-size: 500px;
+			padding: rem-calc(360 0 50);
+			position: relative;
+
+			@media #{$tablet-only} {
+				padding: rem-calc(80 0);
+				background-position: 166% 60px;
+				background-size: 63%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-4.svg');
+					position: absolute;
+					top: -80px;
+			    left: 50%;
+			   	margin-left: -248px;
+			    width: 186px;
+			    height: auto;
+				}
+			}
+
+			@media #{$medium-only}, #{$large-only} {
+				padding: rem-calc(100 0 60);
+				background-position: 160% 60px;
+				background-size: 63%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-4.svg');
+					position: absolute;
+					top: -50px;
+			    left: 50%;
+			   	margin-left: -80px;
+    			width: 200px;
+			    height: auto;
+				}
+			}
+
+			@media #{$xlarge-only} {
+				padding: rem-calc(120 0 100);
+				background-position: right center;
+				background-size: 48%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-4.svg');
+					position: absolute;
+					top: -73px;
+			    left: 50%;
+			    margin-left: -24px;
+			    width: 290px;
+			    height: auto;
+				}
+			}
+
+			@media only screen and (min-width: 1440px) {
+				padding: rem-calc(200 0);
+				background-position: right 170px;
+				background-size: 48%;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-2.svg');
+					position: absolute;
+					top: -70px;
+			    left: 50%;
+			    margin-left: -359px;
+			    width: 693px;
+			    height: auto;
+				}
+			}
+		}
+	}
+}

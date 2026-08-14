@@ -1,0 +1,50 @@
+%coomeva-galardon-section {
+	#coomeva-galardon-section {
+		background-color: $gray-cloud;
+		position: relative;
+
+		.coomeva-galardon-boxes {
+			background-color: $white;
+			padding-top: rem-calc(35);
+			padding-bottom: rem-calc(10);
+			@include box-shadow(none);
+
+			&:hover {
+				@include box-shadow(4px 4px 8px $iron);
+				@include transition(all ease-out 300ms);
+			}
+
+			.coomeva-galardon-item-img {
+				width: 139px;
+				height: 103px;
+				min-width: 139px;
+				min-height: auto;
+				margin-bottom: rem-calc(20);
+			}
+
+			.galardon-title-box {
+				margin-top: rem-calc(0);
+				margin-bottom: rem-calc(30);
+				height: 78px;
+				display:table;
+	  			width:100%;
+
+				.galardon-title {
+					display: block;
+					font-weight: 400;
+					font-size: rem-calc(18);
+					color: $monsoon;
+					vertical-align:middle;
+    				display:table-cell;
+    			b {
+						font-weight: 100;
+    			}
+				}
+			}
+		}
+
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

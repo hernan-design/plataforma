@@ -1,0 +1,23 @@
+.wrapper-hilandoempresa {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	// Paddings
+
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	// @extend %hilandoempresa-institution-register !optional;
+	@extend %hilandoempresa-stats-numbers !optional;
+	@extend %hilandoempresa-institution-description !optional;
+	@extend %hilandoempresa-feature-videos !optional;
+
+}

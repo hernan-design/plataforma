@@ -1,0 +1,26 @@
+%koideas-achievements {
+	#koideas-achievements {
+
+		.koideas-achievements-lists {
+			margin-bottom: 20px;
+
+			.koideas-achievements-list-item {
+				list-style: none;
+				padding-right: rem-calc(20);
+
+				.koideas-achievements-list-check-icon {
+					color: $koideas-bright-red-color;
+					font-size: rem-calc(30);
+				}
+
+				.koideas-achievements-list-text {
+
+				}
+
+			}
+
+		}
+
+
+	}
+}

@@ -1,0 +1,48 @@
+%selectrain-testimonial-section {
+	#selectrain-testimonial-section {
+		background: transparent url('	https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/selectrain/selectrain-testimonial-bg-img.jpg') no-repeat center;
+
+		.slick-slider-testimonial {
+			padding: {
+				left: rem-calc(60);
+				right: rem-calc(60);
+			}
+
+			.testimonial-person-img {
+				width: 160px;
+				height: 160px;
+				min-width: 160px;
+				margin-right: 40px;
+			}
+
+			.selectrain-testimonial-quotee {
+				font-style: italic;
+			}
+
+			.testimonial-person-name {
+				margin-bottom: 0;
+			}
+
+			.testimonial-person-charge {
+				font-size: rem-calc(12);
+			}
+		}
+
+		@media #{$small-only}, #{$mobile-only} {
+			.slick-slider-testimonial {
+				padding: rem-calc(0 15);
+
+				.testimonial-person-img {
+					width: 100px;
+					height: 100px;
+					min-width: 100px;
+					margin-right: 15px;
+				}
+
+				.selectrain-testimonial-quotee {
+					font-size: rem-calc(14);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,55 @@
+%coomeva-header {
+	#header-land {
+		#nav-header {
+			background-color: $white;
+
+			.top-bar-section {
+				#nav-menus-grid {
+					.right-top-menu {
+						a {
+							@include border-radius(16px);
+							text-transform: initial;
+							font-weight: normal;
+							letter-spacing: normal;
+
+							&.color-as-link {
+								color: $coomeva-bright-green-color;
+
+								&:hover {
+									border: 0;
+								}
+							}
+
+							&.has-icon-help {
+								color: $base;
+							}
+
+							.md-hamburger__layer {
+								background-color: $base;
+							}
+
+						}
+					}
+				}
+			}
+
+			.title-area {
+				.singin-buttons-top-menu {
+					.button-inst-secondary {
+						text-transform: initial;
+						font-weight: normal;
+						letter-spacing: normal;
+					}
+				}
+			}
+
+			.singin-buttons-top-menu {
+				.has-icon-help {
+					i {
+						color: $coomeva-bright-green-color;
+					}
+				}
+			}
+		}
+	}
+}

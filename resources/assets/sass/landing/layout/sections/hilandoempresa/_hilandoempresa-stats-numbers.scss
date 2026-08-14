@@ -1,0 +1,32 @@
+%hilandoempresa-stats-numbers {
+
+	#stats-numbers {
+		background-color: $gray-rain;
+
+		.stats-numbers-section-title {
+			color: $lafayette-bright-red-color;
+			font-weight: 100;
+			font-size: rem-calc(34);
+			margin-bottom: rem-calc(10);
+		}
+
+		.hilandoempresa-stats-icons {
+			display: block;
+			font-size: rem-calc(64);
+			color: $lafayette-bright-red-color;
+			// padding-top: rem-calc(35);
+			// padding-bottom: rem-calc(25);
+		}
+
+		.stats-numbers {
+			font-size: rem-calc(60);
+			font-weight: bold;
+			display: block;
+		}
+
+		.stats-numbers-title {
+			color: $base;
+			font-weight: 300;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+// Styles of stages global
+//------------------------
+.disabled {
+	// color: $aluminum !important;
+	// opacity: .5 !important;
+	pointer-events: none;
+	cursor: default !important;
+}
+
+.hidesoft {
+	display: none;
+}
+
+.hidedark {
+	display: none;
+	visibility: hidden;
+	height: 0px;
+}

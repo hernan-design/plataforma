@@ -1,0 +1,115 @@
+  // Styles for learn main
+//-------------------------
+%learn-main {
+
+	.banner-section {
+		padding-top: 45px;
+		display: table;
+    top: 0;
+    left: 0;
+    height: 285px;
+    width: 100%;
+	}
+
+	.header-section {
+		margin: 0;
+		background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/generic/courses/aprende-banner-bg.jpg');
+		background-repeat: repeat;
+		background-position: center;
+		height: 240px;
+
+		display: table-cell;
+    vertical-align: middle;
+
+		> i {
+			color: $white;
+			border-color: $white;
+		}
+
+		> h2 {
+			font-size: rem-calc(36);
+			color: $white;
+		}
+
+		> p {
+			font-size: rem-calc(18);
+			color: $white;
+		}
+	}
+
+	.title-course-main {
+		margin: {
+			// top: rem-calc(20);
+			bottom: rem-calc(20);
+		}
+		padding: {
+			bottom: rem-calc(15);
+		}
+	}
+	ul.browse-list-learn {
+		.mask-thumb {
+      border-radius: 9px;
+			position: relative;
+			display: block;
+			width: 100%;
+			overflow: hidden;
+			height: 70px;
+			@media #{$tablet-up} {
+				height: 136px;
+			}
+			> img {
+				position: absolute;
+				width: 100%;
+				max-width: none;
+				height: 100%;
+				top: 0px;
+				left: -100%;
+				right: -100%;
+				margin: 0 auto !important;
+				@include translate(0, 0);
+			}
+		}
+    .mask-thumb-noted {
+      border-radius: 9px;
+      position: relative;
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      height: 90px;
+      > img {
+        position: absolute;
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        top: 0px;
+        left: -100%;
+        right: -100%;
+        margin: 0 auto !important;
+        @include translate(0, 0);
+      }
+    }
+
+		@media #{$mobile-only}, #{$small-only} {
+			margin-bottom: rem-calc(14);
+		}
+
+		.item-wrap-list {
+
+			.description-list-item {
+				height: rem-calc(80);
+				overflow: hidden;
+			}
+
+			.category-list-item {
+				height: rem-calc(16);
+			}
+
+			.bottom-item-list {
+				border-top: none;
+			}
+		}
+	}
+  #principal-curso{
+      margin-top: rem-calc(48);
+  }
+}

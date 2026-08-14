@@ -1,0 +1,28 @@
+// Styles for evaluation projects browse
+//--------------------------------------
+%evaluator-browse {
+
+	#evaluation-inner-content {
+
+		#content-evaluation-projects {
+
+			ul.browse-list-evaluation-project {
+				padding-top: rem-calc(20);
+
+				.item-wrap-list {
+
+					.description-evaluation-project-item {
+						overflow: hidden;
+						height: rem-calc(68);
+						margin-bottom: rem-calc(10);
+					}
+
+					.bottom-item-list {
+						border-top: none;
+						margin-top: rem-calc(20);
+					}
+				}
+			}
+		}
+	}
+}

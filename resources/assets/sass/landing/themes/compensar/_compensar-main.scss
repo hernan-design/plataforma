@@ -1,0 +1,133 @@
+#{$wrapper-land}.wrapper-compensar {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+  .slick-slider {
+    position: relative;
+
+    .slick-prev, .slick-next {
+      background: transparent;
+      width: 80px;
+      height: 80px;
+      top: 50%;
+      margin-top: -40px;
+
+      &:before {
+        color: $compensar-bright-orange-color;
+        font-size: rem-calc(80);
+        line-height: 1;
+        opacity: 1;
+      }
+
+      &:hover {
+        background: transparent;
+      }
+    }
+
+    .slick-prev {
+      border: none;
+      left: rem-calc(40);
+      @include border-radius(none);
+
+      &:before {
+        content: mdi('chevron-left');
+      }
+    }
+
+    .slick-next {
+      border: none;
+      right: rem-calc(40);
+      @include border-radius(none);
+
+      &:before {
+        content: mdi('chevron-right');
+      }
+    }
+  }
+
+	div, p, h1, h2, h3, h4, h5, h6, span, ul, li {
+		font-family: 'Roboto', sans-serif;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 900;
+	}
+
+  .button {
+    @include border-radius(12px);
+  }
+
+
+	/**
+	* =========================
+	* Structure styles
+	* =========================
+	*/
+	@extend %compensar-header !optional;
+	@extend %compensar-slider !optional;
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+	#{$main-land} {
+	  @extend %compensar-about !optional;
+	  @extend %compensar-target-route !optional;
+	  @extend %compensar-projects !optional;
+	  @extend %compensar-info-talk !optional;
+	  @extend %compensar-tips !optional;
+	  @extend %compensar-faq !optional;
+	  @extend %compensar-contact !optional;
+
+    #compensar-projects, #compensar-tips {
+
+			.slick-feature-projects {
+				.slick-slide {
+					img {
+						margin-bottom: rem-calc(20);
+						margin: 0 auto;
+						@include box-shadow(4px 4px 8px $iron);
+					}
+				}
+			}
+
+			.slick-slider {
+	      .slick-prev, .slick-next {
+	        background: transparent;
+	        width: 80px;
+	        height: 80px;
+          top: 90px;
+          margin-top: 0;
+
+	        &:before {
+	          color: $compensar-bright-orange-color;
+					}
+				}
+
+        .slick-prev {
+		      left: rem-calc(-60);
+		    }
+
+		    .slick-next {
+		      right: rem-calc(-60);
+		    }
+
+				@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+				  .slick-dots {
+					  width: 100%;
+            margin: 0 auto;
+				  }
+				}
+			}
+		}
+	}
+
+
+	@extend %compensar-footer !optional;
+}

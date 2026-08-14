@@ -1,0 +1,73 @@
+// Styles for search main
+// -----------------------------
+%search-main {
+	@include margin-item-top;
+
+	@media #{$mobile-only}, #{$small-only} {
+		margin-top: 0;
+	}
+
+	.menu-filter-panel {
+		.title-panel {
+			background-color: transparent !important;
+		}
+	}
+
+	.search-results, .section-title {
+		font-size: rem-calc(22);
+		color: $steel;
+
+		> p {
+		  font-size: rem-calc(22);
+		}
+	}
+
+	.no-results-filter  {
+		padding-top: 0;
+
+		@media #{$mobile-only}, #{$small-only} {
+			margin: {
+				left: rem-calc(-10);
+				right: rem-calc(-10);
+			}
+		}
+
+		.panel-content {
+			> p {
+				 i {
+					color: $black;
+				}
+			}
+		}
+	}
+
+	.content-result-searches {
+		.browse-list-search {
+			padding-top: 0;
+
+			.item-events {
+				@media #{$mobile-only}, #{$small-only} {
+					border-bottom: 0;
+				}
+			}
+
+			.list-item-title {
+				.highlight-search {
+					font-style: normal;
+				}
+			}
+
+			.item-search-icon {
+				color: $iron;
+			}
+
+			> li {
+				> a {
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}

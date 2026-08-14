@@ -1,0 +1,667 @@
+// Styles for programs detail
+// --------------------------
+%programs-detail {
+
+	#content-program-detail {
+		// @include margin-item-top;
+
+		// top program detail
+		.top-program-detail {
+			padding-top: rem-calc(45);
+			
+			#anounciement-calls{
+				background: #FFDB70;
+				padding: 1rem 3rem;
+				margin: 1rem 0rem 1rem 0rem;
+				border-radius: 3px;
+				> p {
+				font-size: 0.8rem;
+				line-height: 1rem;
+				}
+				@media #{$mobile-only}, #{$small-only}, #{$tablet-only},#{$medium-only} {
+					margin: 1rem 1rem 1rem 1rem;
+					padding: 0.3rem 1rem;
+				}
+
+			}
+
+			#content-img-call {
+				position: relative;
+				@include radius;
+				@include box-shadow($box-shadow-item);
+
+				.program-main-image {
+					background-color: $white;
+					position: relative;
+					width: 100%;
+					height: auto;
+					// min-height: rem-calc(340);
+					margin: 0px;
+					overflow: hidden;
+					@include side-radius(left);
+
+					img {
+						width: 100%;
+						height: auto;
+					}
+
+					// @media #{$mobile-only}, #{$small-only} {
+					// 	min-height: rem-calc(200);
+					// }
+				}
+
+				.mask-program-header {
+					position: relative;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: auto;
+					min-height: rem-calc(340);
+					padding: rem-calc(20 20 70);
+					background-color: $white;
+					@include side-radius(right);
+
+					.program-title {
+						margin : {
+							top: rem-calc(30);
+						}
+					}
+
+					.program-organizer-list {
+						margin-bottom: rem-calc(20);
+
+						.mask-thumb {
+							width: 67px;
+							height: 46px;
+						}
+					}
+
+					@media #{$mobile-only}, #{$small-only} {
+						position: relative;
+					}
+				}
+			}
+
+			.state-program-info {
+    		margin: rem-calc(0 0 20);
+			}
+
+			.program-info-detail {
+				width: 100%;
+				// padding: rem-calc(20 10);
+			}
+
+			.program-icons-shared {
+				width: 100%;
+				white-space: nowrap;
+				margin-top: rem-calc(15);
+
+				> li {
+					&:not(:first-child) {
+						margin-left: rem-calc(15);
+					}
+				}
+			}
+
+			.btn-participants-program {
+				margin-left: rem-calc(15);
+
+				.count-participants {
+					display: inline-block;
+					width: 100%;
+					font-size: rem-calc(26);
+					line-height: 1;
+				}
+
+				.text-participants {
+					white-space: nowrap;
+				}
+			}
+
+			@media (min-width: 768px){
+				padding-bottom: 4.5rem !important;
+			}
+		}
+
+		// program shedule
+		.program-schedule {
+			padding: rem-calc(30 0 0);
+
+			ul.list-program-stages {
+				width: auto;
+				// min-width: 102%;
+				padding: 0;
+				margin: rem-calc(0 -10);
+				counter-reset: stage-counter;
+				z-index: 1;
+				overflow: visible;
+
+				li.tab-program-stage {
+					padding: rem-calc(0 10 20);
+					vertical-align: top;
+
+					a {
+						padding: 0;
+						background-color: transparent;
+						border: 0;
+					}
+
+					&.active {
+
+						&:before {
+							@include css-triangle(11px, rgba($black, .1), bottom);
+							position: absolute;
+							bottom: 0%;
+							left: 50%;
+							margin-left: #{(-10px / 2) - 1};
+							z-index: 1;
+						}
+
+						&:after {
+							@include css-triangle(10px, $gray-lighter, bottom);
+							position: absolute;
+							bottom: 0%;
+							left: 50%;
+							margin-left: #{-10px / 2};
+							z-index: 1;
+						}
+					}
+
+					&:hover, &.active {
+						> a {
+							border-bottom: none;
+						}
+
+						.item-program-stage {
+
+							&, &.finalized, &.current {
+								background-color: $white;
+								@include box-shadow($box-shadow-item-hover);
+
+								> label {
+									color: $oil;
+									cursor: pointer;
+								}
+
+								.date-program {
+									color: $oil;
+								}
+
+								.progress-stage {
+
+									&:before {
+										content: counter(stage-counter);
+										margin: {
+											top: rem-calc(-17);
+											left: rem-calc(-17);
+										}
+										@include icon-circle(
+											$font-size: rem-calc(18),
+											$padding: rem-calc(8),
+											$color: $white,
+											$bgcolor: $sky-blue,
+											$colors-custom: false,
+											$sizes-custom: false,
+											$has-transition: true
+										);
+										font: {
+											family: $font-family-sanfrancisco;
+											weight: $font-weight-normal;
+										}
+										border: none;
+									}
+								}
+							}
+						}
+					}
+
+					.item-program-stage {
+						position: relative;
+						width: 100%;
+						height: 100%;
+						padding: rem-calc(30 0 30);
+						background-color: $gray-lighter;
+						@include box-shadow($box-shadow-item);
+						@include border-radius(4px);
+						@include transition(box-shadow 250ms ease-out);
+						text-align: center;
+						counter-increment: stage-counter;
+						cursor: pointer;
+
+						> label {
+							padding: rem-calc(0 58);
+							display: block;
+							height: rem-calc(42);
+							margin-bottom: rem-calc(30);
+							color: $iron;
+							font: {
+								size: rem-calc(17);
+								weight: $font-weight-normal;
+							}
+							white-space: normal;
+						}
+
+						.date-program {
+							font: {
+								size: rem-calc(15);
+								weight: 300;
+							}
+							white-space: normal;
+							padding: rem-calc(0 20);
+							color: $iron;
+						}
+
+						.progress-stage {
+							position: relative;
+							padding: 0;
+							width: 100%;
+							height: 2px;
+							background-color: $iron;
+							margin: rem-calc(15 0 25);
+							border: none;
+							overflow: visible;
+
+							&:before {
+								content: counter(stage-counter);
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								margin: {
+									top: rem-calc(-11);
+									left: rem-calc(-11);
+								}
+								@include icon-circle(
+									$font-size: rem-calc(14),
+									$padding: rem-calc(4),
+									$color: $white,
+									$bgcolor: $iron,
+									$colors-custom: false,
+									$sizes-custom: false,
+									$has-transition: true
+								);
+								font: {
+									family: $font-family-sanfrancisco;
+									weight: $font-weight-normal;
+								}
+								text-rendering: auto;
+								-webkit-font-smoothing: antialiased;
+								-moz-osx-font-smoothing: grayscale;
+							}
+
+							.meter-progress-stage {
+								width: 0px;
+								background-color: $sky-blue;
+							}
+						}
+
+						// Stage finalized program
+						&.finalized {
+
+							> label {
+								color: $sky-blue;
+							}
+
+							.date-program {
+								color: $oil;
+							}
+
+							.progress-stage {
+
+								&:before {
+									@extend %font-mdi;
+									content: mdi('check');
+									margin: {
+										top: rem-calc(-12);
+										left: rem-calc(-12);
+									}
+									@include icon-circle(
+										$font-size: rem-calc(15),
+										$padding: rem-calc(3),
+										$color: $sky-blue,
+										$bgcolor: $white,
+										$colors-custom: false,
+										$sizes-custom: false,
+										$has-transition: true
+									);
+
+									border: 1px solid $sky-blue;
+								}
+							}
+						}
+
+						// Stage current program
+						&.current {
+							background-color: $white;
+
+							> label {
+								color: $oil;
+							}
+
+							.date-program {
+								color: $oil;
+							}
+
+							.progress-stage {
+
+								&:before {
+									content: counter(stage-counter);
+									margin: {
+										top: rem-calc(-11);
+										left: rem-calc(-11);
+									}
+									@include icon-circle(
+										$font-size: rem-calc(14),
+										$padding: rem-calc(4),
+										$color: $white,
+										$bgcolor: $sky-blue,
+										$colors-custom: false,
+										$sizes-custom: false,
+										$has-transition: true
+									);
+									font: {
+										family: $font-family-sanfrancisco;
+										weight: $font-weight-normal;
+									}
+									border: none;
+								}
+							}
+						}
+
+						&.finalized {
+							.meter-progress-stage {
+								width: 100%;
+							}
+						}
+
+						&.current {
+							.meter-progress-stage {
+								width: 50%;
+							}
+						}
+					}
+
+					.description-stage {
+						height: 100%;
+					}
+				}
+			}
+
+			.program-schedule-contents {
+				margin: 0;
+
+				.panel-detail {
+					padding-bottom: rem-calc(60);
+					z-index: 10;
+
+					#call-submenu-program-schedule {
+				    margin-bottom: rem-calc(50);
+				  }
+				}
+
+				#program-phase-resources-menu-list {
+					> li {
+						margin-bottom: rem-calc(25);
+
+						.resources-icon {
+						  color: $aluminum;
+						  border-color: $aluminum;
+					  }
+
+						> a {
+							background-color: transparent;
+							color: $monsoon;
+						  font-size: rem-calc(14);
+							font-weight: 400;
+						  line-height: 1.2;
+							text-align: left;
+
+							&:hover {
+								text-decoration: underline;
+								color: $black;
+							}
+						}
+					}
+
+					&.tabs {
+						float: none;
+						width: 100%;
+						max-width: 100%;
+						white-space: normal;
+
+						.tab-title {
+							> a {
+								border-bottom: none;
+							}
+
+							&.active {
+								> a {
+									border-bottom: none;
+									color: $black;
+
+									&:hover {
+										text-decoration: none;
+										cursor: default;
+									}
+								}
+							}
+
+							&:hover {
+								> a {
+								  border-bottom: none;
+								}
+							}
+					  }
+					}
+				}
+
+				.content {
+
+					.content-close {
+						font-size: rem-calc(30);
+					}
+
+					.program-content-vertical-nav {
+
+						.tabs {
+
+							&.vertical {
+								width: 30%;
+    						display: table-cell;
+							}
+
+							.tab-title {
+
+								.program-content-tabtitle-anchor {
+									background-color: $gray-lighter;
+									color: $monsoon;
+									border-bottom: none;
+									font-size: rem-calc(15);
+									border-left: 4px solid $gray-lighter;
+									padding-left: rem-calc(22);
+
+									&:hover {
+										background-color: $white;
+										color: $tuatara;
+										border-bottom: none;
+										border-left: 2px solid $sky-blue;
+										padding-left: rem-calc(24);
+									}
+								}
+
+								&.active {
+									.program-content-tabtitle-anchor {
+										background-color: $white;
+										font-weight: 700;
+										color: $black;
+										border-bottom: none;
+										border-left: 4px solid $sky-blue;
+										padding-left: rem-calc(22);
+
+									}
+								}
+							}
+						}
+
+						@media #{$mobile-only}, #{$small-only} {
+							.tabs {
+								&.vertical {
+									width: 100%;
+									display: block;
+								}
+							}
+						}
+
+						#program-tabs-content {
+							width: auto;
+							display: table-cell;
+
+							.content {
+								box-shadow: none;
+								padding: 0;
+
+								.program-content {
+									padding-left: rem-calc(80);
+
+									.program-content-title {
+										font-size: rem-calc(32);
+										color: $sky-blue;
+										font-weight: 200;
+										margin-bottom: rem-calc(35);
+									}
+
+									.program-content-list {
+										color: $black;
+										font-size: rem-calc(14);
+										margin: rem-calc(0 0 50 30);
+
+										> li {
+											margin-bottom: 11px;
+										}
+									}
+
+									.program-content-subtitle {
+										color: $black;
+										margin-top: 40px;
+
+									}
+
+									.program-content-link {
+									  margin-bottom: 20px;
+  									display: block;
+									}
+
+									.program-content-footer-note {
+										font-size: rem-calc(13);
+										color: $jumbo;
+									}
+								}
+
+								@media #{$tablet-only}, #{$medium-only} {
+
+									.program-content {
+										padding-left: rem-calc(30);
+									}
+								}
+
+								@media #{$mobile-only}, #{$small-only} {
+
+									.program-content {
+										padding: rem-calc(50 20 0);
+
+										.program-content-list {
+											margin-left: rem-calc(18);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// countdown program
+		.countdown-program-closing {
+			position: absolute;
+			z-index: 100;
+			left: 50%;
+    	top: -35px;
+    	margin-left: rem-calc(-141);
+    	@include border-radius(50px);
+    	@include box-shadow(1px 1px 6px rgba($black, .3));
+    	height: rem-calc(70);
+    	overflow: hidden;
+    	padding: rem-calc(0 20);
+    	background-color: $white;
+
+			ul.format-countdown {
+				height: 100%;
+
+				> li {
+					height: 100%;
+
+					&:not(.vdivider) {
+						text-align: center;
+						padding: rem-calc(8 10);
+
+						.digit-date {
+							display: inline-block;
+							width: 100%;
+							min-width: 1.2em;
+							margin-bottom: rem-calc(5);
+							color: $gray-dark;
+							font: {
+								size: rem-calc(30);
+							}
+							@include box-sizing(content-box);
+						}
+					}
+				}
+			}
+
+			&.closed {
+				ul.format-countdown {
+
+					> li{
+						.digit-date {
+							color: $iron !important;
+						}
+					}
+				}
+			}
+		}
+
+		// sub nav styles
+		#call-submenu-nav {
+			position: relative;
+			z-index: 1;
+			background-color: $color-main-wrap-alt;
+			@include box-shadow( 0px 2px 3px $iron );
+		}
+
+		// content main of program
+		.main-program-detail {
+			padding: {
+				top: rem-calc(20);
+			}
+
+			.call-content-inner {
+				* {
+					font: {
+						size: rem-calc(15);
+					}
+				}
+			}
+		}
+
+		// drop shared social
+		.drop-shared-social-program {
+			> li {
+				padding: {
+					left: rem-calc(20);
+					right: rem-calc(20);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,585 @@
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+//Import Compass library
+	@import "compass/support";
+	@import "compass/utilities";
+
+//Includes the normalize file for elements' base style
+@import "normalize";
+
+// This includes all of the global elements that are needed to work with any of the other files.
+@import "material/base/variables";
+@import "landing/base/variables";
+@import "landing/base/settings"; //Settings for Foundation Framework
+
+/* Materialize 0.97.6 */
+//
+// Include Materialize components require
+	// Mixins
+	// @import "components/prefixer";
+	@import "components/mixins";
+	@import "components/color";
+
+	// Variables;
+	@import "components/variables";
+
+	// components
+	@import "components/global";
+	// @import "components/icons-material-design";
+	// @import "components/grid";
+	// @import "components/navbar";
+	// @import "components/roboto";
+	@import "components/typography";
+	// @import "components/cards";
+	// @import "components/toast";
+	// @import "components/tabs";
+	// @import "components/tooltip";
+	// @import "components/buttons";
+	@import "components/dropdown";
+	// @import "components/waves";
+	// @import "components/modal";
+	@import "components/collapsible";
+	// @import "components/chips";
+	// @import "components/materialbox";
+	@import "components/forms/forms";
+	@import "components/table_of_contents";
+	// @import "components/sideNav";
+	@import "components/preloader";
+	// @import "components/slider";
+	// @import "components/carousel";
+	// @import "components/date_picker/default";
+	// @import "components/date_picker/default.date";
+	// @import "components/date_picker/default.time";
+
+/* Foundation 5 */
+// @import "foundation"; // Foundation 5 by Zurb
+
+// Behold, here are all the Foundation components.
+	@import "foundation/components/grid";
+	@import "foundation/components/accordion";
+	@import "foundation/components/alert-boxes";
+	@import "foundation/components/block-grid";
+	@import "foundation/components/breadcrumbs";
+	@import "foundation/components/button-groups";
+	@import "foundation/components/buttons";
+	// @import "foundation/components/clearing";
+	@import "foundation/components/dropdown";
+	@import "foundation/components/dropdown-buttons";
+	@import "foundation/components/flex-video";
+	// @import "foundation/components/forms";
+	// @import "foundation/components/icon-bar";
+	@import "foundation/components/inline-lists";
+	// @import "foundation/components/joyride";
+	// @import "foundation/components/keystrokes";
+	@import "foundation/components/labels";
+	// @import "foundation/components/magellan";
+	// @import "foundation/components/orbit";
+	@import "foundation/components/pagination";
+	@import "foundation/components/panels";
+	// @import "foundation/components/pricing-tables";
+	@import "foundation/components/progress-bars";
+	// @import "foundation/components/range-slider";
+	@import "foundation/components/reveal";
+	@import "foundation/components/side-nav";
+	@import "foundation/components/split-buttons";
+	@import "foundation/components/sub-nav";
+	// @import "foundation/components/switches";
+	@import "foundation/components/tables";
+	@import "foundation/components/tabs";
+	@import "foundation/components/thumbs";
+	@import "foundation/components/tooltips";
+	@import "foundation/components/top-bar";
+	@import "foundation/components/type";
+	@import "foundation/components/offcanvas";
+	@import "foundation/components/visibility";
+
+//Import Compass library
+	@import "compass/css3";
+
+/*!
+*  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+*  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+*/
+	@import "variables";
+	@import "mixins";
+	@import "path";
+	@import "core";
+	@import "larger";
+	@import "fixed-width";
+	@import "list";
+	@import "bordered-pulled";
+	// @import "spinning";
+	@import "rotated-flipped";
+	@import "stacked";
+	@import "icons";
+	@import "animated";
+
+/**
+* Chosen library
+*/
+	// @import "chosen";
+
+/* MaterialDesignIcons.com */
+	@import "mdi/scss/variables";
+	@import "mdi/scss/functions";
+	@import "mdi/scss/path";
+	@import "mdi/scss/core";
+	@import "mdi/scss/icons";
+	@import "mdi/scss/extras";
+
+/**
+* Slick library
+*/
+	@import "slick";
+	@import "slick-theme";
+
+/* App Components */
+// bases
+// -----------------------------
+	@import "material/base/mixins";
+	@import "material/base/colors";
+	@import "material/base/fonts";
+	@import "material/base/icons";
+	@import "material/base/vselectors";
+	@import "material/base/functions";
+	@import "landing/base/colors";
+	@import "landing/base/global";
+	@import "landing/base/typography";
+	@import "landing/base/vselectors";
+	@import "material/base/utilities";
+
+// modules
+// -----------------------------
+	@import "material/module/icons";
+	@import "material/module/grid";
+	@import "material/module/type";
+	@import "material/module/buttons";
+	@import "material/module/images";
+	@import "material/module/modals";
+	@import "material/module/panels";
+	@import "material/module/tables";
+	@import "material/module/listitems";
+	@import "material/module/alerts";
+	@import "material/module/slicks";
+	@import "material/module/forms";
+	@import "material/module/players";
+	@import "material/module/dropdowns";
+	@import "material/module/subnavs";
+	@import "material/base/global";
+	@import "landing/module/alerts";
+	@import "landing/module/buttons";
+	@import "landing/module/modals";
+	@import "landing/module/slicks";
+
+// layouts
+// ---------------------------------
+  // general
+  @import "landing/layout/sections/general";
+  @import "landing/layout/sections/news-land";
+  @import "landing/layout/sections/events-land";
+  @import "landing/layout/sections/programs-land";
+  @import "landing/layout/sections/partners-land";
+  @import "landing/layout/sections/projects-land";
+  @import "landing/layout/sections/team-land";
+
+  @import "landing/layout/header";
+  @import "landing/layout/banner-top";
+  @import "landing/layout/main";
+  @import "landing/layout/footer";
+
+  // login
+  @import "material/layout/sections/login/login-main";
+  @import "material/layout/sections/login/login";
+
+  // terpel
+  @import "landing/layout/sections/terpel/terpel-header";
+  @import "landing/layout/sections/terpel/terpel-slider";
+  @import "landing/layout/sections/terpel/terpel-banner";
+  @import "landing/layout/sections/terpel/terpel-about-designforchange";
+  @import "landing/layout/sections/terpel/terpel-designforchange-program";
+  @import "landing/layout/sections/terpel/terpel-stages-design-for-change";
+  @import "landing/layout/sections/terpel/terpel-successful-projects";
+  @import "landing/layout/sections/terpel/terpel-designforchange-faq";
+  @import "landing/layout/sections/terpel/terpel-stats-numbers";
+  @import "landing/layout/sections/terpel/terpel-dfc-objective";
+
+  @import "landing/layout/sections/terpel/terpel-institution-register";
+  @import "landing/layout/sections/terpel/terpel-entrepreneurship";
+  @import "landing/layout/sections/terpel/terpel-institution-description";
+
+  // reb
+  @import "landing/layout/sections/reb/reb-header";
+  @import "landing/layout/sections/reb/reb-navmenu";
+  @import "landing/layout/sections/reb/reb-banner";
+  @import "landing/layout/sections/reb/reb-program-call";
+  @import "landing/layout/sections/reb/reb-tenth-cycle-stages";
+  @import "landing/layout/sections/reb/reb-stats-section";
+  @import "landing/layout/sections/reb/reb-entrepreneurship";
+  @import "landing/layout/sections/reb/reb-redds-banner";
+
+  //destapafuturo
+  @import "landing/layout/sections/destapafuturo/destapafuturo-header";
+  @import "landing/layout/sections/destapafuturo/destapafuturo-navmenu";
+  @import "landing/layout/sections/destapafuturo/destapafuturo-banner";
+  @import "landing/layout/sections/destapafuturo/destapafuturo-program-call";
+  @import "landing/layout/sections/destapafuturo/destapafuturo-tenth-cycle-stages";
+  @import "landing/layout/sections/destapafuturo/destapafuturo-stats-section";
+  @import "landing/layout/sections/destapafuturo/destapafuturo-feature-entrepreneurship";
+  @import "landing/layout/sections/destapafuturo/destapafuturo-redds-banner";
+
+  // hilandoempresa
+  @import "landing/layout/sections/hilandoempresa/hilandoempresa-institution-description";
+  @import "landing/layout/sections/hilandoempresa/hilandoempresa-stats-numbers";
+  @import "landing/layout/sections/hilandoempresa/hilandoempresa-feature-videos";
+
+  // rnai
+  @import "landing/layout/sections/rnai/_rnai-temporal-section";
+  @import "landing/layout/sections/rnai/rnai-institution-description";
+  @import "landing/layout/sections/rnai/rnai-video-presentation";
+  @import "landing/layout/sections/rnai/_rnai-temporal-section-2";
+  @import "landing/layout/sections/rnai/rnai-team";
+
+  // ecopetrol
+  @import "landing/layout/sections/ecopetrol/ecopetrol-banner";
+  @import "landing/layout/sections/ecopetrol/ecopetrol-institution-description";
+  @import "landing/layout/sections/ecopetrol/ecopetrol-intro-section";
+  @import "landing/layout/sections/ecopetrol/ecopetrol-program-call";
+  @import "landing/layout/sections/ecopetrol/ecopetrol-community-news";
+  @import "landing/layout/sections/ecopetrol/ecopetrol-timeline";
+  @import "landing/layout/sections/ecopetrol/ecopetrol-support-organizers-companies";
+
+  // cecar
+  @import "landing/layout/sections/cecar/cecar-intro-section";
+  @import "landing/layout/sections/cecar/cecar-feature-projects";
+  @import "landing/layout/sections/cecar/cecar-team";
+
+  // andifuturo
+  @import "landing/layout/sections/andifuturo/andifuturo-header";
+  @import "landing/layout/sections/andifuturo/andifuturo-characteristics-section";
+  @import "landing/layout/sections/andifuturo/andifuturo-stats-numbers";
+  @import "landing/layout/sections/andifuturo/andifuturo-entrepreneurs-comunity";
+  @import "landing/layout/sections/andifuturo/andifuturo-register-section";
+  @import "landing/layout/sections/andifuturo/andifuturo-contact-section";
+  @import "landing/layout/sections/andifuturo/andifuturo-achievements-section";
+  @import "landing/layout/sections/andifuturo/andifuturo-strategy-section";
+  @import "landing/layout/sections/andifuturo/andifuturo-success-stories";
+
+  // coomeva
+  @import "landing/layout/sections/coomeva/coomeva-header";
+  @import "landing/layout/sections/coomeva/coomeva-video-banner";
+  @import "landing/layout/sections/coomeva/coomeva-modules";
+  @import "landing/layout/sections/coomeva/coomeva-about";
+  @import "landing/layout/sections/coomeva/coomeva-news";
+  @import "landing/layout/sections/coomeva/coomeva-partners";
+
+  // mapacine
+  @import "landing/layout/sections/mapacine/mapacine-institution-description";
+  @import "landing/layout/sections/mapacine/mapacine-functionalities";
+  @import "landing/layout/sections/mapacine/mapacine-courses";
+  @import "landing/layout/sections/mapacine/mapacine-team";
+
+  // leanstrategy
+  @import "landing/layout/sections/leanstrategy/leanstrategy-header";
+  @import "landing/layout/sections/leanstrategy/leanstrategy-intro-section";
+  @import "landing/layout/sections/leanstrategy/leanstrategy-downloads-section";
+  @import "landing/layout/sections/leanstrategy/leanstrategy-why-whatfor-who-section";
+  @import "landing/layout/sections/leanstrategy/leanstrategy-testimony-section";
+
+  // unisabana
+  @import "landing/layout/sections/unisabana/unisabana-header";
+  @import "landing/layout/sections/unisabana/unisabana-banner";
+  @import "landing/layout/sections/unisabana/unisabana-intro-section";
+
+  // innpulsa
+  @import "landing/layout/sections/innpulsa/innpulsa-header";
+  @import "landing/layout/sections/innpulsa/innpulsa-footer";
+  @import "landing/layout/sections/innpulsa/innpulsa-page1";
+  @import "landing/layout/sections/innpulsa/innpulsa-page2";
+  @import "landing/layout/sections/innpulsa/innpulsa-page-3";
+  @import "landing/layout/sections/innpulsa/innpulsa-page-4";
+  @import "landing/layout/sections/innpulsa/innpulsa-page-5";
+  @import "landing/layout/sections/innpulsa/innpulsa-video-tabs";
+  @import "landing/layout/sections/innpulsa/innpulsa-requirements";
+  @import "landing/layout/sections/innpulsa/innpulsa-about";
+  @import "landing/layout/sections/innpulsa/innpulsa-emprendedores";
+	@import "landing/layout/sections/innpulsa/innpulsa-team";
+
+
+  @import "landing/layout/sections/innpulsa/innpulsa-banner";
+  @import "landing/layout/sections/innpulsa/innpulsa-partners-land";
+  @import "landing/layout/sections/innpulsa/innpulsa-about-subscribe";
+  @import "landing/layout/sections/innpulsa/innpulsa-aldea-benefits";
+  @import "landing/layout/sections/innpulsa/innpulsa-stages";
+  @import "landing/layout/sections/innpulsa/innpulsa-successful-projects";
+  @import "landing/layout/sections/innpulsa/innpulsa-stats";
+  @import "landing/layout/sections/innpulsa/innpulsa-achievements";
+  @import "landing/layout/sections/innpulsa/innpulsa-blog";
+
+  // amcham
+	@import "landing/layout/sections/amcham/amcham-banner";
+	@import "landing/layout/sections/amcham/amcham-cycle-stages";
+	@import "landing/layout/sections/amcham/amcham-partners-section";
+
+	// selectrain
+	@import "landing/layout/sections/selectrain/selectrain-header";
+	@import "landing/layout/sections/selectrain/selectrain-banner";
+	@import "landing/layout/sections/selectrain/selectrain-recruiting";
+	@import "landing/layout/sections/selectrain/selectrain-getstarted-services";
+	@import "landing/layout/sections/selectrain/selectrain-testimonial-section";
+	@import "landing/layout/sections/selectrain/selectrain-institution-register";
+
+	// startupcitymed
+	@import "landing/layout/sections/startupcitymed/startupcitymed-header";
+	@import "landing/layout/sections/startupcitymed/startupcitymed-banner";
+	@import "landing/layout/sections/startupcitymed/startupcitymed-about";
+	@import "landing/layout/sections/startupcitymed/startupcitymed-stages";
+	@import "landing/layout/sections/startupcitymed/startupcitymed-team";
+
+	// demo
+	@import "landing/layout/sections/demo/demo-header";
+	@import "landing/layout/sections/demo/demo-banner";
+	@import "landing/layout/sections/demo/demo-benefits-section";
+	@import "landing/layout/sections/demo/demo-events-section";
+	// @import "landing/layout/sections/demo/block-title-text-cta-section";
+	// @import "landing/layout/sections/demo/demo-events-section";
+	// @import "landing/layout/sections/demo/demo-achievements-section";
+	// @import "landing/layout/sections/demo/demo-team-section";
+
+	// koideas
+	@import "landing/layout/sections/koideas/koideas-header";
+	@import "landing/layout/sections/koideas/koideas-banner";
+	@import "landing/layout/sections/koideas/koideas-about";
+	@import "landing/layout/sections/koideas/koideas-infocategories";
+	@import "landing/layout/sections/koideas/koideas-popular-courses";
+	@import "landing/layout/sections/koideas/koideas-achievements";
+
+	// copo
+	@import "landing/layout/sections/copo/copo-header";
+	@import "landing/layout/sections/copo/copo-slider";
+	@import "landing/layout/sections/copo/copo-practice-areas";
+	@import "landing/layout/sections/copo/copo-services";
+	@import "landing/layout/sections/copo/copo-testimonial";
+	@import "landing/layout/sections/copo/copo-study-cases";
+	@import "landing/layout/sections/copo/copo-partners";
+	@import "landing/layout/sections/copo/copo-contact";
+	@import "landing/layout/sections/copo/copo-footer-land";
+
+	//copo emprendimieto
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-header";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-banner";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-form";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-tools";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-community";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-news";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-management";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-partners";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-contact";
+	@import "landing/layout/sections/copo-emprendimiento/copo-emprendimiento-footer-land";
+
+	// sena
+	@import "landing/layout/sections/sena/sena-header";
+	@import "landing/layout/sections/sena/sena-banner";
+  @import "landing/layout/sections/sena/sena-benefits";
+  @import "landing/layout/sections/sena/sena-about";
+  @import "landing/layout/sections/sena/sena-community";
+	@import "landing/layout/sections/sena/sena-contact";
+
+// dinamiza
+  @import "landing/layout/sections/dinamiza/dinamiza-header";
+	@import "landing/layout/sections/dinamiza/dinamiza-banner";
+	@import "landing/layout/sections/dinamiza/dinamiza-testimonial";
+	@import "landing/layout/sections/dinamiza/dinamiza-video";
+	@import "landing/layout/sections/dinamiza/dinamiza-ecosistema";
+	@import "landing/layout/sections/dinamiza/dinamiza-register";
+	@import "landing/layout/sections/dinamiza/dinamiza-partners";
+	@import "landing/layout/sections/dinamiza/dinamiza-contact";
+	@import "landing/layout/sections/dinamiza/dinamiza-footer";
+
+// sacudete
+	@import "landing/layout/sections/sacudete/sacudete-header";
+	@import "landing/layout/sections/sacudete/sacudete-banner";
+	@import "landing/layout/sections/sacudete/sacudete-about";
+	@import "landing/layout/sections/sacudete/sacudete-news-land";
+  @import "landing/layout/sections/sacudete/sacudete-programs-land";
+
+// fundación bolívar
+  @import "landing/layout/sections/bolivar/bolivar-header";
+  @import "landing/layout/sections/bolivar/bolivar-banner";
+	@import "landing/layout/sections/bolivar/bolivar-about";
+
+// compensar
+	@import "landing/layout/sections/compensar/compensar-header";
+	@import "landing/layout/sections/compensar/compensar-slider";
+	@import "landing/layout/sections/compensar/compensar-about";
+	@import "landing/layout/sections/compensar/compensar-target-route";
+	@import "landing/layout/sections/compensar/compensar-projects";
+	@import "landing/layout/sections/compensar/compensar-info-talk";
+	@import "landing/layout/sections/compensar/compensar-tips";
+	@import "landing/layout/sections/compensar/compensar-faq";
+	@import "landing/layout/sections/compensar/compensar-contact";
+	@import "landing/layout/sections/compensar/compensar-footer";
+
+// cenisotf
+  @import "landing/layout/sections/cenisoft/cenisoft-header";
+  @import "landing/layout/sections/cenisoft/cenisoft-banner";
+  @import "landing/layout/sections/cenisoft/cenisoft-services";
+  @import "landing/layout/sections/cenisoft/cenisoft-us";
+  @import "landing/layout/sections/cenisoft/cenisoft-events";
+  @import "landing/layout/sections/cenisoft/cenisoft-news";
+  @import "landing/layout/sections/cenisoft/cenisoft-partners";
+
+//jucapp
+
+  @import "landing/layout/sections/jucapp/jucapp-header";
+  @import "landing/layout/sections/jucapp/jucapp-banner";
+
+//propace
+
+  @import "landing/layout/sections/propace/propace-header";
+  @import "landing/layout/sections/propace/propace-banner";
+  @import "landing/layout/sections/propace/propace-comunity";
+  @import "landing/layout/sections/propace/propace-advantage";
+  @import "landing/layout/sections/propace/propace-form";
+  @import "landing/layout/sections/propace/propace-footer";
+
+//San juan de avila
+
+  @import "landing/layout/sections/sja/sja-header";
+  @import "landing/layout/sections/sja/sja-banner";
+  @import "landing/layout/sections/sja/sja-campus";
+  @import "landing/layout/sections/sja/sja-teachers";
+  @import "landing/layout/sections/sja/sja-footer";
+
+//tureto
+
+  @import "landing/layout/sections/tureto/tureto-header";
+  @import "landing/layout/sections/tureto/tureto-banner";
+  @import "landing/layout/sections/tureto/tureto-campus";
+  @import "landing/layout/sections/tureto/tureto-teachers";
+  @import "landing/layout/sections/tureto/tureto-footer";
+
+//serviu
+
+  @import "landing/layout/sections/serviu/serviu-home";
+
+//bwee
+
+  @import "landing/layout/sections/bwee/bwee-header";
+  @import "landing/layout/sections/bwee/bwee-banner";
+  @import "landing/layout/sections/bwee/bwee-section1";
+  @import "landing/layout/sections/bwee/bwee-section2";
+  @import "landing/layout/sections/bwee/bwee-footer";
+
+
+// states
+// -----------------------------
+	@import "material/state/animated";
+	@import "landing/state/states";
+	@import "landing/state/medias";
+	@import "material/state/visibility";
+
+// themes institutions
+// ----------------------------
+	// terpel
+	@import "landing/themes/terpel/terpel-main";
+
+	// reb
+	@import "landing/themes/reb/reb-main";
+
+	// destapafuturo
+	@import "landing/themes/destapafuturo/destapafuturo-main";
+
+	// hilandoempresa
+	@import "landing/themes/hilandoempresa/hilandoempresa-main";
+
+	// rnai
+	@import "landing/themes/rnai/rnai-main";
+
+	// premioecopetrol
+	@import "landing/themes/ecopetrol/ecopetrol-main";
+
+	// cecar
+	@import "landing/themes/cecar/cecar-main";
+
+	// andifuturo
+	@import "landing/themes/andifuturo/andifuturo-main";
+
+	// innpulsa
+	@import "landing/themes/innpulsa/innpulsa-main";
+
+	// coomeva
+	@import "landing/themes/coomeva/coomeva-main";
+
+ 	// mapacine
+	@import "landing/themes/mapacine/mapacine-main";
+
+	// leanstrategy
+	@import "landing/themes/leanstrategy/leanstrategy-main";
+
+	// unisabana
+	@import "landing/themes/unisabana/unisabana-main";
+
+	// amcham
+	@import "landing/themes/amcham/amcham-main";
+
+	// selectrain
+	@import "landing/themes/selectrain/selectrain-main";
+
+	// startupcitymed
+	@import "landing/themes/startupcitymed/_startupcitymed-main";
+
+	// demo
+	@import "landing/themes/demo/demo-main";
+
+	// koideas
+	@import "landing/themes/koideas/koideas-main";
+
+	// copo
+	@import "landing/themes/copo/copo-main";
+
+	// copo emprendimiento
+	@import "landing/themes/copo-emprendimiento/copo-emprendimiento-main";
+
+	// sena
+	@import "landing/themes/sena/sena-main";
+
+	// dinamiza
+	@import "landing/themes/dinamiza/dinamiza-main";
+
+	// sacudete
+  @import "landing/themes/sacudete/sacudete-main";
+
+  // fundación bolívar
+	@import "landing/themes/bolivar/bolivar-main";
+
+  // compensar
+	@import "landing/themes/compensar/compensar-main";
+
+// cenisoft
+  @import "landing/themes/cenisoft/cenisoft-main";
+// jucapp
+  @import "landing/themes/jucapp/jucapp-main";
+
+// propace
+@import "landing/themes/propace/propace-main";
+
+// San juan de avila
+
+@import "landing/themes/sja/sja-main";
+
+// serviu
+
+@import "landing/themes/serviu/serviu-main";
+
+// tureto
+
+@import "landing/themes/tureto/tureto-main";
+
+// bwee
+
+@import "landing/themes/bwee/bwee-main";
+
+// colabora
+
+@import "landing/themes/colabora/colabora-main";

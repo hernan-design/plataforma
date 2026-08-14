@@ -1,0 +1,889 @@
+@import "material/base/css3-mixins";
+@import "material/base/mixins";
+/* Application components */
+// bases
+// -----------------------------
+@import "material/base/variables";
+@import "material/base/vselectors";
+@import "material/base/colors";
+// modules
+// -----------------------------
+@import "material/module/inst-modules";
+
+// custome variables
+$roles: () !default;
+$color-roles: () !default;
+$color-function-factor: -15% !default;
+
+// Table of Contents
+//
+// a. list global styles
+// 01. Header - topbar
+// 02. Main Container
+// 03. Styles for programs section
+// 04. Styles for entities
+// 05. Styles for evaluation projects
+// 06. Styles for learns section
+// 07. Styles for features section
+// 08. Styles for payments section
+// 09. Styles for app errors section
+// 10. Styles for user register section
+// 11. Styles for comunity/wall section
+// 12. Styles for User profile
+// 13. Styles for search section
+// 14. Styles for modules menu
+// 15. Styles for slick slider
+// 16. Styles for lists
+
+// =====================
+// a. list global styles
+// =====================
+
+// user entrepreneurship
+ul.list-circles-entrepreneurship {
+	> li {
+		@if variable-exists($roles) {
+
+			@each $rol in $roles {
+				$color-rol: nth($roles-color, index($roles, $rol));
+
+				&.rol-type-#{$rol} {
+					&.has-rol, &:hover {
+
+						.circle-entrepreneurship {
+							color: white;
+							background-color: $color-rol;
+						}
+						color: $color-rol;
+					}
+				}
+			}
+		}
+	}
+}
+
+// ==================
+// icon circle styles
+// ==================
+.circle-entrepreneurship {
+	@if variable-exists($roles) {
+
+		@each $rol in $roles {
+			$color-rol: nth($roles-color, index($roles, $rol));
+
+			&.rol-type-#{$rol} {
+				color: white;
+				background-color: $color-rol;
+			}
+		}
+	}
+}
+
+.chosen-container {
+	ul.chosen-results {
+		li {
+			&.highlighted {
+				// background: #{$background-body} !important;
+				// color: #{$color-body} !important;
+			}
+		}
+	}
+}
+
+.button, button {
+	border-color: #{$secondary-color};
+	background-color: #{$secondary-color};
+
+	&:hover{
+		background-color: scale-color($secondary-color, $lightness: -15%);
+	}
+
+	&:focus {
+		background-color: #{$secondary-color};
+	}
+}
+
+.content-noauth {
+	.row {
+		.columns {
+			&:first-child {
+				border-bottom-color: #{$background-body};
+			}
+		}
+	}
+}
+
+.title-section {
+	@extend %inst-color-body;
+	@extend %inst-bgcolor-body;
+}
+
+// ul.pagination{
+// 	li{
+// 		a{
+// 			color: #{color-body};
+// 			// @extend %inst-color-body;
+// 		}
+
+// 		&:not(.current, .unavailable){
+// 			&:hover, &:focus {
+// 				a {
+// 					background: scale-color($background-body, $lightness: -35%)
+// 				}
+// 			}
+// 		}
+
+// 		&.current{
+// 			a{
+// 				color: scale-color( $background-body, $lightness: 50%);
+// 			}
+// 		}
+// 	}
+// }
+
+// Sub nav Style Performance
+.tool-sub-nav{
+	li{
+		&:hover, &.active{
+			@extend %inst-bgcolor-body;
+			a{
+				@extend %inst-color-body;
+			}
+		}
+		a{
+			color: #{$background-body};
+			border-right: 1px solid #{$background-body};
+		}
+	}
+}
+// Sub Menu Tabs Style performance
+.tabs-content{
+	.content{
+		.title-content-tabs{
+			border-bottom-color:#{$background-body};
+		}
+	}
+}
+
+.data-aside {
+	> div{
+		border-color: #{$background-body};
+	}
+}
+
+// Wysiwyg Editor
+.textarea-post {
+	// border: 1px solid scale-color($background-body, $lightness: 45%);
+}
+
+//dropdown custome
+.tp-dropdown {
+	&.inst-bgcolor:not(.drop-right, .drop-left, .drop-top) {
+		&:before{
+			// border-left-color: #{$background-body};
+			// border-bottom-color: #{$background-body};
+		}
+	}
+
+	&.drop-right {
+		&.inst-bgcolor{
+			&:before{
+				// border-top-color: #{$background-body};
+				// border-right-color: #{$background-body};
+			}
+		}
+	}
+
+	&.drop-left {
+		&.inst-bgcolor{
+			&:before{
+				// border-top-color: #{$background-body};
+				// border-left-color: #{$background-body};
+			}
+		}
+	}
+
+	&.drop-top {
+		&.inst-bgcolor{
+			&:before{
+				// border-left-color: #{$background-body};
+				// border-top-color: #{$background-body};
+			}
+		}
+	}
+}
+
+/*
+* 01. Header - topbar
+*/
+#{$header-wrap} {
+
+	border-top-color: #{$background-header};
+
+	#nav-header, #nav-header-side {
+		.institution-name{
+			@extend %inst-color-body-invert;
+		}
+	}
+
+	#nav-header {
+
+		.avatar{
+			&:after{
+				border-color: #{$background-header} transparent transparent;
+			}
+		}
+
+		.top-bar-section {
+			:not([data-dropdown-content]) {
+
+				li:not(.has-form){
+					a:hover:not(.button):not(.inst-logo),
+					a.active:not(.button):not(.inst-logo) {
+						border-bottom-color: #{$background-header};
+					}
+				}
+			}
+
+			ul li {
+				> button, > .button {
+					&.inst-secondary-outline {
+						color: #{$secondary-color};
+						border-color: #{$secondary-color};
+
+						&:hover, &:focus {
+							background-color: #{$secondary-color};
+							border-color: #{$secondary-color};
+						}
+					}
+
+					&.sky-blue {
+						background-color: #{$secondary-color};
+						border-color: scale-color($secondary-bg-color, $lightness: $color-function-factor);
+
+						&:hover {
+							background-color: scale-color($secondary-bg-color, $lightness: $color-function-factor);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Menu items options
+// ------------------
+#{$topmenu-main} {
+	ul.wrapper-item-options {
+		> li {
+			ul.list-menu-opts {
+				> li {
+					&:hover, &:focus {
+							color: #{$secondary-color} !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+* 02. Main Container
+*/
+#{$main-wrap} {
+
+	.created-by {
+		color: #{$background-body} !important;
+	}
+
+	.tool-sub-section{
+		.block-tool-section{
+			border-bottom-color: #{$background-body};
+		}
+	}
+
+	#foro-wrapper {
+
+		#container-forum-detail{
+			.main-forum-detail{
+				.avatar-forum{
+					border-bottom-color: #{$background-body};
+				}
+			}
+		}
+	}
+
+	#wall-wrapper {
+		.wrap-wysiwyg-postwall{
+			.wysiwyg-toolbar{
+				.wysiwyg-toolbar-icon{
+					@extend %inst-color-body-invert;
+
+					&:hover{
+						color: scale-color($background-body, $lightness: 30%);
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	* ===============================
+	* 03. Styles for programs section
+	* ===============================
+	*/
+	#calls-wrapper {
+
+		#calls-content {
+			#content-program-detail {
+
+				// program shedule
+				.program-schedule {
+
+					ul.list-program-stages {
+
+						.slick-prev, .slick-next {
+							&:before {
+								color: #{$primary-color};
+							}
+						}
+
+						li.tab-program-stage {
+
+							&:hover, &.active {
+								.item-program-stage {
+
+									&, &.finalized, &.current {
+										.progress-stage {
+											&:before {
+												background-color: #{$secondary-bg-color};
+											}
+										}
+									}
+								}
+							}
+
+							.item-program-stage {
+								.progress-stage {
+									.meter-progress-stage {
+										background-color: #{$secondary-bg-color};
+									}
+								}
+
+								// Stage finalized program
+								&.finalized {
+
+									> label {
+										color: #{$secondary-color};
+									}
+
+									.progress-stage {
+										&:before {
+											color: #{$secondary-color};
+											border-color: #{$secondary-color};
+										}
+									}
+								}
+
+								// Stage current program
+								&.current {
+									.progress-stage {
+										&:before {
+											background-color: #{$secondary-bg-color};
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	* =======================
+	* 04. Styles for entities
+	* =======================
+	*/
+	#project-wrapper {
+
+		.header-section {
+			@include gradient-vertical($secondary-bg-color, lighten($secondary-bg-color, $gradient-function-factor), 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/general/emprendimientos-header-bg-grid-pattern.png');
+		}
+	}
+
+	/**
+	* ==================================
+	* 05. Styles for evaluation projects
+	* ==================================
+	*/
+	#evaluation-project-wrapper {
+
+		.header-section {
+			@include gradient-vertical($secondary-bg-color, lighten($secondary-bg-color, $gradient-function-factor), 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/general/emprendimientos-header-bg-grid-pattern.png');
+		}
+	}
+
+	/**
+	* =============================
+	* 06. Styles for learns section
+	* =============================
+	*/
+	#course-wrapper {
+		.header-section {
+			@include gradient-vertical($secondary-bg-color, lighten($secondary-bg-color, $gradient-function-factor), #{$banner-courses});
+		}
+    ul.nav-interactive{
+      li.tab-title{
+        > a{
+          &:active,&:hover{
+            color: #{$secondary-color} !important;
+          }
+        }
+      }
+      li.active{
+        > a{
+          color: #{$secondary-color} !important;
+        }
+      }
+    }
+    #container-tab-main{
+      li.active{
+        a{
+          i{
+            color: #{$secondary-color} !important;
+          }
+        }
+      }
+      .tab-aprende{
+        color: grey !important;
+        line-height: 2;
+        &:hover{
+          color: #{$secondary-color} !important;
+        }
+      }
+    }
+    .attached-list-theme {
+      .active {
+        background: #{$secondary-bg-color} !important;
+      }
+    }
+    .controls-lecture {
+      > li {
+        vertical-align: top;
+        height: 100%;
+      }
+      a.btn-control-lecture {
+        color: $base !important;
+        font: {
+          size: rem-calc(14);
+        }
+        > i {
+          font-size: 1.8em;
+        }
+        &:hover{
+          color: #{$secondary-bg-color} !important;
+          text-decoration: none;
+        }
+      }
+    }
+	}
+
+	/**
+	* ===============================
+	* 07. Styles for features section
+	* ===============================
+	*/
+	#features-wrapper {
+		.features-vertical-menu {
+			background-color: #{$primary-color};
+
+			.features-menu-item {
+				.features-menu-anchor {
+					&:hover {
+						background-color: #{$secondary-color};
+					}
+				}
+			}
+
+			.active {
+				background-color: #{$secondary-color};
+
+				&:after {
+				  border-top: 10px solid transparent;
+				  border-bottom: 10px solid transparent;
+				  border-left: 10px solid #{$secondary-color};
+				}
+			}
+		}
+	}
+
+	/**
+	* ===============================
+	* 08. Styles for payments section
+	* ===============================
+	*/
+	#pricing-wrapper {
+		#pricing-main {
+			.pricing-large-devices {
+				.pricing-plans-boxes {
+					&.premium {
+						border: 1px solid #{$secondary-color};
+
+						.pricing-plans-head {
+							.price-number {
+								color: #{$secondary-color};
+							}
+						}
+					}
+
+					.plans-checkbox {
+						.plans-checkbox-icon {
+							&.mdi-check {
+								&:before {
+									color: #{$secondary-color};
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.pricing-ms-devices {
+				.accordion-pricing-plans {
+					.accordion-pricing-plans-item {
+						&.premium {
+							border: 1px solid #{$secondary-color};
+
+							.accordion-plan-name {
+								color: #{$secondary-color};
+							}
+
+							.accordion-plan-price-number {
+								color: #{$secondary-color};
+							}
+
+						}
+
+						.accordion-plans-content-list {
+							.accordion-plans-content-item {
+								&.accordion-icon {
+									&.icon-check {
+										&:after {
+											color: #{$secondary-color};
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+
+	/**
+	* =================================
+	* 09. Styles for app errors section
+	* =================================
+	*/
+	.app-errors {
+		.app-errors-menu {
+			.app-errors-boxes {
+				.app-errors-menu-list {
+					.app-errors-menu-item {
+						.app-errors-menu-anchor {
+							&:hover {
+								color: #{$secondary-color};
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	* ====================================
+	* 10. Styles for user register section
+	* ====================================
+	*/
+	#registration-user-wrapper {
+		.registration-process-menu {
+
+			.tab-title {
+				margin-right: rem-calc(40);
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				&.active {
+					border-bottom-color: #{$secondary-color};
+				}
+
+				.registration-menu-item {
+
+					&:hover {
+						border-bottom-color: #{$secondary-color};
+					}
+
+					&.active {
+						border-bottom-color: #{$secondary-color};
+					}
+
+					.registration-circle-number {
+						.registration-steps-number {
+							&.registration-check {
+								&:before {
+									color: #{$secondary-color};
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		#general-user-info {
+			.reg-process-info-box {
+				.upload-profile-img-main {
+					.upload-img-icon-circle {
+						background-color: #{$secondary-color};
+					}
+				}
+			}
+		}
+
+		#social-community-channels {
+			.reg-content-box {
+				.channels-list-group {
+					.channel-item-box {
+						[type="checkbox"] {
+							+ label {
+								&:hover {
+									color: #{$secondary-color};
+
+									&:after, &:before {
+										color: #{$secondary-color};
+									}
+								}
+							}
+						}
+
+						[type="checkbox"]:checked {
+							+ label {
+								border-color: #{$secondary-color};
+								color: #{$secondary-color};
+
+								&:after {
+									color: #{$secondary-color};
+								}
+
+								&:before {
+									border-right-color: #{$secondary-color};
+					    		border-bottom-color: #{$secondary-color};
+								}
+							}
+				  	}
+					}
+				}
+			}
+		}
+	}
+
+	/*
+	* ====================================
+	* 11. Styles for comunity/wall section
+	* ====================================
+	*/
+	#wall-wrapper {
+		.publishing-type-actions {
+
+			.choice-publishing-type {
+				&:hover, &.active {
+					> i {
+						color: #{$secondary-color};
+					}
+				}
+			}
+		}
+	}
+
+	/*
+	* ====================================
+	* 12. Styles for User profile
+	* ====================================
+	*/
+
+	#user-wrapper {
+		#user-content {
+			#profile-header-content {
+				#profile-header-background {
+					background-color: #{$secondary-color};
+				}
+
+				#user-socials-container {
+					.active {
+						.icon-active {
+							color: #{$secondary-color};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/*
+	* ====================================
+	* 13. Styles for search section
+	* ====================================
+	*/
+
+	#search-wrapper {
+		.search-results {
+			color: #{$secondary-color};
+		}
+
+		.slick-dots {
+		  .slick-active {
+				button {
+					&:before {
+						color: #{$secondary-color};
+					}
+				}
+			}
+
+			> li {
+				> button {
+					&:hover {
+						&:before {
+						  color: #{$secondary-color};
+						}
+					}
+				}
+			}
+	  }
+
+		.browse-list-search {
+			.item-wrap-list {
+				.content-item-list {
+					.list-item-title {
+						.highlight-search {
+							color: #{$secondary-color};
+						}
+					}
+				}
+			}
+		}
+
+		.menu-filter-panel {
+			.side-nav-slide {
+				> li {
+					[type="checkbox"] {
+						+ label {
+							&:hover {
+								color: #{$secondary-color} !important;
+
+								&:after, &:before {
+									color: #{$secondary-color};
+								}
+							}
+						}
+					}
+
+					[type="checkbox"]:checked {
+						+ label {
+							border-color: #{$secondary-color};
+							color: #{$secondary-color};
+
+							&:after {
+								color: #{$secondary-color};
+							}
+
+							&:before {
+								border-right-color: #{$secondary-color};
+								border-bottom-color: #{$secondary-color};
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+  /*
+	* ====================================
+	* 14. Styles for modules menu tabs
+	* ====================================
+	*/
+
+	.wrapper-module-menu-section, .wrapper-module-responsive-nav, #drop-desk-nav, #drop-main-menu {
+    background-color: rgba($secondary-color, 0.85);
+	}
+
+  .wrapper-submenu-section {
+    .tabs-sub-nav-alt {
+      background-color: #{$secondary-color};
+    }
+  }
+
+  .wrapper-module-nav {
+    .sub-nav {
+      .f-dropdown {
+        &.dropdown-main {
+          &.open {
+            background-color: #{$secondary-color};
+          }
+
+          > li {
+            background-color: #{$secondary-color};
+          }
+        }
+      }
+    }
+  }
+
+  /*
+	* ====================================
+	* 15. Styles for slick slider
+	* ====================================
+	*/
+	.slick-slider {
+		.slick-prev, .slick-next {
+			&:not(.slick-disabled) {
+				&:before {
+					color: #{$secondary-color};
+				}
+			}
+		}
+	}
+
+	/*
+	* ====================
+	* 16. Styles for lists
+	* ====================
+	*/
+
+	.content-data-list {
+		.browse-list-mask {
+
+
+			.list-item-wrap {
+
+				&:hover {
+					.content-item-list {
+            .participate-action {
+				      color: #{$secondary-color};
+            }
+				  }
+				}
+			}
+		}
+	}
+
+
+}

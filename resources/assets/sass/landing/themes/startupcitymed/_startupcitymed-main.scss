@@ -1,0 +1,24 @@
+#{$wrapper-land}.wrapper-startupcitymed {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+	@extend %startupcitymed-header !optional;
+
+	#{$main-land} {
+		@extend %startupcitymed-banner !optional;
+		@extend %startupcitymed-about !optional;
+		@extend %startupcitymed-stages !optional;
+		@extend %startupcitymed-team !optional;
+
+	}
+}

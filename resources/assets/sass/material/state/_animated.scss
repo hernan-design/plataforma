@@ -1,0 +1,429 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Animated custom
+// ---------------------
+
+// Table of Contents
+//
+// 01. icons animated
+// 02. list items animated
+// 03. dropdowns animated
+// 04. panels animated
+// 05. slide box animated
+// 06. side navigation animated
+// 07. preloader full screen
+
+//
+// @Variables
+//
+$material-animated-duration: 400ms !default;
+$material-animated-timing-function: ease-out !default;
+$material-animated-delay: 0s !default;
+$material-transition-duration: 300ms !default;
+$material-transition-timing-function: ease-out !default;
+$material-transition-delay: 0s !default;
+
+// ------------------
+// 01. icons animated
+// ------------------
+.#{$material-animated-icon-prefix} {
+
+	&.active, &.open {
+		&.bubbleback{
+			&:before {
+				@include scale(45);
+				@include opacity(0);
+				@include transition( all 0.5s ease-out );
+			}
+		}
+	}
+}
+
+// animated for hamburger icon
+// ---------------------------
+.md-hamburger__icon {
+
+	&.active, &.open {
+		.md-hamburger__layer {
+				@include animation-name( md-hamburger__icon--slide );
+				@include animation-fill-mode(forwards);
+			&:before {
+				@include animation-name( md-hamburger__icon--slide-before );
+				@include animation-fill-mode(forwards);
+			}
+
+			&:after {
+				@include animation-name( md-hamburger__icon--slide-after );
+				@include animation-fill-mode(forwards);
+			}
+		}
+	}
+
+	&.no-active {
+		.md-hamburger__layer {
+			@include animation-name( md-hamburger__icon--slide-from );
+
+			&:before {
+				@include animation-name( md-hamburger__icon--slide-before-from );
+			}
+
+			&:after {
+				@include animation-name( md-hamburger__icon--slide-after-from );
+			}
+		}
+	}
+}
+
+@include keyframes( md-hamburger__icon--slide ) {
+	0% {
+	}
+	100% {
+		@include rotate(180deg);
+	}
+}
+
+@include keyframes( md-hamburger__icon--slide-before ) {
+	0% {
+	}
+	100% {
+		@include rotate(45deg);
+		margin: -10% 49%;
+		width: 60%;
+	}
+}
+
+@include keyframes( md-hamburger__icon--slide-after ) {
+	0% {
+	}
+	100% {
+		@include rotate(-45deg);
+		margin: -10% 49%;
+		width: 60%;
+	}
+}
+
+@include keyframes( md-hamburger__icon--slide-from ) {
+	0% {
+		@include rotate(-180deg);
+	}
+	100% {
+	}
+}
+
+@include keyframes( md-hamburger__icon--slide-before-from ) {
+	0% {
+		@include rotate(45deg);
+		margin: -10% 49%;
+    width: 60%;
+	}
+	100% {
+	}
+}
+
+@include keyframes( md-hamburger__icon--slide-after-from ) {
+	0% {
+		@include rotate(-45deg);
+		margin: -10% 49%;
+    width: 60%;
+	}
+	100% {
+	}
+}
+
+// animated for hamburger icon close
+// ---------------------------------
+.md-hamburger-close__icon {
+	&.active, &.open {
+		.md-hamburger__layer {
+				@include animation-name( md-hamburger-close__icon--slide );
+				@include animation-fill-mode(forwards);
+			&:before {
+				@include animation-name( md-hamburger-close__icon--slide-before );
+				@include animation-fill-mode(forwards);
+			}
+
+			&:after {
+				@include animation-name( md-hamburger-close__icon--slide-after );
+				@include animation-fill-mode(forwards);
+			}
+		}
+	}
+
+	&.no-active {
+		.md-hamburger__layer {
+			@include animation-name( md-hamburger-close__icon--slide-from );
+
+			&:before {
+				@include animation-name( md-hamburger-close__icon--slide-before-from );
+			}
+
+			&:after {
+				@include animation-name( md-hamburger-close__icon--slide-after-from );
+			}
+		}
+	}
+}
+
+@include keyframes( md-hamburger-close__icon--slide ) {
+	0% {
+	}
+	100% {
+		// background-color: transparent;
+		height: 0;
+	}
+}
+
+@include keyframes( md-hamburger-close__icon--slide-before ) {
+	0% {
+	}
+	100% {
+		@include transform( rotate(45deg) translate(.2em, .25em) );
+	}
+}
+
+@include keyframes( md-hamburger-close__icon--slide-after ) {
+	0% {
+	}
+	100% {
+		@include transform( rotate(-45deg) translate(.2em, -0.25em) );
+	}
+}
+
+@include keyframes( md-hamburger-close__icon--slide-from ) {
+	0% {
+		// background-color: initial;
+	}
+	100% {
+		height: initial;
+	}
+}
+
+@include keyframes( md-hamburger-close__icon--slide-before-from ) {
+	0% {
+		@include transform( rotate(45deg) translate(.2em, .25em) );
+	}
+	100% {
+	}
+}
+
+@include keyframes( md-hamburger-close__icon--slide-after-from ) {
+	0% {
+		@include transform( rotate(-45deg) translate(.2em, -0.25em) );
+	}
+	100% {
+	}
+}
+
+// animated for plus icon
+// ----------------------
+.md-plus__icon {
+
+	&.bubbleback {
+		&:before {
+			background-color: $white;
+			z-index: 0;
+			@include opacity(.8);
+			// @include transition( all $material-transition-duration ease-out );
+			@media #{$mobile-only}, #{$small-only} {
+				z-index: -1;
+			}
+		}
+	}
+
+	&.active, &.open {
+		.md-plus__layer {
+			&:before {
+				@include rotate(135deg);
+			}
+			&:after {
+				@include rotate(45deg);
+			}
+		}
+
+		@media #{$mobile-only}, #{$small-only} {
+			&.bubbleback {
+				&:before {
+					@include opacity(.8);
+					@include scale(2500);
+					@include transition(none);
+				}
+			}
+		}
+	}
+}
+
+// -----------------------
+// 02. list items animated
+// -----------------------
+.content-data-list {
+	// ul[class*=browse-list-] {
+	// 	> li {
+	// 		> [class*=item-], .item-wrap-list {
+	// 			@include transition(box-shadow 250ms ease-out, background-color 250ms ease-out);
+
+	// 			&:hover {
+	// 				@include box-shadow($box-shadow-item-hover);
+	// 			}
+	// 		}
+	// 	}
+
+	// 	.item-wrap-list {
+	// 		@include transition(box-shadow 250ms ease-out, background-color 250ms ease-out);
+
+	// 		&:hover {
+	// 			@include box-shadow($box-shadow-item-hover);
+	// 		}
+	// 	}
+	// }
+}
+
+// ----------------------
+// 03. dropdowns animated
+// ----------------------
+
+// animated for dropdown options create plus
+ul.drop-opt-create, ul.drop-opt-md {
+	max-height: 1px;
+	@include opacity(0);
+	@include transition-property(max-height opacity);
+	@include transition-duration(800ms);
+	@include transition-timing-function($material-transition-timing-function);
+	@include transition-delay($material-transition-delay);
+
+	&.active, &.open {
+		@include opacity(1);
+		max-height: rem-calc(500);
+	}
+}
+
+.dd {
+  position: absolute;
+  top: -9999px;
+  @include translateY(-20px);
+  @include opacity(0);
+}
+.dropdown-transition-md {
+  position: relative;
+  @include opacity(1);
+	@include translateY(0px);
+	@include transition(transform 400ms, opacity 400ms);
+}
+
+// -------------------
+// 04. panels animated
+// -------------------
+.content-panels {
+	.panel-item {
+		@include transition(all 200ms ease-out);
+
+		&:hover {
+			@include box-shadow($box-shadow-item-hover);
+			border-top-color: $sky-blue;
+			background-color: $white;
+		}
+	}
+}
+
+// ----------------------
+// 05. slide box animated
+// ----------------------
+#topmenu-main-options {
+	@include transition-property(all);
+	@include transition-duration($material-transition-duration);
+	@include transition-timing-function($material-transition-timing-function);
+	@include transition-delay(100ms);
+	right: 0px;
+	left: auto;
+	width: 0px;
+	height: 0px;
+	// @include border-radius(0px 0px 0px 50px);
+
+	&.show-topmenu-options {
+		width: 100%;
+		height: 100%;
+		@include border-radius(0px);
+	}
+}
+
+// ----------------------------
+// 06. side navigation animated
+// ----------------------------
+.wrapper-side-nav {
+	@include transition(all $material-transition-duration $material-transition-timing-function);
+}
+
+// -------------------------
+// 07. preloader full screen
+// -------------------------
+// bounce preloader
+.double-bounce1, .double-bounce2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: $white;
+  @include opacity(0.6);
+
+	@include animation(sk-bounce 2.0s infinite ease-in-out);
+}
+.double-bounce2 {
+	@include animation-delay(-1.0s);
+}
+@include keyframes( sk-bounce ) {
+	0%, 100% { @include transform( scale(0.0) ); }
+  50% { @include transform( scale(1.0) ); }
+}
+
+// progress preloader
+.progress-preloader {
+	.determinate {
+		@include animation(preload-determinate 6.0s linear);
+	}
+}
+@include keyframes(preload-determinate) {
+	from { width: 0%; }
+	to { width: 100%; }
+}
+
+/* Loaded */
+.loaded {
+
+  #preloader-wrapper {
+		visibility: hidden;
+
+		@include transform( translateY(-100%) );
+		@include transition( all 0.3s 1s ease-out );
+
+	  .preloader-section.loader-section-0 {
+	  	@include transform( translateY(-100%) );
+	  	@include transition( all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000) );
+	  }
+
+	  .preloader-section.loader-section-1 {
+	  	@include transform( translateY(100%) );
+	  	@include transition( all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000) );
+	  }
+
+	  #preloader {
+	  	@include opacity(0);
+	  	@include transition( all 0.3s ease-out );
+	  }
+
+	  .preloader-diagonal-wrap {
+			visibility: hidden;
+
+			@include transform( translate(-100%) );
+			@include transition( all 0.3s 1s ease-out );
+		}
+  }
+
+  .progress-preloader {
+  	@include opacity(0);
+  	clip: rect(0px, auto, auto, 3000px);
+  }
+}
+
+
+

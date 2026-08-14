@@ -1,0 +1,67 @@
+// Styles for blog article
+//-------------------------
+%blog-browse {
+
+	#content-article-main {
+        @include margin-item-top;
+
+		.last-article-blog {
+			position: relative;
+			min-height: rem-calc(150);
+			overflow: hidden;
+			margin: {
+				bottom: rem-calc(10);
+			}
+			background-color: $white;
+			z-index: 1;
+			@include side-radius(right);
+			@include box-shadow($box-shadow-item);
+
+			.image-last-article{
+				width: 100%;
+				height: 100%;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.mask-last-article {
+				width: 100%;
+				position: absolute;
+				left: 0px;
+				bottom: 0px;
+				padding: rem-calc(0 25 25);
+			}
+
+			.detail-last-article {
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				padding: rem-calc(15 25 85);
+				background-color: $white;
+
+				.info-author-last-article {
+					padding: rem-calc(7 0);
+					margin: rem-calc(10 0);
+					border-top: 1px solid;
+					border-bottom: 1px solid;
+					border-color: $hr-border-color;
+				}
+
+				.last-article-resumen {
+					position: relative;
+					overflow: hidden;
+					height: rem-calc(150);
+				}
+			}
+		}
+
+		.content-articles-list {
+			min-height: rem-calc(680);
+		}
+	}
+}

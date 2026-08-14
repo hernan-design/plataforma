@@ -1,0 +1,124 @@
+%sena-community {
+  #sena-community {
+    background-color: $sena-light-green-color;
+    padding: rem-calc(80 0);
+
+    @media #{$mobile-only}, #{$small-only} {
+      padding: rem-calc(30 0);
+    }
+
+    @media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+      padding: rem-calc(50 0);
+    }
+
+    .section-title {
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-family: 'Ubuntu', sans-serif;
+      color: $sena-bright-green-color;
+    }
+
+    .comunidad-content-item {
+
+      @media #{$tablet-up} {
+        padding: rem-calc(0 30);
+      }
+
+      &.top-items {
+        @media #{$tablet-up} {
+          margin-top: rem-calc(100);
+        }
+      }
+
+      &.bottom-items {
+        @media #{$tablet-up} {
+          margin-top: rem-calc(15);
+        }
+
+        @media #{$large-up} {
+          margin-top: rem-calc(50);
+        }
+      }
+    }
+
+    .comunidad-list {
+      margin-bottom: rem-calc(12);
+
+      .has-image {
+        img {
+          width: 101px;
+        }
+      }
+
+      p {
+        color: $sena-dark-green-color;
+      }
+
+      h3 {
+        font-weight: 700;
+      }
+
+      h3, p {
+        font-family: 'Ubuntu', sans-serif;
+      }
+
+      @media #{$tablet-up} {
+        > li {
+          display: block;
+          text-align: center;
+          width: auto;
+          padding-right: 0;
+
+          &:first-child {
+            margin-bottom: 12px;
+          }
+        }
+      }
+
+      @media #{$mobile-only}, #{$small-only} {
+        .comunidad-list-item {
+          > p {
+            font-size: rem-calc(13);
+          }
+        }
+      }
+
+      @media #{$tablet-only} {
+        .comunidad-icon {
+          width: 60px;
+        }
+
+        .comunidad-list-item {
+          > h6 {
+            font-size: rem-calc(14);
+          }
+
+          > p {
+            font-size: rem-calc(12);
+          }
+        }
+      }
+
+      @media only screen and (min-width: 1440px) {
+        .comunidad-icon {
+          width: 100px;
+          height: auto;
+        }
+
+        .comunidad-list-item {
+          > h6 {
+            font-size: rem-calc(21);
+            font-weight: normal;
+            margin-bottom: rem-calc(14);
+          }
+
+          > p {
+            font-size: rem-calc(15);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,230 @@
+// Styles for purchase market
+// --------------------------
+%marketplace-purchase {
+
+	// content main marketplace purchase
+	#content-purchase-marketplace {
+
+		// panel purchase process
+		.panel-purchase-marketplace {
+			padding: rem-calc(0 0 30);
+
+			&.with-title {
+				padding-top: rem-calc(70);
+			}
+		}
+
+		// panel confirm purchase
+		.panel-purchase-confirm, .panel-purchase-success {
+
+				&.with-title {
+
+					.title-info, .title-panel {
+						margin-bottom: rem-calc(40);
+					}
+				}
+		}
+
+		.panel-purchase-success {
+			margin: {
+				bottom: rem-calc(40);
+			}
+		}
+
+		// icon panel purchase
+		.wrap-icon-confirm-purchase {
+			margin: {
+				bottom: rem-calc(30);
+			}
+
+			.confirm-purchase-circle {
+				@include icon-circle(
+					$font-size: rem-calc(65),
+					$padding: rem-calc(20),
+					$color: $white,
+					$bgcolor: $base
+				);
+			}
+		}
+
+		.description-content {
+			margin: {
+				bottom: rem-calc(30);
+			}
+		}
+
+		.desc-product-purchase {
+			overflow: hidden;
+			max-height: rem-calc(66);
+		}
+
+		// list products purchase
+		ul.list-products-purchase {
+			@include redefine-padding-gb($padding: rem-calc(20 100 20));
+			margin: {
+				left: rem-calc(-25) !important;
+				right: rem-calc(-25) !important;
+				bottom: rem-calc(60);
+			}
+
+			> li { background-color: $gray-light-alt; }
+
+			.item-wrap-list {
+				background-color: $white;
+
+				.top-item-list, .content-item-list, .bottom-item-list {
+					background-color: inherit;
+				}
+			}
+
+			ul.options-bottom-item {
+				margin: 0;
+				list-style: outside none none;
+				width: 100%;
+
+				> li {
+					width: 100%;
+
+					&:not(:last-of-type) {
+						margin: {
+							bottom: rem-calc(8);
+						}
+					}
+
+					button, .button {
+						margin: 0;
+					}
+				}
+
+				input:not([type="hidden"]), textarea, select {
+					margin: {
+						bottom: 0;
+					}
+				}
+
+				label.label {
+					margin: 0;
+				}
+			}
+
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+				@include redefine-padding-gb($padding: rem-calc(20 25 20));
+			}
+		}
+
+		// submenu of marketplace purchase
+		#purchase-submenu-tabs {
+			margin: {
+				bottom: rem-calc(25);
+			}
+
+			#purchase-tabs-filter {
+				background-color: $vapor;
+				border-bottom: none;
+
+				> li, .tab-title {
+					float: none;
+					width: (100% / 3);
+					padding: 0;
+
+					> a {
+						padding: {
+							top: rem-calc(28);
+							bottom: rem-calc(28);
+						}
+						font: {
+							size: rem-calc(16);
+							weight: $font-weight-bold;
+						}
+						color: $gray-dark;
+					}
+				}
+			}
+		}
+
+		// list detail purchase
+		ul.list-detail-purchase {
+
+			margin-top: rem-calc(15);
+			> li {
+				&:not(:last-of-type) {
+					margin-bottom: rem-calc(55);
+				}
+			}
+
+			ul.products-detail-purchase {
+
+				.has-image {
+					padding-right: rem-calc(10);
+				}
+
+				img.img-product-purchase {
+					min-width: rem-calc(110);
+					width: rem-calc(110);
+					height: auto;
+				}
+			}
+		}
+
+		ul.list-seller-info {
+			margin: {
+				bottom: rem-calc(25);
+			}
+
+			.item-info {
+				background-color: $white-smoke;
+				padding: rem-calc(35 15);
+			}
+		}
+
+		#confirm-purchase {
+			padding: {
+				left: rem-calc(25);
+				right: rem-calc(25);
+			}
+		}
+
+		.section-content-purchase {
+			> .content {
+				padding: rem-calc(0 25);
+			}
+		}
+	}
+
+	.panel-marketplace-purchase-evaluation {
+		padding: rem-calc(40 0 50);
+
+		.content-data-products-evaluation {
+			margin: {
+				bottom: rem-calc(40);
+			}
+			padding: rem-calc(20 0 0);
+			background-color: $color-main-wrap-alt;
+
+			ul.list-products-evaluation {
+				padding: 0;
+			}
+		}
+
+		ul#items-purchase-evaluation {
+			margin: rem-calc(0 0 40);
+
+			> li {
+				a {
+					line-height: 2;
+				}
+			}
+		}
+
+		.btn, .btn-submit {
+			margin: {
+				top: rem-calc(40);
+			}
+		}
+
+		.desc-product-purchase-evaluation {
+			overflow: hidden;
+			max-height: rem-calc(66);
+		}
+	}
+}

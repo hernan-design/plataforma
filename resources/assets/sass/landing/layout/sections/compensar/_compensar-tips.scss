@@ -1,0 +1,15 @@
+%compensar-tips {
+  #compensar-tips {
+		position: relative;
+
+		&:after {
+			content: '';
+			width: 100%;
+			height: 266px;
+			position: absolute;
+			top: 0;
+			background-color: $silver;
+			z-index: -2;
+		}
+	}
+}

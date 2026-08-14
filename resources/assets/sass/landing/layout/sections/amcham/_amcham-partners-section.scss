@@ -1,0 +1,27 @@
+%amcham-partners-section {
+	#amcham-partners-section {
+
+		ul.partners-list {
+
+			> li{
+				&:hover{
+					img{
+						@include filter( grayscale(0%) );
+						@include opacity(1);
+					}
+				}
+
+				img {
+					@include filter( grayscale(100%) );
+					@include opacity(.5);
+				}
+			}
+		}
+
+		.partners-section-title {
+			font-weight: 600;
+			font-size: rem-calc(34);
+			color: $black;
+		}
+	}
+}

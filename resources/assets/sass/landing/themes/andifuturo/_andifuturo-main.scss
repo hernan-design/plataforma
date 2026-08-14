@@ -1,0 +1,38 @@
+#{$wrapper-land}.wrapper-andifuturo {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+	@extend %andifuturo-header !optional;
+
+	#{$main-land} {
+
+		.section-land {
+			.title-section-land {
+				color: $black;
+				font-weight: 400;
+			}
+		}
+
+
+		@extend %andifuturo-achievements-section !optional;
+		@extend %andifuturo-stats-numbers !optional;
+		@extend %andifuturo-entrepreneurs-comunity !optional;
+		@extend %andifuturo-register-section !optional;
+		@extend %andifuturo-contact-section !optional;
+		@extend %andifuturo-strategy-section !optional;
+		@extend %andifuturo-characteristics-section !optional;
+		@extend %andifuturo-success-stories !optional;
+	}
+}

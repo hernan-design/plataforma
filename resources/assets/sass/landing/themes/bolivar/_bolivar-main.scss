@@ -1,0 +1,32 @@
+#{$wrapper-land}.wrapper-bolivar {
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+  // @extend %bolivar-header !optional;
+  @extend %bolivar-header !optional;
+  @extend %bolivar-banner !optional;
+
+  #{$main-land} {
+    @extend %bolivar-about !optional;
+
+
+    /**
+    * =========================
+    * Sections styles
+    * =========================
+    */
+  }
+}
+

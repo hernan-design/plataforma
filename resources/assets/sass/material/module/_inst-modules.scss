@@ -1,0 +1,1096 @@
+// Customize style modules for institutions
+// ----------------------------------------
+
+//
+// Table of Contents
+// a. Utilities
+// b. Globals
+// 01. Icons
+// 02. Buttons
+// 03. Tabs
+// 04. Panels
+// 05. List items
+// 06. Posts
+// 07. Forms
+// 08. Dropdowns
+// 09. Sub navegation
+// 10. Modals
+// 11. Slicks
+// 12. Preloaders
+// 13. File uploaders
+// 14. Tags
+// 15. Sidenavs
+// 16. Editors
+// 17. Calendar
+// 18. Spinners
+
+//
+// Variables
+//
+// custome variables
+$roles: () !default;
+$color-roles: () !default;
+$color-function-factor: -10% !default;
+
+// a. Utilities
+// ------------
+hr {
+	&.sky-blue {
+		border-color: #{$secondary-bg-color};
+	}
+}
+
+// b. Globals
+// ----------
+
+a {
+	color: #{$secondary-color};
+
+	&:hover {
+		color: #{$secondary-color};
+	}
+}
+
+span {
+	a {
+		color: #{$secondary-color};
+		&:hover {
+			color: #{$secondary-color};
+		}
+	}
+}
+
+.is-hovered:not(.button):not(button) {
+	&:hover, &:active, &.active {
+		color: #{$secondary-color} !important;
+		* {
+			color: #{$secondary-color};
+		}
+	}
+}
+
+// styles pagination
+ul.pagination {
+
+	li {
+		&.active {
+			background-color: #{$secondary-color};
+		}
+	}
+}
+
+.card-user-info {
+
+	&:hover, &:active, &.active {
+		.is-hovered {
+			&:not(.button):not(button) {
+				color: #{$secondary-color};
+			}
+
+			&button, &.button {
+				background-color: #{$secondary-bg-color};
+				border-color: #{$secondary-bg-color};
+			}
+		}
+	}
+}
+
+// Styles for social shared
+// ------------------------
+ul.post-social-shared {
+	> li{
+		span {
+			a {
+				color: #{$secondary-color} !important;
+			}
+		}
+
+		.button, button {
+			&:hover, &:focus {
+				color: #{$secondary-color};
+			}
+		}
+	}
+}
+// Styles for social icon
+// ----------------------
+ul.social-box-icons {
+	> li {
+		a {
+			&:hover, &.ilike {
+				color: #{$secondary-color};
+
+				span {
+					color: #{$secondary-color};
+				}
+			}
+		}
+
+		span {
+			a {
+				color: #{$secondary-color};
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.button, button {
+			&:hover, &:focus {
+				color: #{$secondary-color};
+			}
+		}
+
+		// styles for button like
+		.TPlikelink {
+			i {
+				&.sky-blue {
+					color: #{$secondary-color};
+				}
+			}
+		}
+	}
+}
+
+// Styles of favorite
+// ------------------
+.TPfavoritelink {
+	&:hover, &.on-favorite {
+		color: #{$secondary-color} !important;
+	}
+}
+
+// Styles for starts rating
+// ------------------------
+.stars-rating:not(old) {
+
+	&:not(:hover) > :checked ~ label {
+
+		i[class*=star] {
+			color: #{$secondary-color};
+		}
+	}
+
+	&.readonly {
+		> :checked ~ label {
+
+			i[class*=star] {
+				color: #{$secondary-color};
+			}
+		}
+	}
+
+	&:not(.readonly) {
+		> label:hover,
+		> label:hover ~ label {
+
+			i[class*=star] {
+				color: #{$secondary-color};
+			}
+		}
+	}
+}
+
+// 01. Icons
+// ---------
+.#{$mdi-css-prefix},
+	.#{$icon-css-prefix} {
+
+	&.sky-blue {
+		color: #{$secondary-color};
+	}
+}
+
+.icon-circle {
+	&.sky-blue {
+		background-color: #{$secondary-bg-color};
+	}
+
+	&.white {
+		color: #{$secondary-color};
+	}
+}
+
+.toggle-reveal-info {
+	& + label {
+
+		&.sky-blue {
+			background-color: #{$secondary-bg-color};
+		}
+	}
+}
+
+// 02. Buttons
+// -----------
+$button-function-factor: 10%;
+button, .button {
+	$bg-hover-lightness: if(lightness($secondary-bg-color) > 65%, -1 * $button-function-factor, $button-function-factor);
+
+	&.sky-blue {
+		background-color: #{$secondary-bg-color};
+		border-color: scale-color($secondary-bg-color, $lightness: 0%);
+
+		&:hover, &:focus {
+			background-color: scale-color($secondary-bg-color, $lightness: $bg-hover-lightness);
+		}
+
+		&.disabled {
+			background-color: #{$secondary-bg-color};
+			border-color: scale-color($secondary-bg-color, $lightness: 0%);
+		}
+	}
+
+	&.white-skyblue, &.secondary-skyblue {
+		color: #{$secondary-color};
+	}
+
+	&.inst-secondary-outline {
+		border-color: #{$secondary-color};
+		color: #{$secondary-color};
+
+		&:hover, &:focus {
+			background-color: #{$secondary-bg-color};
+			border-color: #{$secondary-color};
+		}
+	}
+
+	&.flat-skyblue, &.flat-inst-secondary {
+  	color: #{$secondary-color};
+
+  	&:hover, &:focus {
+  		color: scale-color($secondary-color, $lightness: -1 * $color-function-factor);
+  	}
+  }
+
+  &.button-outline {
+			&:hover, &:focus {
+				border-color: #{$secondary-color};
+				color: #{$secondary-color};
+			}
+		}
+}
+
+// 03. Tabs
+// --------
+.content-tabs-choice {
+	background-color: #{$secondary-bg-color};
+}
+
+.tabs-choice {
+	background-color: #{$secondary-bg-color};
+}
+
+// tabs sub navigation
+.tabs-sub-nav {
+	dd, .tab-title {
+    &:hover, &.active {
+      > a {
+        color: #{$secondary-bg-color} !important;
+        border-bottom: 3px solid #{$secondary-bg-color} !important;
+      }
+    }
+  }
+}
+
+// tabs progress bar
+.tabs-progress-bar {
+	.bar {
+		&__fill {
+			background: #{$secondary-bg-color};
+		}
+	}
+
+	dd, .tab-title {
+	  color: scale-color($secondary-color, $lightness: 15%);
+
+	  .bullet {
+    	box-shadow: 0 2px 4px rgba($black, 0.2), 0 0 0 6px $secondary-bg-color;
+    }
+
+    &.active {
+
+	  	.bullet {
+	  		box-shadow: 0 2px 4px rgba($black, 0.2), 0 0 0 10px $secondary-bg-color;
+	  	}
+	  }
+
+	  .text-phase {
+	  	color: #{$secondary-color};
+	  }
+	}
+}
+
+// 04. Panels
+// ----------
+// header panel
+.content-header-panel {
+	background-color: #{$secondary-bg-color};
+
+	&.with-gradient {
+		@include gradient-vertical($secondary-bg-color, lighten($secondary-bg-color, $gradient-function-factor));
+	}
+}
+
+// 05. List items
+// --------------
+
+// ===========================
+// Styles for list and content
+// ===========================
+.content-data-list {
+
+	ul {
+		.item-wrap-list {
+
+			&:hover, &:active, &.active {
+
+				.is-hovered {
+					&:not(.button):not(button){
+						color: #{$secondary-color} !important;
+					}
+
+					&button, &.button {
+						// color: $sky-blue;
+						color: $white;
+						background-color: #{$secondary-bg-color} !important;
+						border-color: #{$secondary-color} !important;
+					}
+				}
+			}
+		}
+
+		// styles for piece browse list
+  	&.browse-list-piece {
+  		.item-piece-list, .item-wrap-list {
+
+
+	        .list-icons-browse {
+	          .item-icon {
+	            &:hover {
+								color: #{$secondary-color};
+	            }
+	          }
+	        }
+
+  		}
+  	}
+	}
+}
+
+// list highlighted
+.list-highlighted,
+	.list-icons-browse {
+
+	> li {
+
+		&:hover {
+			.is-hovered {
+				&:not(.button):not(button) {
+					color: #{$secondary-color} !important;
+				}
+
+				&button, &.button {
+					// color: $sky-blue;
+					color: $white;
+					background-color: #{$secondary-bg-color} !important;
+					border-color: #{$secondary-color} !important;
+				}
+			}
+		}
+	}
+}
+
+// 06. Posts
+// ----------
+
+// ===================
+// Styles post general
+// ===================
+.wall-post-box, .comment-post-box {
+	// box footer wall's post
+	.post-footer-box {
+
+		ul.footer-box-icons {
+			@extend ul.social-box-icons;
+		}
+	}
+}
+
+// ======================
+// Styles post discussion
+// ======================
+.discussion-post-box {
+
+	.post-footer-box {
+
+		ul.footer-box-icons {
+			@extend ul.social-box-icons;
+		}
+	}
+
+	// box comments wall's post
+	.post-comments-box {
+		.user-comment {
+			.comment-icons-list {
+      	@extend ul.social-box-icons;
+      }
+		}
+	}
+}
+
+// 07. Forms
+// ----------
+// ======================
+// forms overwrite styles
+// ======================
+form {
+	ul.list-stages-check {
+		> li{
+			input[type="radio"] {
+
+				&:not(:checked) + label{
+					&:hover {
+						.item-phase-project{
+							@extend %inst-bgcolor-body;
+
+							.description-phase{
+								@extend %inst-color-body;
+							}
+
+							.content-icon-phase{
+								background-color: $white;
+							}
+						}
+					}
+				}
+
+				&:checked + label{
+
+					.item-phase-project{
+						.content-icon-phase{
+							@extend %inst-bgcolor-body;
+							i.icon{
+								@extend %inst-color-body;
+							}
+							.title-phase{
+								@extend %inst-color-body;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	input[type="radio"], input[type="checkbox"] {
+		&.role-check {
+
+			@if variable-exists($roles) {
+
+				@each $rol in $roles {
+					&.rol-type-#{$rol} {
+						$color-rol: nth($roles-color, index($roles, $rol));
+
+						@if $color-rol != null {
+							+ label {
+								color: $color-rol;
+
+								.circle-role {
+									color: $color-rol;
+									background-color: transparent;
+									border-color: $color-rol;
+								}
+							}
+
+							&:checked + label, + label:hover {
+								.circle-role {
+									color: white;
+									background-color: $color-rol;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.field-search {
+		.btn-search {
+			// border-bottom: 1px solid #{$background-body};
+		}
+	}
+}
+// ---------------------------------
+// Overwrite Materialize form styles
+// ---------------------------------
+// Input fields
+// ------------
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea.materialize-textarea {
+
+	// Focused input style
+  &:focus:not([readonly]) {
+    border-bottom-color: #{$secondary-color} !important;
+    box-shadow: 0 1px 0 0 #{$secondary-color};
+  }
+
+  // Focused label style
+  &:focus:not([readonly])~label {
+    color: #{$secondary-color};
+  }
+}
+
+// Materialize active fields
+// ------------
+.input-field {
+		/* icon prefix focus color */
+	.prefix.active {
+		color: #{$secondary-color};
+	}
+}
+/* valid color */
+.input-field input[type=text].valid {
+ // border-bottom: 1px solid #000;
+ // box-shadow: 0 1px 0 0 #000;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+ // border-bottom: 1px solid #000;
+ // box-shadow: 0 1px 0 0 #000;
+}
+
+// Radio buttons
+// ------------
+[type="radio"]:not(:checked) + label:hover, [type="radio"].with-gap:checked + label {
+	color: #{$secondary-color};
+
+	&:before, &:after {
+		border-color: #{$secondary-color};
+	}
+}
+
+[type="radio"]:checked + label {
+	color: #{$secondary-color};
+
+	&:after {
+		border-color: #{$secondary-color};
+	}
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:after {
+	background-color: #{$secondary-bg-color};
+}
+
+// Checkboxes
+// ------------
+[type="checkbox"] {
+
+	/* checkbox aspect */
+	+ label:hover {
+		color: #{$secondary-color};
+	}
+
+	// + label:before,
+	// &:not(.filled-in) + label:after {
+	// 	border-color: #{$secondary-color};
+	// }
+}
+
+[type="checkbox"]:checked {
+	+ label {
+		color: #{$secondary-color};
+
+		&:before {
+			border-right-color: #{$secondary-color};
+			border-bottom-color: #{$secondary-color};
+		}
+	}
+}
+
+// Filled in Style
+[type="checkbox"].filled-in {
+	&:not(:checked) + label:hover:after {
+		border-color: #{$secondary-color};
+	}
+
+	// Checked style
+  &:checked {
+    + label:before {
+      border-right-color: $white;
+      border-bottom-color: $white;
+    }
+
+    + label:after {
+      border-color: #{$secondary-color};
+      background-color: #{$secondary-bg-color};
+    }
+  }
+}
+
+// select2 select plugin
+// ---------------------
+.select2-container {
+
+	.select2-dropdown {
+
+		.select2-results {
+
+			ul.select2-results__options {
+				li.select2-results__option {
+					color: #{$secondary-color};
+
+					&.select2-results__option--highlighted {
+						color: #{$secondary-color};
+					}
+				}
+			}
+		}
+	}
+}
+// editable container
+// ------------------
+.editable {
+
+	&:hover, &:focus {
+		.edit-field-button {
+			&:hover, &:focus {
+				color: #{$secondary-color};
+			}
+		}
+	}
+}
+
+// submenu-nav
+// -----------
+#profile-submenu-nav {
+	background-color: #{$secondary-color};
+
+
+}
+
+// range
+// ----------
+.noUi-connect {
+	background-color: #{$secondary-bg-color};
+}
+
+.noUi-target {
+	.noUi-handle {
+		background-color: #{$secondary-bg-color};
+	}
+
+	.range-label {
+		background-color: #{$secondary-bg-color};
+	}
+
+	.noUi-active {
+		.range-label {
+
+			&:after {
+				border-top-color:  #{$secondary-color};
+			}
+		}
+	}
+}
+
+// 08. Dropdowns
+// -------------
+.dropdown-content {
+	li {
+
+		& > a, & > span {
+			color: #{$secondary-color};
+		}
+	}
+}
+
+.friendship-dropdown {
+	&.items-checked {
+		> li {
+			&.active {
+				> a {
+					&:before {
+						color: #{$secondary-color};
+					}
+
+					> ul {
+						> li {
+							> span {
+								color: #{$secondary-color};
+							}
+							> i {
+								color: #{$secondary-color};
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.friendship-dropdown, .opts-action-dropdown {
+	> li {
+		> a {
+			&:hover, &.active {
+				ul {
+					li {
+						color: #{$secondary-color} !important;
+
+						> i {
+							color: #{$secondary-color} !important;
+						}
+					}
+				}
+			}
+		}
+
+		> a {
+			&:hover, &:focus {
+				color: #{$secondary-color} !important;
+
+				* {
+					color: inherit;
+				}
+			}
+		}
+	}
+}
+
+// 09. Sub navegation
+// ------------------
+.views-sub-nav, .anchors-sub-nav, .views-filter-nav {
+
+	> li, > dd {
+		button, .button {
+			background-color: #{$secondary-bg-color};
+		}
+
+		&.active {
+			> a {
+				color: #{$secondary-color};
+
+				&:hover, &:focus {
+					color: #{$secondary-color};
+				}
+			}
+		}
+	}
+}
+.anchors-sub-nav {
+	> li, > dd {
+
+		a {
+			&:hover {
+				color: #{$secondary-color};
+			}
+		}
+
+		&.active {
+			> a {
+				&:hover, &:focus {
+					color: #{$secondary-color};
+				}
+			}
+		}
+	}
+}
+
+.table-of-contents {
+	a {
+		&:hover {
+			border-left-color: #{$secondary-color};
+		}
+		&.active {
+			border-left-color: #{$secondary-color};
+		}
+	}
+}
+
+// 10. Modals
+// ----------
+.reveal-modal-main {
+	// .title-modal-top {
+	// 	background-color: #{$secondary-bg-color};
+	// }
+	.footer-modal {
+		a:not(.btn):not(.btn-large):not(.btn-floating):not(.button) {
+			&.action {
+				color: #{$secondary-color};
+
+				&:hover, &:active, &:focus {
+					color: scale-color($secondary-color, $lightness: abs($color-function-factor));
+				}
+			}
+		}
+	}
+}
+
+.reveal-modal-form {
+	// .title-modal-top {
+	// 	background-color: #{$secondary-bg-color};
+	// }
+	.footer-modal {
+		a:not(.btn):not(.btn-large):not(.btn-floating):not(.button) {
+			&.action {
+				color: #{$secondary-color};
+
+				&:hover, &:active, &:focus {
+					color: scale-color($secondary-color, $lightness: abs($color-function-factor));
+				}
+			}
+		}
+	}
+}
+
+// 11. Slicks
+// ----------
+.slick-tabs {
+
+	.slick-prev, .slick-next {
+		&:before {
+			color: #{$secondary-color};
+		}
+
+		&:hover {
+			&:before {
+				@include transition(all ease-out 300ms);
+				color: scale-color($secondary-color, $lightness: $color-function-factor);
+			}
+		}
+	}
+}
+
+// 12. Preloaders
+// --------------
+
+//loader spinner styles
+.wrapper-spinner {
+	.inner-spinner {
+		.loader {
+			border-color: #{$secondary-color};
+			border-left-color: transparent;
+		}
+	}
+}
+
+// 13. File uploaders
+// ------------------
+// Style for uploader files
+.qq-uploader-attachments {
+	// Styles for progess bar
+	.qq-total-progress-bar-container {
+		border-color: #{$secondary-color};
+	}
+	.qq-total-progress-bar {
+		background: #{$secondary-bg-color};
+	}
+}
+
+// 14. Tags
+// --------
+div.tagsinput {
+	&:focus, &.is-focused {
+		border-bottom: 1px solid #{$secondary-color};
+    box-shadow: 0 1px 0 0 #{$secondary-color};
+	}
+}
+
+.react-tagsinput {
+	&.react-tagsinput--focused {
+		border-bottom: 1px solid #{$secondary-color};
+		box-shadow: 0 1px 0 0 #{$secondary-color};
+	}
+}
+
+// tags list styles
+// ----------------
+ul.tags-icon-list {
+	&:not(.without-make) {
+
+		.tag-item {
+
+			&:hover, &.active {
+				// background-color: $sky-blue;
+				// color: $white;
+				color: #{$secondary-color};
+			}
+		}
+	}
+}
+
+// 15. Sidenavs
+// ------------
+.side-navigation {
+	> li {
+		&.active {
+			a:first-child:not(.button) {
+				&.active {
+					background-color: #{$secondary-bg-color};
+				}
+			}
+		}
+
+		a:not(.button) {
+			&:hover {
+				color: #{$secondary-color};
+			}
+		}
+	}
+}
+
+.side-nav-slide {
+	> li {
+		&.active {
+			a {
+				background-color: #{$secondary-bg-color};
+			}
+		}
+
+		a:not(.button) {
+			&:hover, &:focus, &:active, &.active {
+				background-color: #{$secondary-bg-color};
+			}
+		}
+	}
+}
+
+// 16. Editors
+// -----------
+.note-btn {
+	&:hover, &:focus, &.focus {
+		color: #{$secondary-color};
+
+		* {
+			color: #{$secondary-color};
+		}
+	}
+}
+
+// 17. Calendar
+// ------------
+
+#calendar-user {
+
+	&.fc-unthemed {
+		.fc-today:not(.fc-day-number) {
+			background-color: rgba($secondary-color, 0.04);
+		}
+	}
+
+	.fc-toolbar {
+		.fc-button {
+			&.fc-state-active, &.fc-state-disabled {
+				background-color: #{$secondary-color};
+				border-color: #{$secondary-color};
+			}
+
+			&.fc-state-active:hover, &.fc-state-disabled:hover {
+				cursor: default;
+			}
+
+			&:hover:not(.fc-state-active):not(.fc-state-disabled) {
+				color: #{$secondary-color};
+
+				.fc-icon {
+					color: #{$secondary-color};
+				}
+			}
+		}
+	}
+
+	.fc-view-container {
+		.fc-body {
+			.fc-day-grid-container {
+				.fc-day-number {
+    			&.fc-today {
+						color: #{$secondary-color};
+					}
+				}
+
+				.fc-day {
+					&.fc-today {
+						background-color: rgba($secondary-color, 0.04);
+					}
+				}
+
+				.fc-content-skeleton {
+					.fc-event-container {
+						.fc-event, .fc-day-grid-event  {
+							background-color: rgba($secondary-color, 0.5);
+							border-color: #{$secondary-color};
+						}
+					}
+				}
+
+				.fc-highlight-skeleton {
+					.fc-highlight {
+						background-color: rgba($secondary-color, 0.2);
+					}
+				}
+			}
+		}
+
+		.fc-month-view {
+			.fc-day-grid-container {
+				.fc-content-skeleton {
+					.fc-event-container {
+						.fc-event, .fc-day-grid-event  {
+							background-color: #{$secondary-color};
+							border-color: #{$secondary-color};
+
+							.fc-content {
+
+								> span {
+									color: $white;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.fc-agendaWeek-view, .fc-agendaDay-view {
+			.fc-time-grid-container {
+				.fc-event-container {
+					.fc-event {
+						border-color: #{$secondary-color};
+					}
+				}
+			}
+		}
+
+		.fc-agendaDay-view {
+			.fc-time-grid-container {
+				.fc-event-container {
+					.fc-event {
+						background-color: rgba($secondary-color, 0.06);
+					}
+				}
+			}
+		}
+	}
+}
+
+// 18. Spinners
+// ------------
+// progress preloader
+.progress-preloader {
+	.indeterminate, .determinate {
+		background-color: #{$background-header};
+	}
+}

@@ -1,0 +1,17 @@
+%ecopetrol-institution-description {
+	#ecopetrol-institution-description {
+		background-color: $gray-concrete;
+		.description-text-box {
+			background-color: $gray-lighter;
+			padding: rem-calc(10);
+			.description-text {
+				color: $charcoal;
+				font-weight: 200;
+				font-size: rem-calc(28);
+				line-height: 1.6;
+				padding-right: rem-calc(30);
+				padding-left: rem-calc(30);
+			}
+		}
+	}
+}

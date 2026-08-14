@@ -1,0 +1,322 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for players
+// ----------------------------
+
+//
+// variables
+//
+$mediaelementplayer-prefix: "mejs" !default;
+$mediaelementplayer-path-sprite: '../img/mediaelement' !default;
+
+
+.flex-player {
+	position: relative;
+	overflow: hidden;
+
+	&.full-player {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: auto;
+		bottom: 0px;
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+	}
+
+	iframe,
+	object,
+	embed,
+	video {
+		width: 100%;
+		height: 100%;
+	}
+
+}
+
+// Styles for mediaelement.js player
+// ---------------------------------
+// container mediaelement
+.#{$mediaelementplayer-prefix}-container {
+
+	// Hiding vimeo controls bar
+	&.#{$mediaelementplayer-prefix}-vimeo-player {
+
+		.#{$mediaelementplayer-prefix}-mediaelement {
+			.me-plugin {
+				width: rem-calc(678);
+				height:100%;
+				// padding: {
+				// 	top: 0;
+				// 	bottom: 56.34%;
+				// }
+				position:relative;
+				overflow:hidden;
+				margin:0 auto;
+
+				@media #{$small-only}, #{$mobile-only} {
+					width: 100%;
+				}
+
+				iframe {
+					width:100%;
+					height:180%;
+					position:absolute;
+					left:0;
+					top:-40%;
+					right: 0;
+					bottom: 0;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+
+	.#{$mediaelementplayer-prefix}-mediaelement {
+
+		iframe,
+		object,
+		embed,
+		video {
+			width: 100%;
+			height: 100%;
+		}
+
+		.me-plugin {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.flex-player & {
+		width: 100% !important;
+		height: 100% !important;
+
+		.#{$mediaelementplayer-prefix}-layers {
+			.#{$mediaelementplayer-prefix}-layer {
+				width: 100% !important;
+				height: 100% !important;
+			}
+		}
+	}
+
+	// controls mediaelement player
+	.#{$mediaelementplayer-prefix}-controls {
+		// display: table;
+		// width: 100%;
+
+		padding: {
+			top: rem-calc(5);
+		}
+		height: rem-calc(45);
+
+		div {
+			font: {
+				family: $font-family-sanfrancisco;
+				size: rem-calc(12);
+				weight: $font-weight-normal;
+			}
+			line-height: rem-calc(18);
+		}
+
+		> * {
+			// display: table-cell !important;
+			// vertical-align: top;
+			// float: none !important;
+		}
+
+		.#{$mediaelementplayer-prefix}-button {
+			width: rem-calc(45);
+			height: rem-calc(40);
+			position: relative;
+
+			button {
+				// background-image: url(#{$mediaelementplayer-path-sprite}/controls.png);
+				background-image: none;
+				position: absolute;
+				@extend %font-mdi;
+				font-size: rem-calc(25);
+				width: rem-calc(25);
+				height: rem-calc(25);
+				left: 0;
+				right: 0;
+				margin: {
+					left: auto;
+					right: auto;
+				}
+			}
+
+			// pause and play button
+			&.#{$mediaelementplayer-prefix}-playpause-button {
+
+				button {
+					background-image: none;
+				}
+
+				&.#{$mediaelementplayer-prefix}-play {
+					button {
+						&:before {
+							content: mdi('play');
+						}
+					}
+				}
+
+				&.#{$mediaelementplayer-prefix}-pause {
+					button {
+						&:before {
+							content: mdi('pause');
+						}
+					}
+				}
+			}
+
+			// volume button
+			&.#{$mediaelementplayer-prefix}-volume-button {
+				button {
+					background-image: none;
+				}
+
+				&.#{$mediaelementplayer-prefix}-mute {
+					button {
+						&:before {
+							content: mdi('volume-high');
+						}
+					}
+				}
+
+				&.#{$mediaelementplayer-prefix}-unmute {
+					button {
+						&:before {
+							content: mdi('volume-low');
+						}
+					}
+				}
+
+				// button {
+				// 	position: relative;
+				// 	display: block;
+				// 	float: left;
+				// }
+
+				// .#{$mediaelementplayer-prefix}-volume-slider {
+				// 	position: relative;
+				// 	display: block;
+				// 	float: left;
+				// 	@include rotate(90deg);
+
+				// 	> div {
+				// 	}
+				// }
+			}
+
+			&.#{$mediaelementplayer-prefix}-fullscreen-button {
+				float: right;
+				button {
+					background-image: none;
+					&:before {
+						content: mdi('fullscreen');
+					}
+				}
+			}
+		}
+
+		// current and duration time
+		.#{$mediaelementplayer-prefix}-time {
+			width: auto !important;
+			margin: {
+				left: rem-calc(10);
+				right: rem-calc(10);
+			}
+		}
+
+		// progress bar player
+		.#{$mediaelementplayer-prefix}-time-rail {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100% !important;
+			height: auto;
+			padding: {
+				top: 0px;
+			}
+
+			.#{$mediaelementplayer-prefix}-time-slider {
+				margin: 0px;
+				background: $aluminum;
+				width: 100% !important;
+				@include border-radius(0px);
+				height: 2px;
+
+				> span:not(.#{$mediaelementplayer-prefix}-time-float) {
+					@include border-radius(0px);
+					height: 2px;
+				}
+
+				&:hover {
+					height: 4px;
+					> span:not(.#{$mediaelementplayer-prefix}-time-float) {
+						height: 4px;
+					}
+				}
+
+				.#{$mediaelementplayer-prefix}-time-current {
+					background: $white;
+				}
+
+				.#{$mediaelementplayer-prefix}-time-loaded {
+
+				}
+
+				.#{$mediaelementplayer-prefix}-time-float {
+					width: 40px;
+					height: 19px;
+					top: -28px;
+
+					.#{$mediaelementplayer-prefix}-time-float-current {
+						width: 34px;
+					}
+					.#{$mediaelementplayer-prefix}-time-float-corner {
+						top: 17px;
+					}
+				}
+			}
+		}
+
+		// volume horizontal slider
+		.#{$mediaelementplayer-prefix}-horizontal-volume-slider {
+			width: rem-calc(100);
+			height: rem-calc(40);
+			margin: rem-calc(0 10);
+
+			> div {
+				margin: {
+					top: -1px;
+				};
+				width: 100%;
+				height: 1px;
+				top: 50%;
+			}
+
+			.#{$mediaelementplayer-prefix}-horizontal-volume-total {
+				background: $charcoal;
+			}
+
+			.#{$mediaelementplayer-prefix}-horizontal-volume-current {
+				&:after {
+					content: '';
+					width: 4px;
+					position: absolute;
+					height: 12px;
+					background-color: white;
+					right: 0px;
+					top: -5px;
+				}
+			}
+		}
+	}
+
+	.#{$mediaelementplayer-prefix}-overlay-button {
+		background-image: url(#{$mediaelementplayer-path-sprite}/bigplay.png);
+	}
+}

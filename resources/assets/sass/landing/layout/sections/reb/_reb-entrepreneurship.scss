@@ -1,0 +1,38 @@
+%reb-entrepreneurship {
+	#reb-entrepreneurship {
+		background-color: $white-smoke;
+
+		ul.carousel-feature-entrepreneurship {
+			@include redefine-padding-gb( rem-calc(0 10 20) );
+
+			.inner-item-feature-entrepreneurship {
+				padding: rem-calc(0 10 20);
+			}
+
+			.feature-entrepreneurship-boxes {
+				background-color: $gray-lighter;
+				position: relative;
+
+				&:hover {
+					background-color: $white;
+				}
+
+				.flex-video {
+					iframe {
+						border-radius: 3px 3px 0 0;
+					}
+				}
+
+				.feature-entrepreneurship-title {
+					margin-bottom: rem-calc(20);
+					overflow: hidden;
+					height: 54px;
+				}
+
+				.content-item-list {
+					margin: 0;
+				}
+			}
+		}
+	}
+}

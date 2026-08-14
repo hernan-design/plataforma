@@ -1,0 +1,126 @@
+/**
+* Class EventEditDescription extends of Backbone View
+* @author TuProyecto || Desarrollador : @dortegon
+* @link http://TuProyecto.com
+*/
+
+//Global App Backbone
+app || (app = {});
+
+(function ($, window, document, undefined) {
+
+    app.EventEditDescription = Backbone.View.extend({
+        tagName: 'div',
+        id: 'container-form-infobasic',
+        className: 'edit-form',
+        template: _.template( ($('#edit-event-description-form-tpl').html() || '') ),
+        events: {
+            'submit #form-edit-description-event': 'onEditForm',
+            'keydown .edit-field-text': 'revertOnEscape'
+        },
+        parameters: {
+        	'dropdown': false
+        },
+
+        /**
+        * Constructor Method
+        */
+        initialize : function(opts) {
+
+        	if( opts !== undefined && _.isObject(opts.parameters) )
+        		this.parameters = $.extend({}, this.parameters, opts.parameters);
+
+            // Init Attributes
+            this.$spinnerPosts = $('<div>').attr('id','spinner-load-posts');
+
+            // Events Listener
+            this.listenTo( this.model, 'request', this.loadSpinner);
+            this.listenTo( this.model, 'sync', this.responseServer );
+        },
+
+        /*
+        * Render View Element
+        */
+        render: function() {
+            var attributes = this.model.toJSON();
+
+            this.$el.html( this.template(attributes) );
+
+            // Initialize references
+			this.$editFieldTxt = this.$('.edit-field-text');
+			this.$formEdit = this.$('#form-edit-description-event');
+
+            return this;
+        },
+
+        onEditForm: function (e) {
+            e.preventDefault();
+
+            // if it is not editing
+			if( !this.$el.parents('.editable-item').hasClass('editing') ){
+				return;
+			}
+
+            var data = window.Misc.formToJson( e.target );
+                data.action = 'edit-event';
+
+            // if the value was not modified
+			if( window.Misc.trim(data['descripcion_evento']) == window.Misc.trim(this.model.get('descripcion_evento')) ){
+				this.close();
+				this.$editFieldTxt.blur();
+				return;
+			}
+
+            this.model.save(data, {patch:true, wait:true});
+        },
+
+        /**
+        * Load spinner on the request
+        */
+        loadSpinner: function ( target, xhr, opts ) {
+            window.Misc.setSpinner( this.$el );
+        },
+
+        /**
+        * response of the server
+        */
+        responseServer: function ( model, resp, opts ) {
+            window.Misc.removeSpinner({
+                'wrap': this.$el,
+                'direct': false,
+                'callback': (function ($elSpinner, res, _this) {
+                    return function () {
+                        $( '#form-edit-description-event [name="descripcion_evento"]' ).val('')
+                        $elSpinner.remove();
+
+                        if( res.success !== undefined ) {
+							if ( res.success ) {
+								_this.close();
+							}
+						}
+                    };
+                })(this.$spinnerPosts, resp, this)
+            });
+        },
+
+        /**
+		* on escape key event
+		*/
+		revertOnEscape: function  (e) {
+
+			if( e.which === 27 ){
+				this.close();
+				this.$editFieldTxt.blur();
+			}
+		},
+
+		/**
+		* close field editing
+		*/
+		close: function () {
+			this.$el.parents('.editable-item').removeClass('editing');
+			this.$editFieldTxt.val( this.model.get('descripcion_evento') );
+		}
+    });
+
+})(jQuery, this, this.document);

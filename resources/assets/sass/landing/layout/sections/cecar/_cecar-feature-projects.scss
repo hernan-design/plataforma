@@ -1,0 +1,39 @@
+%cecar-feature-projects {
+
+	#feature-projects {
+		background-color: $white-smoke;
+
+		.feature-project-boxes {
+			background-color: $gray-lighter;
+			position: relative;
+			&:hover {
+				background-color: $white;
+			}
+
+			.flex-video {
+				iframe {
+					border-radius: 3px 3px 0 0;
+				}
+			}
+
+			.feature-project-title-box {
+				margin-bottom: rem-calc(25);
+				padding: rem-calc(0 20);
+				text-overflow: ellipsis;
+				overflow: hidden;
+				height: 60px;
+
+				.feature-project-title {
+					color: $steel;
+					font-weight: 200;
+					font-size: rem-calc(18);
+
+					&:hover {
+						color: $secondary-color;
+					}
+				}
+			}
+		}
+	}
+}
+

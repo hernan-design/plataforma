@@ -1,0 +1,86 @@
+%innpulsa-page5{
+  #banner-impact-page{
+    background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/innpulsa2020/announciement+inside+page/Breadc-innpulsa-18%402x.png);
+    background-size: cover;
+    height: 235px;
+    .container-breadcum{
+        padding: 160px 0px 0px 133px;
+        @media #{$mobile-only}{
+          padding: 160px 0px 0px 20px;
+        }
+        .title-breadcum-impact-page{
+            font-family: 'Montserrat Bold';
+            color: white;
+        }
+        .paragraph-breadcum-impact-page{
+            font-family: 'Montserrat Regular';
+            color: white;
+        }
+       
+    }
+  }
+  #container-section1-page5{
+    background:#fff;
+    width:100%;
+    padding: 87px 50px;
+    @media #{$mobile-only}{
+      padding: 20px 40px;
+    }
+    #numers-page5{
+      margin-top: 50px;
+      .text1-page5{
+        font-family:'Montserrat Bold';
+        color:#000;
+        font-weight: bold;
+        font-size: 40px;
+        @media #{$tablet-only},#{$medium-only}{
+          font-size: 35px;
+        }
+      }
+      .text2-page5{
+        font-family: 'Montserrat Regular';
+        color: #000;
+        font-size: 15px;
+        letter-spacing: 1px;
+        @media #{$tablet-only}{
+          font-size: 10px;
+        }
+      }
+    }
+    #container-percentage{
+      margin-top: 50px;
+      .title-percentage{
+        font-family:'Montserrat Medium';
+        color:#000;
+      }
+      .progress{
+        background: #B4B4B4;
+        border: none;
+        padding: 0px;
+        height: 10px;
+        width: 85%;
+        display: inline-block;
+        .meter{
+          background: #FFD535;
+        }
+        .meter1{
+          width: 76%
+        }
+        .meter2{
+          width: 11%
+        }
+        .meter2{
+          width: 20%
+        }
+      }
+      .text-percentage-page5{
+        font-family:'Montserrat Medium';
+        color:#717171;
+        width: 15%;
+        display: inline-block;
+        font-size: 11px;
+        margin-top: 3px;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+%terpel-dfc-objective {
+	#terpel-dfc-objective {
+		background: $white url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/terpel-dfc-objective-bg.png') 50% 30%/cover no-repeat;
+
+		&.section-land {
+			.title-section-land {
+				color: $terpel-magenta-color;
+				margin-bottom: 10px;
+			}
+		}
+
+		.dfc-objective-subtitle {
+			font-family: 'ACMESecretAgentBB';
+			font-weight: 300;
+			margin-bottom: 45px;
+			font-size: rem-calc(30);
+			line-height: 33px;
+			color: $charcoal;
+
+			@media #{$tablet-only}, #{$medium-only} {
+				font-size: rem-calc(34);
+				line-height: 34px;
+			}
+
+			@media #{$large-up} {
+				font-size: rem-calc(48);
+				line-height: 48px;
+			}
+		}
+	}
+}

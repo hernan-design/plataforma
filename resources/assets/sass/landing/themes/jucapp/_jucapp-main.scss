@@ -1,0 +1,22 @@
+#{$wrapper-land}.wrapper-jucapp {
+
+  /**
+  * =========================
+  * General styles
+  * =========================
+  */
+
+
+
+  /**
+  * =========================
+  * Structure styles
+  * =========================
+  */
+
+  // @extend %bolivar-header !optional;
+  @extend %jucapp-header !optional;
+  @extend %jucapp-banner !optional;
+
+}
+

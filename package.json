@@ -1,0 +1,162 @@
+{
+  "private": true,
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "nodemon resources/server/index.js --config nodemon.json",
+    "build": "browserify resources/server/index.mjs --extension=.mjs -x http -x bufferutil -x utf-8-validate -t [ babelify --extensions=.js,.mjs --presets [ es2015 react stage-3 ] ] -t [ envify --NODE_ENV production ] -t uglifyify -p bundle-collapser/plugin > resources/server/server.mjs",
+    "start": "NODE_ENV=production node resources/server/index.js"
+  },
+  "author": {
+    "name": "Copo Software",
+    "email": "comercial@tuproyecto.com",
+    "url": "https://coposoftware.com"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "browserify-css"
+    ]
+  },
+  "browser": {
+    "react-summernote": "react-summernote/dist/react-summernote.js",
+    "summernote/dist/summernote.js": "summernote/dist/summernote-lite.js"
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "svg-entry-animator": "global:SVGAnim",
+    "foundation": {
+      "exports": "global:Foundation",
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "Materialize": {
+      "exports": "global:Materialize",
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "summernote/dist/summernote.js": {
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "summernote-cleaner/summernote-cleaner.js": {
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "react-summernote": {
+      "exports": "ReactSummernote",
+      "depends": [
+        "jquery:$",
+        "summernote/dist/summernote:$.fn.summernote"
+      ]
+    },
+    "react-summernote/lang/summernote-es-ES.js": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
+  },
+  "esm": {
+    "mode": "auto",
+    "await": true,
+    "cjs": {
+      "cache": true,
+      "vars": true,
+      "interop": true,
+      "namedExports": true
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.0",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "browserify": "^14.4.0",
+    "browserify-css": "^0.15.0",
+    "browserify-shim": "^3.8.14",
+    "bundle-collapser": "^1.2.1",
+    "envify": "^4.1.0",
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^4.2.1",
+    "laravel-elixir-sass-compass": "^0.5.0",
+    "nodemon": "^1.18.10",
+    "react-test-renderer": "^15.6.1",
+    "require-dir": "^0.3.2",
+    "uglifyify": "^4.0.5",
+    "yargs": "^7.0.2"
+  },
+  "dependencies": {
+    "@orange-marmalade/paginate-this": "^4.0.0-beta-16",
+    "@pusher/chatkit-client": "^1.13.0",
+    "@pusher/chatkit-server": "^2.1.1",
+    "axios": "^0.19.0",
+    "babel-register": "^6.26.0",
+    "backbone": "^1.4.0",
+    "backbone.paginator": "^2.0.8",
+    "body-parser": "^1.18.3",
+    "bootstrap-sass": "^3.4.1",
+    "cldr-data": "^31.0.2",
+    "cldrjs": "^0.5.1",
+    "codemirror": "^5.45.0",
+    "connect-mongo": "^2.0.3",
+    "dotenv": "^4.0.0",
+    "esm": "^3.2.20",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "express-socket.io-session": "^1.3.5",
+    "globalize": "^1.4.2",
+    "greenlock": "^2.6.8",
+    "greenlock-express": "^2.6.8",
+    "humps": "^2.0.1",
+    "immutable": "^3.8.2",
+    "ioredis": "^3.2.2",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.2.2",
+    "mongoose": "^5.4.20",
+    "node-sass": "^6.0.1",
+    "normalizr": "^3.3.0",
+    "notification-polyfill": "^1.0.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "prop-types": "^15.7.2",
+    "qs": "^6.7.0",
+    "raphael": "^2.2.8",
+    "react": "^15.6.2",
+    "react-autosuggest": "^9.4.3",
+    "react-dom": "^15.6.2",
+    "react-imgpro": "^1.4.1",
+    "react-motion": "^0.5.1",
+    "react-no-ssr": "^1.1.0",
+    "react-redux": "^5.1.1",
+    "react-router-config": "^1.0.0-beta.4",
+    "react-router-dom": "^4.3.1",
+    "react-summernote": "^2.0.0",
+    "react-tagsinput": "^3.19.0",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-dynamic-reducer": "^2.0.2",
+    "redux-thunk": "^2.3.0",
+    "select2": "^4.0.6-rc.0",
+    "snapsvg": "^0.5.1",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "stripe": "^4.24.0",
+    "summernote-cleaner": "git+https://github.com/tuproyecto/summernote-cleaner.git",
+    "uglify-js": "^3.5.2",
+    "underscore": "^1.9.1",
+    "wnumb": "^1.1.0"
+  }
+}

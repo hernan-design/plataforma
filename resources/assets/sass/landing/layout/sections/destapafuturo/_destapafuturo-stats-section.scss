@@ -1,0 +1,71 @@
+%destapafuturo-stats-section {
+
+	#destapafuturo-stats-section {
+		background-color: $white;
+		padding: rem-calc(80 0);
+
+		@media #{$medium-up} {
+			background: $white url('http://static.tuproyecto.com/images/landing/redbavaria/gente-corriendo.png') no-repeat right center;
+		}
+
+		.destapafuturo-stats {
+
+			.destapafuturo-stats-title {
+				color: $monsoon;
+				font-size: rem-calc(28);
+				font-weight: 100;
+				margin-bottom: rem-calc(20);
+
+				.df-title {
+					font-weight: 400;
+				}
+
+			}
+
+			.destapafuturo-stats-title-final {
+				margin-top: rem-calc(60);
+			}
+
+			.destapafuturo-stats-list {
+				list-style: outside none none;
+
+				.stats-box {
+					&:not(:last-child){
+						margin-bottom: rem-calc(20);
+					}
+
+					.destapafuturo-stats-icons {
+						display: inline-block;
+						font-size: rem-calc(36);
+						margin-right: rem-calc(16);
+					}
+
+					.destapafuturo-stats-text {
+						color: $monsoon;
+						display: inline-block;
+						font-size: rem-calc(18);
+						font-weight: 100;
+						padding-top: rem-calc(3);
+
+						.stats-numbers {
+							font-weight: 400;
+						}
+					}
+				}
+			}
+		}
+
+		@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+			.destapafuturo-stats {
+				border-left: none;
+				margin-left: 0;
+			}
+		}
+
+		@media #{$mobile-only} {
+			.destapafuturo-stats-title {
+				text-align: left;
+			}
+		}
+	}
+}

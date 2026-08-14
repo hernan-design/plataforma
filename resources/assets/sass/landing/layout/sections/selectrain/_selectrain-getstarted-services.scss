@@ -1,0 +1,46 @@
+%selectrain-getstarted-services {
+	#selectrain-getstarted-services {
+		position: relative;
+
+		.title-section-land {
+			color: $charcoal;
+		}
+
+		.intro-boxes {
+			background-color: $white;
+			padding: rem-calc(30 0 30);
+			@include box-shadow(none);
+
+			&:hover {
+				background-color: $selectrain-light-green-color;
+				// @include box-shadow(4px 4px 8px $iron);
+				@include transition(all ease-out 300ms);
+			}
+
+
+			.services-icons-img {
+				width: 110px;
+				height: auto;
+			}
+
+			.title-box {
+				height: 80px;
+				padding: rem-calc(0 20px);
+				text-align:center;
+    			display:table;
+    			width:100%;
+
+				.title-intro-boxes {
+					color: $steel;
+					font-weight: 200;
+					vertical-align:middle;
+    				display:table-cell;
+				}
+			}
+		}
+
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

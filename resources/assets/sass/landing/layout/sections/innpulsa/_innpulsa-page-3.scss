@@ -1,0 +1,36 @@
+%innpulsa-page3{
+  #container-contactus-page{
+   padding: 50px 0px;
+       #contact-info{
+           h3{
+               font-family: 'Montserrat Light';
+           }
+           p{
+               font-family: 'Montserrat Light';
+               font-size: 10px;
+               line-height: 24px;
+           }
+       }
+       #contact-form{
+           input{
+               border: 1px solid #c3c3c3;
+               text-indent: 25px;
+               font-family: 'Montserrat Regular';
+               font-size: 11px;
+               border-radius: 4px;
+           }
+           textarea{
+               border: 1px solid #c3c3c3;
+               border-radius: 4px;
+           }
+           button{
+               background: #FFD535;
+               font-family: 'Montserrat Bold';
+               color: #2A2A32;
+               font-size: 11px;
+               border-radius: 3px;
+               margin: 15px 0px;
+           }
+       }
+  }
+}

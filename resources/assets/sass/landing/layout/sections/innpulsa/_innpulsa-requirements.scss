@@ -1,0 +1,121 @@
+%innpulsa-requirements {
+	#innpulsa-requirements {
+
+		.requirements-tabs {
+			background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/innpulsa/landing-octubre-2018/requirements/requirements-clouds-bg.svg');
+			background-color: $innpulsa-bright-red-color;
+			padding-top: rem-calc(80);
+
+			@media #{$mobile-only}, #{$small-only} {
+				padding-top: rem-calc(30);
+			}
+
+			@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding-top: rem-calc(50);
+			}
+		}
+
+		.requirements-tabs-content {
+			background-color: $innpulsa-regular-blue-color;
+			position: relative;
+			overflow: hidden;
+
+			@media #{$tablet-only} {
+
+			}
+
+			&:before {
+				background-size: 100% 100%;
+				width: 110%;
+				position: absolute;
+				bottom: -4px;
+				content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/innpulsa/landing-octubre-2018/requirements/requirements-aldeacity-bg.svg');
+				left: -10px;
+
+				@media #{$mobile-only} {
+			    width: 400%;
+    			left: -25%;
+				}
+			}
+
+			.requirements-title {
+				font-family: 'FuturaStd-Medium';
+				font-size: rem-calc(21);
+				color: $innpulsa-bright-red-color;
+				text-transform: uppercase;
+			}
+
+			.requirements-content-text {
+				margin-bottom: 0;
+			}
+		}
+
+
+
+
+		ul.list-requirements-tabs {
+			width: 100%;
+			overflow: hidden;
+
+			li.tab-item-requirement {
+				> a {
+					position: relative;
+					display: block;
+					padding: 0;
+				}
+
+				.requirement-icon {
+					position: relative;
+					padding: rem-calc(15 0);
+					background-color: $innpulsa-dark-blue-color;
+					text-align: center;
+
+          @media #{$large-up} {
+            &:hover {
+              background-color: $innpulsa-regular-blue-color;
+            }
+          }
+
+					> img {
+						width: 120px;
+						margin: 0 auto;
+
+						@media #{$tablet-up} {
+							width: 160px;
+						}
+					}
+				}
+
+				&.active, &.slick-center {
+					.requirement-icon {
+						background-color: $innpulsa-regular-blue-color;
+					}
+				}
+			}
+		}
+
+		.requirements-tabs-content {
+      padding: rem-calc(30 0);
+
+      @media #{$large-up} {
+        padding: rem-calc(60 0 120);
+      }
+
+			.requirements-content {
+				background-color: $innpulsa-light-pink-color;
+				padding: rem-calc(32);
+			}
+
+			.current-stage {
+				display: block;
+				color: $iron;
+				margin-bottom: rem-calc(20);
+				font-weight: 100;
+			}
+
+			> .content {
+				padding: 0;
+			}
+		}
+	}
+}

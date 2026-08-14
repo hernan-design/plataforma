@@ -1,0 +1,504 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for tabs navegation
+// --------------------------------
+
+//
+// variables
+//
+$tabs-menu-height: rem-calc(50) !default;
+
+// Style for tabs content
+.tabs-content {
+	.content {
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.wrapper-submenu-section {
+	position: relative;
+	z-index: 1;
+}
+
+.wrapper-module-menu-section {
+  position: relative;
+  z-index: 84;
+}
+
+.strip-tabs-content {
+	background-color: $white;
+	@include box-shadow($panel-shadow);
+	@include border-radius($global-radius);
+	padding: rem-calc(0 15);
+
+	.tabs, .tabs-navigation, .tabs-sub-nav, .tabs-sub-nav-alt {
+		border-bottom: none;
+
+		.tab-title, dd {
+			a {
+				line-height: rem-calc(60);
+			}
+		}
+	}
+}
+
+// Styles for base tabs navigation
+.tabs, .tabs-navigation, .tabs-sub-nav, .tabs-sub-nav-alt {
+
+	overflow-x: auto;
+	overflow-y: hidden;
+  white-space: nowrap;
+
+
+	.tab-icon-left {
+		padding-left: 24px !important;
+
+		&:before {
+			position: absolute;
+	    left: 0;
+		}
+	}
+
+  .tab-icon-right {
+		padding-right: 24px !important;
+
+		&:before {
+			position: absolute;
+	    right: 0;
+		}
+	}
+
+	&#user-tabs-filter, &#project-tabs-navs, &#programs-tabs-navs, &#call-tabs-filter, &#learn-tabs-filter, &#mentor-list-tabs-filter, &#project-tabs-navs, &#project-tabs-filter, &#marketplace-tabs-filter, &#marketplace-tabs-navs, &#evaluation-tabs-navs, &#evaluation-tabs-filter, &#help-tabs-filter {
+		dd, .tab-title {
+			margin: rem-calc(0 10);
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+      &:last-child {
+          margin-right: 0;
+      }
+		}
+	}
+
+  // Tabs navigation by modules
+  &#marketplace-tabs-navs, &#project-tabs-navs, &#calendar-tabs-navs, &#blog-tabs-navs {
+    @media #{$large-up} {
+      overflow: visible;
+    }
+  }
+
+  dd, .tab-title {
+  	float: none;
+  	display: inline-block;
+  	vertical-align: middle;
+
+    &:hover, &.active {
+      > a {
+        color: $tabs-navigation-active-font-color;
+        border-bottom: 3px solid $tabs-navigation-active-font-color;
+      }
+    }
+
+    &.tab-more {
+      .f-dropdown {
+        &:before, &:after {
+          border: 0;
+        }
+
+        > li {
+          display: block;
+
+          &:hover {
+            background-color: transparent;
+          }
+
+          &:first-child {
+            margin-top: rem-calc(10);
+          }
+
+          &:last-child {
+            margin-bottom: rem-calc(10);
+          }
+
+          > a {
+            padding: rem-calc(12 22);
+            color: $white;
+            font-weight: $font-weight-bold;
+
+            &:hover {
+              text-decoration: none;
+              background-color: rgba($black, 0.1);
+            }
+
+            &.drop-icon-left {
+              &:before {
+                margin-right: rem-calc(8);
+              }
+            }
+          }
+        }
+
+        &.open {
+          left: auto !important;
+          right: 0;
+          margin-top: 0;
+          width: auto;
+
+          @include side-radius(bottom, $global-radius);
+        }
+      }
+
+      &:hover, &.active {
+        > a {
+          border-bottom-color: transparent;
+        }
+      }
+    }
+
+    > a {
+  		border-bottom: 3px solid transparent;
+    	color: $monsoon;
+      font-size: rem-calc(14);
+      @include box-sizing(border-box);
+      line-height: rem-calc(22);
+  		// line-height: #{(nth($tabs-navigation-padding, 1) * 2) + $tabs-navigation-font-size};
+      padding: rem-calc(10 0);
+      text-decoration: none;
+    	text-align: center;
+
+      font: {
+    		weight: $font-weight-bold;
+    	}
+
+      &:hover{
+        text-decoration: none;
+      }
+
+      .icon-tab {
+				margin: {
+					right: rem-calc(10);
+				}
+      }
+    }
+  }
+}
+
+// back button
+.tabs-back-button {
+  color: white;
+  position: absolute;
+  height: 100%;
+  display: none;
+  line-height: 56px;
+
+  &:hover {
+      text-decoration: none;
+      color: $white;
+  }
+}
+
+.tabs-navigation {
+  @extend .tabs !optional;
+}
+
+.tabs-sub-nav {
+	@extend .tabs !optional;
+
+	dd, .tab-title {
+
+		&:hover, &.active {
+			> a {
+				border-width: 3px;
+			}
+		}
+
+		> a {
+			position: relative;
+			top: 0;
+			background-color: transparent;
+			border-width: 3px;
+		}
+	}
+}
+
+.tabs-sub-nav-alt {
+	@extend .tabs !optional;
+
+	dd, .tab-title {
+
+		&:hover, &.active {
+			> a {
+				color: $white;
+				border-bottom-color: $white;
+			}
+		}
+
+		> a {
+			position: relative;
+			top: 0;
+			background-color: transparent;
+			color: $white;
+		}
+	}
+}
+
+// tabs side menu
+.tabs-sidemenu {
+	@extend .tabs !optional;
+	display: table;
+	height: $tabs-menu-height;
+	line-height: $tabs-menu-height;
+	border-bottom: 1px solid $hr-border-color;
+	width: 100%;
+	@include box-sizing(border-box);
+
+	dd, .tab-title {
+		display: table-cell;
+		vertical-align: top;
+		float: none;
+
+		> a {
+			height: 100%;
+			padding: rem-calc(0 10);
+			background-color: $white;
+			color: $aluminum;
+			text-align: center;
+			border-bottom: none;
+
+			> * {
+				vertical-align: middle;
+			}
+		}
+
+		&:hover, &.active {
+			> a {
+				background-color: $sky-blue;
+				color: $white;
+				border-bottom: none;
+			}
+		}
+	}
+
+	& ~ .tabs-content {
+		background-color: $smoke;
+
+		.no-results-filter {
+			background-color: $white;
+			padding: rem-calc(10 20);
+
+			p {
+				@extend .block-text-small;
+			}
+		}
+	}
+}
+
+// tabs choice option
+.content-tabs-choice {
+	position: relative;
+	padding: rem-calc(30 30 0);
+	background-color: $secondary-bg-color;
+	@include box-shadow(0px 2px 10px rgba($black, .5));
+
+	.tabs-title {
+		padding: 0;
+		margin: rem-calc(0 0 25)
+	}
+
+	.circle-icon-tabs {
+		@include icon-circle(
+			$font-size: rem-calc(48),
+			$padding: rem-calc(22),
+			$color: $base,
+			$bgcolor: $white,
+			$colors-custom: false,
+			$sizes-custom: false,
+			$has-transition: false
+		);
+		position: absolute;
+		right: rem-calc(20);
+		bottom: rem-calc(-20);
+		border: 7px solid transparent;
+		@include box-shadow(0px 0px 0px 1px $white, 0px 4px 10px rgba($black, .2));
+		@include background-clip(padding-box);
+
+		&:after {
+			content: '';
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    top: 0px;
+	    left: 0px;
+	    bottom: 0px;
+	    background-color: transparent;
+	    border-radius: 50%;
+	    @include box-shadow(0px 4px 20px rgba($black, .3));
+		}
+
+		@media #{$mobile-only}, #{$small-only} {
+			@include icon-circle(
+				$font-size: rem-calc(25),
+				$padding: rem-calc(12),
+				$color: $base,
+				$bgcolor: $white
+			);
+
+			right: 0;
+		}
+	}
+}
+
+.tabs-choice {
+	@extend .tabs !optional;
+	background-color: $secondary-bg-color;
+	display: table;
+	width: 100%;
+	@include box-sizing(border-box);
+
+	dd, .tab-title {
+		display: table-cell;
+		vertical-align: top;
+		float: none;
+
+		> a {
+			background: transparent;
+			color: rgba($white, .8);
+			border-bottom: 5px solid transparent;
+			font: {
+				size: rem-calc(16);
+				weight: 300;
+			}
+		}
+
+		&:hover, &.active {
+			> a {
+				color: $white;
+				border-bottom: 5px solid $white;
+			}
+		}
+	}
+}
+
+// tabs progress bar
+.tabs-progress-bar {
+	// @extend .tabs !optional;
+	list-style: outside none none;
+  position: relative;
+  width: 100%;
+  @include display-flex;
+  @include flex-direction(row);
+  @include justify-content(space-between);
+  margin: {
+  	left: 0;
+  }
+
+  .bar {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  background: $iron;
+	  width: 100%;
+	  height: 3px;
+	  border-radius: 10px;
+	  @include translate(-50%, -50%);
+	  overflow: hidden;
+
+	  &__fill {
+	    display: block;
+	    background: #BD8044;
+	    height: 100%;
+	    @include transition(0.5s ease-out .1s);
+	  }
+	}
+
+	dd, .tab-title {
+		position: relative;
+	  color: #AC9585;
+
+	  > a {
+	  	display: block;
+	  	cursor: pointer;
+
+	  	&:before {
+		    content: '';
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    width: 120px;
+		    height: 120px;
+		    @include border-radius(100%);
+		    @include translate(-50%, -50%);
+
+		    .show-radius & {
+		      background: rgba($black, 0.1);
+		    }
+		  }
+	  }
+
+    .bullet {
+    	background: $white;
+    	@include box-shadow(0 2px 4px rgba($black, 0.2), 0 0 0 6px #BD8044);
+    }
+
+	  // &.complete,
+	  &.active {
+
+	  	.bullet {
+	  		@include box-shadow(0 2px 4px rgba($black, 0.2), 0 0 0 10px #BD8044);
+	  	}
+
+	  	& ~ .tab-title {
+
+		    .bullet {
+		    	background: $iron;
+		    	@include box-shadow(none);
+		    }
+
+		  	.text-phase {
+		  		color: $gray-base;
+		  	}
+	  	}
+	  }
+
+	  .text-phase {
+	  	min-width: rem-calc(100);
+		  position: absolute;
+		  top: 100%;
+		  left: 50%;
+		  margin: 20px 0 0 0;
+		  font-size: 0.75rem;
+		  font-weight: 600;
+		  text-transform: none;
+		  @include translate(-50%, 0);
+		  text-align: center;
+	  	color: #BA7C3F;
+		}
+	}
+
+	.bullet {
+	  z-index: 1;
+	  position: relative;
+	  background: $iron;
+	  width: 8px;
+	  height: 8px;
+	  @include border-radius(100%);
+	  @include transition(0.3s ease .1s);
+	}
+
+	@media #{$mobile-only}, #{$small-only} {
+
+		dd, .tab-title {
+			.text-phase {
+				overflow: hidden;
+				width: rem-calc(70);
+				min-width: rem-calc(70);
+				white-space: normal;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}

@@ -1,0 +1,155 @@
+// Styles for mentoring main
+//--------------------------
+%mentoring-main {
+
+	.panel-content {
+		height: 100%;
+	}
+
+	.top-nav-mentoring {
+		@include margin-item-top;
+	}
+
+	// buttons for create onmentoring
+	ul.buttons-create-mentoring {
+		margin: rem-calc(5 0 0);
+
+		 > li {
+				list-style: outside none none;
+				display: inline-block;
+				vertical-align: middle;
+		 }
+	}
+
+	// container main of mentoring
+	#container-sections-mentoring {
+		height: 100%;
+		background-color: $white;
+		padding: rem-calc(5 25 25);
+	}
+
+	.section-content-mentoring {
+		.content {
+			padding: {
+				top: rem-calc(25);
+			}
+		}
+	}
+
+  #notification-add{
+    @media #{$mobile-only}{
+      margin-top: 20px;
+      padding:.8rem;
+    }
+    p{
+      button{
+        text-transform: none;
+        padding: 5px 15px;
+      }
+    }
+  }
+	// block filter
+	.block-filters-choice {
+    .row{
+      .columns{
+        margin-top:0;
+      }
+    }
+    #mentoring-name-search-icon{
+      position: absolute;
+      right: 20px;
+      top: 10px;
+    }
+		> label {
+			margin: {
+				bottom: rem-calc(10);
+			}
+		}
+
+		.list-filters-container {
+			margin: {
+				top: rem-calc(20);
+			}
+
+			ul.v-list-filters {
+				list-style: outside none none;
+			}
+		}
+	}
+  .content-data-list{
+    padding:0;
+  }
+
+	.list-ordering {
+		margin:{
+			top: rem-calc(10);
+			bottom: rem-calc(40);
+		}
+	}
+
+	.wrap-avatar-circle-mentoring {
+		position: relative;
+		display: inline-block;
+
+		.circle-entrepreneurship {
+			position: absolute;
+			left: auto;
+			right: 0px;
+			bottom: 0px;
+			// font-size: rem-calc(12);
+		}
+	}
+
+	// mentors list
+	ul#list-mentoring-mentor {
+
+		@include redefine-padding-gb( rem-calc(0 15 30) );
+
+		> li {
+			.item-carduser-list, .item-wrap-list {
+				background-color: $gray-lighter;
+
+				&:hover {
+					background-color: $white;
+				}
+			}
+		}
+	}
+
+	//
+	.content-header-panel {
+		padding: {
+			top: rem-calc(25);
+			bottom: rem-calc(25);
+		}
+
+		.hpanel-title {
+			padding-left: rem-calc(15);
+		}
+
+		.editable-profile-circle {
+			position: relative;
+			left: 0px;
+			bottom: auto;
+			width: rem-calc(90);
+			height: rem-calc(90);
+			border: none;
+
+			&.main-image-profile-mentor {
+				width: auto;
+				height: auto;
+				position: static;
+				display: inline-table;
+
+				.circle-entrepreneurship {
+					bottom: -34px;
+				}
+			}
+		}
+	}
+
+	// containers edit form
+	#container-form-expertise {
+		width: rem-calc(350);
+	}
+}

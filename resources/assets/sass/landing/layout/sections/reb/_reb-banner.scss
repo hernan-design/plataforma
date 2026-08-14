@@ -1,0 +1,34 @@
+%reb-banner {
+	/*
+	* Banner landing
+	* ---------------
+	*/
+	#{$banner-land-top}{
+
+		// banner background image
+		.content-image-banner {
+
+			@media #{$mobile-up} {
+				background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/redbavaria/reb-df-header-480x289.jpg');
+				background-size: 100%;
+				height: rem-calc(310);
+			}
+
+			@media #{$tablet-up} {
+				background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/redbavaria/reb-df-header-980x416.jpg');
+				background-size: 100%;
+				height: rem-calc(400);
+			}
+
+			@media #{$medium-up} {
+				background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/redbavaria/reb-df-header-1920x840.jpg');
+				height: rem-calc(560);
+			}
+		}
+
+		// banner central content
+		.content-banner {
+			margin-top: rem-calc(-102);
+		}
+	}
+}

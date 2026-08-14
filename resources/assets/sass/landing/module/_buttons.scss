@@ -1,0 +1,85 @@
+
+//
+// Variables
+//
+
+// terpel
+$terpel-button-border-width : 3px;
+$terpel-button-function-factor : 15%;
+$terpel-magenta-button-bg : $terpel-magenta-color;
+$terpel-magenta-button-bg-hover : scale-color($terpel-magenta-button-bg, $lightness:$terpel-button-function-factor);
+$terpel-magenta-border-color : scale-color($terpel-magenta-button-bg, $lightness: -1 * $terpel-button-function-factor);
+
+// rnai
+$rnai-button-border-width : 3px;
+$rnai-button-function-factor : 15%;
+$rnai-gold-button-bg : $rnai-gold-color;
+$rnai-gold-button-bg-hover : scale-color($rnai-gold-button-bg, $lightness:$rnai-button-function-factor);
+$rnai-gold-border-color : scale-color($rnai-gold-button-bg, $lightness: -1 * $rnai-button-function-factor);
+
+// ecopetrol
+$ecopetrol-button-border-width : 3px;
+$ecopetrol-button-function-factor : 15%;
+$ecopetrol-bright-green-button-bg : $ecopetrol-bright-green-color;
+$ecopetrol-bright-green-button-bg-hover : scale-color($ecopetrol-bright-green-button-bg, $lightness:$ecopetrol-button-function-factor);
+$ecopetrol-bright-green-border-color : scale-color($ecopetrol-bright-green-button-bg, $lightness: -1 * $ecopetrol-button-function-factor);
+
+// innpulsa
+$innpulsa-button-border-width : 3px;
+$innpulsa-button-function-factor : 15%;
+$innpulsa-bright-blue-button-bg : $innpulsa-bright-blue-color;
+$innpulsa-bright-blue-button-bg-hover : scale-color($innpulsa-bright-blue-button-bg, $lightness:$innpulsa-button-function-factor);
+$innpulsa-bright-blue-border-color : scale-color($innpulsa-bright-blue-button-bg, $lightness: -1 * $innpulsa-button-function-factor);
+
+
+//
+// button styles
+//
+
+//terpel
+button, .button {
+	&.terpel-magenta {
+		@include button-style($bg:$terpel-magenta-button-bg, $bg-hover:$terpel-magenta-button-bg-hover, $border-color:$terpel-magenta-border-color);
+		border-width: $terpel-button-border-width;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	}
+}
+
+// rnai
+button, .button {
+	&.rnai-gold-color {
+		@include button-style($bg:$rnai-gold-button-bg, $bg-hover:$rnai-gold-button-bg-hover, $border-color:$rnai-gold-border-color);
+		border-width: $rnai-button-border-width;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	}
+}
+
+// ecopetrol
+button, .button {
+	&.ecopetrol-bright-green-color {
+		@include button-style($bg:$ecopetrol-bright-green-button-bg, $bg-hover:$ecopetrol-bright-green-button-bg-hover, $border-color:$ecopetrol-bright-green-border-color);
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		font-size: rem-calc(25);
+		font-weight: 100;
+		padding: rem-calc(10 50);
+	}
+}
+
+// innpulsa
+button, .button {
+	&.innpulsa-bright-blue-color {
+		@include button-style($bg:$innpulsa-bright-blue-button-bg, $bg-hover:$innpulsa-bright-blue-button-bg-hover, $border-color:$innpulsa-bright-blue-border-color);
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		font-size: rem-calc(16);
+		font-weight: 100;
+		padding: rem-calc(8 40);
+	}
+}

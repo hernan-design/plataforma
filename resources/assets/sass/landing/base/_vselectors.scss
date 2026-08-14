@@ -1,0 +1,88 @@
+// Content variable selectors
+// a. Landing variable selectors
+// b. List variable selectors
+// c. Fonts variable selectors
+
+// a. Landing variable selectors
+// -----------------------------
+%landing-color-primary {
+	color: #{$primary-color} !important;
+	*{
+		color: #{$primary-color};
+	}
+}
+%landing-bgcolor-primary {
+	background-color: #{$primary-bg-color} !important;
+	// *{
+	// 	background-color: #{$background-body};
+	// }
+}
+%landing-color-secondary {
+	color: #{$secondary-color} !important;
+	*{
+		color: #{$secondary-color};
+	}
+}
+%landing-bgcolor-secondary {
+	background-color: #{$secondary-bg-color} !important;
+	// *{
+	// 	background-color: #{$background-body};
+	// }
+}
+
+
+// c. Fonts variable selectors
+// ---------------------------
+%color-alert {
+	color: #{$alert-color} !important;
+	* {
+		color: #{$alert-color};
+	}
+}
+%bgcolor-alert {
+	background-color: #{$alert-color} !important;
+}
+
+%color-success {
+	color: #{$success-color} !important;
+	* {
+		color: #{$success-color};
+	}
+}
+%bgcolor-success {
+	background-color: #{$success-color} !important;
+}
+
+%color-warning {
+	color: #{$warning-color} !important;
+	* {
+		color: #{$warning-color};
+	}
+}
+%bgcolor-warning {
+	background-color: #{$warning-color} !important;
+}
+
+%color-info {
+	color: #{$info-color} !important;
+	* {
+		color: #{$info-color};
+	}
+}
+%bgcolor-info {
+	background-color: #{$info-color} !important;
+}
+
+%color-sky-blue {
+	color: #{$sky-blue} !important;
+	* {
+		color: #{$sky-blue};
+	}
+}
+%bgcolor-sky-blue {
+	background-color: #{$sky-blue} !important;
+}
+
+%font-mdi {
+	@extend .#{$mdi-css-prefix};
+}

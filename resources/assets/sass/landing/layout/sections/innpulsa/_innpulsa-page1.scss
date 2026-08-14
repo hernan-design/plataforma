@@ -1,0 +1,287 @@
+%innpulsa-page1{
+
+  .slick-slider-innpulsa2020{
+    margin:0;overflow:hidden;
+    .wrap-img-slider{
+      #img1{
+        background:url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/INNPULSA+DEC+2020/carousel-main1.png);
+        height: 90vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        
+      }
+      #img2{
+        background:url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/INNPULSA+DEC+2020/fondo-innpulsa.png);
+        height: 90vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        
+      }
+      #img3{
+        background:url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/INNPULSA+DEC+2020/fondo-innpulsa3.png);
+        height: 90vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        
+      }
+      .hg-carousel{
+        height:90vh;background:rgba(0,0,0,0.4);
+        h4{
+          font-family: 'Montserrat Regular';
+          color: white;
+          font-size: 40px;
+          width: 60%;
+          display: block;
+          margin: auto;
+          padding-top: 55vh;
+          @media #{$mobile-only}{
+            width:90%;
+            font-size: 30px;
+            width: 90%;
+            padding-top: 45vh;
+          }
+        }
+        h3{
+          font-family: 'Montserrat Regular';
+          color: #FFD535;
+          font-size: 40px;
+          width: 60%;
+          display: block;
+          margin: auto;
+          padding-top: 20vh;
+          @media #{$mobile-only}{
+            width:90%;
+            font-size: 30px;
+            padding-top: 10vh;
+          }
+        }
+      }
+    }
+  }
+  #container-text1{
+    padding:50px;
+    h3{
+      font-family: 'Montserrat Regular';
+			color: #0C216A;
+			width: 60%;
+			line-height:2;
+			display: block;
+      margin: auto;
+      @media #{$mobile-only}{
+        width:90%;
+      }
+    }
+  }
+  #section1-new-design{
+    ul{
+      list-style: none;
+      li{
+       #p1{
+         div{
+          background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/homepage/principal/alto-impacto.jpg);
+          height: 350px;
+          background-size: cover;
+          padding: 50px;
+          h5{
+            font-family: 'Montserrat Regular';
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: white;
+          }
+          h2{
+            font-family: 'Montserrat Regular';
+            font-size: 35px;
+            color: white;
+            margin: 15px 0px;
+          }
+          small{
+            font-size: 13px;
+            font-family: 'Montserrat Regular';
+            color: white;
+          }
+         }
+       }  
+       #p2{
+          div{
+            background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/homepage/principal/social.jpg);
+            height: 350px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 50px;
+            h5{
+              font-family: 'Montserrat Regular';
+              font-size: 12px;
+              letter-spacing: 4px;
+              color: white;
+            }
+            h2{
+              font-family: 'Montserrat Regular';
+              font-size: 35px;
+              color: white;
+              margin: 15px 0px;
+            }
+            small{
+              font-size: 13px;
+              font-family: 'Montserrat Regular';
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    #container-tabs-new{
+      margin:0;
+      .content{
+        #square1{
+          background: #222222;height:100px;
+          h4{
+            font-family: 'Montserrat Regular';
+						color: #FFD535;
+						font-size: 15px;
+						margin-top: 40px;
+          }
+        }
+        #square2{
+          background: #383838;height:100px;
+        }
+        .container-box-announciements{
+          background:#030446;
+          height:inherit;
+          .contenedor {
+            height: 44vw;
+            margin: auto;
+            @media #{$mobile-only}{
+              height: 570px;
+            }
+          }
+          
+          .carta {
+            height: 100%;
+            width: 100%;
+            transition: all 1s;
+            transform-style: preserve-3d;
+            position: absolute;
+            &:hover{
+              transform: rotateY(180deg);
+            }
+            #img-announciement1{
+              background:url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/innpulsa2020/announciement+inside+page/innpulsa-convo_Hero-aldea%402x.png);
+              height: -webkit-fill-available;
+              background-size:cover;
+              background-position:center;
+            }
+            #img-announciement2{
+              background:url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/innpulsa2020/announciement+inside+page/innpulsa-convo_hero-acelera%402x.png);
+              height: -webkit-fill-available;
+              background-size:cover;
+              background-position:center;
+            }  
+            #img-announciement3{
+              background:url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/innpulsa2020/announciement+inside+page/innpulsa-convo_hero-empodera%402x.png);
+              height: -webkit-fill-available;
+              background-size:cover;
+              background-position:center;
+            }
+            #img-announciement4{
+              background:url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/innpulsa/innpulsa2020/announciement+inside+page/innpulsa-convo_hero-atipicos%402x.png);
+              height: -webkit-fill-available;
+              background-size:cover;
+              background-position:center;
+            }
+
+          }
+          .lado{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: #030446;
+            backface-visibility: hidden;
+          }
+          
+          
+          .atras{
+            width: 100%;
+            transform: rotateY(180deg);
+            padding: 80px 30px;
+            p{
+              font-family: 'Montserrat Bold';
+              color: white;
+              padding: 25px 0px;
+              font-size: 15px;
+            }
+            button{
+              font-family: 'Montserrat Medium';
+              text-transform: capitalize;
+              background: #DC2E38;
+            }
+          }
+          
+        }
+      }
+    }
+  }
+
+
+
+  #section2-new-design{
+    #container-welcome{
+      padding: 90px;
+      overflow: hidden;
+      @media #{$mobile-only}{
+        padding: 0px;
+      }
+      h3{
+        font-family: 'Montserrat Light';
+        font-size: 53px;
+        color: #0C216A;
+        width: 400px;
+        @media #{$mobile-only}{
+          font-size: 40px;
+        }
+      }
+      #hr1{
+        width: 115px;
+        border: 2px solid #FFD535;
+      }
+      #text-1{
+        font-family: 'Montserrat Regular';
+        font-size: 13px;
+        width: 400px;
+        @media #{$mobile-only}{
+          font-size: 11px;
+        }
+      }
+      #text-2{
+        font-family: 'Montserrat Regular';
+        font-size: 13px;
+        width: 400px;
+        color:#0C216A;
+        @media #{$mobile-only}{
+          font-size: 11px;
+        }
+      } 
+      #hr2{
+        width:100px;
+      }
+    } 
+  }
+}
+
+#section4-new-design{
+  .row{
+    margin-bottom: 90px;
+    h4{
+      font-family: 'Montserrat Light';
+      font-size: 40px;
+      font-weight: 400;
+      color: #B4B4B4;
+      margin: 30px;
+      @media #{$mobile-only}{
+        font-size: 30px;
+      }
+    }
+  }
+}

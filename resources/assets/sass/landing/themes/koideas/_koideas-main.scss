@@ -1,0 +1,37 @@
+#{$wrapper-land}.wrapper-koideas {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+
+
+	@extend %koideas-header !optional;
+
+	#{$main-land} {
+
+		.section-land {
+			.title-section-land {
+				color: $koideas-bright-red-color;
+				font-weight: 600;
+			}
+		}
+
+	@extend %koideas-banner !optional;
+	@extend %koideas-about !optional;
+	@extend %koideas-infocategories !optional;
+	@extend %koideas-popular-courses !optional;
+	@extend %koideas-achievements !optional;
+
+
+
+	}
+
+}

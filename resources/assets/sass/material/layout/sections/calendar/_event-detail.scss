@@ -1,0 +1,253 @@
+// Styles for events detail
+//-------------------------
+%event-detail {
+
+	#content-detail-event {
+
+		.wrapper-summary-event{
+			background-color: $white;
+			margin-bottom: rem-calc(3);
+			padding: rem-calc(20 10);
+			border-bottom: 1px solid $gainsboro;
+
+			@media #{$tablet-only}, #{$medium-only} {
+				border-bottom: 0;
+				margin-bottom: rem-calc(10);
+				padding: rem-calc(30 20);
+				@include box-shadow($box-shadow-item);
+			}
+
+			@media #{$large-up} {
+				border-bottom: 0;
+				margin-bottom: rem-calc(20);
+				padding: rem-calc(40 0);
+				@include box-shadow($box-shadow-item);
+			}
+
+			.event-img {
+				position: relative;
+		    display: block;
+		    width: 100%;
+		    overflow: hidden;
+		    @include border-radius($global-radius);
+		    height: 200px;
+
+		    @media #{$tablet-up} {
+		    	height: 170px;
+		    }
+
+		    > img {
+		    	position: absolute;
+					width: auto;
+					max-width: none;
+					height: 100%;
+					top: 0px;
+					left: -100%;
+					right: -100%;
+					margin: 0 auto !important;
+					@include translate(0, 0);
+		    }
+
+		    .date-on-image {
+		    	position: absolute;
+		    	left: 23px;
+		    	top: 23px;
+		    	background-color: $white;
+		    	font-size: rem-calc(19);
+		    	@include border-radius(8px);
+		    	padding: rem-calc(5 10);
+		    	color: $aluminum;
+		    	text-transform: uppercase;
+
+		    	> em {
+		    		font-style: normal;
+		    		font-weight: 700;
+		    		color: #0380dc;
+		    	}
+		    }
+			}
+
+			.event-title {
+				font-weight: 700;
+				font-size: rem-calc(18);
+				margin: rem-calc(20 0);
+
+				@media #{$tablet-only} {
+					font-size: rem-calc(26);
+					margin: rem-calc(0 0 10);
+				}
+
+				@media #{$medium-only}, #{$large-only} {
+					font-size: rem-calc(28);
+					margin: rem-calc(0 0 15);
+				}
+
+				@media #{$xlarge-up} {
+					font-size: rem-calc(32);
+					margin: rem-calc(-7 0 6);
+				}
+			}
+
+			.event-main-info {
+				margin-bottom: rem-calc(10);
+				span {
+					font-size: rem-calc(14);
+				}
+
+				// .vertical-separator {
+				// 	display: inline !important;
+				// }
+
+				.event-place-city-year {
+					.vertical-separator {
+						@media #{$tablet-up} {
+							display: inline !important;
+						}
+					}
+				}
+
+				> div {
+					i {
+						color: $iron;
+						font-size: rem-calc(24);
+						background-color: transparent;
+
+						@media #{$tablet-up} {
+							font-size: rem-calc(20);
+						}
+					}
+
+					@media #{$tablet-up} {
+						display: inline;
+					}
+				}
+			}
+
+			.event-owner {
+				margin-bottom: rem-calc(15);
+			}
+
+			.participate-button-action {
+				margin-bottom: rem-calc(15);
+
+
+				a.button {
+					width: 100%;
+					margin-bottom: rem-calc(15);
+				}
+			}
+
+			.event-user-card {
+				.rounded-thumb {
+					> img {
+						margin-top: 1px;
+					}
+				}
+
+				.event-user-text {
+					line-height: 1.1;
+				}
+			}
+
+			.event-social {
+				margin-left: 0;
+
+				.social-box-icons {
+					height: 30px;
+					line-height: 1.4;
+				}
+
+				ul#drop-shared-social-article {
+					> li {
+						padding-left: rem-calc(20);
+						padding-right: rem-calc(20);
+					}
+				}
+		  }
+
+		  .event-url-group {
+		    border: 1px solid $iron;
+		    display: inline-block;
+    		padding: rem-calc(3);
+		    @include border-radius(20px);
+
+		    @media #{$mobile-only}, #{$small-only} {
+		  		margin-bottom: 15px;
+		    	width: 100%;
+		    }
+
+		    @media #{$tablet-up} {
+					float: right;
+		    }
+
+		    > div {
+					display: inline;
+		    }
+
+				.event-url-icon {
+					cursor: pointer;
+				}
+		  }
+
+		  .event-url {
+		    border: 0;
+		    height: auto;
+		    margin-bottom: 0;
+		    padding: rem-calc(4);
+		  	width: auto;
+
+		    @include border-radius(20px);
+		    color: $monsoon;
+
+		  	@media #{$mobile-only}, #{$small-only} {
+		  		width: 282px;
+		  	}
+
+		  	@media #{$tablet-only} {
+		  		width: 320px;
+		  	}
+
+		  	@media #{$medium-up} {
+		  		width: 400px;
+		  	}
+
+	  		&:focus {
+	  			border-bottom-color: none !important;
+	  			box-shadow: none;
+	  		}
+
+	  		> input {
+	  			color: $monsoon;
+	  		}
+			}
+		}
+
+
+		.card-data-info {
+			&:hover {
+				background-color: transparent;
+			}
+
+			padding: {
+				top: rem-calc(15);
+				bottom: rem-calc(15);
+			}
+
+			&.separator {
+				border-bottom-color: $gris;
+
+				&:first-of-type {
+					border-top: 1px solid $gris;
+				}
+
+				&:last-of-type {
+					border-bottom: 1px solid $gris;
+				}
+			}
+		}
+
+		.panel-action {
+			margin-top: rem-calc(15);
+		}
+	}
+}

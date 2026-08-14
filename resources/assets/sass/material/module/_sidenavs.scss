@@ -1,0 +1,515 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for side navegation
+// --------------------------------
+
+//
+// Table of content
+//
+// a. styles for side-nav filers & content of these
+// b. styles for side navigations
+//
+
+// ------------------------------------------------
+// a. styles for filter side-nav & content of these
+// ------------------------------------------------
+// wrapper side nav
+// ----------------
+.wrapper-side-nav {
+	position: relative;
+	height: auto;
+	background-color: $white;
+	@include box-shadow($panel-shadow);
+
+	&.radius { @include border-radius($global-radius); }
+	&.round { @include border-radius($global-rounded); }
+	&.radius-top { @include side-radius(top, $global-radius); }
+	&.radius-bottom { @include side-radius(bottom, $global-radius); }
+
+	.title-side-nav {
+		display: inline-block;
+		font: {
+			style: italic;
+			weight: 300;
+		}
+		margin: 0;
+		padding: rem-calc(12 10);
+		color: $aluminum;
+	}
+
+	.hide-fx-left-btn {
+		@include border-radius( 0px $global-radius 0px 0px );
+	}
+	.hide-fx-right-btn {
+		@include border-radius( $global-radius 0px 0px 0px );
+	}
+
+	.toggle-slide-drop, .toggle-slide-collapse {
+    display: inline-block;
+		padding: rem-calc(0 15);
+    width: 100%;
+    line-height: rem-calc(44);
+
+    &:hover, &:focus {
+    	text-decoration: none;
+    }
+
+    .title-side-nav {
+    	padding: rem-calc(0 0 0 14);
+    }
+	}
+
+	&.is-sticky {
+		.content-filters-sidemenu {
+			max-height: 75vh;
+			overflow-y: auto;
+			overflow-x: visible;
+		}
+	}
+}
+
+.is-sticky {
+	> .wrapper-side-nav {
+		top: $tabbar-height + rem-calc(4);
+
+		.content-filters-sidemenu {
+			max-height: 80vh;
+		}
+	}
+}
+
+// content main filter for small resolution
+// ----------------------------------------
+#wrapper-filter-bar {
+	position: static;
+	width: auto;
+	height: auto;
+	background-color: transparent;
+
+	@media #{$mobile-only}, #{$small-only} {
+		position: relative;
+		width: 100% !important;
+		min-width: 100% !important;
+		width: 100vw !important;
+		background-color: $gray-light-alt;
+		@include box-shadow(0px 1px 5px rgba($black, .3));
+		z-index: 999;
+	}
+
+	@media #{$tablet-up} {
+		width: auto !important;
+		height: auto !important;
+		position: initial !important;
+		top: 0px !important;
+	}
+}
+
+// content filters
+// ---------------
+.content-filters-sidemenu {
+	width: rem-calc(240);
+	position: relative;
+	height: auto;
+	overflow: visible;
+}
+
+// wrapper side of filters slide
+// -----------------------------
+.filter-slide-sidenav-left {
+	width: rem-calc(240);
+
+	.content-filters-sidemenu {
+		position: relative;
+	  top: 0px;
+	  @include translateY(0px);
+	  @include opacity(1);
+	}
+}
+
+// wrapper side of filters drop
+// ----------------------------
+.filter-side-nav-left {
+  display: inline-block;
+	width: rem-calc(240);
+	margin-right: rem-calc(40);
+	@include transition(all 400ms ease-out);
+	max-height: 80vh;
+
+	.toggle-slide-drop, .toggle-slide-collapse {
+		&.on {
+			color: $oil;
+
+			i { color: $oil; }
+			.title-side-nav { color: $oil; }
+		}
+	}
+
+  @media #{$mobile-only}, #{$small-only} {
+  	width: auto;
+  	position: relative;
+  	top: 0px;
+  	left: 0px;
+  	right: auto;
+  	margin-right: 0;
+
+		.toggle-slide-drop, .toggle-slide-collapse {
+	  	.title-side-nav {
+	  		padding-left: rem-calc(5);
+	  	}
+		}
+
+		.is-sticky {
+  		.wrapper-side-nav {
+  			top: 0 !important;
+  			position: relative !important;
+  		}
+  	}
+
+  	.wrapper-side-nav {
+  		width: auto !important;
+  		background-color: transparent;
+  		@include box-shadow(none);
+  	}
+
+  	.content-filters-sidemenu {
+  		position: absolute;
+  		top: auto;
+  		bottom: auto;
+  		left: 0;
+  		background-color: $white;
+  		overflow-y: auto;
+  		overflow-x: visible;
+  		z-index: 999;
+  		@include opacity(1);
+  		@include box-shadow($panel-shadow);
+  		max-height: 70vh;
+  	}
+  }
+
+  @media #{$tablet-up} {
+  	width: auto;
+  	position: absolute;
+  	top: 0px;
+  	left: $column-gutter / 2;
+  	right: auto;
+  	max-height: 80vh;
+
+  	.title-side-nav {
+  		display: none;
+  	}
+
+  	.wrapper-side-nav {
+  		width: auto !important;
+  	}
+
+  	.toggle-slide-drop {
+	  	&.on {
+	  		.title-side-nav {
+	  			display: inline-block;
+	  		}
+	  	}
+  	}
+
+  	.content-filters-sidemenu {
+  		@include transform(translateX(0) !important);
+  	}
+	}
+
+	@media #{$large-up} {
+		width: rem-calc(240);
+		margin-left: 0;
+		position: relative;
+		right: auto;
+		left: 0;
+		max-height: none;
+
+		.title-side-nav {
+  		display: inline-block;
+  	}
+
+		.wrapper-side-nav {
+  		width: initial !important;
+  		background-color: transparent;
+  		@include box-shadow(none);
+  	}
+
+		.is-sticky {
+  		.wrapper-side-nav {
+  			top: $topbar-height + rem-calc(4) !important;
+  		}
+  	}
+
+  	.toggle-slide-drop {
+  		padding-left: 0;
+  	}
+
+  	.content-filters-sidemenu {
+  		// max-height: none;
+  		background-color: $white;
+  		@include box-shadow($panel-shadow);
+  		@include border-radius($global-radius);
+  	}
+	}
+
+	@media #{$screen} and (min-width: 112.5em) {
+		width: rem-calc(240);
+		margin-left: rem-calc(-280);
+		position: relative;
+		top: 0px;
+		right: 100%;
+		left: auto;
+		max-height: none;
+
+		.wrapper-side-nav {
+			background-color: $white;
+			@include box-shadow($panel-shadow);
+		}
+
+  	.toggle-slide-drop {
+  		padding-left: rem-calc(15);
+  	}
+
+  	.content-filters-sidemenu {
+  		// max-height: none;
+  		background-color: transparent;
+  		@include box-shadow(none);
+  		@include border-radius(0px);
+  	}
+	}
+}
+
+.menu-filter-panel {
+	@include margin-item-top;
+	.title-panel {
+		font-weight: bold;
+	}
+}
+
+.side-nav-slide {
+	@include side-nav;
+	padding-top: 0;
+	height: 100%;
+
+	> li {
+		padding: rem-calc(5 0);
+
+		// &:not(.divider) {
+		// 	margin: {
+		// 		left: rem-calc(20);
+		// 		right: rem-calc(20);
+		// 	}
+		// }
+
+		&.active {
+			a {
+				background-color: $sky-blue;
+			}
+		}
+
+		a:not(.button) {
+			margin: rem-calc(-5 -20);
+			padding: rem-calc(5 20);
+
+			&:hover, &:focus {
+				background-color: $sky-blue;
+				text-decoration: none;
+			}
+		}
+
+		label {
+			width: 100% !important;
+			display: table;
+			padding: 0;
+
+			> i {
+				display: table-cell;
+				float: none !important;
+				vertical-align: middle;
+			}
+
+			&.check-left {
+
+				&:before, &:after {
+					left: 0px;
+	    		right: auto;
+				}
+
+				&:before {
+					margin-left: rem-calc(-28);
+				}
+			}
+
+			&.check-right {
+				&:before, &:after {
+					right: 0px;
+	    		left: auto;
+				}
+			}
+		}
+
+		[type="checkbox"]:checked + label {
+			&.check-right {
+				&:before {
+					right: 9px;
+				}
+			}
+
+			&.check-left {
+				&:before {
+					left: 24px;
+				}
+			}
+		}
+
+		[type="checkbox"]:not(:checked) + label {
+			&.check-right, &.check-left {
+				> span {
+					color: $tuatara;
+				}
+
+				&:before {
+					border-color: $gris;
+					@include border-radius($global-radius);
+				}
+			}
+		}
+
+		[type="checkbox"] {
+
+			+ label {
+				color: $charcoal;
+				font-size: rem-calc(15);
+				line-height: 20px;
+				padding: rem-calc(8 0 8 30);
+				position: relative;
+				width: 100%;
+				@include border-radius($global-radius);
+				@include transition(box-shadow ease-out 300ms);
+
+				&:after {
+					@extend %font-mdi;
+					content: mdi('pound');
+					position: absolute;
+					top: 50%;
+					margin-top: -8px;
+					left: 15px;
+					margin-right: 4px;
+				}
+
+				&:before {
+					position: absolute;
+					top: 50%;
+					margin-top: -9px;
+					left: auto;
+				}
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+
+		[type="checkbox"]:checked {
+
+			+ label:before  {
+				margin-top: -13px;
+				right: 26px;
+				border-top: 2px solid transparent;
+				border-left: 2px solid transparent;
+			}
+		}
+
+		.title-side-nav {
+			padding: 0;
+		}
+	}
+
+	// input fields
+	// select, #{elements-of-type(text-input)} {
+	// 	margin: 0 !important;
+	// }
+}
+
+// Styles for sidenav materialize
+// ------------------------------
+#sidenav-overlay {
+	background-color: rgba($black, .2);
+	z-index: 77;
+}
+
+// Touch interaction
+.drag-target {
+	z-index: 78;
+	width: 20px;
+}
+
+// ------------------------------
+// b. styles for side navigations
+// ------------------------------
+.side-navigation {
+	@include side-nav(
+		$link-color: $jet,
+		$font-size: $paragraph-font-size,
+		$link-color-active: $white,
+		$link-color-hover: $secondary-color,
+		$link-bg-hover: $gray-light-alt
+	);
+
+	> li {
+		a:not(.button),
+			&.active a:first-child:not(.button) {
+			font: {
+				weight: $font-weight-normal;
+			}
+
+			&:hover, &:focus {
+				text-decoration: none;
+			}
+
+			&.active {
+				color: $white;
+				background-color: $secondary-bg-color;
+
+				> i {
+					color: $white;
+				}
+			}
+		}
+
+		.collapsible-header,
+			&.active .collapsible-header:first-child:not(.button) {
+			display: block;
+	    min-height: initial;
+	    line-height: initial;
+	    background-color: initial;
+	    border-bottom: none;
+
+	    &:after {
+	    	@extend %font-mdi;
+	    	content: mdi('chevron-right');
+	    	color: $gray-base;
+	    	font-size: 1.3em;
+	    	line-height: 1.2em;
+	    	float: right;
+	    	@include transform(rotate(0deg));
+	    	@include transition(all 2.5ms ease-in-out);
+	    }
+
+	    &:not(.button).active, &:not(.button):active {
+				color: $jet;
+				background-color: initial;
+	    }
+
+	    &:not(.button).active {
+	    	&:after {
+					@include transform(rotate(90deg));
+				}
+	    }
+		}
+
+		.collapsible-body {
+			padding: 0;
+			border-bottom: none;
+		}
+	}
+}

@@ -1,0 +1,58 @@
+%terpel-entrepreneurship {
+	#entrepreneurship {
+		background-color: $white-smoke;
+		position: relative;
+
+		.entrepreneurship-box {
+			position: relative;
+
+			.entrepreneurship-title {
+				height: rem-calc(56);
+				overflow: hidden;
+				margin-top: rem-calc(20);
+				margin-bottom: rem-calc(20);
+			}
+
+			.color-magenta {
+				color: $terpel-magenta-color;
+			}
+
+			.color-do {
+				color: $terpel-do-color;
+			}
+
+			.color-imagine {
+				color: $terpel-imagine-color;
+			}
+
+			.color-terpel-purple {
+				color: $terpel-purple-color;
+			}
+
+			.entrepreneurship-place-institution-name {
+				color: $aluminum;
+				font-size: rem-calc(14);
+				font-weight: 200;
+				position: relative;
+				display: inline-block;
+				margin-bottom: rem-calc(19);
+				padding-bottom: rem-calc(19);
+
+				span {
+					color: $charcoal;
+				}
+
+				&:after {
+					content: "";
+			    display: inline-block;
+			    height: 1px;
+			    width: 48px;
+			    position: absolute;
+			    left: 0;
+			    bottom: 0;
+			    background-color: $iron;
+				}
+			}
+		}
+	}
+}

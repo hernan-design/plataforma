@@ -1,0 +1,129 @@
+%innpulsa-stages {
+	#innpulsa-stages {
+		background-color: $gray-light;
+		position: relative;
+
+		&.section-land {
+			.title-section-land {
+				color: $innpulsa-dark-blue-color;
+				font-weight: normal;
+				position: relative;
+				padding-bottom: rem-calc(35);
+				margin-bottom: rem-calc(26);
+
+				&:after {
+					content:'';
+					background-image: url('http://static.tuproyecto.com/images/landing/innpulsa/aldea-stages-divline.png');
+					bottom: 0;
+					width: 88px;
+					height: 10px;
+					position: absolute;
+					left: 50%;
+    			margin-left: -44px;
+				}
+			}
+		}
+
+		.list-stages {
+			width: 100%;
+
+			.innpulsa-stages-item {
+				padding: rem-calc(33 13 0 13);
+
+				.item-wrap-list {
+					background-color: transparent;
+				}
+
+				> a {
+					display: block;
+					@include clearfix;
+					padding: 0;
+					background-color: $vapor;
+					@include side-radius(top, $global-radius);
+					// @include transition(box-shadow ease-out 300ms);
+
+					&:hover {
+						background-color: $white;
+						// box-shadow: 0px 4px 12px 1px rgba(0, 0, 0, 0.22);
+					}
+				}
+
+				&.active, &.slick-center {
+
+					> a {
+						background-color: $white;
+						// @include box-shadow (0px 5px 10px 0px rgba($black, 0.22));
+					}
+				}
+
+				.innpulsa-stages-boxes {
+					position: relative;
+					padding: rem-calc(45 0);
+
+					.innpulsa-item-img {
+						width: 133px;
+						height: auto;
+						min-width: 133px;
+						min-height: auto;
+						margin: 0 auto;
+						margin-bottom: rem-calc(35);
+					}
+
+					.innpulsa-stages-title {
+						font-weight: normal;
+						font-size: rem-calc(24);
+						color: $innpulsa-bright-red-color;
+
+					}
+
+					.innpulsa-stages-subtitle {
+						font-weight: 200;
+						font-size: rem-calc(18);
+						color: $tuatara;
+					}
+
+
+					// .innpulsa-title-box {
+
+					// 	margin: rem-calc(30 0);
+					// 	height: 78px;
+					// 	display:table;
+			  // 			width:100%;
+
+					// 	.innpulsa-title {
+					// 		display: block;
+					// 		font-weight: 200;
+					// 		font-size: rem-calc(18);
+					// 		color: $monsoon;
+					// 		vertical-align:middle;
+		   //  				display:table-cell;
+
+					// 	}
+					// }
+				}
+			}
+		}
+
+		.innpulsa-stages-content {
+			background-color: transparent;
+
+			.content {
+				padding: rem-calc(0 13 13);
+
+				.innpulsa-stages-content-item {
+					padding: rem-calc(35);
+					background-color: $white;
+					@include side-radius(bottom, $global-radius);
+
+					a {
+						color: $innpulsa-bright-blue-color;
+					}
+				}
+			}
+		}
+
+
+
+
+	}
+}

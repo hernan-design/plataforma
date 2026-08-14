@@ -1,0 +1,38 @@
+// @author TuProyecto.co
+// @frontend @krobing
+// Styles for side data
+// --------------------
+.data-aside {
+	padding: {
+		top: rem-calc(12);
+	}
+
+	&.no-spacing-top {
+		padding-top: 0;
+	}
+
+	.title-section, .title-section-block {
+		padding: {
+			bottom: rem-calc(10);
+		}
+		border-bottom: 1px solid $hr-border-color;
+		.inner-title-section {
+			margin: 0;
+		}
+	}
+
+	.inner-data-side {
+		padding: rem-calc(12 12 25);
+		background-color: $white;
+		@include box-shadow( $box-shadow-item );
+
+		.title-panel {
+			top: rem-calc(-12);
+			left: rem-calc(-12);
+			padding: {
+				left: rem-calc(12);
+				right: rem-calc(12);
+			}
+		}
+	}
+}

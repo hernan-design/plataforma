@@ -1,0 +1,273 @@
+/**
+* Customized Media Queries Base
+* ------------------------------
+*/
+
+// Screen less to 480px resolution
+@media #{$mobile-up} {
+
+	// grid
+	.row {
+		@include grid-row();
+	}
+
+	@include grid-greater-than-other($sizeUp:mobile) {
+		// columns grid
+		@include grid-html-classes($size:mobile);
+		// block-grid
+		@include block-grid-html-classes($size:mobile,$include-spacing:false);
+	}
+
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-wrap}{
+	}
+}
+@media #{$mobile-only} {
+
+	@include block-grid-html-classes($size:mobile-only,$include-spacing:false);
+
+	/*
+	* Main Container
+	* --------------
+	*/
+	#{$main-wrap} {
+		padding-top: 0;
+		padding-bottom: $tabbar-height + rem-calc(30);
+	}
+}
+
+// Small Resolution Mobile-only
+@media #{$small-only} {
+
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-wrap}{
+	}
+
+	/*
+	* Main Container
+	* --------------
+	*/
+	#{$main-wrap} {
+		padding-top: 0;
+		padding-bottom: $tabbar-height + rem-calc(30);
+
+		/**
+		* =========================
+		* Styles for learns section
+		* =========================
+		*/
+		#course-wrapper {
+
+			#course-content{
+
+				#lecture-course {
+					overflow-y: auto;
+					display: block;
+					min-height: 100%;
+					height: 100%;
+
+					.course-lecture-main {
+						@media #{$mobile-up} {
+							display: block;
+							width: 100%;
+							float: left;
+							height: 100%;
+							@include flex-direction(row);
+						}
+					}
+
+					.sidemenu-course-lecture {
+
+						@media #{$mobile-up} {
+							display: block;
+							width: 100%;
+							float: left;
+							height: 100%;
+							@include flex-direction(row);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablet Specific Resolution
+// 641px, 980px
+@media #{$tablet-up} {
+	// grid
+	.row {
+		@include grid-row();
+	}
+
+	@include grid-greater-than-other($sizeUp:tablet) {
+		// columns grid
+		@include grid-html-classes($size:tablet);
+		// block-grid
+		@include block-grid-html-classes($size:tablet, $include-spacing:false);
+	}
+
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-wrap}{
+
+		// top menu
+		#nav-header {
+			// name institution
+			.institution-name {
+				margin: {
+					left: 0;
+				}
+			}
+
+			.top-bar-section {
+
+				// menus grid
+				#nav-menus-grid {
+					table-layout: fixed;
+				}
+
+				// left and right menus
+				.left-nav-top-bar {
+
+					.field-search {
+						padding: {
+							right: rem-calc(90);
+						}
+					}
+				}
+
+				.right-nav-top-bar {
+					float: right;
+					display: block;
+					width: auto;
+				}
+
+				ul.left-top-menu {
+					padding: {
+						right: rem-calc(100);
+					}
+				}
+			}
+
+			// .right-top-menu {
+			// 	padding: {
+			// 		right: rem-calc(60);
+			// 	}
+			// }
+		}
+
+		// mobile menu
+		// #nav-header-side {
+
+		// 	ul.menu-nav-user {
+		// 		margin: {
+		// 			right: rem-calc(70);
+		// 		}
+		// 	}
+		// }
+	}
+
+	// border radius tablet up
+
+	.radius-tablet-up {
+		@include border-radius($global-radius);
+	}
+}
+@media #{$tablet-only} {
+
+	@include block-grid-html-classes($size:tablet-only,$include-spacing:false);
+}
+
+// Medium Resolution Tablet-only
+@media #{$medium-only} {
+
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-wrap}{
+	}
+}
+
+// Desktop resolution
+@media #{$large-up} {
+
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-wrap}{
+	}
+}
+
+// Large desktop resolition
+@media #{$xlarge-up} {
+	/*
+	* Header - topbar
+	* ----------------
+	*/
+	#{$header-wrap}{
+
+		// styles for top menu
+		#nav-header {
+
+			// name institution
+			.institution-name {
+				margin: {
+					left: rem-calc(20);
+				}
+			}
+
+			.top-bar-section {
+
+				// menus grid
+				#nav-menus-grid {
+					table-layout: auto;
+				}
+
+				// left and right menus
+				.left-nav-top-bar {
+					.field-search {
+						padding: {
+							right: 0;
+						}
+
+						input[type="text"] {
+							width: 100%;
+							clip: rect(0px, auto, auto, 0px);
+							padding: {
+								left: rem-calc(40);
+								right: rem-calc(15);
+							}
+
+							& ~ .btn-search {
+								left: 0;
+								right: auto;
+							}
+						}
+					}
+				}
+				.right-nav-top-bar {
+					width: 1%;
+					display: table-cell;
+					float: none;
+				}
+
+				ul.left-top-menu {
+					padding: {
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+%compensar-slider {
+	#compensar-slider {
+		background-color: $silver;
+
+		.slick-slider {
+
+			.slick-title-1 {
+				font-size: rem-calc(43.2);
+			}
+
+			.slick-title-2 {
+				font-size: rem-calc(25.6);
+			}
+		}
+	}
+}

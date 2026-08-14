@@ -1,0 +1,110 @@
+%jucapp-banner {
+  #bolivar-banner {
+    height: 100%;
+    position: relative;
+    background-color: white;
+
+    .slider-img {
+      height: 100%;
+      width: 100%;
+      left: 50%;
+      top: 50%;
+      position: absolute;
+      // margin-left: -960px;
+      // margin-top: -540px;
+      @include translate(-50%, -50%);
+      @media #{$mobile-only}, #{$small-only} {
+        background: url(https://s3-us-west-2.amazonaws.com/static.jucapp.com/landing/banner/mobile.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+      @media #{$tablet-only}, #{$medium-only} {
+        background: url(https://s3-us-west-2.amazonaws.com/static.jucapp.com/landing/banner/tablet.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+      @media #{$large-only}, #{$xlarge-only},#{$xxlarge-only} {
+        background: url(https://s3-us-west-2.amazonaws.com/static.jucapp.com/landing/banner/banner.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+    }
+
+    .slick-slider-default {
+      height: 100%;
+      margin: 0;
+
+      .slick-list {
+        height: 100%;
+
+        .slick-track {
+          height: 100%;
+        }
+      }
+
+      .wrap-img-slider {
+        height: 100%;
+      }
+
+      .slick-slider-content {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        height: 100%;
+
+        > .rows {
+          height: 100%;
+          width: 100%;
+        }
+
+        .slider-content {
+          margin-top: rem-calc(244);
+          @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+            margin-top: rem-calc(36);
+          }
+
+
+          .slick-text-1{
+            line-height:1.8;
+            font-family: 'Istok Web', sans-serif;
+            font-size: rem-calc(20.8);
+            font-weight: 700;
+            letter-spacing: 1.1px;
+            color: #E3531F;
+            @media #{$mobile-only}, #{$small-only} {
+              display:none;
+            }
+            >strong{
+              font-family: 'Sansation bold';
+              color:#515151;
+            }
+
+          }
+          .slick-title-1 {
+            color:#69696B;
+            position: relative;
+            font-family: 'Istok Web', sans-serif;
+            font-weight: 700;
+            font-size: rem-calc(40.2);
+            line-height: 1.2;
+
+            @media #{$mobile-only}, #{$small-only} {
+              display: none;
+            }
+          }
+          .panel{
+            border-radius: 25px;
+            box-shadow: 2px 3px 14px -4px rgba(0,0,0,0.23);
+            .row{
+              div > button{
+                border-radius: 12px;
+                text-transform: capitalize;
+                background:#E3531F;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

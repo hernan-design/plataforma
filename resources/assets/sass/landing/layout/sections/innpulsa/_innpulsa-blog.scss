@@ -1,0 +1,145 @@
+%innpulsa-blog {
+	#innpulsa-blog {
+		background: $gray-light url('http://static.tuproyecto.com/images/landing/innpulsa/aldeainnpulsa-stats-bg.png') no-repeat center;
+
+		&.section-land {
+			.title-section-land {
+				color: $innpulsa-dark-blue-color;
+				font-weight: normal;
+			}
+		}
+
+		.content-data-list {
+			position: relative;
+
+			.innpulsa-blog-button {
+				position: absolute;
+				right: 0;
+				bottom: -12px;
+				background-color: $innpulsa-dark-blue-color;
+				font-weight: 800;
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+
+		.slick-browse {
+
+			.slick-prev, .slick-next {
+				border-top: 1px solid $aluminum;
+				position: absolute;
+		    overflow: hidden;
+		    display: inline-block;
+		    font-size: 4px; /*set the size for arrow*/
+		    width: 4em;
+			  height: 4em;
+				cursor: pointer;
+
+				&:before{
+					content: '';
+				}
+
+				&:hover {
+					border-top-color: $white;
+				}
+
+			}
+
+			.slick-prev {
+				left: rem-calc(18);
+			  border-left: 1px solid $aluminum;
+		    transform: rotate(-45deg);
+
+		    &:hover {
+					border-left-color: $innpulsa-dark-blue-color;
+					border-top-color: $innpulsa-dark-blue-color;
+				}
+			}
+
+			.slick-next {
+				left: rem-calc(34);
+			  border-right: 1px solid $aluminum;
+		    transform: rotate(45deg);
+
+		    &:hover {
+					border-right-color: $innpulsa-dark-blue-color;
+					border-top-color: $innpulsa-dark-blue-color;
+				}
+			}
+		}
+
+		.list-news-land {
+			overflow: hidden;
+			background-color: transparent;
+
+			.item-news {
+
+				.news-item-land {
+					background-color: $gray-lighter;
+
+					&:hover {
+						background-color: $white;
+
+						.news-item-title {
+							.news-title-anchor-land {
+								color: $innpulsa-dark-blue-color;
+							}
+						}
+					}
+
+					.news-item-title {
+						background-color: transparent;
+						overflow: hidden;
+						font-size: rem-calc(16);
+						height: rem-calc(75);
+						padding: rem-calc(6 8 0);
+						margin: 0;
+
+						.news-title-anchor-land {
+							&:hover {
+								color: $innpulsa-dark-blue-color;
+							}
+						}
+					}
+
+					.news-image-land {
+						background-color: transparent;
+
+						img {
+							border-radius: 3px 3px 0 0;
+							width: 100%;
+							height: auto;
+						}
+					}
+
+					.news-description-land {
+						background-color: transparent;
+						margin: 0;
+						padding-bottom: 0;
+					}
+
+					.bottom-item-list {
+						border: none;
+						background-color: transparent;
+						margin: rem-calc(0 0 10 0);
+						padding-top: rem-calc(4);
+
+						.news-bottom-land {
+							border: 0;
+							padding: rem-calc(0 8);
+							font-size: rem-calc(12);
+						}
+					}
+				}
+			}
+		}
+
+		.innpulsa-blog-button {
+			&:visited {
+				color: $white;
+			}
+		}
+	}
+}

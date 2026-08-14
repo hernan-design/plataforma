@@ -1,0 +1,28 @@
+.wrapper-mapacine {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+	.mapacine-section-title {
+			font-weight: 100;
+			font-size: rem-calc(34);
+			color: $mapacine-bright-red-color;
+			margin-bottom: rem-calc(40);
+		}
+	// Paddings
+
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+	@extend %mapacine-institution-description !optional;
+	@extend %mapacine-functionalities !optional;
+	@extend %mapacine-courses !optional;
+	@extend %mapacine-team !optional;
+
+}

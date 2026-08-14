@@ -1,0 +1,31 @@
+{
+  "verbose": true,
+  "ignore": [
+  	"resources/assets/js/collections/**/*.js",
+  	"resources/assets/js/models/**/*.js",
+  	"resources/assets/js/views/**/*.js",
+  	"resources/assets/js/routes/routes.js",
+  	"resources/assets/js/routes/routeslanding.js",
+  	"resources/assets/js/init.js",
+  	"resources/assets/js/initlanding.js",
+  	"resources/assets/js/app-client.js",
+  	"resources/assets/js/animated.js",
+  	"resources/assets/sass/*",
+  	"resources/assets/libs/*",
+  	"resources/views/*",
+  	"public/*",
+  	"storage/logs/laravel.log"
+  ],
+  "watch": [
+  	"resources/assets/js/routes/reactroutes.js",
+  	"resources/assets/js/components/",
+  	"resources/assets/js/pages/",
+  	"resources/assets/js/stores/",
+  	"resources/assets/js/middleware/",
+  	"resources/assets/js/init-app.js",
+  	"resources/assets/js/helpers/node-utils.js",
+  	"resources/assets/notify-realtime",
+  	"resources/server/"
+  ],
+  "delay": "1000"
+}

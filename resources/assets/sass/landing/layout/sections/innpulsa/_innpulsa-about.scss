@@ -1,0 +1,189 @@
+%innpulsa-about {
+	#innpulsa-about {
+
+		.about-tabs-header {
+			background-color: $innpulsa-dark-blue-color;
+			padding-top: rem-calc(80);
+
+			@media #{$mobile-only}, #{$small-only} {
+				padding-top: rem-calc(30);
+			}
+
+			@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding-top: rem-calc(50);
+			}
+		}
+
+		.about-content-box {
+			@media #{$medium-up} {
+				margin-bottom: rem-calc(40);
+			}
+
+			.text-about-aldea {
+				color: $white;
+				position: relative;
+				padding-bottom: rem-calc(35);
+				margin-bottom: rem-calc(35);
+
+				&:after {
+			    width: 50px;
+					height: 2px;
+					background-color: $innpulsa-regular-blue-color;
+			    position: absolute;
+			    bottom: 0;
+					left: 50%;
+					margin-left: -25px;
+			    content: '';
+		    }
+			}
+
+			.about-subtitle {
+				font-family: 'FuturaStd-Bold';
+			  font-size:rem-calc(24);
+				color: $white;
+			}
+		}
+
+		.about-tabs-wrapper {
+			background-color: $innpulsa-dark-blue-color;
+			padding-top: rem-calc(30);
+
+			@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				padding-top: rem-calc(50);
+			}
+
+      .innpulsa-about-slick-tabs {
+        min-height: auto;
+      }
+
+			.tab-title {
+				margin-left: 0;
+
+				&:hover {
+					.about-tabs {
+						color: $black;
+					}
+				}
+
+				.about-tabs {
+					color: $white;
+					background-color: $innpulsa-dark-blue-color;
+					padding: rem-calc(23 65);
+					font-family: 'FuturaStd-Bold';
+			    font-size:rem-calc(21);
+
+					@media #{$mobile-only}, #{$small-only} {
+						padding: rem-calc(10 14);
+						font-size: rem-calc(13);
+					}
+
+					@media #{$tablet-only}, #{$medium-only}, #{$large-only} {
+						padding: rem-calc(18 30);
+						font-size: rem-calc(15);
+					}
+
+					&:hover {
+						background-color: $innpulsa-light-pink-color;
+            color: $black;
+					}
+				}
+
+				&.active {
+					.about-tabs {
+						color: $black;
+						background-color: $innpulsa-light-pink-color;
+						border-bottom: 0 !important;
+
+						&:hover {
+							cursor: default;
+						}
+					}
+				}
+			}
+		}
+
+    .about-tabs-content {
+      background-color: $innpulsa-light-pink-color;
+      padding: rem-calc(80 0);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0;
+
+      @media #{$mobile-only}, #{$small-only} {
+        padding: rem-calc(15 0 40);
+      }
+
+      @media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+        padding: rem-calc(50 0 80);
+      }
+
+      &:after {
+        background-size: 100% 100%;
+        width: 110%;
+        position: absolute;
+        bottom: -4px;
+        content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/innpulsa/landing-octubre-2018/about/about-aldeacity-bg.svg');
+        left: -10px;
+
+        @media #{$mobile-only}, #{$small-only} {
+          width: 200%;
+          left: -50%;
+        }
+
+        @media #{$tablet-only}, #{$medium-only}, #{$large-only} {
+          width: 150%;
+          left: -25%;
+        }
+      }
+
+      .about-video {
+        @media #{$mobile-only}, #{$small-only} {
+          margin-bottom: rem-calc(20);
+        }
+      }
+
+      .reto-title {
+        font-family: 'FuturaStd-Bold';
+        color: $black;
+
+        @media #{$tablet-up} {
+          font-size: rem-calc(24);
+        }
+      }
+
+      .about-video {
+        @media #{$tablet-up} {
+          margin-top: rem-calc(40);
+        }
+      }
+
+      .reto-text {
+        font-size: rem-calc(14);
+        line-height: 1.3;
+        color: $black;
+        text-align: justify;
+
+        @media #{$tablet-up} {
+          font-size: rem-calc(18);
+        }
+      }
+
+      .reto-list {
+        list-style: none;
+
+        .reto-text {
+          padding-left: rem-calc(20);
+          position: relative;
+          margin-bottom: 0;
+
+          &:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+		}
+	}
+}
+

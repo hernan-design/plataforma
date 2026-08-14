@@ -1,0 +1,299 @@
+%terpel-slider {
+	#terpel-slider {
+		height: 650px;
+    #banner-lanzamiento{
+      background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/desktop.png');
+      a{
+        position: absolute;
+        bottom: 6.5rem;
+        margin-left: auto;
+        box-shadow: 2px 2px 1.3px 3px rgba(1,1,1,0.4);
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        width: fit-content;
+        background: #ce3427;
+        border: 2px solid #3a3a3a;
+        border-radius: 5px;
+        padding: 0.4rem 1rem;
+        font-family: ACMESecretAgentBB;
+        font-size: 1.8rem;
+        -webkit-text-stroke: .9px #3a3a3a;
+
+        &:hover{
+          color: white;
+        }
+      }
+    }
+		.slider-img {
+			height: 100%;
+	    min-height: 650px;
+	    width: auto;
+	    min-width: 1920px;
+	    left: 50%;
+	    top: 50%;
+	    position: absolute;
+			@include translate(-50%, -50%);
+
+			&.img-480x650-mobile {
+				display: none;
+				min-width: 480px;
+
+				@media #{$mobile-only} {
+					display: inline-block;
+				}
+			}
+
+			&.img-1200x650-medium {
+				display: none;
+				min-width: 1200px;
+
+				@media #{$small-only}, #{$tablet-only}, #{$medium-only}, #{$large-only} {
+					display: inline-block;
+				}
+			}
+
+			&.img-1920x650-large {
+				display: none;
+				min-width: 1920px;
+
+				@media #{$large-up} {
+					display: inline-block;
+				}
+			}
+
+			&.img-1920x650-1 {
+				display: none;
+
+				@media #{$medium-only}, #{$large-up} {
+					display: inline-block;
+				}
+			}
+
+			&.img-980x650-1 {
+				display: none;
+				min-width: 980px;
+
+				@media #{$tablet-only}, #{$small-only} {
+					display: inline-block;
+				}
+			}
+
+			&.img-480x650-1 {
+				display: none;
+				min-width: 480px;
+
+				@media #{$mobile-only} {
+					display: inline-block;
+				}
+			}
+		}
+
+		.slick-slider-terpel {
+			height: 100%;
+			margin: 0;
+
+			.slick-list {
+				height: 100%;
+
+				.slick-track {
+					height: 100%;
+				}
+			}
+
+			.wrap-img-slider {
+				height: 100%;
+			}
+
+			.slick-slider-content {
+				display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+				.slider-content {
+				  display: table-cell;
+          vertical-align: middle;
+					padding-top: rem-calc(64);
+
+					@media #{$mobile-only}, #{$small-only} {
+					  padding-top: 0;
+					}
+
+					img {
+						display: inline-block;
+						width: 100px;
+						margin-bottom: rem-calc(10);
+
+						@media #{$mobile-only}, #{$small-only} {
+						  width: 70px;
+						}
+
+						@media #{$xlarge-up} {
+							display: none;
+						}
+					}
+
+					.slick-title-1 {
+						line-height: 1;
+						color: #24247c;
+						position: relative;
+						font-family: 'BadaBoomBB';
+						letter-spacing: 4px;
+						font-size: rem-calc(32);
+						margin-bottom: rem-calc(10);
+
+						@media #{$xlarge-up} {
+						  padding-left: 120px;
+
+						  &:before {
+                content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/slider/terpel-disenaelcambio-like.png');
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                left: 0;
+                top: 0;
+						  }
+						}
+
+						@media #{$mobile-only}, #{$small-only} {
+							font-size: rem-calc(28);
+							letter-spacing: 2px;
+							margin-bottom: rem-calc(20);
+						}
+
+
+						@media #{$tablet-only} {
+							font-size: rem-calc(38);
+							line-height: 1.1;
+						}
+
+						@media #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+							font-size: rem-calc(42);
+							line-height: 1.2;
+						}
+
+						@media only screen and (min-width: 1440px) {
+							margin-bottom: rem-calc(30);
+						  font-size: rem-calc(50);
+						}
+					}
+
+					.slick-title-2 {
+						line-height: 0.9;
+						margin-bottom: rem-calc(15);
+
+						font: {
+						  family: 'ACMESecretAgentBB';
+						  style: italic;
+						  size: rem-calc(16);
+						  weight: bold;
+						}
+
+						@media #{$small-only}, #{$tablet-only} {
+							font-size: rem-calc(18);
+							margin-bottom: rem-calc(20);
+						}
+
+						@media #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+							font-size: rem-calc(21);
+						}
+
+						@media only screen and (min-width: 1440px) {
+  						font-size: rem-calc(23);
+						}
+
+						> span {
+							color: $terpel-magenta-color;
+						}
+
+						&.sub-title {
+							font-size: rem-calc(39);
+
+							@media #{$mobile-only}, #{$small-only} {
+							  font-size: rem-calc(25);
+						  }
+						}
+					}
+
+					.button {
+						@include radius(14px);
+						font-family: 'ACMESecretAgentBB';
+						margin-top: rem-calc(20);
+						padding: rem-calc(13 35);
+						font-size: rem-calc(24);
+
+						@media #{$mobile-only}, #{$small-only} {
+						  margin-top: rem-calc(6);
+						}
+
+						@media #{$tablet-up}{
+						  font-size: rem-calc(34);
+						  padding: rem-calc(15 65);
+
+						}
+					}
+				}
+			}
+
+			.slick-prev, .slick-next {
+				width: 80px;
+    		height: 80px;
+
+				&:before {
+					width: 30px;
+    			height: 46px;
+				}
+
+			}
+
+			.slick-prev {
+				left: 25px;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/slider/terpel-slider-arrow-left.png');
+				}
+			}
+
+			.slick-next {
+				right: 25px;
+
+				&:before {
+					content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/terpel/disenaelcambio-2018/slider/terpel-slider-arrow-right.png');
+				}
+			}
+
+			.slick-dots {
+				bottom: 70px;
+
+				li {
+					width: 8px;
+					height: 8px;
+					margin-right: rem-calc(8);
+
+					button {
+		  			border-radius: 7px;
+		  			background-color: rgba($gray-deep, 0.3);
+		  			border: 2px solid rgba($white, 0.4);
+
+		  			width: 6px;
+		  			height: 6px;
+
+		  			&:before {
+		  				content: none;
+		  			}
+					}
+
+					&.slick-active {
+						button {
+							background-color: $gray-deep;
+							border: 2px solid $white;
+						}
+					}
+				}
+			}
+		}
+	}
+}

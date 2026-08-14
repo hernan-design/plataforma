@@ -1,0 +1,50 @@
+// Styles for general middleware
+// ----------------------------
+
+%general-middleware {
+
+	&.persistent-section {
+
+		.inner-signin {
+			margin: {
+				top: rem-calc(30);
+			}
+		}
+
+		.content-persistent-inner {
+			background-color: $gray-light-alt;
+			padding: rem-calc(50 40);
+			margin: {
+				left: rem-calc(-40);
+				right: rem-calc(-40);
+			}
+		}
+
+		.wrap-icon-persistent {
+			margin: {
+				bottom: rem-calc(30);
+			}
+		}
+
+		.wrap-description-persistent {
+			margin: {
+				bottom: rem-calc(35);
+			}
+		}
+
+		.persistent-circle {
+			@include icon-circle(
+				$font-size: rem-calc(65),
+				$padding: rem-calc(20),
+				$color: $white,
+				$bgcolor: $gray-light
+			);
+		}
+
+		[type="submit"] {
+			margin: {
+				top: rem-calc(65);
+			}
+		}
+	}
+}

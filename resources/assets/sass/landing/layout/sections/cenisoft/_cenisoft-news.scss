@@ -1,0 +1,94 @@
+%cenisoft-news {
+  #cenisoft-news {
+    .container-news{
+      background: #F0F0F0;
+      width: 100%;
+      height: 100vh;
+      @media #{$tablet-only}, #{$medium-only}, #{$mobile-only}, #{$small-only} {
+        height: 80vh;
+      }
+      .image-news{
+        background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/cenisoft/news-image.png);
+        height: 100%;
+        background-repeat:no-repeat;
+        background-position: top;
+        h3{
+          text-align: center;
+          padding-top: 60px;
+          font-size: 4rem;
+          color: #494949;
+          letter-spacing: -1.5px;
+          font-weight: 300;
+          @media #{$mobile-only}, #{$small-only} {
+            font-size: 1.8rem;
+            font-weight:400;
+          }
+        }
+        .content-news{
+          margin-top: 3rem;
+          @media #{$mobile-only}, #{$small-only} {
+            margin-top: 2rem;
+          }
+          div> div.panel{
+            border: 0;
+            margin: 5px 5px 5px 5px;
+            border-radius: 15px;
+            .row{
+              .panel-header{
+                img{
+                  border-radius: 15px;
+                }
+              }
+              .panel-body{
+                @media #{$mobile-only}, #{$small-only} {
+                  padding: 10px 5px 5px 15px;
+                }
+                .title-news{
+                  font-size: 1.9rem;
+                  letter-spacing: -1px;
+                  color:#2E2E2E;
+                  font-weight: 200;
+                  @media #{$mobile-only}, #{$small-only} {
+                    font-size: 1rem;
+                  }
+                }
+                .date-news{
+                  font-size: 1.1rem;
+                  letter-spacing: -1px;
+                  color:#B5B5B5;
+                  font-weight: 200;
+                  @media #{$mobile-only}, #{$small-only} {
+                    font-size: 0.8rem;
+                  }
+                }
+                .description-news{
+                  font-size: 1.2rem;
+                  color:#646464;
+                  font-weight: 200;
+                  @media #{$mobile-only}, #{$small-only},#{$medium-only},#{$tablet-only} {
+                    display: none;
+                  }
+                }
+                a{
+                  background: #334D5C;
+                  border-radius: 10px;
+                  padding: 3px 15px 5px 15px;
+                  margin: 10px 30px 10px 0px;
+                  text-transform: lowercase;
+                  font-size: 1.4rem;
+                  font-weight: 500;
+                  letter-spacing: -1.3px;
+                  @media #{$mobile-only}, #{$small-only} {
+                    font-size: 1rem;
+                    padding: 2px 10px 2px 10px;
+                    margin: -15px 30px 10px 0px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

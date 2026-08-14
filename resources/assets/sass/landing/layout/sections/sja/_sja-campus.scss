@@ -1,0 +1,204 @@
+%sja-campus{
+   #sja-campus{
+     .titulo1{
+       margin-top: 13px;
+       h4{
+         color: #777777;
+       }
+     }
+      .contenedor{
+        div{
+          h2{
+            color:#C7012E;
+            font-weight:bold;
+          }
+          div{
+            button{
+              margin: 100px 0px;
+              font-size: 22px;
+              font-weight: bold;
+              text-transform: none !important;
+              @media #{$medium-only, $tablet-only}{
+                font-size: 17px;
+              }
+            }
+            .btn-1{
+              background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/btnimg2.png);
+              background-size: cover;
+              padding: 1.5rem;
+              border-radius: 8px;
+            }
+            .btn-2{
+              background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/btnimg2.png);
+              background-size: cover;
+              padding: 1.5rem;
+              border-radius: 8px;
+            }
+            .btn-3{
+              background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/btnimg3.png);
+              background-size: cover;
+              padding: 1.5rem;
+              border-radius: 8px;
+            }
+          }
+          div.sja-tabs{
+           .tabs{
+             li{
+               width: 12.5%;
+               text-align: center;
+               padding: 1rem 1rem !important;
+               a{
+                 background: white;
+                 color: #272859;
+                 padding: 0 !important;
+                 &:focus{
+                   color: white;
+                   background: #C7012E;
+                   border-radius: 12px;
+                 }
+               }
+             }
+           }
+            .tabs-content{
+              .content{
+                .rows{
+                  div{
+                    .panel{
+                      box-shadow: 0px 3px 4px #00000033;
+                      border-radius: 20px;
+                      &:hover{
+                        box-shadow: 0px 0px 15px #00000033;
+                      }
+                      .panel-header{
+                        height: 30px;
+                        border-radius: 20px 20px 0px 0px;
+                        color: white;
+                        font-size: 12px;
+                        font-weight: bold;
+                        line-height: 30px;
+                      }
+                      .panel-body{
+                          height:270px;
+                        h4{
+                          letter-spacing: 2px;
+                          padding: 1rem;
+                          margin: 0;
+                        }
+                        p{
+                          font-size: 13px;
+                          color: #828282;
+                        }
+                      }
+                      hr{
+                        width: 80%;
+                        display: block;
+                        margin: auto;
+                      }
+                      .panel-footer{
+                        padding: 10px;
+                        height: 45px;
+                        div{
+                          div{
+                            p{
+                              font-size: 12px;
+                            }
+                          }
+                        }
+                        hr{
+                          transform: rotate(90deg);
+                          width: 18px;
+                          display: block;
+                          margin: auto;
+                        }
+                      }
+                    }
+                    .card1{
+                      .panel-header{
+                        background: #1EC0FF;
+                      }
+                      .panel-body{
+                        h4{
+                          color: #1EC0FF;
+                        }
+                      }
+                    }
+                    .card2{
+                      .panel-header{
+                        background: #7ED321;
+                      }
+                      .panel-body{
+                        h4{
+                          color: #7ED321;
+                        }
+                      }
+                    }
+                    .card3{
+                      .panel-header{
+                        background: #C7012E;
+                      }
+                      .panel-body{
+                        h4{
+                          color: #C7012E;
+                        }
+                      }
+                    }
+                    .card4 {
+                      .panel-header {
+                        background: #8B572A;
+                      }
+
+                      .panel-body {
+                        h4 {
+                          font-size:18px;
+                          color: #8B572A;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+     .rows{
+       #contenedor-info{
+         height: 90px;
+         background: #C7012E;
+         padding: 1.5rem 0rem;
+         p{
+           font-weight: bold;
+           line-height: 40px;
+           color: white;
+           @media #{$tablet-only, $medium-only}{
+            font-size: .8rem;
+           }
+         }
+         button{
+           background: #272859;
+           font-weight: bold;
+           border-radius: 8px;
+         }
+       }
+     }
+     .row{
+       #contenedor-vale-la-pena{
+         .row{
+           margin-top:50px;
+           h3{
+             color:#272859;
+           }
+           p{
+             font-size: .9rem;
+           }
+           button{
+             background: #C7012E;
+             color: white;
+             font-weight: bold;
+             border-radius: 8px;
+           }
+         }
+       }
+     }
+   }
+}

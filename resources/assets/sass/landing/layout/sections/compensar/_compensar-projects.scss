@@ -1,0 +1,15 @@
+%compensar-projects {
+  #compensar-projects {
+		position: relative;
+
+		&:after {
+			content: '';
+			width: 100%;
+			height: 203px;
+			position: absolute;
+			bottom: 0;
+			background-color: $silver;
+			z-index: -2;
+		}
+	}
+}

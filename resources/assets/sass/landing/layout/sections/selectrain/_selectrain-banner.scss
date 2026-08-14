@@ -1,0 +1,91 @@
+%selectrain-banner {
+	/*
+	* Banner landing
+	* ---------------
+	*/
+	#{$banner-land-top}{
+		padding-bottom: 0;
+
+		// banner background image
+		.content-image-banner {
+
+			position: relative;
+
+			// @media #{$mobile-up} {
+			// 	background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/redbavaria/reb-df-header-480x289.jpg');
+			// 	background-size: 100%;
+			// 	height: rem-calc(310);
+			// }
+
+			// @media #{$tablet-up} {
+			// 	background-image: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/redbavaria/reb-df-header-980x416.jpg');
+			// 	background-size: 100%;
+			// 	height: rem-calc(400);
+			// }
+
+			// @media #{$medium-up} {
+			height: rem-calc(560);
+			@include gradient-vertical( #00c354, #0096b8, 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/selectrain/selectrain-landing.png' );
+			.banner-intro-grandbox {
+				position: relative;
+				height: 560px;
+
+				.banner-intro-text-box {
+			    position: absolute;
+			    top: 50%;
+			    height: 300px;
+			    margin-top: -100px;
+
+					.banner-intro-text {
+						font-size: rem-calc(80);
+						font-weight: 900;
+						color: $white;
+						line-height: 88px;
+						margin-bottom: rem-calc(60);
+					}
+
+					.selectrain-button-text {
+						font-weight: 200;
+					}
+				}
+
+				@media #{$large-only}, #{$medium-only} {
+					.banner-intro-text-box {
+					    top: 50%;
+					    height: 300px;
+					    margin-top: -100px;
+
+						.banner-intro-text {
+							font-size: rem-calc(60);
+							font-weight: 900;
+							color: $white;
+							line-height: 68px;
+							margin-bottom: rem-calc(40);
+						}
+					}
+				}
+
+				@media #{$tablet-only}, #{$small-only} {
+					.banner-intro-text-box {
+					    top: 50%;
+					    height: 300px;
+					    margin-top: -100px;
+
+						.banner-intro-text {
+							font-size: rem-calc(40);
+							font-weight: 900;
+							color: $white;
+							line-height: 48px;
+							margin-bottom: rem-calc(30);
+						}
+					}
+				}
+			}
+		}
+
+		// banner central content
+		.content-banner {
+			margin-top: rem-calc(-102);
+		}
+	}
+}

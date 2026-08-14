@@ -1,0 +1,46 @@
+%startupcitymed-team {
+
+	#startupcitymed-team {
+		background: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/startupcitymed/startupcitymed-team-img-bg.jpg') center/cover no-repeat;
+
+		&.section-land {
+			.title-section-land {
+				color: $startupcitymed-brighter-green-color;
+			}
+		}
+
+		.startupcitymed-team-box {
+
+			.startupcitymed-team-anchor {
+				display: block;
+
+				&.no-link {
+					cursor: default;
+				}
+
+				.startupcitymed-team-img {
+					margin: rem-calc(10 0 0);
+					display: inline-block;
+					max-width: 160px;
+					height: auto;
+				}
+
+				.startupcitymed-team-name {
+					font-size: rem-calc(18);
+					font-weight: 400;
+					margin-bottom: rem-calc(5);
+					margin-top: rem-calc(20);
+				}
+
+				.startupcitymed-team-description {
+					color: $base;
+					font-size: rem-calc(14);
+					font-weight: 300;
+					margin-bottom: rem-calc(10);
+					line-height: 1.2;
+				}
+			}
+		}
+	}
+}
+

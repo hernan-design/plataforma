@@ -1,0 +1,116 @@
+%tureto-teachers{
+  #tureto-teachers{
+    background-color: $white;
+		padding-top: rem-calc(80);
+
+		@media #{$mobile-only}, #{$small-only} {
+			padding-top: rem-calc(30);
+		}
+
+		@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+			padding-top: rem-calc(50);
+    }    
+    .line-yellow{
+      color: #F8E71C;
+      font-weight: bold;
+      font-size: 30px;
+    }
+    // .row{
+    //   margin: 80px;
+    //   @media #{$medium-only},#{$tablet-only}{
+    //     margin: 80px 0px;
+    //   }
+    //   h2{
+    //     font-weight: bold;
+    //     color: #272859;
+    //   }
+    //   h4{
+    //     line-height: 35px;
+    //     color: #777777;
+    //     font-size: 23px;
+    //   }
+    // }
+    // .rows{
+    //   #container-slider-1{
+    //     width: 100%;
+    //     height: 450px;
+    //     overflow: scroll;
+    //     @media #{$mobile-only}{
+    //     height: 340px;
+    //     }
+    //     @media #{$tablet-only},#{$large-only}{
+    //       height: 360px;
+    //     }
+    //   }
+    //   #container-slider-2{
+    //     width: 100%;
+    //     height: 450px;
+    //     overflow: scroll;
+    //     @media #{$mobile-only}{
+    //       height: 290px;
+    //     }
+    //     @media #{$tablet-only}{
+    //       height: 250px;
+    //       overflow: hidden;
+    //     }
+    //     @media #{$large-only}{
+    //       height: 330px;
+    //       overflow: hidden;
+    //     }
+    //   }
+
+    //   .title-secondary{
+    //     h2{
+    //       font-family: 'lato regular';
+    //       font-size: 35px;
+    //     }
+    //   }
+    //   .line-yellow{
+    //     color: #F8E71C;
+    //     font-weight: bold;
+    //     font-size: 30px;
+    //   }
+    //   div.large-4{
+    //     .position-bottom{
+    //       position: absolute;
+    //       bottom: 20px;
+    //       strong{
+    //         color: white;
+    //         font-size: 12px;
+    //       }
+    //       h3{
+    //         a{
+    //           font-size: 20px;
+    //           letter-spacing: 2px;
+    //           color: #fff;
+    //           text-decoration: underline;
+    //         }
+    //       }
+    //     }
+    //   }
+    //   #contenedor-imagen-1 {
+    //     background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/teachersimg1.png);
+    //     background-size: contain;
+    //   }
+
+    //   #contenedor-imagen-2 {
+    //     margin-top: 30px;
+    //     height: 285px;
+    //     position: relative;
+    //     @media #{$small-only}{
+    //       height: 235px;
+    //     }
+    //     @media #{$tablet-only}{
+    //       height: 240px;
+    //     }
+    //     background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/teachersimg2.png);
+    //     background-size: cover;
+    //   }
+
+    //   #contenedor-imagen-3 {
+    //     background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/san+juan+de+avila/teachersimg3.png);
+    //     background-size: contain;
+    //   }
+    // }
+  }
+}

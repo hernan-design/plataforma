@@ -1,0 +1,67 @@
+%mapacine-functionalities {
+	#mapacine-functionalities {
+		background-color: $gray-rain;
+		position: relative;
+
+		.functionalities-boxes {
+			background-color: $gray-lighter;
+			padding-top: rem-calc(10);
+			padding-bottom: rem-calc(10);
+			@include box-shadow(none);
+
+			&:hover {
+				background-color: $white;
+				@include box-shadow(4px 4px 8px $iron);
+				@include transition(all ease-out 300ms);
+			}
+
+			.functionalities-icons {
+				font-size: rem-calc(72);
+				color: $mapacine-bright-red-color;
+				margin-top: rem-calc(20);
+				display: inline-block;
+				background: {
+					image: url("http://static.tuproyecto.com/images/institutions/mapacine/bracket-up.svg");
+					repeat: no-repeat;
+					position: center bottom;
+				}
+				padding: {
+				 top: rem-calc(0);
+				 right: rem-calc(20);
+				 bottom: rem-calc(49);
+				 left: rem-calc(20);
+				}
+			}
+
+			.functionalities-title-box {
+				height: 80px;
+	  			display:table;
+	  			width:100%;
+
+				.functionalities-title {
+					color: $charcoal;
+					font-weight: 400;
+					vertical-align:middle;
+    				display:table-cell;
+				}
+			}
+
+			.functionalities-desc-box {
+				margin-top: rem-calc(0);
+				margin-bottom: rem-calc(20);
+				height: 120px;
+
+				.functionalities-desc {
+					display: block;
+					font-weight: 200;
+					color: $monsoon;
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.text-paragraph-medium {
+			height: rem-calc(96);
+		}
+	}
+}

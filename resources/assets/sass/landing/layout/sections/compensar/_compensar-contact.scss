@@ -1,0 +1,25 @@
+%compensar-contact {
+	#compensar-contact {
+		p {
+			font-size: rem-calc(14);
+		}
+
+		.logo-list {
+			.has-image {
+				> img {
+					padding: rem-calc(0 30);
+				}
+			}
+
+			&:last-child {
+				border-right: 1px solid $moon;
+			}
+		}
+
+		.mail-icon {
+			font-size: rem-calc(80);
+      line-height: 1;
+		  color: $compensar-bright-orange-color;
+		}
+	}
+}

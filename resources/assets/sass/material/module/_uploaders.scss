@@ -1,0 +1,362 @@
+//
+// Styles for file uploaders
+// @author TuProyecto.co
+// @frontend @krobing
+// -------------------------
+
+// general fine-uploader styles
+// ----------------------------
+.qq-hide {
+	display: none !important;
+}
+.qq-btn {
+	margin-bottom: 0;
+}
+.qq-upload-file {
+	line-height: 1;
+}
+
+// Styles for section images to crop
+.image-area-drop {
+	position: relative;
+
+	> a {
+		display: block;
+		position: relative;
+		background-color: transparent;
+		width: 100%;
+		height: 100%;
+		color: $white;
+		font-size: rem-calc(38);
+		text-align: center;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: transparentize($black, .4);
+			@include opacity(0);
+			@include transition( all 0.3s ease );
+		}
+
+		> i {
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: .7em;
+			margin: {
+				top: -0.5em;
+				left: -0.5em;
+			}
+			@include opacity(0);
+			@include transition( all 0.3s ease );
+		}
+	}
+
+	&:hover, &:focus {
+		a {
+			color: $white;
+
+			&:before {
+				@include opacity(1);
+			}
+
+			> i {
+				@include opacity(1);
+			}
+		}
+	}
+}
+
+// Styles for uploader image
+// ------------------------
+.uploader-image {
+	.qq-uploader-project-img {
+		padding-top: rem-calc(10);
+
+		ul.qq-upload-list-selector{
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 0;
+			@include opacity(0);
+
+			li{
+				list-style: none none outside;
+				position: relative;
+				z-index: 1;
+				background: $white;
+				padding: 0px;
+			}
+
+			.image-project {
+				width: auto;
+				height: auto;
+				margin: 0px auto;
+			}
+		}
+
+		.qq-upload-button-selector{
+			&.button{
+				margin: 0px;
+				text-transform: normal;
+			}
+		}
+	}
+}
+
+// Styles for uploader avatar
+// --------------------------
+.uploader-avatar, .uploader-image {
+	.qq-uploader-avatar, .qq-uploader-picture {
+		ul.qq-upload-list-selector{
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 0;
+			@include opacity(0);
+			li{
+				list-style: none none outside;
+			}
+		}
+		.qq-upload-btn-avatar, .qq-upload-btn-picture {
+			display: inline-block;
+			vertical-align: top;
+			font: {
+				family: $font-family-sanfrancisco;
+				size: inherit;
+				weight: 200;
+			}
+			color: $sky-blue;
+			&.qq-upload-button-hover{
+				background: transparent;
+				text-decoration: underline;
+			}
+		}
+		.qq-upload-drop-area-selector{
+			@include opacity(0);
+			z-index: 0;
+			&.qq-upload-drop-area-active{
+				background: transparent;
+				border: none;
+				@include border-radius(0px);
+			}
+		}
+
+		/* <dialog> element styles */
+		& DIALOG {
+			display: none;
+
+			&[open] {
+				display: block;
+			}
+
+			.qq-dialog-buttons {
+				text-align: center;
+				padding-top: 10px;
+
+				BUTTON {
+					margin-left: 5px;
+					margin-right: 5px;
+				}
+			}
+
+			.qq-dialog-message-selector {
+				padding-bottom: 10px;
+			}
+
+			&::backdrop {
+				background-color: rgba(0, 0, 0, 0.7);
+			}
+		}
+	}
+}
+
+// Style for uploader files
+// ------------------------
+.qq-uploader-attachments {
+		position: relative;
+		border: 1px dashed $iron;
+		padding: rem-calc(20);
+		min-height: rem-calc(250);
+		max-height: rem-calc(800);
+		overflow: visible;
+		background-color: scale-color($white, $lightness: -1%);
+		@include border-radius($global-radius);
+
+		&:before {
+			content: attr(qq-drop-area-text) " ";
+			position: absolute;
+			font-size: 200%;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			top: 45%;
+			@include opacity(.25);
+		}
+
+		// Styles for progess bar
+		.qq-total-progress-bar-container {
+			display: block;
+			background-color: $white;
+			width: 100%;
+			margin: rem-calc(20 0 40);
+			border: 1px solid $sky-blue; //change to institution color
+			float: none;
+			@include radius($global-radius);
+		}
+		.qq-total-progress-bar {
+			background: $sky-blue;
+			height: 18px;
+			margin: 0;
+			@include border-radius(0px);
+		}
+
+		.qq-upload-file {
+			width: rem-calc(250);
+			height: auto;
+		}
+		.qq-edit-filename {
+			display: inline-block;
+			width: rem-calc(250);
+			// @include transition(none);
+
+			&.qq-editing {
+			}
+		}
+
+		.content-list-attachments {
+			position: relative;
+			width: auto;
+			height: rem-calc(250);
+			max-height: rem-calc(350);
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+
+		.qq-upload-list-attachments {
+			list-style: outside none none;
+			margin: 0;
+
+			.columns, [class*="column"] {
+				position: static;
+			}
+
+			> li {
+				padding: rem-calc(10);
+				background-color: $white-smoke;
+
+				&:nth-of-type(2n+2) {
+					background-color: $smoke;
+				}
+
+				select {
+					margin-bottom: 0;
+					+ .chosen-container {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+
+		.qq-thumbnail-selector {
+				display: inline-block;
+		}
+
+		/* <dialog> element styles */
+		DIALOG {
+			display: none;
+
+			& + .backdrop, & ~ .backdrop {
+				@include reveal-bg(false);
+			}
+
+			&[open]{
+				display: block;
+				visibility: visible;
+
+				& + .backdrop, & ~ .backdrop {
+					display: block;
+					z-index: 1004;
+				}
+			}
+
+			.qq-dialog-buttons {
+				text-align: center;
+				padding-top: rem-calc(10);
+
+				BUTTON {
+					margin: {
+						left: rem-calc(5);
+						right: rem-calc(5);
+					}
+				}
+			}
+
+			.qq-dialog-message-selector {
+				padding: {
+					bottom: rem-calc(10);
+				}
+			}
+		}
+
+		.file-field {
+			.btn, .button {
+				position: static !important;
+				height: rem-calc(35);
+				line-height: rem-calc(35);
+
+				&.btn-lowerc, &.btn-resetc {
+					text-transform: none !important;
+				}
+			}
+
+			input.file-path {
+				height: rem-calc(35);
+			}
+		}
+}
+.error {
+	.qq-uploader-attachments {
+		border-color: $alert-color;
+	}
+}
+
+// Style for one file uploader
+// ---------------------------
+.qq-uploader-one-attachment {
+
+	.content-attachment {
+
+		.qq-upload-list-selector {
+			input[type="text"] {
+				height: auto;
+				line-height: initial;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.qq-upload-btn-icon, .qq-download-button {
+		vertical-align: middle;
+
+		&.qq-upload-button {
+			background: $gray-concrete;
+		}
+	}
+
+	.qq-btn {
+		background: transparent;
+		vertical-align: middle;
+    border: none;
+    @include box-shadow(none);
+
+    &:hover, &:focus {
+    	background-color: transparent;
+    }
+	}
+}

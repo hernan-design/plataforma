@@ -1,0 +1,21 @@
+%copo-partners {
+	#copo-partners {
+		background-color: $snow;
+
+		.partners-subtitle {
+			color: $copo-medium-blue-color;
+		}
+
+		.slick-copo-emprendimiento-partners {
+			.partners-slick-item {
+				display: inline-block;
+		    vertical-align: middle;
+		    float:none;
+
+				> img {
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}

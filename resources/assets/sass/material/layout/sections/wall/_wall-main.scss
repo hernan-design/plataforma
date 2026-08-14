@@ -1,0 +1,78 @@
+%wall-main {
+	@include margin-item-top;
+
+	.channels-filter {
+		border-top: 0;
+		margin-top: 0;
+	}
+
+	// wrapper entries list
+	// #wrapper-wall-entries {
+
+	// }
+
+	// section to publishing
+	#panel-wall-publishing {
+		padding: rem-calc(15);
+
+		@media #{$mobile-only}, #{$small-only} {
+			margin-top: 0;
+		}
+	}
+
+	.content-chosen-publishing {
+		a {
+			&:hover, &:focus { text-decoration: none; }
+		}
+	}
+
+	.publishing-type-actions {
+
+		.choice-publishing-type {
+			position: relative;
+			display: block;
+			text-align: center;
+			background-color: transparent;
+			color: $gray-base;
+			padding: rem-calc(20 0);
+			@include border-radius($global-radius);
+			border: 1px solid $gray-light-alt;
+
+			> span {
+				display: inline-block;
+				width: 100%;
+				margin-top: 15px;
+			}
+
+			&:hover, &.active {
+				background-color: $gray-light-alt;
+				color: $gray-dark;
+			}
+		}
+	}
+
+	// static profile completed info
+	.profile-completed-info {
+
+		ul.profile-completed-info-list {
+			margin-bottom: rem-calc(15);
+		}
+	}
+
+    .social-networks {
+        .social-container {
+            width: rem-calc(178);
+        }
+    }
+
+	// static articles summary
+	.articles-summary-section,
+		.events-summary-section,
+			.courses-summary-section,
+				.forums-summary-section {
+
+		.panel-action {
+			margin-top: rem-calc(15);
+		}
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"js": {
+		"browserify": {
+			"options": {
+				"paths": ["./resources/assets"],
+				"extensions": [".js", ".json", ".mjs"]
+			},
+			"externals": [
+				"utf-8-validate",
+				"bufferutil"
+			],
+			"transformers": [
+				{
+					"name": "browserify-shim",
+					"options": {
+						"global": true
+					}
+				},
+				{
+					"name": "browserify-css",
+					"options": {
+						"autoInject": false,
+						"global": true
+					}
+				},
+				{
+					"name": "babelify",
+					"options": {
+						"presets": ["es2015", "react", "stage-3"],
+						"extensions": [".js", ".es", ".es6", ".jsx", ".mjs"]
+					}
+				},
+				{
+					"name": "partialify",
+					"options": {}
+				}
+      ]
+		}
+	},
+
+	"versioning": {
+		"buildFolder": "build"
+	}
+}

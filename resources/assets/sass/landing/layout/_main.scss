@@ -1,0 +1,53 @@
+
+/* Content Wrapper Main*/
+#{$wrapper-land}{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+/*
+* Main Content
+* -------------
+*/
+#{$main-land}{
+
+	position: relative;
+	top: 0px;
+	z-index: 90;
+	background: $white;
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+	@extend %general-land !optional;
+	@extend %news-landing !optional;
+	@extend %events-landing !optional;
+	@extend %programs-landing !optional;
+	@extend %partners-landing !optional;
+	@extend %projects-landing !optional;
+	@extend %team-landing !optional;
+}
+
+/**
+* ===================================
+*	Styles for login and register forms
+* ===================================
+*/
+.wrapper-signin {
+	@extend %login-main !optional;
+	@extend %login-form !optional;
+}
+
+/**
+* =====================================
+* modal player video
+* =====================================
+*/
+#modal-video-landing {
+	#container-video-land {
+		top: rem-calc(30);
+	}
+}

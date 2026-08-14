@@ -1,0 +1,243 @@
+%copo-emprendimiento-management {
+	#copo-emprendimiento-management {
+		padding-top: rem-calc(40);
+		position: relative;
+
+		@media #{$tablet-only} {
+			padding-top: 0;
+		}
+
+		.management-section-title {
+			color: $gray-deep;
+			font-size: rem-calc(21);
+
+			@media #{$mobile-only}, #{$small-only} {
+				font-size: rem-calc(15);
+			}
+
+			@media #{$tablet-only}, #{$medium-only} {
+				font-size: rem-calc(16);
+				margin-top: 20px;
+			}
+
+			> span {
+				color: $copo-dark-purple-color;
+			}
+		}
+
+		&:before {
+			content: url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/emprendimientos/dashed-lines/copo-dashedline-6.svg');
+			position: absolute;
+			top: -13px;
+			left: 50%;
+			margin-left: -6px;
+			width: 12px;
+			height: auto;
+
+			@media #{$mobile-only}, #{$small-only} {
+				top: -36px;
+			}
+
+			@media #{$tablet-only} {
+				top: -47px;
+				width: 8px;
+			}
+
+			@media #{$medium-only} {
+				top: -62px;
+    		width: 10px;
+			}
+
+			@media #{$large-only} {
+				top: -73px;
+				width: 13px;
+			}
+
+			@media #{$xlarge-only} {
+				top: -83px;
+				width: 17px;
+			}
+
+			@media only screen and (min-width: 1440px) {
+				top: -116px;
+		    width: 17px;
+			}
+		}
+
+		.section-title {
+			// font-size: rem-calc();
+		}
+
+		.section-subtitle {
+			&:after {
+	      height: 0;
+	      background-color: $white;
+	      width: 0;
+			}
+		}
+
+		.management-bottom-section {
+			// Needs latest Compass, add '@import "compass"' to your scss
+			// Permalink - use to edit and share this gradient:
+			// http://colorzilla.com/gradient-editor/#67ccf7+0,3ea3ff+100&0.35+0,0.1+100
+			@include filter-gradient(#67ccf7, #3ea3ff, vertical); // IE6-9
+			@include background-image(linear-gradient(top, rgba(103,204,247,0.15) 0%,rgba(62,163,255,0.1) 100%));
+		}
+
+		.management-bottom-icon {
+			width: 420px;
+			height: auto;
+			margin-bottom: 20px;
+		}
+
+		.management-bottom-title {
+			color: $copo-dark-purple-color;
+    	font-weight: 700;
+			position: relative;
+			margin-bottom: rem-calc(20);
+			padding-bottom: rem-calc(20);
+
+			@media #{$tablet-only}, #{$medium-only} {
+				margin-top: 20px;
+			}
+
+			&:after {
+        background-color: $iron;
+        content: "";
+        display: block;
+        height: 2px;
+        position: absolute;
+        left: 50%;
+        margin-left: -25px;
+        width: 50px;
+        bottom: 0;
+      }
+		}
+
+		.management-bottom-subtitle {
+			font-size: rem-calc(14);
+		}
+
+		.services-box {
+			@include border-radius(8px);
+			position: relative;
+			overflow: hidden;
+			padding: rem-calc(0 30 30);
+			border: 0;
+
+			@media #{$large-up} {
+				height: 290px;
+				margin-bottom: rem-calc(20);
+
+				.services-text {
+					display: none;
+					@include transition(all 500ms ease-in-out);
+				}
+			}
+
+			.services-img {
+				width: 200px;
+    		height: auto;
+
+    		&.tools {
+    			width: 218px;
+    			margin-top: -7px;
+    		}
+
+    		@media #{$tablet-only} {
+    			width: 120px;
+	    		height: auto;
+	    		margin-bottom: rem-calc(20);
+
+	    		&.tools {
+	    			width: 128px;
+	    		}
+    		}
+			}
+
+			@media #{$large-up} {
+				&:hover {
+		    	@include transition(all 500ms ease-in-out);
+
+					.services-img {
+						opacity: 0.1;
+		    		filter: alpha(opacity=10); /* For IE8 and earlier */
+		    		@include transition(all 500ms ease-in-out);
+					}
+
+					.services-inner-box {
+						bottom: 0;
+						padding-top: rem-calc(35);
+		    		@include transition(all 500ms ease-in-out);
+
+						.services-title {
+							color: $black;
+
+							&:after {
+				        background-color: $copo-light-blue-color;
+				        content: "";
+				        display: block;
+				        height: 2px;
+				        position: absolute;
+				        left: 50%;
+				        margin-left: -25px;
+				        width: 50px;
+				        bottom: 0;
+				      }
+						}
+
+						.services-text {
+							display: block;
+							@include transition(all 500ms ease-in-out);
+						}
+					}
+				}
+			}
+
+			.services-inner-box {
+
+				@media #{$large-up} {
+					position: absolute;
+					left: 0;
+					bottom: -216px;
+					width: 100%;
+					height: 300px;
+					min-height: 100%;
+					padding: rem-calc(0 60 0);
+					@include transition(all 500ms ease-in-out);
+				}
+
+				.services-title {
+					font-weight: 400;
+					font-size: rem-calc(18);
+					margin-top: rem-calc(20);
+					margin-bottom: rem-calc(15);
+					position: relative;
+					color: $copo-dark-purple-color;
+
+					@media #{$tablet-only} {
+						font-size: rem-calc(16);
+						margin-top: rem-calc(0);
+						margin-bottom: rem-calc(20);
+					}
+
+					@media #{$large-up} {
+						color: $gray-deep;
+						padding-bottom: rem-calc(15);
+					}
+				}
+
+				.services-text {
+					font-weight: 300;
+					font-size: rem-calc(15);
+					color: $gray-deep;
+
+					@media #{$tablet-only} {
+						font-size: rem-calc(14);
+						line-height: 1.4;
+					}
+				}
+			}
+		}
+	}
+}

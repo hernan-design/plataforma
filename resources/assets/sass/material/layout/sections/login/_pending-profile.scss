@@ -1,0 +1,94 @@
+// Styles for terms form
+// ----------------------
+
+%pending-profile {
+
+	&#confirm-profile-section {
+
+		&.has-bgimage {
+			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/background-img-log.jpg') center/cover no-repeat;
+			position: fixed;
+			overflow-y: auto;
+			top: 0px;
+			left: 0px;
+			min-height: 100%;
+			min-width: 100%;
+			width: 100%;
+			height: 100%;
+			padding: {
+				top: $topbar-height + rem-calc(15);
+			}
+		}
+
+		.inner-signin {
+			margin: {
+				top: rem-calc(20);
+			}
+			padding: rem-calc(0 0 40);
+		}
+
+		.wrap-icon-confirm-profile {
+			margin: {
+				bottom: rem-calc(35);
+			}
+		}
+
+		.description-info {
+			margin: {
+				bottom: rem-calc(50);
+			}
+		}
+
+		.header-confirm-profile {
+			.hpanel-title {
+				padding-left: rem-calc(180);
+			}
+
+			.edit-photo, .change-photo {
+				width: auto;
+				height: auto;
+				left: 50%;
+				bottom: 6px;
+				margin-left: rem-calc(-16.5);
+			}
+		}
+
+		.confirm-profile-circle {
+			@include icon-circle(
+				$font-size: rem-calc(10),
+				$padding: rem-calc(0),
+				$color: $white,
+				$bgcolor: $base
+			);
+			border: 2px solid $white;
+			@include box-shadow(0px 0px 20px rgba($black, .7));
+			position: absolute;
+			top: auto;
+			left: rem-calc(25);
+			bottom: rem-calc(-30);
+
+			> img {
+				width: rem-calc(145);
+				height: rem-calc(145);
+			}
+		}
+
+		.confirm-profile-inner {
+			padding: rem-calc(50 25 0);
+		}
+
+		.check-role-entrepreneurship {
+
+			@include redefine-padding-gb($padding: rem-calc(0 30 10));
+			margin: {
+				top: rem-calc(40);
+			}
+		}
+
+		[type="submit"] {
+			margin: {
+				top: rem-calc(40);
+			}
+		}
+	}
+}

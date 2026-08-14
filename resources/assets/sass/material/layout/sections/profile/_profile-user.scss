@@ -1,0 +1,750 @@
+// Styles for profile user
+// -----------------------
+%profile-user {
+
+	// contacts search
+	#content-user-results-search {
+		@include margin-item-top;
+
+		#friends-wrap {
+			> li {
+				&:first-child {
+					border-top: 1px solid $gris;
+				}
+			}
+
+			.filter-result-user-card {
+				> li {
+					position: relative;
+
+					#buttons-connect-friendship {
+						margin: {
+							top: rem-calc(8);
+							bottom: rem-calc(5);
+						}
+						display: inline;
+						width: auto;
+
+						@media #{$tablet-up} {
+							position: absolute;
+							right: 0;
+							top: 50%;
+							margin-top: rem-calc(-14);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// header profile
+	#profile-header-content {
+		background-color: $white;
+		position: relative;
+
+		.profile-header-image-background {
+			@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+				background-color: $smoke;
+		    width: 100%;
+		    height: 90px;
+		    position: absolute;
+		    top: 0;
+			}
+		}
+
+		.profile-basic-info {
+			padding: rem-calc(27 0 30 0);
+
+			@media #{$medium-up} {
+				padding: rem-calc(40 0);
+			}
+		}
+
+		.profile-info-detail {
+
+			.name-user-profile {
+				margin: 0;
+				font-size: rem-calc(24);
+			}
+
+			// nickname styles
+			.nickname-user-profile {
+				color: $oil;
+				vertical-align: middle;
+				margin: {
+					right: rem-calc(5);
+				}
+				font: {
+					weight: $font-weight-normal;
+				}
+			}
+
+			.user-location-middot {
+				font-size: rem-calc(12);
+			}
+
+			.text-location {
+				color: $oil;
+				font: {
+					weight: $font-weight-normal;
+				}
+			}
+
+			.sector-user-profile {
+				color: $sky-blue;
+			}
+
+			.user-bio-text {
+				p {
+					font-size: rem-calc(15);
+					margin: {
+						top: rem-calc(7);
+						bottom: rem-calc(20);
+					}
+				}
+			}
+
+			.profile-info-container {
+				@media #{$mobile-only}, #{$small-only} {
+					#user-name-container, #user-location-container {
+						margin-bottom: rem-calc(8);
+					}
+
+					#user-sector-container {
+						margin-bottom: rem-calc(11);
+					}
+				}
+
+				@media #{$mobile-only} {
+					.name-user-profile {
+						font-size: rem-calc(18);
+					}
+
+					.nickname-user-profile, .text-location {
+						font-size: rem-calc(13);
+					}
+
+					.sector-user-profile {
+						font-size: rem-calc(13);
+					}
+
+					.user-bio-text {
+						font-size: rem-calc(13);
+					}
+				}
+			}
+
+			.user-buttons-contact-mentoring {
+				margin-bottom: rem-calc(13);
+
+				#buttons-connect-user {
+					display: inline-block;
+
+					@media #{$medium-up} {
+						float: left;
+					}
+				}
+
+				#request-mentoring {
+					margin-left: rem-calc(10);
+
+					@media #{$medium-up} {
+						margin-left: rem-calc(15);
+					}
+				}
+			}
+
+
+			.user-contact-button-container {
+				// margin-bottom: rem-calc(20);
+				margin-right: rem-calc(20);
+			}
+
+			#user-entrepreneurship-container {
+				width: auto;
+			}
+
+			.socials-user-profile {
+				margin-bottom: rem-calc(15);
+			}
+
+			.user-last-login {
+				font-size: rem-calc(12);
+				color: $charcoal;
+				opacity: 0.6;
+
+				> span b {
+					font-weight: normal;
+				}
+			}
+		}
+	}
+
+	// submenu profile
+	#profile-submenu-nav {
+		@include box-shadow(0px 2px 3px $iron);
+
+		.tabs-sub-nav {
+			border-bottom: 0;
+
+			dd, .tab-title {
+				margin: rem-calc(0 10);
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				> a {
+					color: $white;
+					padding: rem-calc(10 0);
+				}
+
+		    &:hover, &.active {
+		      > a {
+		        color: $white !important;
+		        border-bottom: 3px solid $white !important;
+		      }
+		    }
+		  }
+		}
+	}
+
+	// general user profile content styles
+	#user-profile-content {
+
+		a, a > p {
+			font-weight: 600;
+		}
+
+		.card-user-info, .card-data-info {
+			&:hover {
+				background-color: transparent;
+			}
+
+			padding: {
+				top: rem-calc(15);
+				bottom: rem-calc(15);
+			}
+
+			&.separator {
+				border-bottom-color: $gris;
+
+				&:first-of-type {
+					border-top: 1px solid $gris;
+				}
+
+				&:last-of-type {
+					border-bottom: 1px solid $gris;
+				}
+			}
+		}
+
+		#user-data, #user-contacts, #user-calendar, #user-preferences, #user-mentor {
+			@include margin-item-top;
+		}
+
+		.editable-item {
+			.title-panel {
+				padding-top: rem-calc(20);
+				margin-bottom: rem-calc(20);
+			}
+		}
+
+
+
+		@media #{$mobile-only}, #{$small-only} {
+
+			.content-data-list {
+				ul.browse-list-mask {
+		  		margin: 0;
+
+		  		> li {
+		  			padding: 0 !important;
+		  		}
+				}
+			}
+			.panel-content {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
+
+	// mentor user content
+	#profile-user-mentor {
+		.user-mentor-become-request {
+			.becoming-mentor-actions {
+				position: relative;
+
+				> li {
+					margin-bottom: rem-calc(6);
+
+					> a {
+						margin-bottom: 0;
+					}
+				}
+
+				@media #{$tablet-up} {
+					.mentor-request-action {
+						position: absolute;
+				    right: 0;
+				    top: 0;
+					}
+				}
+			}
+		}
+
+		.mentor-skills-content-item {
+
+			.user-mentor-content-list {
+				> li {
+					color: $monsoon;
+				}
+			}
+		}
+
+		#mentor-active-process {
+			.name-mentor-process {
+				margin-top: rem-calc(-3);
+			}
+
+			.process-time {
+				color: $aluminum;
+			}
+		}
+
+		.user-mentoring-process-item {
+			position: relative;
+		}
+
+		#mentoring-process-requests {
+			.mentoring-process-request-item {
+				.request-user-name {
+					margin-top: rem-calc(-3);
+				}
+
+				.request-issue {
+					margin-bottom: rem-calc(6);
+				}
+
+				.request-time {
+					color: $aluminum;
+				}
+			}
+		}
+	}
+
+	// content user contacts
+	#user-contacts {
+		#form-conctacts-filter {
+			> div {
+				> div {
+					position: relative;
+					margin-bottom: rem-calc(20);
+				}
+			}
+
+			#username {
+				margin-bottom: 0;
+			}
+
+			.search-contacts-input-icon {
+				position: absolute;
+				right: 0;
+				top: 50%;
+				margin-top: rem-calc(-11);
+				color: $iron;
+			}
+		}
+	}
+
+	// Panel basic data
+	ul.data-basic-profile {
+
+		@include redefine-padding-gb($padding: rem-calc(0 10 0));
+
+		> li {
+
+			.item-basic-profile {
+				padding: rem-calc(10 0);
+
+				.icon-data-basic {
+					display: inline-block;
+					vertical-align: middle;
+					font-size: rem-calc(18);
+					line-height: 1;
+					color: $dark-silver;
+					margin-right: rem-calc(10);
+				}
+
+				.icon-data-lock {
+					> i {
+						color: $iron;
+					}
+				}
+			}
+		}
+	}
+
+	// Panel skills list
+	ul.list-skill-profile {
+		list-style: outside none none;
+		margin: 0;
+
+		> li {
+			.item-skill-profile {
+				padding: rem-calc(5 0);
+				border-bottom: 1px solid $hr-border-color;
+
+				> span {
+					display: block;
+				}
+
+				> p {
+					margin: {
+						bottom: 0px;
+					}
+				}
+
+				.title-skill-profile {
+					color: $light-purple-blue;
+				}
+			}
+
+			&:last-child {
+				.item-skill-profile {
+					border-bottom: none;
+				}
+			}
+		}
+	}
+
+	// list network user
+	ul#user-network-wrap {
+		margin: {
+			right: rem-calc(-20);
+			left: rem-calc(-20);
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+
+		> li {
+			padding: {
+				top: rem-calc(15);
+				bottom: rem-calc(15);
+			}
+			border-bottom: 1px solid $gris;
+			padding: {
+				left: rem-calc(20);
+				right: rem-calc(20);
+			}
+
+			&:first-child {
+				border-top: 1px solid $gris;
+			}
+
+			@media #{$tablet-up} {
+
+				&:nth-child(odd) {
+					padding-left: rem-calc(20);
+					border-right: 1px solid $gris;
+				}
+
+				&:nth-child(even) {
+					padding-right: rem-calc(20);
+					padding-left: rem-calc(10);
+
+					.stages-friendship-user {
+						right: rem-calc(-5) !important;
+					}
+				}
+
+				&:nth-child(2) {
+					border-top: 1px solid $gris;
+				}
+			}
+
+			&:hover {
+				.user-network-item {
+					#buttons-contact-friendship {
+						.action-friendship {
+							> i {
+								color: $monsoon;
+								background-color: $vapor;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.user-network-item {
+			position: relative;
+
+			.card-data-item {
+				> li:nth-child(2) {
+					line-height: 16px;
+
+					> a {
+						margin-bottom: rem-calc(6);
+		    		display: block;
+					}
+
+					@media #{$mobile-only}, #{$small-only} {
+						padding-right: rem-calc(30);
+					}
+				}
+			}
+
+			#buttons-contact-friendship {
+				@media #{$tablet-up} {
+					margin-right: rem-calc(-5);
+				}
+
+				@media #{$mobile-only}, #{$small-only} {
+					position: absolute;
+			    right: rem-calc(5);
+			    top: 50%;
+			    margin-top: -15px;
+				}
+
+				.action-friendship {
+					> i {
+						background-color: transparent;
+						color: $aluminum;
+					}
+				}
+			}
+		}
+
+
+	}
+
+	ul.pending-user-card, ul.network-user-card, ul.filter-result-user-card {
+		> li {
+			&:not(:last-of-type) {
+				padding: {
+					right: rem-calc(10);
+				}
+			}
+		}
+	}
+
+	// panel aside profile settings
+	#profile-settings {
+		padding: {
+			top: rem-calc(0);
+		}
+
+		.title-panel {
+			top: 0;
+		}
+
+		.edit-field-button {
+			margin: {
+				top: 0;
+				bottom: 0;
+			}
+		}
+	}
+
+	// messages users
+	#user-messages {
+
+		#wrapper-messages-profile {
+			padding: {
+				left: 0;
+				right: 0;
+			}
+			#container-messages-profile {
+				border-top: 1px solid $hr-border-color;
+
+				// user messages list
+				#content-users-message {
+					position: relative;
+					height: rem-calc(450);
+					overflow-y: auto;
+
+					#user-message-wrap {
+						margin: {
+							left: rem-calc(20);
+						}
+
+						> li {
+							padding: rem-calc(15 0);
+
+							.item-message-user {
+
+								.card-user-message {
+									.avatar {
+										display: inline-block;
+										padding: {
+											right: rem-calc(5);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				// user discussion
+				#user-discussion-message-wrap {
+					border-left: 1px solid $hr-border-color;
+					padding: rem-calc(20 0);
+
+					.user-discussion-item {
+						padding: rem-calc(0 20);
+
+						ul.discussion-user-card {
+
+							ul.list-circles-entrepreneurship {
+								> li {
+									&:not(:first-child) {
+										margin: {
+											left: rem-calc(2);
+										}
+									}
+								}
+							}
+						}
+					}
+
+					.comments-discussion-list {
+						position: relative;
+						padding: rem-calc(20 20 30);
+						height: rem-calc(350);
+						overflow-y: auto;
+
+						.message-discussion {
+
+							&:not(:first-of-type) {
+								padding: {
+									top: rem-calc(20);
+								}
+							}
+
+							.post-message-card {
+								@include clearfix;
+
+								.content-message-post {
+									width: 80%;
+									position: relative;
+									background-color: $white-smoke;
+									padding: rem-calc(8);
+									@include border-radius(8px);
+
+									.text-description-message {
+										margin: 0;
+										color: scale_color($body-font-color, $lightness: -35%);
+										font: {
+											size: rem-calc(15);
+										}
+									}
+
+									.options-message {
+										position: absolute;
+										top: 2px;
+										right: 5px;
+										font: {
+											size: rem-calc(21);
+										}
+										cursor: pointer;
+										text-decoration: none;
+										color: $aluminum;
+									}
+								}
+							}
+
+							&[data-owner="false"] {
+
+								.post-message-card {
+									.has-image {
+										padding: {
+											left: 0px;
+											right: rem-calc(10);
+										}
+									}
+
+									.content-message-post {
+										float: left;
+										&:before {
+											@include css-triangle(8px, $white-smoke, right);
+											position: absolute;
+											right:  100%;
+											top: 14px;
+										}
+									}
+								}
+
+								+ [data-owner="false"] {
+									padding: {
+										top: rem-calc(3);
+									}
+
+									.has-image {
+										visibility: hidden;
+									}
+
+									.post-message-card {
+										.content-message-post {
+											&:before {
+												width: 0;
+												height: 0;
+												border: none;
+											}
+										}
+									}
+								}
+							}
+
+							&[data-owner="true"] {
+
+								.post-message-card {
+									.has-image {
+										padding: {
+											right: 0px;
+											left: rem-calc(10);
+										}
+									}
+
+									.content-message-post {
+										float: right;
+										&:after {
+											@include css-triangle(8px, $white-smoke, left);
+											position: absolute;
+											left:  100%;
+											top: 14px;
+										}
+									}
+								}
+
+								+ [data-owner="true"] {
+									padding: {
+										top: rem-calc(3);
+									}
+
+									.has-image {
+										visibility: hidden;
+									}
+
+									.post-message-card {
+										.content-message-post {
+											&:after {
+												width: 0;
+												height: 0;
+												border: none;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,97 @@
+%copo-study-cases {
+	#copo-study-cases {
+
+		.copo-study-cases-subtitle {
+			font-weight: 400;
+			font-family: 'Ubuntu', sans-serif;
+		}
+
+		.study-cases-box {
+
+			&:hover {
+				.study-cases-anchor {
+
+					> img {
+						transform: scale(1.1);
+					}
+				}
+			}
+
+			.study-cases-anchor {
+				display: block;
+				@include border-radius(5px);
+				margin-bottom: 30px;
+				overflow: hidden;
+				position: relative;
+
+				@media #{$mobile-only}, #{$small-only} {
+					margin-bottom: 15px;
+				}
+
+				> img {
+					width: 100%;
+					height: auto;
+					min-height: auto;
+					display: none;
+					@include transition(all 300ms ease-in-out);
+
+					@media #{$mobile-only}, #{$small-only} {
+						height: 100%;
+						min-width: 980px;
+						margin-left: -50%;
+					}
+				}
+
+				.study-cases-mediumup-img {
+
+					@media #{$medium-up} {
+						display: block;
+					}
+				}
+
+				.study-cases-mobileup-img {
+					@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
+						display: block;
+					}
+				}
+
+				.inner-content-box {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					@include gradient-vertical(rgba($black,0), rgba($black,0.6));
+					@include border-radius(4px);
+
+					.inner-text-box {
+						padding: rem-calc(32);
+						position: absolute;
+						bottom: 0;
+
+						@media #{$mobile-only}, #{$small-only} {
+							padding: rem-calc(0 0 15 15);
+						}
+
+						.study-cases-company {
+							font-weight: 500;
+							font-family: 'Ubuntu', sans-serif;
+
+							@media #{$mobile-only}, #{$small-only} {
+								font-size: rem-calc(18);
+							}
+						}
+
+						.study-cases-company-program {
+							font-weight: 300;
+							font-family: 'Ubuntu', sans-serif;
+
+							@media #{$mobile-only}, #{$small-only} {
+								font-size: rem-calc(16);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

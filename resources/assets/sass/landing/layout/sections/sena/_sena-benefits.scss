@@ -1,0 +1,93 @@
+%sena-benefits {
+  #sena-benefits {
+    background-color: $sena-light-green-color;
+    padding: rem-calc(80 0);
+    overflow: hidden;
+
+    @media #{$mobile-only}, #{$small-only} {
+      padding: rem-calc(30 0);
+    }
+
+    @media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+      padding: rem-calc(50 0);
+    }
+
+    &:before {
+      position: absolute;
+      top: 300px;
+      left: 0;
+      content: url("https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/sena/benefits/bg-2.png");
+    }
+
+    &:after {
+      position: absolute;
+      top: 127px;
+      right: 0;
+      content: url("https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/sena/benefits/bg-1.png");
+    }
+
+    @media #{$mobile-only}, #{$small-only} {
+      &:before {
+        left: -346px;
+        top: 264px;
+      }
+
+      &:after {
+        width: auto;
+        top: -20px;
+      }
+    }
+
+    p {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 400;
+      font-size: rem-calc(21);
+
+      @media #{$mobile-only}, #{$small-only} {
+        font-size: rem-calc(14);
+      }
+    }
+
+    .section-title {
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: rem-calc(28);
+      color: $sena-bright-green-color;
+
+      @media #{$mobile-only}, #{$small-only} {
+        font-size: rem-calc(18);
+      }
+    }
+
+    .benefits-list {
+      > li {
+        margin-bottom: rem-calc(20);
+
+        @media #{$medium-up} {
+          margin-bottom: rem-calc(60);
+        }
+      }
+
+      .has-image {
+        > img {
+          width: 100px;
+
+          @media #{$xlarge-up} {
+            width: 200px;
+          }
+        }
+      }
+
+      h3 {
+        font-weight: 700;
+        font-family: 'Ubuntu', sans-serif;
+      }
+
+      p {
+        color: $sena-dark-green-color;
+      }
+    }
+  }
+}

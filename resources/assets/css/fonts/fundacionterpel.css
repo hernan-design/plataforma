@@ -1,0 +1,71 @@
+@font-face {
+	font-family:'ACMESecretAgentBB';
+	src: url('../../../build/css/fonts/ACMESecretAgentBB.eot') format('embedded-opentype'),
+	url('../../../build/css/fonts/ACMESecretAgentBB.woff2') format('woff2'),
+	url('../../../build/css/fonts/ACMESecretAgentBB.woff') format('woff'),
+	url('../../../build/css/fonts/ACMESecretAgentBB.ttf')  format('truetype'),
+	url('../../../build/css/fonts/ACMESecretAgentBB.svg#svgFontName') format('svg');
+}
+
+@font-face {
+  	font-family:'ACMESecretAgentBB-Italic';
+  	src: url('../../../build/css/fonts/ACMESecretAgentBB-Italic.eot') format('embedded-opentype'),
+	url('../../../build/css/fonts/ACMESecretAgentBB-Italic.woff2') format('woff2'),
+	url('../../../build/css/fonts/ACMESecretAgentBB-Italic.woff') format('woff'),
+	url('../../../build/css/fonts/ACMESecretAgentBB-Italic.ttf')  format('truetype'),
+	url('../../../build/css/fonts/ACMESecretAgentBB-Italic.svg#svgFontName') format('svg');
+}
+
+@font-face {
+  	font-family: 'ACMESecretAgentBB-BoldItalic';
+  	src: url('../../../build/css/fonts/ACMESecretAgentBB-BoldItalic.eot') format('embedded-opentype'),
+  	url('../../../build/css/fonts/ACMESecretAgentBB-BoldItalic.woff2') format('woff2'),
+	url('../../../build/css/fonts/ACMESecretAgentBB-BoldItalic.woff') format('woff'),
+	url('../../../build/css/fonts/ACMESecretAgentBB-BoldItalic.ttf')  format('truetype'),
+	url('../../../build/css/fonts/ACMESecretAgentBB-BoldItalic.svg#svgFontName') format('svg');
+}
+
+@font-face {
+  	font-family: 'BadaBoomBB';
+  	src: url('../../../build/css/fonts/BadaBoomBB.eot') format('embedded-opentype'),
+  	url('../../../build/css/fonts/BadaBoomBB.woff2') format('woff2'),
+	url('../../../build/css/fonts/BadaBoomBB.woff') format('woff'),
+	url('../../../build/css/fonts/BadaBoomBB.ttf')  format('truetype'),
+	url('../../../build/css/fonts/BadaBoomBB.svg#svgFontName') format('svg');
+}
+
+@font-face {
+  	font-family: 'MuseoSans-300';
+  	src: url('../../../build/css/fonts/MuseoSans-300.eot') format('embedded-opentype'),
+ 	url('../../../build/css/fonts/MuseoSans-300.woff2') format('woff2'),
+	url('../../../build/css/fonts/MuseoSans-300.woff') format('woff'),
+	url('../../../build/css/fonts/MuseoSans-300.ttf')  format('truetype'),
+	url('../../../build/css/fonts/MuseoSans-300.svg#svgFontName') format('svg');
+}
+
+@font-face {
+  	font-family: 'MuseoSans-700';
+  	src: url('../../../build/css/fonts/MuseoSans-700.eot') format('embedded-opentype'),
+  	url('../../../build/css/fonts/MuseoSans-700.woff2') format('woff2'),
+	url('../../../build/css/fonts/MuseoSans-700.woff') format('woff'),
+	url('../../../build/css/fonts/MuseoSans-700.ttf')  format('truetype'),
+	url('../../../build/css/fonts/MuseoSans-700.svg#svgFontName') format('svg');
+}
+
+@font-face {
+  	font-family: 'MuseoSans-700Italic';
+  	src: url('../../../build/css/fonts/MuseoSans-700Italic.eot') format('embedded-opentype'),
+  	url('../../../build/css/fonts/MuseoSans-700Italic.woff2') format('woff2'),
+	url('../../../build/css/fonts/MuseoSans-700Italic.woff') format('woff'),
+	url('../../../build/css/fonts/MuseoSans-700Italic.ttf')  format('truetype'),
+	url('../../../build/css/fonts/MuseoSans-700Italic.svg#svgFontName') format('svg');
+}
+
+@font-face {
+  	font-family: 'AkzidenzGroteskBQ-XBold';
+  	src: url('../../../build/css/fonts/AkzidenzGroteskBQ-XBold.eot') format('embedded-opentype'),
+  	url('../../../build/css/fonts/AkzidenzGroteskBQ-XBold.woff2') format('woff2'),
+	url('../../../build/css/fonts/AkzidenzGroteskBQ-XBold.woff') format('woff'),
+	url('../../../build/css/fonts/AkzidenzGroteskBQ-XBold.ttf')  format('truetype'),
+	url('../../../build/css/fonts/AkzidenzGroteskBQ-XBold.svg#svgFontName') format('svg');
+}

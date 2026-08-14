@@ -1,0 +1,65 @@
+#{$wrapper-land}.wrapper-fundacionterpel {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+	// #news-land {
+	// 	#title-section {
+	// 		text-align: center;
+	// 	}
+	// }
+	// Paddings
+
+
+	/**
+	* =========================
+	* Structure styles
+	* =========================
+	*/
+	@extend %terpel-header !optional;
+	@extend %terpel-banner !optional;
+	@extend %terpel-slider !optional;
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+	.section-land {
+		.title-section-land {
+			font-size: rem-calc(38);
+			font-family: 'ACMESecretAgentBB';
+			text-align: center;
+			font-weight: 300;
+			line-height: 34px;
+			margin-bottom: 12px;
+
+			@media #{$large-up} {
+				font-size: rem-calc(52);
+				margin-bottom: 38px;
+			}
+
+			@media #{$tablet-only} {
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	@extend %terpel-about-designforchange !optional;
+	@extend %terpel-designforchange-program !optional;
+	@extend %terpel-stages-design-for-change !optional;
+	@extend %terpel-successful-projects !optional;
+	@extend %terpel-designforchange-faq !optional;
+	@extend %terpel-stats-numbers !optional;
+	@extend %terpel-dfc-objective !optional;
+
+	// #{$main-land} {
+	// 	@extend %terpel-institution-register !optional;
+	// 	@extend %terpel-entrepreneurship !optional;
+	// 	@extend %terpel-institution-description !optional;
+	// }
+}

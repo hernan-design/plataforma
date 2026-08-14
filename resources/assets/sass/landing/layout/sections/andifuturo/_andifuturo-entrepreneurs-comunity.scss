@@ -1,0 +1,42 @@
+%andifuturo-entrepreneurs-comunity {
+
+	#andifuturo-entrepreneurs-comunity {
+		background: $white url('http://static.tuproyecto.com/images/landing/andi/adf-caracteristicas-img.jpg') no-repeat center;
+
+		.title-section-land {
+			color: $andifuturo-bright-medium-blue-color;
+			font-weight: 400;
+		}
+
+		.adf-es-comunity-boxes {
+
+			&.adf-es-comunity-first-item {
+				padding-right: rem-calc(30);
+				border-right: 1px solid $monsoon;
+			}
+
+			&.adf-es-comunity-second-item {
+				padding-left: rem-calc(30);
+			}
+
+			.adf-es-comunity-whiteicon {
+				width: 70px;
+				margin-right: rem-calc(10);
+			}
+
+			.adf-es-comunity-text {
+				line-height: 1.5;
+			}
+
+			@media #{$small-only}, #{$mobile-only} {
+				&.adf-es-comunity-second-item, &.adf-es-comunity-first-item {
+					border: none;
+					padding: rem-calc(0 30);
+					margin: rem-calc(30 0);
+				}
+			}
+		}
+
+
+	}
+}

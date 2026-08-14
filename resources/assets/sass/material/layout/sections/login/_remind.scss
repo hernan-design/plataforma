@@ -1,0 +1,45 @@
+// Styles for remind account form
+// ------------------------------
+
+%remind-form {
+
+	&#remind-account {
+
+		#remind-account-content {
+			@include margin-item-top;
+		}
+
+		.wrap-icon-remind-account {
+			margin: {
+				bottom: rem-calc(35);
+			}
+		}
+
+		.description-info {
+			margin: {
+				bottom: rem-calc(30);
+			}
+		}
+
+		.remind-account-circle {
+			@include icon-circle(
+				$font-size: rem-calc(65),
+				$padding: rem-calc(20),
+				$color: $white,
+				$bgcolor: $base
+			);
+		}
+
+		.notice-box-tp {
+			margin: {
+				top: rem-calc(15);
+			}
+		}
+
+		[type="submit"] {
+			margin: {
+				top: rem-calc(15);
+			}
+		}
+	}
+}

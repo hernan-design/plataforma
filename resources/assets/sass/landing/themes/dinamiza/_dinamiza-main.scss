@@ -1,0 +1,79 @@
+#{$wrapper-land}.wrapper-dinamiza {
+
+	/**
+	* =========================
+	* General styles
+	* =========================
+	*/
+	.section-land {
+		.section-title {
+			font-weight: bold;
+			font-family: 'Ubuntu', sans-serif;
+			line-height: 1.2;
+			font-size: rem-calc(34);
+			position: relative;
+			color: $dinamiza-dark-blue-color;
+
+			@media #{$mobile-only}, #{$small-only} {
+				font-size: rem-calc(26);
+			}
+
+			@media #{$tablet-only}, #{$medium-only}, #{$large-only}, #{$xlarge-only} {
+				font-size: rem-calc(36);
+			}
+
+			@media only screen and (min-width: 1440px) {
+				font-size: rem-calc(48);
+			}
+		}
+	}
+
+	.signin-button {
+		font-weight: 400;
+		padding: rem-calc(18 90);
+		@include border-radius(30px);
+		font-family: 'Ubuntu', sans-serif;
+		color: $white;
+		text-shadow: 2px 2px 0px rgba($black, 0.2);
+		background-color: #e2204a; // Old browsers
+		@include filter-gradient(#f9c900, #e2204a, vertical);
+		@include background-image(linear-gradient(top, rgba(#f9c900,1) 0%,rgba(#e2204a,1) 100%));
+
+		@media #{$mobile-only}, #{$small-only} {
+			width: 100%;
+		}
+	}
+
+	div, p, h1, h2, h3, h4, h5, h6, span, ul, li {
+		font-family: 'Ubuntu', sans-serif;
+	}
+
+
+	/**
+	* =========================
+	* Structure styles
+	* =========================
+	*/
+	@extend %dinamiza-header !optional;
+	@extend %dinamiza-banner !optional;
+
+
+	/**
+	* =========================
+	* Sections styles
+	* =========================
+	*/
+
+	#{$main-land} {
+		background-color: transparent;
+	  @extend %dinamiza-testimonial !optional;
+	  @extend %dinamiza-video !optional;
+	  @extend %dinamiza-ecosistema !optional;
+	  @extend %dinamiza-register !optional;
+	  @extend %dinamiza-partners !optional;
+	  @extend %dinamiza-contact !optional;
+
+	}
+
+	@extend %dinamiza-footer !optional;
+}

@@ -1,0 +1,268 @@
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+@charset "iso-8859-15";
+//Import Compass library
+  @import "compass/support";
+  @import "compass/utilities";
+
+//Includes the normalize file for elements' base style
+  @import "normalize";
+
+// This includes all of the global elements that are needed to work with any of the other files.
+  @import "material/base/variables";
+  @import "material/base/settings"; //Settings for Foundation Framework
+
+// Materialize Mixins
+// @import "components/prefixer";
+  @import "components/mixins";
+  @import "components/color";
+// Materialize Variables;
+  @import "components/variables";
+
+/* Materialize 0.97.6 */
+//
+// Include Materialize components require
+  // components
+  @import "components/global";
+  // @import "components/icons-material-design";
+  // @import "components/grid";
+  // @import "components/navbar";
+  // @import "components/roboto";
+  @import "components/typography";
+  @import "components/cards";
+  // @import "components/toast";
+  // @import "components/tabs";
+  // @import "components/tooltip";
+  // @import "components/buttons";
+  @import "components/dropdown";
+  @import "components/waves";
+  // @import "components/modal";
+  @import "components/collapsible";
+  @import "components/chips";
+  // @import "components/materialbox";
+  @import "components/forms/forms";
+  @import "components/table_of_contents";
+  @import "components/sideNav";
+  @import "components/preloader";
+  @import "components/slider";
+  // @import "components/carousel";
+  // @import "components/date_picker/default";
+  // @import "components/date_picker/default.date";
+  // @import "components/date_picker/default.time";
+
+/* Foundation 5 */
+// @import "foundation"; // Foundation 5 by Zurb
+// Behold, here are all the Foundation components.
+  @import "foundation/components/grid";
+  @import "foundation/components/accordion";
+  @import "foundation/components/alert-boxes";
+  @import "foundation/components/block-grid";
+  @import "foundation/components/breadcrumbs";
+  @import "foundation/components/button-groups";
+  @import "foundation/components/buttons";
+  // @import "foundation/components/clearing";
+  @import "foundation/components/dropdown";
+  @import "foundation/components/dropdown-buttons";
+  @import "foundation/components/flex-video";
+  // @import "foundation/components/forms";
+  // @import "foundation/components/icon-bar";
+  @import "foundation/components/inline-lists";
+  // @import "foundation/components/joyride";
+  // @import "foundation/components/keystrokes";
+  @import "foundation/components/labels";
+  // @import "foundation/components/magellan";
+  // @import "foundation/components/orbit";
+  @import "foundation/components/pagination";
+  @import "foundation/components/panels";
+  // @import "foundation/components/pricing-tables";
+  @import "foundation/components/progress-bars";
+  // @import "foundation/components/range-slider";
+  @import "foundation/components/reveal";
+  @import "foundation/components/side-nav";
+  @import "foundation/components/split-buttons";
+  @import "foundation/components/sub-nav";
+  // @import "foundation/components/switches";
+  @import "foundation/components/tables";
+  @import "foundation/components/tabs";
+  @import "foundation/components/thumbs";
+  @import "foundation/components/tooltips";
+  @import "foundation/components/top-bar";
+  @import "foundation/components/type";
+  @import "foundation/components/offcanvas";
+  @import "foundation/components/visibility";
+
+
+//Import Compass library
+  @import "compass/css3";
+
+/* MaterialDesignIcons.com */
+  @import "mdi/scss/variables";
+  @import "mdi/scss/functions";
+  @import "mdi/scss/path";
+  @import "mdi/scss/core";
+  @import "mdi/scss/icons";
+  @import "mdi/scss/extras";
+
+// Libraries Sass file
+/**
+* Chosen library
+*/
+/* @import "chosen" ; */
+
+/**
+* Slick library
+*/
+  @import "slick";
+  @import "slick-theme";
+
+/* App Components */
+// base
+// -----------------------------
+  @import "material/base/colors";
+  // @import "material/base/sprite";
+  @import "material/base/icons";
+  @import "material/base/fonts";
+  @import "material/base/mixins";
+  @import "material/base/functions";
+  @import "material/base/vselectors";
+  @import "material/base/utilities";
+// modules
+// -----------------------------
+  @import "material/module/type";
+  @import "material/module/grid";
+  @import "material/module/flexbox";
+  @import "material/module/block-grid";
+  @import "material/module/spinners";
+  @import "material/module/buttons";
+  @import "material/module/icons";
+  @import "material/module/images";
+  @import "material/module/panels";
+  @import "material/module/cards";
+  @import "material/module/breadcrumbs";
+  @import "material/module/paginations";
+  @import "material/module/alerts";
+  @import "material/module/tabs";
+  @import "material/module/subnavs";
+  @import "material/module/sidenavs";
+  @import "material/module/listitems";
+  @import "material/module/forms";
+  @import "material/module/modals";
+  @import "material/module/accordions";
+  @import "material/module/posts";
+  @import "material/module/editors";
+  @import "material/module/sidedata";
+  @import "material/module/slicks";
+  @import "material/module/dropdowns";
+  @import "material/module/modalforms";
+  @import "material/module/uploaders";
+  @import "material/module/tables";
+  @import "material/module/tags";
+  @import "material/module/players";
+  @import "material/module/progress-bars";
+  @import "material/module/tooltips";
+  @import "material/module/calendar";
+    @import "material/module/nav-module-bar";
+  @import "material/base/global";
+
+// layouts
+// ------------------------------
+  // learn
+  @import "material/layout/sections/learn/learn-main";
+  @import "material/layout/sections/learn/courses-list";
+  @import "material/layout/sections/learn/course-detail";
+  @import "material/layout/sections/learn/course-dashboard";
+  @import "material/layout/sections/learn/course-lecture";
+  // blog
+  @import "material/layout/sections/blog/blog-main";
+  @import "material/layout/sections/blog/blog-browse";
+  @import "material/layout/sections/blog/blog-article";
+  // marketplace
+  @import "material/layout/sections/marketplace/marketplace-main";
+  @import "material/layout/sections/marketplace/marketplace-browse";
+  @import "material/layout/sections/marketplace/marketplace-detail";
+  @import "material/layout/sections/marketplace/marketplace-purchase";
+  @import "material/layout/sections/marketplace/marketplace-mypurchases";
+  @import "material/layout/sections/marketplace/marketplace-createproduct";
+  @import "material/layout/sections/marketplace/marketplace-evaluation";
+  @import "material/layout/sections/marketplace/marketplace-mypromotions";
+  // calendar
+  @import "material/layout/sections/calendar/event-main";
+  @import "material/layout/sections/calendar/event-browse";
+  @import "material/layout/sections/calendar/event-detail";
+  // user profile
+  @import "material/layout/sections/profile/profile-main";
+  @import "material/layout/sections/profile/profile-user";
+  // mentoring
+  @import "material/layout/sections/mentoring/mentoring-main";
+  @import "material/layout/sections/mentoring/mentoring-navigation-bar";
+  @import "material/layout/sections/mentoring/mentoring-questions";
+  @import "material/layout/sections/mentoring/mentoring-sessions";
+  @import "material/layout/sections/mentoring/mentoring-mentor";
+  @import "material/layout/sections/mentoring/mentoring-feedback";
+  @import "material/layout/sections/mentoring/mentoring-evaluation-mentor";
+  @import "material/layout/sections/mentoring/mentoring-create-mentor";
+  // login
+  @import "material/layout/sections/login/login-main";
+  @import "material/layout/sections/login/login";
+  @import "material/layout/sections/login/register";
+  @import "material/layout/sections/login/terms";
+  @import "material/layout/sections/login/pending-institution";
+  @import "material/layout/sections/login/confirm";
+  @import "material/layout/sections/login/pending-profile";
+  @import "material/layout/sections/login/pending-profile-entity";
+  @import "material/layout/sections/login/remind";
+  @import "material/layout/sections/login/reset";
+  @import "material/layout/sections/login/deactivation";
+  @import "material/layout/sections/login/general-middleware";
+  @import "material/layout/sections/login/verify-account";
+  // search
+  @import "material/layout/sections/search/search-main";
+  // programs
+  @import "material/layout/sections/programs/programs-main";
+  @import "material/layout/sections/programs/programs-detail";
+  @import "material/layout/sections/programs/programs-apply-main";
+  // survey
+  @import "material/layout/sections/survey/survey_main";
+  // entities
+  @import "material/layout/sections/entities/entities-main";
+  @import "material/layout/sections/entities/entities-browse";
+  @import "material/layout/sections/entities/entities-detail";
+  // notifications
+  @import "material/layout/sections/notification/notification-main";
+  // discussion
+  @import "material/layout/sections/discussion/discussion-main";
+  // evaluation project
+  @import "material/layout/sections/evaluator/evaluator-main";
+  @import "material/layout/sections/evaluator/evaluator-browse";
+  @import "material/layout/sections/evaluator/evaluator-detail";
+  // features
+  @import "material/layout/sections/features/features-main";
+  // payments
+  @import "material/layout/sections/payments/pricing-main";
+  // muro
+  @import "material/layout/sections/wall/wall-main";
+  //chat
+  @import "material/layout/sections/chat/chat-main";
+  // registrationuser
+  @import "material/layout/sections/registrationuser/registration-process-main";
+  @import "material/layout/sections/registrationuser/registration-mail-confirmation";
+  @import "material/layout/sections/registrationuser/registration-general-info";
+  @import "material/layout/sections/registrationuser/registration-community-channels";
+  // forum
+  @import "material/layout/sections/forum/forum-main";
+  @import "material/layout/sections/forum/forum-browse";
+  // help
+  @import "material/layout/sections/help/help-main";
+
+  @import "material/layout/errors";
+  @import "material/layout/header";
+  @import "material/layout/main";
+  @import "material/layout/footer";
+
+
+// states
+// -----------------------------
+  @import "material/state/animated";
+  @import "material/state/states";
+  @import "material/state/medias";
+  @import "material/state/visibility";
