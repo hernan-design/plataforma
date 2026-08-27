@@ -36,9 +36,9 @@ class RegistroSesion extends Model {
 
 			// Social Links
 			$social_links = Institucion::getSocialLinks($institution->codigo_institucion);
-			Cookie::queue(Cookie::forever('_inst_facebook', $social_links->facebook ? $social_links->facebook : Config::get('tuproyecto.social_facebook')));
-			Cookie::queue(Cookie::forever('_inst_twitter', $social_links->twitter ? $social_links->twitter : Config::get('tuproyecto.social_twitter')));
-			Cookie::queue(Cookie::forever('_inst_youtube', $social_links->youtube ? $social_links->youtube : Config::get('tuproyecto.social_youtube')));
+			Cookie::queue(Cookie::forever('_inst_facebook', isset($social_links->facebook) ? $social_links->facebook : Config::get('tuproyecto.social_facebook')));
+			Cookie::queue(Cookie::forever('_inst_twitter', isset($social_links->twitter) ? $social_links->twitter : Config::get('tuproyecto.social_twitter')));
+			Cookie::queue(Cookie::forever('_inst_youtube', isset($social_links->youtube) ? $social_links->youtube : Config::get('tuproyecto.social_youtube')));
 		}
 
 		// Auth user used Broadcast events

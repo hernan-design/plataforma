@@ -103,6 +103,10 @@ class Institucion extends Model {
 		// 	return 'fundacionterpel';
 		// }
 
+		if (Request::getHost() === '127.0.0.1' || Request::getHost() === 'localhost') {
+			return 'compensar';
+		}
+
 		return 'tuproyecto';
 	}
 

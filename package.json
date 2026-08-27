@@ -158,5 +158,8 @@
     "uglify-js": "^3.5.2",
     "underscore": "^1.9.1",
     "wnumb": "^1.1.0"
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.8"
   }
 }
