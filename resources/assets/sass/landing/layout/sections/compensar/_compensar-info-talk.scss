@@ -5,7 +5,7 @@
 		.info-events-list {
 			background-color: $white;
 			padding: rem-calc(20);
-			@include box-shadow(4px 4px 8px $iron);
+			box-shadow: 4px 4px 8px $iron;
 
 			> li {
 				&:nth-child(2) {

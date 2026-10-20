@@ -15,7 +15,7 @@
 				margin: 0;
 				left: 0px;
 		    top: 0px;
-		    @include box-sizing(border-box);
+		    box-sizing: border-box;
 			}
 
 			.description-survey {
@@ -40,9 +40,9 @@
 					line-height: $paragraph-line-height;
 					left: 0px;
 			    top: 0px;
-			    @include box-sizing(border-box);
+			    box-sizing: border-box;
 
-					#{headers(all)} {
+					h1, h2, h3, h4, h5, h6 {
 						margin: {
 							top: 0;
 						}
@@ -60,12 +60,12 @@
 						left: rem-calc(45);
 						right: rem-calc(45);
 					}
-					@include box-shadow(none);
+					box-shadow: none;
 
 					&:hover {
 						border: none;
 						background-color: $white;
-						@include box-shadow(none);
+						box-shadow: none;
 					}
 
 					.list-checked-survey {

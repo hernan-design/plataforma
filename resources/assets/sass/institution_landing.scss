@@ -530,7 +530,7 @@ a {
 
 				&:hover {
 					&:before {
-					@include transition(all ease-out 300ms);
+					transition: all ease-out 300ms;
 					color: #{$secondary-color};
 					}
 				}

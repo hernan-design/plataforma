@@ -11,7 +11,7 @@
 			background-color: $vapor;
 			padding: rem-calc(34 34);
 			border: 1px solid $silver;
-			@include transition(all ease-out 300ms);
+			transition: all ease-out 300ms;
 
 			&:hover {
 				background-color: $white;

@@ -16,12 +16,12 @@
 		.item-wrap-list {
 			padding: rem-calc(15 20);
 			background-color: transparent;
-			@include border-radius($global-radius);
-			@include box-shadow(none);
+			border-radius: $global-radius;
+			box-shadow: none;
 
 			&:hover {
 				background-color: $gray-cloud !important;
-				@include box-shadow(none !important);
+				box-shadow: none !important;
 			}
 		}
 	}
@@ -41,8 +41,8 @@
 
 		.item-wrap-list {
 			padding: rem-calc(15 25);
-			@include border-radius($global-radius);
-			@include box-shadow(none);
+			border-radius: $global-radius;
+			box-shadow: none;
 
 			.item-thumb {
 				margin-right: rem-calc(12);
@@ -51,7 +51,7 @@
 
 			&:hover {
 				background-color: $gray-light-alt !important;
-				@include box-shadow(none !important);
+				box-shadow: none !important;
 			}
 		}
 	}

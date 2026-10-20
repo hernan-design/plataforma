@@ -2,7 +2,7 @@
 import React from 'react';
 import Misc from '../../helpers/misc';
 import { thumbs } from '../../helpers/states';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import moment from 'moment';
 
 const ForumUserInfo = (props) => (

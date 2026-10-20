@@ -1,6 +1,6 @@
 %coomeva-slider {
 	#coomeva-slider {
-		@include box-shadow (1px 20px 50px -4px rgba($black, 0.25));
+		box-shadow: 1px 20px 50px -4px rgba($black, 0.25);
 	/*
 	* Banner landing
 	* ---------------
@@ -46,7 +46,7 @@
 			    left: auto;
 			    top: auto;
 			    margin: 0 auto;
-			    @include transform(translate(0, -30%));
+			    transform: translate(0, -30%);
 				}
 			}
 

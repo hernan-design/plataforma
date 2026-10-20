@@ -5,8 +5,8 @@ const InitAnimated = require('./animated');
 const Misc         = require('./helpers/misc');
 
 // Foundation zurb & Materialize
-const Foundation = global && global.Foundation ? require('foundation') : null;
-const Materialize = global && global.Materialize ? require('Materialize') : null;
+const Foundation = (typeof window !== 'undefined' && window.Foundation) || (typeof global !== 'undefined' && global.Foundation) || null;
+const Materialize = (typeof window !== 'undefined' && window.Materialize) || (typeof global !== 'undefined' && global.Materialize) || null;
 
 // Inputmask
 let Inputmask = null;
@@ -27,16 +27,24 @@ if(typeof window !== 'undefined') {
     require('../libs/inputmask/dist/inputmask/jquery.inputmask.js');
 
     // select2
-    const select2 = require('select2');
-    select2(window, jQuery);
-    require('select2/dist/js/i18n/es.js');
+    try {
+        const select2 = require('select2');
+        if (typeof select2 === 'function') {
+            select2(window, jQuery);
+        }
+        import('select2/dist/js/i18n/es.js');
+    } catch(e) {}
 
     // datetimepicker
     // require('../libs/datetimepicker/build/jquery.datetimepicker.full.js')(jQuery);
 
     // svg animation
-    const Snap = require('snapsvg');
-    SvgEntryAnim = require('svg-entry-animator');
+    try {
+        const eve = require('eve');
+        window.eve = eve;
+        const Snap = require('snapsvg');
+    } catch(e) {}
+    SvgEntryAnim = (typeof window !== 'undefined' && window.SVGAnim) || (typeof global !== 'undefined' && global.SVGAnim) || null;
 }
 
 // wnumb

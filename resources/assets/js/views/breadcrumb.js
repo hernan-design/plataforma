@@ -13,7 +13,10 @@ app || (app = {});
 
         tagName: 'ul',
         className: 'breadcrumbs',
-        template: _.template( $('#breadcrumb-tp').html() ),
+        template: function(data) {
+            var html = $('#breadcrumb-tp').html() || '';
+            return _.template(html)(data);
+        },
 
         /**
         * Constructor Method

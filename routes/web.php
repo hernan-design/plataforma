@@ -581,3 +581,5 @@ Route::get('{category}/{slug}', ['as' => 'landingpage', 'uses' => 'HomeControlle
 Route::get('{slug}', ['as' => 'landing', 'uses' => 'HomeController@show']);
 
 Route::resource('log_curso', 'LogCursoController', ['only' => ['index', 'create', 'store', 'update']]);
+
+Route::get('/debug-config', function() { return [ 'port' => config('database.connections.pgsql.port'), 'db' => config('database.connections.pgsql.database') ]; });

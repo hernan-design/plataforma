@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { RELATED_LIST_ID as relatedForumListId, AUTHOR_LIST_ID as authorForumListId } from '../../stores/forum';
 import Misc, { strToNickname } from '../../helpers/misc';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import { formatMessage } from '../../init-app';
 
 // app components

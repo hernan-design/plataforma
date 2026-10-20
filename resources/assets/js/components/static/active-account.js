@@ -1,10 +1,10 @@
 // resources/assets/js/components/active-account.js
 import React from 'react';
 import PropTypes from 'prop-types';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import { formatMessage } from '../../init-app';
 
-const ActiveAccount = ({ text }, { store }) => {
+const ActiveAccount = ({ text = formatMessage('community/verify_account/description') }, { store }) => {
     const { session } = store.getState();
 
     if(session.user.usuarioVerificado) {
@@ -23,8 +23,4 @@ ActiveAccount.contextTypes = {
     store: PropTypes.object.isRequired
 }
 
-ActiveAccount.defaultProps = {
-    text: formatMessage('community/verify_account/description')
-}
-
-export default ActiveAccount
+export default ActiveAccount;

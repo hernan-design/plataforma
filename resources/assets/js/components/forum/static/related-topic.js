@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { decorators } from '@orange-marmalade/paginate-this';
-import laroute from '../../../helpers/laroute';
+import laroute from '../../../helpers/laroute.js';
 import Misc, { strToNickname, imageDefault } from '../../../helpers/misc';
 import { thumbs } from '../../../helpers/states';
 import { Link } from 'react-router-dom';

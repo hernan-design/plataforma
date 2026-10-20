@@ -79,7 +79,7 @@
 		
 
 		.button {
-			@include border-radius(22px);
+			border-radius: 22px;
 		}
 	}
 }

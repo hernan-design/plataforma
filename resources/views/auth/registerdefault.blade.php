@@ -108,4 +108,7 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="widget-login-recaptcha-new" data-key-recaptcha="{{ env('RECAPTCHA_SITE_KEY', '6Ld4HuQtAAAAAEgDP3VE3SpcymOzvL_yxvN8At-v') }}"></div>
 {!! Form::close() !!}
+

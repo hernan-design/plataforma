@@ -56,8 +56,8 @@
 
 		#project-submenu-tabs {
 			background-color: $white;
-			@include box-shadow($panel-shadow);
-			@include border-radius($global-radius);
+			box-shadow: $panel-shadow;
+			border-radius: $global-radius;
 			padding: rem-calc(0 15);
 
 			#project-tabs-filter {
@@ -195,7 +195,7 @@
 
 		#marketplace-submenu-nav {
 			background-color: $color-main-wrap-alt;
-			@include box-shadow(0px 2px 2px $iron);
+			box-shadow: 0px 2px 2px $iron;
 		}
 
 		// list options share
@@ -233,7 +233,7 @@
 		.submenu-tabs-review-program {
 			background-color: $white;
 			padding: rem-calc(0 25);
-			@include box-sizing(border-box);
+			box-sizing: border-box;
 			@include side-radius(top);
 
 			.project-program-submenu-review {
@@ -333,7 +333,7 @@
 			.collapsible-table {
 				border: none;
 				margin: 0;
-				@include box-shadow(none);
+				box-shadow: none;
 
 				i {
 					width: auto;
@@ -440,11 +440,11 @@
 					}
 
 					.item-wrap-list {
-						@include box-shadow(none);
+						box-shadow: none;
 
 						&:hover {
 							background-color: $gray-light-alt;
-							@include box-shadow(none);
+							box-shadow: none;
 						}
 
 						.top-item-list {

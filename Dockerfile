@@ -1,4 +1,4 @@
-FROM php:8.0-apache
+FROM php:8.4-apache
 
 # 1. Instalar dependencias del sistema y herramientas de compilación
 RUN apt-get update && apt-get install -y \
@@ -13,6 +13,9 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# Instalar Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 # 2. Configurar e instalar extensiones de PHP comunes para Laravel
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
@@ -21,6 +24,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         soap \
         bcmath \
         exif \
+        calendar \
         pdo_pgsql \
         pgsql
 

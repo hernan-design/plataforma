@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
+// use Illuminate\Support\Facades\Input;
 use App\Contenido;
 use App\TipoContenido;
 use App\Estado;
@@ -84,10 +84,10 @@ class LogCursoController extends Controller {
 			DB::commit();
 
 			return response()->json(['success' => true, 'message' => 'Log guardado exitosamente.']);
-        } catch (DecryptException $e) {
+        } catch (\Exception $e) {
 			DB::rollback();
             Log::error('Error al guardar el log del curso: ' . $e->getMessage());
-            return response()->json(['success' => false, 'error' => 'Log no se puede guardar.'], 500);
+            return response()->json(['success' => false, 'error' => 'Log no se puede guardar.'], 200);
         }
 
     }

@@ -2,7 +2,7 @@
 	#copo-services {
 
 		.services-box {
-			@include border-radius(8px);
+			border-radius: 8px;
 			position: relative;
 			overflow: hidden;
 			padding: rem-calc(30 0 58 0);
@@ -15,12 +15,12 @@
 
 			@media #{$large-up} {
 				&:hover {
-					// @include box-shadow(0 4 12 1 rgba($black, 0.22));
+					// box-shadow: 0 4 12 1 rgba($black, 0.22);
 
 					.services-img {
 						opacity: 0.1;
 		    		filter: alpha(opacity=10); /* For IE8 and earlier */
-		    		@include transition(all 500ms ease-in-out);
+		    		transition: all 500ms ease-in-out;
 					}
 
 					.services-inner-box {
@@ -44,7 +44,7 @@
 
 						.services-text {
 							display: block;
-							@include transition(all 500ms ease-in-out);
+							transition: all 500ms ease-in-out;
 						}
 					}
 				}
@@ -58,7 +58,7 @@
 				height: 300px;
 				min-height: 100%;
 				padding: rem-calc(78 60 0);
-				@include transition(all 500ms ease-in-out);
+				transition: all 500ms ease-in-out;
 
 				@media #{$mobile-only}, #{$small-only}, #{$tablet-only}, #{$medium-only}  {
 					position: relative;

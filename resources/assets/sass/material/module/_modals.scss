@@ -51,19 +51,19 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 	// modal close button
 	@at-root .#{$close-reveal-modal-class} {
 		@include reveal-close($color: $gray-light);
-		@include transition(all .2s linear 0s);
+		transition: all .2s linear 0s;
 
 		&:hover, &:focus {
 			text-decoration: none;
 		}
 		&:hover{
-			@include text-shadow(0px 0px 3px rgba($black, .3));
+			text-shadow: 0px 0px 3px rgba($black, .3);
 		}
 	}
 
 	@at-root .title-modal-top {
     @include border-top-radius($reveal-radius);
-    // @extend .content-header-panel;
+    // /* @extend .content-header-panel; */
     background-color: $gray-light-alt;
     padding: $reveal-modal-padding;
     border-bottom: 1px solid $hr-border-color;
@@ -107,7 +107,7 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 				size: $modal-action-font-size;
 				weight: $modal-action-font-weight;
 			}
-			@include transition(color .3s ease);
+			transition: color .3s ease;
 
 			&:hover, &:active, &:focus {
 				text-decoration: none;
@@ -149,33 +149,24 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 	}
 
 	&.content-scroll {
-		@include flexbox((
-			display: box !important,
-			box-orient: horizontal
-		), $version: 1);
-		@include flexbox((
-			display: flexbox !important,
-			flex-direction: column
-		), $version: 2);
-		@include flexbox((
-			display: flex !important,
-			flex-direction: column
-		));
-		@include flex-flow(column nowrap);
+		display: flex !important;
+		flex-direction: column;
+		
+		flex-flow: column nowrap;
 
 		.title-modal-top {
-      @include flex(0 0 auto);
+      flex: 0 0 auto;
 		}
 
 		.content-modal {
-			@include flex(1 1 auto);
+			flex: 1 1 auto;
 			height: rem-calc(450);
 			overflow-y: auto;
 			overflow-x: visible;
 		}
 
 		.footer-modal {
-			@include flex(0 0 auto);
+			flex: 0 0 auto;
 		}
 
 		&.is-fixed {
@@ -200,27 +191,18 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 					&.dialog-confirm {
 		height: auto;
 		overflow: visible;
-		@include flexbox((
-			display: box !important,
-			box-orient: horizontal
-		), $version: 1);
-		@include flexbox((
-			display: flexbox !important,
-			flex-direction: column
-		), $version: 2);
-		@include flexbox((
-			display: flex !important,
-			flex-direction: column
-		));
-		@include flex-flow(column nowrap);
+		display: flex !important;
+		flex-direction: column;
+		
+		flex-flow: column nowrap;
 
 
 		.title-modal-top {
-      @include flex(0 0 auto);
+      flex: 0 0 auto;
 		}
 
 		.content-modal {
-			@include flex(1 1 auto);
+			flex: 1 1 auto;
 			height: rem-calc(450);
 			overflow-y: auto;
 			overflow-x: hidden;
@@ -232,7 +214,7 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 		}
 
 		.footer-modal {
-			@include flex(0 0 auto);
+			flex: 0 0 auto;
 		}
 
 		&:not(.no-fixed), &.is-fixed {
@@ -313,17 +295,17 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 	}
 
 	.#{$close-reveal-modal-class} {
-		@extend .#{$close-reveal-modal-class};
+		/* @extend .#{$close-reveal-modal-class}; */
 	}
 
 	.title-modal-top {
-		@extend .title-modal-top;
+		/*  @extend .title-modal-top;  */
 	}
 	.content-modal {
-		@extend .content-modal;
+		/*  @extend .content-modal;  */
 	}
 	.footer-modal {
-		@extend .footer-modal;
+		/*  @extend .footer-modal;  */
 	}
 
 	// Style modal create project
@@ -409,7 +391,7 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 			height: rem-calc(90);
 			overflow: hidden;
 			padding: rem-calc(30 30);
-			@include box-sizing(border-box);
+			box-sizing: border-box;
 		}
 
 		#content-modal-create-entity {
@@ -454,7 +436,7 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 	// position: fixed;
 	z-index: 1005;
 	padding: 0px;
-	@include border-radius($global-radius);
+	border-radius: $global-radius;
 	border: none;
 
 
@@ -476,7 +458,7 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 		@include border-top-radius($reveal-radius);
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
-    // @extend .content-header-panel;
+    // /* @extend .content-header-panel; */
     background-color: $gray-light-alt;
     padding: $reveal-modal-padding;
 		border-top: 0;
@@ -507,7 +489,7 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 			font: {
 				size: rem-calc(16);
 			}
-			@include transition(all 5s ease-in 0s);
+			transition: all 5s ease-in 0s;
 
 			&:before{
 				@extend %font-mdi;
@@ -545,7 +527,7 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 .alertify-cover {
 	background: $reveal-overlay-bg-old;
 	background: $reveal-overlay-bg;
-	@include opacity(1);
+	opacity: 1;
 }
 .alertify {
 
@@ -581,15 +563,15 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 			.alertify-button {
 				border: none;
 				background-color: $white;
-				@include box-shadow(0px 1px 4px $iron);
+				box-shadow: 0px 1px 4px $iron;
 				font: {
 					family: $font-family-sanfrancisco;
 					weight: 300;
 				};
 				color: $oil;
 				width: rem-calc(90);
-				@include border-radius(0px);
-				@include text-shadow(none);
+				border-radius: 0px;
+				text-shadow: none;
 			}
 
 			.alertify-button-cancel {
@@ -636,15 +618,15 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 	}
 
 	.note-btn {
-		@extend .flat;
-		@extend .small;
+		/*  @extend .flat;  */
+		/*  @extend .small;  */
 		margin: 0;
-		@include border-radius($button-radius);
+		border-radius: $button-radius;
 		float: none;
 	}
 
 	.close {
-		@extend .#{$close-reveal-modal-class};
+		/* @extend .#{$close-reveal-modal-class}; */
 		color: $gray-light !important;
 		position: absolute !important;
 		margin: 0;
@@ -656,15 +638,15 @@ $modal-margin-action: if(length($reveal-modal-padding) > 1, nth($reveal-modal-pa
 
 	.note-modal-header {
 		border: none;
-		@extend .title-modal-top;
+		/*  @extend .title-modal-top;  */
 	}
 
 	.note-modal-body {
-		@extend .content-modal;
+		/*  @extend .content-modal;  */
 	}
 
 	.note-modal-footer {
-		@extend .footer-modal;
+		/*  @extend .footer-modal;  */
 	}
 
 	input[type=checkbox], input[type=radio] {

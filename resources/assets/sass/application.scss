@@ -1,12 +1,9 @@
 // Make sure the charset is set appropriately
 @charset "UTF-8";
-@charset "iso-8859-15";
-//Import Compass library
-  @import "compass/support";
-  @import "compass/utilities";
-
+@import "compass";
+@import "compass/css3";
 //Includes the normalize file for elements' base style
-  @import "normalize";
+// @import "normalize";
 
 // This includes all of the global elements that are needed to work with any of the other files.
   @import "material/base/variables";
@@ -18,6 +15,11 @@
   @import "components/color";
 // Materialize Variables;
   @import "components/variables";
+
+// Fix for Foundation 5 namespace error in modern browsers/bundlers
+meta.foundation-data-attribute-namespace {
+    font-family: 'not-found' !important;
+}
 
 /* Materialize 0.97.6 */
 //
@@ -92,8 +94,7 @@
   @import "foundation/components/visibility";
 
 
-//Import Compass library
-  @import "compass/css3";
+
 
 /* MaterialDesignIcons.com */
   @import "mdi/scss/variables";
@@ -266,3 +267,5 @@
   @import "material/state/states";
   @import "material/state/medias";
   @import "material/state/visibility";
+
+

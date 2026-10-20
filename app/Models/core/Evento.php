@@ -297,16 +297,12 @@ class Evento extends Model {
 					&& preg_replace("/[^a-zA-Z0-9]/", "", $filters['fecha_fin_evento']) != '' ) {
 					$date = $filters['fecha_fin_evento'];
 					$query->where('fecha_fin_evento','<=',$date);
-				}else {
-					$date = date("Y-m-d");
-					$query->where('fecha_fin_evento','>=',$date);
 				}
 
 				if(!empty($filters['year'])) {
-					$year = $filters['year'];
-					$query->whereRaw("EXTRACT(year from fecha_evento) = $data");
+					$year = (int) $filters['year'];
+					$query->whereRaw("EXTRACT(year from fecha_evento) = $year");
 				}
-
 
 		 		if(!empty($filters['city'])) {
 			 		$query->where('evento.codigo_ciudad', $filters['city']);
@@ -317,11 +313,11 @@ class Evento extends Model {
 				}
 
 				$query->where('tipo_evento_calendario.codigo_clase_tipo_evento', ClaseTipoEvento::getClass('platform'));
+				$query->where('evento.codigo_privacidad_contenido', '=', PrivacidadContenido::getPrivacy('public'));
 
 		        // Get posts
 		 		$total_entries = $query->count();
 
-		 		$query->where('evento.codigo_privacidad_contenido', '=', PrivacidadContenido::getPrivacy('public'));
 				$query->orderBy('evento.fecha_evento','desc');
 				$query->orderBy('evento.hora_inicio_evento','desc');
 		   		$query->skip($filters['offset'])->take($filters['limit']);

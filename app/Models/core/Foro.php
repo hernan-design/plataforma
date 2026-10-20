@@ -267,7 +267,9 @@ class Foro extends Model {
 
 		$query->orderBy('core.foro.fecha_apertura_foro','desc');
 		$query->orderBy('core.foro.hora_apertura_foro','desc');
-		$query->skip($filters['offset'])->take($filters['limit']);
+		$offset = isset($filters['offset']) ? (int) $filters['offset'] : 0;
+		$limit = isset($filters['limit']) ? (int) $filters['limit'] : 15;
+		$query->skip($offset)->take($limit);
 		$results = $query->get();
 
    		if(isset($results) && count($results) > 0) {

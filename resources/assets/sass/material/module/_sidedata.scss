@@ -24,7 +24,7 @@
 	.inner-data-side {
 		padding: rem-calc(12 12 25);
 		background-color: $white;
-		@include box-shadow( $box-shadow-item );
+		box-shadow:  $box-shadow-item ;
 
 		.title-panel {
 			top: rem-calc(-12);

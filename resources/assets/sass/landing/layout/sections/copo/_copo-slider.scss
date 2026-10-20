@@ -12,7 +12,7 @@
 	    position: absolute;
 	    // margin-left: -960px;
 	    // margin-top: -540px;
-			@include translate(-50%, -50%);
+			transform: translate(-50%, -50%);
 		}
 
 		.slick-slider-copo {
@@ -140,7 +140,7 @@
 						button {
 							background-color: $white;
 							border: 0;
-							@include box-shadow( 0px 0px 14px $white);
+							box-shadow:  0px 0px 14px $white;
 						}
 					}
 				}

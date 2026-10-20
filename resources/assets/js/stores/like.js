@@ -6,6 +6,7 @@ import { formatMessage } from '../init-app';
 import { TypedError, actionCreators as errorActions } from './error-message';
 import { camelizeKeys } from 'humps';
 import { get as getProp } from 'lodash';
+import { Map } from 'immutable';
 import {
     buildActionType as actionType,
     composeDynamicReducers,
@@ -53,7 +54,10 @@ export const dynamicRecipes = composeDynamicReducers({
         ) {
             return createLike({
                 recipeId: dynamicName,
-                locator: state => getProp(state, location)[dynamicName],
+                locator: state => {
+                    const loc = getProp(state, location);
+                    return (loc && loc[dynamicName]) || defaultSettings;
+                },
                 updaterCounter: updateCounter(entry),
                 initialSettings: {
                     parentSrcparams: entry.srcparams,
@@ -80,7 +84,10 @@ export const dynamicRecipeLikes = composeDynamicReducers({
         ) {
             return createRecipeLikes({
                 listId: dynamicName,
-                locator: state => getProp(state, location)[dynamicName],
+                locator: state => {
+                    const loc = getProp(state, location);
+                    return (loc && loc[dynamicName]) || Map();
+                },
                 initialSettings: {
                     pageSize: 15,
                     filters: {

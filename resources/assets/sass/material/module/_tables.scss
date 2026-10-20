@@ -82,7 +82,7 @@ table {
 			// }
 
 			td, th {
-				@include border-radius(0px);
+				border-radius: 0px;
 			}
 		}
 	}
@@ -103,7 +103,7 @@ table {
 			border-bottom: 1px solid $hr-border-color;
 
 			th, td {
-				@include border-radius(0px);
+				border-radius: 0px;
 
 				> i {
 					font: {

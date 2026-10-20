@@ -14,14 +14,14 @@
 				border-bottom: 0;
 				margin-bottom: rem-calc(10);
 				padding: rem-calc(30 20);
-				@include box-shadow($box-shadow-item);
+				box-shadow: $box-shadow-item;
 			}
 
 			@media #{$large-up} {
 				border-bottom: 0;
 				margin-bottom: rem-calc(20);
 				padding: rem-calc(40 0);
-				@include box-shadow($box-shadow-item);
+				box-shadow: $box-shadow-item;
 			}
 
 			.event-img {
@@ -29,7 +29,7 @@
 		    display: block;
 		    width: 100%;
 		    overflow: hidden;
-		    @include border-radius($global-radius);
+		    border-radius: $global-radius;
 		    height: 200px;
 
 		    @media #{$tablet-up} {
@@ -45,7 +45,7 @@
 					left: -100%;
 					right: -100%;
 					margin: 0 auto !important;
-					@include translate(0, 0);
+					transform: translate(0, 0);
 		    }
 
 		    .date-on-image {
@@ -54,7 +54,7 @@
 		    	top: 23px;
 		    	background-color: $white;
 		    	font-size: rem-calc(19);
-		    	@include border-radius(8px);
+		    	border-radius: 8px;
 		    	padding: rem-calc(5 10);
 		    	color: $aluminum;
 		    	text-transform: uppercase;
@@ -169,7 +169,7 @@
 		    border: 1px solid $iron;
 		    display: inline-block;
     		padding: rem-calc(3);
-		    @include border-radius(20px);
+		    border-radius: 20px;
 
 		    @media #{$mobile-only}, #{$small-only} {
 		  		margin-bottom: 15px;
@@ -196,7 +196,7 @@
 		    padding: rem-calc(4);
 		  	width: auto;
 
-		    @include border-radius(20px);
+		    border-radius: 20px;
 		    color: $monsoon;
 
 		  	@media #{$mobile-only}, #{$small-only} {

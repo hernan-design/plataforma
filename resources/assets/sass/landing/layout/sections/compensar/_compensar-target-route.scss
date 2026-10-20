@@ -116,7 +116,7 @@
 			position: relative;
 
 			> img {
-				@include box-shadow(4px 4px 8px $iron);
+				box-shadow: 4px 4px 8px $iron;
 			}
 
       &.steps {
@@ -164,7 +164,7 @@
 					width: 40px;
           z-index: 1;
 					font-weight: 900;
-					@include border-radius(35px);
+					border-radius: 35px;
 
 					@media #{$xlarge-up} {
 					  margin-top: -35px;

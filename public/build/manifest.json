@@ -1,0 +1,103 @@
+{
+  "_jquery-global-DDPFQXmM.js": {
+    "file": "assets/jquery-global-DDPFQXmM.js",
+    "name": "jquery-global",
+    "imports": [
+      "_simple-editor-BcPUgVtn.js"
+    ]
+  },
+  "_react-summernote-YIKZNNOH.js": {
+    "file": "assets/react-summernote-YIKZNNOH.js",
+    "name": "react-summernote",
+    "isDynamicEntry": true,
+    "imports": [
+      "_simple-editor-BcPUgVtn.js",
+      "_jquery-global-DDPFQXmM.js"
+    ]
+  },
+  "_simple-editor-BcPUgVtn.js": {
+    "file": "assets/simple-editor-BcPUgVtn.js",
+    "name": "simple-editor",
+    "dynamicImports": [
+      "node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
+      "node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
+      "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js",
+      "_react-summernote-YIKZNNOH.js",
+      "_summernote-1FjJv2CE.js",
+      "_summernote-cleaner-Co2GoJh1.js",
+      "_summernote-es-ES-DDwgklsF.js"
+    ]
+  },
+  "_summernote-1FjJv2CE.js": {
+    "file": "assets/summernote-1FjJv2CE.js",
+    "name": "summernote",
+    "isDynamicEntry": true,
+    "imports": [
+      "_simple-editor-BcPUgVtn.js",
+      "_jquery-global-DDPFQXmM.js"
+    ]
+  },
+  "_summernote-cleaner-Co2GoJh1.js": {
+    "file": "assets/summernote-cleaner-Co2GoJh1.js",
+    "name": "summernote-cleaner",
+    "isDynamicEntry": true,
+    "imports": [
+      "_simple-editor-BcPUgVtn.js",
+      "_jquery-global-DDPFQXmM.js"
+    ]
+  },
+  "_summernote-es-ES-DDwgklsF.js": {
+    "file": "assets/summernote-es-ES-DDwgklsF.js",
+    "name": "summernote-es-ES",
+    "isDynamicEntry": true,
+    "imports": [
+      "_simple-editor-BcPUgVtn.js"
+    ]
+  },
+  "node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js": {
+    "file": "assets/dropdown-vq_D3roh.js",
+    "name": "dropdown",
+    "src": "node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js": {
+    "file": "assets/modal-CG8Idn3k.js",
+    "name": "modal",
+    "src": "node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js": {
+    "file": "assets/tooltip-yEIXaZoN.js",
+    "name": "tooltip",
+    "src": "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js",
+    "isDynamicEntry": true
+  },
+  "resources/assets/js/app-client.js": {
+    "file": "assets/app-client-CT0xd-sc.js",
+    "name": "app-client",
+    "src": "resources/assets/js/app-client.js",
+    "isEntry": true,
+    "imports": [
+      "_simple-editor-BcPUgVtn.js"
+    ]
+  },
+  "resources/assets/js/components/main.js": {
+    "file": "assets/main-CgV92KlG.js",
+    "name": "main",
+    "src": "resources/assets/js/components/main.js",
+    "isEntry": true,
+    "imports": [
+      "_simple-editor-BcPUgVtn.js"
+    ]
+  },
+  "resources/assets/sass/application.scss": {
+    "file": "assets/application-Drsj-hNW.css",
+    "src": "resources/assets/sass/application.scss",
+    "isEntry": true
+  },
+  "resources/assets/sass/landing.scss": {
+    "file": "assets/landing-l8zdRP-9.css",
+    "src": "resources/assets/sass/landing.scss",
+    "isEntry": true
+  }
+}

@@ -69,41 +69,56 @@ function actionCreators(config) {
         loadByState: (state, value, time = 0) => (dispatch) => {
             dispatch(pageActions.resetResults([]));
 
+            const update = () => {
+                dispatch(pageActions.setFilter(state, value || undefined));
+                return dispatch(pageActions.reload());
+            };
+
             if(time) {
                 return new Promise(resolve => {
                     setTimeout(() => (
-                        resolve( dispatch(pageActions.setFilter(state, value || undefined)) )
+                        resolve(update())
                     ), time)
                 });
             }
 
-            return dispatch(pageActions.setFilter(state, value || undefined));
+            return update();
         },
         loadByStates: (states, time = 0) => (dispatch) => {
             dispatch(pageActions.resetResults([]));
 
+            const update = () => {
+                dispatch(pageActions.setFilters(states));
+                return dispatch(pageActions.reload());
+            };
+
             if(time) {
                 return new Promise(resolve => {
                     setTimeout(() => {
-                        resolve( dispatch(pageActions.setFilters(states)) )
+                        resolve(update())
                     }, time);
                 });
             }
 
-            return dispatch(pageActions.setFilters(states));
+            return update();
         },
         loadByResetStates: (states, time = 0) => (dispatch) => {
             dispatch(pageActions.resetResults([]));
 
+            const update = () => {
+                dispatch(pageActions.resetFilters(states));
+                return dispatch(pageActions.reload());
+            };
+
             if(time) {
                 return new Promise(resolve => {
                     setTimeout(() => {
-                        resolve( dispatch(pageActions.resetFilters(states)) )
+                        resolve(update())
                     }, time);
                 });
             }
 
-            return dispatch(pageActions.setFilters(states));
+            return update();
         },
         infinityAsync: (fetchAction) => (dispatch, getState) => {
             const { params:{ totalCountProp, resultsProp } } = listConfig(listId);
@@ -169,7 +184,8 @@ function actionCreators(config) {
         // ----------------------------------------
         loadEntries: (pageInfo) => (dispatch, getState) => {
             const { params:{ endpoint, loadTypes } } = listConfig(listId);
-            let cancelFetch = stateMap[listId].pageParams.cancelFetch;
+            const pageParams = (stateMap[listId] && stateMap[listId].pageParams) || {};
+            let cancelFetch = pageParams.cancelFetch;
 
             // if(typeof cancelFetch === 'function') cancelFetch('Operation canceled by the user.');
             const { page, pageSize, ...restQuery } = pageInfo.query;
@@ -218,7 +234,8 @@ function actionCreators(config) {
             });
         },
         showByState: (state, value, time = 0) => (dispatch) => {
-            const { cancelFetch } = stateMap[listId].pageParams;
+            const pageParams = (stateMap[listId] && stateMap[listId].pageParams) || {};
+            const { cancelFetch } = pageParams;
             if(typeof cancelFetch === 'function' && time) cancelFetch(`Operation canceled by the user in filtering: ${listId}.`);
 
             return dispatch(_actionCreators.loadByState(
@@ -228,13 +245,15 @@ function actionCreators(config) {
             ));
         },
         showByStates: (states, time = 0) => (dispatch) => {
-            const { cancelFetch } = stateMap[listId].pageParams;
+            const pageParams = (stateMap[listId] && stateMap[listId].pageParams) || {};
+            const { cancelFetch } = pageParams;
             if(typeof cancelFetch === 'function' && time) cancelFetch(`Operation canceled by the user in filtering: ${listId}.`);
 
             return dispatch(_actionCreators.loadByStates(states, time));
         },
         showByResetStates: (states, time = 0) => (dispatch) => {
-            const { cancelFetch } = stateMap[listId].pageParams;
+            const pageParams = (stateMap[listId] && stateMap[listId].pageParams) || {};
+            const { cancelFetch } = pageParams;
             if(typeof cancelFetch === 'function' && time) cancelFetch(`Operation canceled by the user in filtering: ${listId}.`);
 
             return dispatch(_actionCreators.loadByResetStates(states, time));

@@ -1,8 +1,8 @@
 // resources/assets/js/helpers/redux-utils.js
 import Immutable from 'immutable';
 import { mapValues } from 'lodash';
-import { getModule, getResource } from './states';
-import { attachReducers } from '../stores/store';
+import { getModule, getResource } from './states.esm';
+import { attachReducers } from '../stores/store-registry';
 import { combineReducers } from 'redux';
 
 const locationMap = {};
@@ -113,6 +113,8 @@ function versioningLocation(location) {
  * @param { Object } options
  * @return { Function } to be pass those parameters: entries { Array|Object }, options ({ location, updateCounter, dynamicName })
  */
+const attachedKeysByLocation = {};
+
 export function composeDynamicReducers({ nameReducer, createReducer, location }) {
     return (entries, options={}) => {
         const _entries = Array.isArray(entries) ? entries : [entries];
@@ -123,8 +125,13 @@ export function composeDynamicReducers({ nameReducer, createReducer, location })
             updateCounter: () => {},
             ...options
         };
-        const currentLocation = `${settings.location}${locationMap[settings.location] || ''}`;
+        const currentLocation = settings.location;
         const replace = options.replace || false;
+        if (!attachedKeysByLocation[currentLocation]) {
+            attachedKeysByLocation[currentLocation] = new Set();
+        }
+        const attachedSet = attachedKeysByLocation[currentLocation];
+        let hasNew = false;
 
         _entries.forEach(entry => {
             const prefixName = typeof nameReducer === 'function' ? nameReducer(entry) : (nameReducer || '');
@@ -136,6 +143,10 @@ export function composeDynamicReducers({ nameReducer, createReducer, location })
                 typeof dynamicName === 'string' &&
                 typeof createReducer === 'function'
             ) {
+                if (replace || !attachedSet.has(dynamicName)) {
+                    hasNew = true;
+                    attachedSet.add(dynamicName);
+                }
                 attachDynamics[dynamicName] = createReducer(entry, {
                     ...settings,
                     dynamicName,
@@ -144,10 +155,8 @@ export function composeDynamicReducers({ nameReducer, createReducer, location })
             }
         });
 
-        // attach recipes to store root reducer
-        if( Object.keys(attachDynamics).length ) {
-            !replace && versioningLocation(settings.location);
-
+        // attach recipes to store root reducer only if there are new reducers
+        if( Object.keys(attachDynamics).length && hasNew ) {
             attachReducers({ [currentLocation]: combineReducers(attachDynamics) });
         }
     }

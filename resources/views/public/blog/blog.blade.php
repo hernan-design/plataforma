@@ -18,12 +18,12 @@
 	{{-- Metas by facebook --}}
 	@section('meta_ob_title'){{{ !empty($article->nombre_facebook) ? trim($article->nombre_facebook) : trim($article->nombre_contenido) }}}@stop
 	@section('meta_ob_description'){{{ !empty($article->descripcion_facebook) ? trim($article->descripcion_facebook) : trim($article->resumen_contenido) }}}@stop
-	@section('meta_ob_image'){{{ !empty($article->imagen_facebook) ? $article->imagen_facebook : $article->imagen_contenido ? $article->imagen_contenido : Config::get('tuproyecto.image_project') }}}@stop
+	@section('meta_ob_image'){{{ !empty($article->imagen_facebook) ? $article->imagen_facebook : ($article->imagen_contenido ? $article->imagen_contenido : Config::get('tuproyecto.image_project')) }}}@stop
 
 	{{-- Metas by twitter --}}
 	@section('meta_tw_title'){{{ !empty($article->nombre_twitter) ? trim($article->nombre_twitter) : trim($article->nombre_contenido) }}}@stop
 	@section('meta_tw_description'){{{ !empty($article->descripcion_twitter) ? trim($article->descripcion_twitter) : trim($article->resumen_contenido) }}}@stop
-	@section('meta_tw_image'){{{ !empty($article->imagen_twitter) ? $article->imagen_twitter : $article->imagen_contenido ? $article->imagen_contenido : Config::get('tuproyecto.image_project') }}}@stop
+	@section('meta_tw_image'){{{ !empty($article->imagen_twitter) ? $article->imagen_twitter : ($article->imagen_contenido ? $article->imagen_contenido : Config::get('tuproyecto.image_project')) }}}@stop
 @else
 	@section('meta_url'){{ Request::url() }}@stop
 @endif

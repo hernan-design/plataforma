@@ -172,7 +172,7 @@
 												<div class="small-12 columns">
 													<ul class="post-user-card">
 														<li>
-															<a href="{{ URL::route('usuario.nickname', Auth::user()->nickname_usuario ?? '') }}" class="picture-comment-post" title="{{ Auth::user()->nombre_usuario }}">
+															<a href="{{ Auth::user()->nickname_usuario ? URL::route('usuario.nickname', Auth::user()->nickname_usuario) : '#' }}" class="picture-comment-post" title="{{ Auth::user()->nombre_usuario }}">
 																<img src="{{{ Auth::user()->imagen_usuario ? Auth::user()->imagen_usuario :  Config::get('tuproyecto.avatar_image') }}}" alt="{{{ Auth::user()->nickname_usuario }}}" class="rounded-img size35" onerror="imageDefault(this, '{{ config('tuproyecto.avatar_image') }}')" />
 															</a>
 														</li>
@@ -666,7 +666,7 @@
 
 						<ul class="post-user-card">
 							<li>
-								<a href="{{ URL::route('usuario.nickname', Auth::user()->nickname_usuario ?? '') }}" class="picture-comment-post" title="{{ Auth::user()->nombre_usuario }}">
+								<a href="{{ Auth::user()->nickname_usuario ? URL::route('usuario.nickname', Auth::user()->nickname_usuario) : '#' }}" class="picture-comment-post" title="{{ Auth::user()->nombre_usuario }}">
 									<img src="{{{ Auth::user()->imagen_usuario ? Auth::user()->imagen_usuario :  Config::get('tuproyecto.avatar_image') }}}" alt="{{{ Auth::user()->nickname_usuario }}}" />
 								</a>
 							</li>

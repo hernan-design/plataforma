@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Misc from '../../helpers/misc';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import moment from 'moment';
 import { decorators } from '@orange-marmalade/paginate-this';
 import { actionCreators } from '../../stores/discussion';

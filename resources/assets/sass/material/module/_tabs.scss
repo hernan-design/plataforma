@@ -29,8 +29,8 @@ $tabs-menu-height: rem-calc(50) !default;
 
 .strip-tabs-content {
 	background-color: $white;
-	@include box-shadow($panel-shadow);
-	@include border-radius($global-radius);
+	box-shadow: $panel-shadow;
+	border-radius: $global-radius;
 	padding: rem-calc(0 15);
 
 	.tabs, .tabs-navigation, .tabs-sub-nav, .tabs-sub-nav-alt {
@@ -163,7 +163,7 @@ $tabs-menu-height: rem-calc(50) !default;
   		border-bottom: 3px solid transparent;
     	color: $monsoon;
       font-size: rem-calc(14);
-      @include box-sizing(border-box);
+      box-sizing: border-box;
       line-height: rem-calc(22);
   		// line-height: #{(nth($tabs-navigation-padding, 1) * 2) + $tabs-navigation-font-size};
       padding: rem-calc(10 0);
@@ -202,11 +202,11 @@ $tabs-menu-height: rem-calc(50) !default;
 }
 
 .tabs-navigation {
-  @extend .tabs !optional;
+  /*  @extend .tabs !optional;  */
 }
 
 .tabs-sub-nav {
-	@extend .tabs !optional;
+	/*  @extend .tabs !optional;  */
 
 	dd, .tab-title {
 
@@ -226,7 +226,7 @@ $tabs-menu-height: rem-calc(50) !default;
 }
 
 .tabs-sub-nav-alt {
-	@extend .tabs !optional;
+	/*  @extend .tabs !optional;  */
 
 	dd, .tab-title {
 
@@ -248,13 +248,13 @@ $tabs-menu-height: rem-calc(50) !default;
 
 // tabs side menu
 .tabs-sidemenu {
-	@extend .tabs !optional;
+	/*  @extend .tabs !optional;  */
 	display: table;
 	height: $tabs-menu-height;
 	line-height: $tabs-menu-height;
 	border-bottom: 1px solid $hr-border-color;
 	width: 100%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 
 	dd, .tab-title {
 		display: table-cell;
@@ -291,7 +291,7 @@ $tabs-menu-height: rem-calc(50) !default;
 			padding: rem-calc(10 20);
 
 			p {
-				@extend .block-text-small;
+				/*  @extend .block-text-small;  */
 			}
 		}
 	}
@@ -302,7 +302,7 @@ $tabs-menu-height: rem-calc(50) !default;
 	position: relative;
 	padding: rem-calc(30 30 0);
 	background-color: $secondary-bg-color;
-	@include box-shadow(0px 2px 10px rgba($black, .5));
+	box-shadow: 0px 2px 10px rgba($black, .5);
 
 	.tabs-title {
 		padding: 0;
@@ -323,8 +323,8 @@ $tabs-menu-height: rem-calc(50) !default;
 		right: rem-calc(20);
 		bottom: rem-calc(-20);
 		border: 7px solid transparent;
-		@include box-shadow(0px 0px 0px 1px $white, 0px 4px 10px rgba($black, .2));
-		@include background-clip(padding-box);
+		box-shadow: 0px 0px 0px 1px $white, 0px 4px 10px rgba($black, .2);
+		background-clip: padding-box;
 
 		&:after {
 			content: '';
@@ -336,7 +336,7 @@ $tabs-menu-height: rem-calc(50) !default;
 	    bottom: 0px;
 	    background-color: transparent;
 	    border-radius: 50%;
-	    @include box-shadow(0px 4px 20px rgba($black, .3));
+	    box-shadow: 0px 4px 20px rgba($black, .3);
 		}
 
 		@media #{$mobile-only}, #{$small-only} {
@@ -353,11 +353,11 @@ $tabs-menu-height: rem-calc(50) !default;
 }
 
 .tabs-choice {
-	@extend .tabs !optional;
+	/*  @extend .tabs !optional;  */
 	background-color: $secondary-bg-color;
 	display: table;
 	width: 100%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 
 	dd, .tab-title {
 		display: table-cell;
@@ -385,13 +385,13 @@ $tabs-menu-height: rem-calc(50) !default;
 
 // tabs progress bar
 .tabs-progress-bar {
-	// @extend .tabs !optional;
+	// /* @extend .tabs !optional; */
 	list-style: outside none none;
   position: relative;
   width: 100%;
-  @include display-flex;
-  @include flex-direction(row);
-  @include justify-content(space-between);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: {
   	left: 0;
   }
@@ -404,14 +404,14 @@ $tabs-menu-height: rem-calc(50) !default;
 	  width: 100%;
 	  height: 3px;
 	  border-radius: 10px;
-	  @include translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
 	  overflow: hidden;
 
 	  &__fill {
 	    display: block;
 	    background: #BD8044;
 	    height: 100%;
-	    @include transition(0.5s ease-out .1s);
+	    transition: 0.5s ease-out .1s;
 	  }
 	}
 
@@ -430,8 +430,8 @@ $tabs-menu-height: rem-calc(50) !default;
 		    left: 50%;
 		    width: 120px;
 		    height: 120px;
-		    @include border-radius(100%);
-		    @include translate(-50%, -50%);
+		    border-radius: 100%;
+		    transform: translate(-50%, -50%);
 
 		    .show-radius & {
 		      background: rgba($black, 0.1);
@@ -441,21 +441,21 @@ $tabs-menu-height: rem-calc(50) !default;
 
     .bullet {
     	background: $white;
-    	@include box-shadow(0 2px 4px rgba($black, 0.2), 0 0 0 6px #BD8044);
+    	box-shadow: 0 2px 4px rgba($black, 0.2), 0 0 0 6px #BD8044;
     }
 
 	  // &.complete,
 	  &.active {
 
 	  	.bullet {
-	  		@include box-shadow(0 2px 4px rgba($black, 0.2), 0 0 0 10px #BD8044);
+	  		box-shadow: 0 2px 4px rgba($black, 0.2), 0 0 0 10px #BD8044;
 	  	}
 
 	  	& ~ .tab-title {
 
 		    .bullet {
 		    	background: $iron;
-		    	@include box-shadow(none);
+		    	box-shadow: none;
 		    }
 
 		  	.text-phase {
@@ -473,7 +473,7 @@ $tabs-menu-height: rem-calc(50) !default;
 		  font-size: 0.75rem;
 		  font-weight: 600;
 		  text-transform: none;
-		  @include translate(-50%, 0);
+		  transform: translate(-50%, 0);
 		  text-align: center;
 	  	color: #BA7C3F;
 		}
@@ -485,8 +485,8 @@ $tabs-menu-height: rem-calc(50) !default;
 	  background: $iron;
 	  width: 8px;
 	  height: 8px;
-	  @include border-radius(100%);
-	  @include transition(0.3s ease .1s);
+	  border-radius: 100%;
+	  transition: 0.3s ease .1s;
 	}
 
 	@media #{$mobile-only}, #{$small-only} {

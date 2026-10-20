@@ -19,10 +19,10 @@
 	position: relative;
 	height: auto;
 	background-color: $white;
-	@include box-shadow($panel-shadow);
+	box-shadow: $panel-shadow;
 
-	&.radius { @include border-radius($global-radius); }
-	&.round { @include border-radius($global-rounded); }
+	&.radius { border-radius: $global-radius; }
+	&.round { border-radius: $global-rounded; }
 	&.radius-top { @include side-radius(top, $global-radius); }
 	&.radius-bottom { @include side-radius(bottom, $global-radius); }
 
@@ -38,10 +38,10 @@
 	}
 
 	.hide-fx-left-btn {
-		@include border-radius( 0px $global-radius 0px 0px );
+		border-radius:  0px $global-radius 0px 0px ;
 	}
 	.hide-fx-right-btn {
-		@include border-radius( $global-radius 0px 0px 0px );
+		border-radius:  $global-radius 0px 0px 0px ;
 	}
 
 	.toggle-slide-drop, .toggle-slide-collapse {
@@ -92,7 +92,7 @@
 		min-width: 100% !important;
 		width: 100vw !important;
 		background-color: $gray-light-alt;
-		@include box-shadow(0px 1px 5px rgba($black, .3));
+		box-shadow: 0px 1px 5px rgba($black, .3);
 		z-index: 999;
 	}
 
@@ -121,8 +121,8 @@
 	.content-filters-sidemenu {
 		position: relative;
 	  top: 0px;
-	  @include translateY(0px);
-	  @include opacity(1);
+	  transform: translateY(0px);
+	  opacity: 1;
 	}
 }
 
@@ -132,7 +132,7 @@
   display: inline-block;
 	width: rem-calc(240);
 	margin-right: rem-calc(40);
-	@include transition(all 400ms ease-out);
+	transition: all 400ms ease-out;
 	max-height: 80vh;
 
 	.toggle-slide-drop, .toggle-slide-collapse {
@@ -168,7 +168,7 @@
   	.wrapper-side-nav {
   		width: auto !important;
   		background-color: transparent;
-  		@include box-shadow(none);
+  		box-shadow: none;
   	}
 
   	.content-filters-sidemenu {
@@ -180,8 +180,8 @@
   		overflow-y: auto;
   		overflow-x: visible;
   		z-index: 999;
-  		@include opacity(1);
-  		@include box-shadow($panel-shadow);
+  		opacity: 1;
+  		box-shadow: $panel-shadow;
   		max-height: 70vh;
   	}
   }
@@ -211,7 +211,7 @@
   	}
 
   	.content-filters-sidemenu {
-  		@include transform(translateX(0) !important);
+  		transform: translateX(0) !important;
   	}
 	}
 
@@ -230,7 +230,7 @@
 		.wrapper-side-nav {
   		width: initial !important;
   		background-color: transparent;
-  		@include box-shadow(none);
+  		box-shadow: none;
   	}
 
 		.is-sticky {
@@ -246,8 +246,8 @@
   	.content-filters-sidemenu {
   		// max-height: none;
   		background-color: $white;
-  		@include box-shadow($panel-shadow);
-  		@include border-radius($global-radius);
+  		box-shadow: $panel-shadow;
+  		border-radius: $global-radius;
   	}
 	}
 
@@ -262,7 +262,7 @@
 
 		.wrapper-side-nav {
 			background-color: $white;
-			@include box-shadow($panel-shadow);
+			box-shadow: $panel-shadow;
 		}
 
   	.toggle-slide-drop {
@@ -272,8 +272,8 @@
   	.content-filters-sidemenu {
   		// max-height: none;
   		background-color: transparent;
-  		@include box-shadow(none);
-  		@include border-radius(0px);
+  		box-shadow: none;
+  		border-radius: 0px;
   	}
 	}
 }
@@ -369,7 +369,7 @@
 
 				&:before {
 					border-color: $gris;
-					@include border-radius($global-radius);
+					border-radius: $global-radius;
 				}
 			}
 		}
@@ -383,8 +383,8 @@
 				padding: rem-calc(8 0 8 30);
 				position: relative;
 				width: 100%;
-				@include border-radius($global-radius);
-				@include transition(box-shadow ease-out 300ms);
+				border-radius: $global-radius;
+				transition: box-shadow ease-out 300ms;
 
 				&:after {
 					@extend %font-mdi;
@@ -491,8 +491,8 @@
 	    	font-size: 1.3em;
 	    	line-height: 1.2em;
 	    	float: right;
-	    	@include transform(rotate(0deg));
-	    	@include transition(all 2.5ms ease-in-out);
+	    	transform: rotate(0deg);
+	    	transition: all 2.5ms ease-in-out;
 	    }
 
 	    &:not(.button).active, &:not(.button):active {
@@ -502,7 +502,7 @@
 
 	    &:not(.button).active {
 	    	&:after {
-					@include transform(rotate(90deg));
+					transform: rotate(90deg);
 				}
 	    }
 		}

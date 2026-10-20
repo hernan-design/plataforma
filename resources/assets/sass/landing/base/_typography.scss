@@ -7,8 +7,8 @@
 	}
 
 	.paragraph-hpadding-both {
-		@extend .paragraph-hpadding-right;
-		@extend .paragraph-hpadding-left;
+		/* @extend .paragraph-hpadding-right; */
+		/* @extend .paragraph-hpadding-left; */
 	}
 
 	.paragraph-vpadding-top {
@@ -20,8 +20,8 @@
 	}
 
 	.paragraph-vpadding-both {
-		@extend .paragraph-vpadding-top;
-		@extend .paragraph-vpadding-bottom;
+		/* @extend .paragraph-vpadding-top; */
+		/* @extend .paragraph-vpadding-bottom; */
 	}
 
 	// Text

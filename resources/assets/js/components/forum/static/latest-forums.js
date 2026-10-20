@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { decorators } from '@orange-marmalade/paginate-this';
 import NoSSR from 'react-no-ssr';
 import { withRouter, NavLink, Link } from 'react-router-dom';
-import laroute from '../../../helpers/laroute';
+import laroute from '../../../helpers/laroute.js';
 import { imageDefault, strToNickname } from '../../../helpers/misc';
 import moment from 'moment';
 import $ from 'jquery';

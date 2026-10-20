@@ -18,7 +18,7 @@
       font-weight: 400;
       color: $jumbo;
       text-transform: none;
-      @include border-radius(32px);
+      border-radius: 32px;
       padding-left: rem-calc(50);
       padding-right: rem-calc(50);
     }

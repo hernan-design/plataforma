@@ -77,12 +77,12 @@
 
         iframe {
           @media #{$medium-up} {
-            @include border-radius(20px);
+            border-radius: 20px;
             border: 8px solid $white;
           }
 
           @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
-            @include border-radius(10px);
+            border-radius: 10px;
             border: 4px solid $white;
           }
         }
@@ -166,26 +166,26 @@
       display: block;
       overflow: visible;
       background-color: $white;
-      @include transition(box-shadow ease-out 300ms);
+      transition: box-shadow ease-out 300ms;
 
 
       @media #{$medium-up} {
-        @include border-radius(20px);
+        border-radius: 20px;
         padding: rem-calc(20 20 0);
 
         &:hover {
-          @include box-shadow (0px 5px 10px 0px rgba($black, 0.22));
+          box-shadow: 0px 5px 10px 0px rgba($black, 0.22);
         }
       }
 
       @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
-        @include border-radius(10px);
+        border-radius: 10px;
         padding: rem-calc(10 10 0);
         margin-bottom: 20px;
       }
 
       .dfc-successful-projects-img {
-        @include border-radius($global-radius);
+        border-radius: $global-radius;
       }
 
       .dcf-successful-projects-item-title {

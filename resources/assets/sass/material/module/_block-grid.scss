@@ -27,20 +27,11 @@ $breakpoint-grid-queries:
 [class*="block-grid-"]:not(.slick-slider) {
 
 	display: table;
-	@include flexbox((
-		display: box,
-		box-orient: vertical
-	), $version: 1);
-	@include flexbox((
-		display: flexbox,
-		flex-direction: row
-	), $version: 2);
-	@include flexbox((
-		display: flex,
-		flex-direction: row
-	));
-	@include flex-flow(row wrap);
-	@include align-items(stretch);
+	display: flex;
+	flex-direction: row;
+	
+	flex-flow: row wrap;
+	align-items: stretch;
 
 	// loop for grid sizes
 	@each $media-query in $breakpoint-grid-queries {
@@ -56,44 +47,35 @@ $breakpoint-grid-queries:
 
 				&.vtop {
 					vertical-align: top;
-					@include align-self(flex-start);
+					align-self: flex-start;
 				}
 				&.vcenter, &.vmiddle {
 					vertical-align: middle;
-					@include align-self(center);
+					align-self: center;
 
 				}
 				&.vbottom {
 					vertical-align: bottom;
-					@include align-self(flex-end);
+					align-self: flex-end;
 
 				}
 				&.vfill {
-					@include align-items(stretch);
+					align-items: stretch;
 				}
 			}
 
 			@for $i from 1 through $block-grid-elements {
-		    .#{$size}-block-grid-#{($i)} {
+		    &.#{$size}-block-grid-#{($i)} {
 		      > li {
-						@include flexbox((
-							display: box,
-							box-orient: vertical
-						), $version: 1);
-						@include flexbox((
-							display: flexbox,
-							flex-direction: row
-						), $version: 2);
-						@include flexbox((
-							display: flex,
-							flex-direction: row
-						));
-						@include flex-wrap(wrap);
-						@include flex(0 0 #{100%/$i});
+						display: flex;
+						flex-direction: row;
+						
+						flex-wrap: wrap;
+						flex: 0 0 #{100%/$i};
 						width: 100%/$i;
 
-						#{nest("& >", elements-of-type(block))} {
-							@include flex(1 1 100%);
+						> * {
+							flex: 1 1 100%;
 						}
 					}
 		    }
@@ -102,28 +84,28 @@ $breakpoint-grid-queries:
 	}
 
 	&.valign-top, &.align-top {
-		@include align-items(flex-start);
+		align-items: flex-start;
 
 		> li {
 			vertical-align: top;
 		}
 	}
 	&.valign-center, &.align-center, &.align-middle {
-		@include align-items(center);
+		align-items: center;
 
 		> li {
 			vertical-align: middle;
 		}
 	}
 	&.valign-bottom, &.align-bottom {
-		@include align-items(flex-end);
+		align-items: flex-end;
 
 		> li {
 			vertical-align: bottom;
 		}
 	}
 	&.valign-fill, &.align-fill {
-		@include align-items(stretch);
+		align-items: stretch;
 	}
 
 	&:before, &:after {

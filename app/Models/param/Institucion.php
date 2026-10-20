@@ -227,9 +227,22 @@ class Institucion extends Model {
 
 	public static function compileStyleLanding($institution)
 	{
-        $scss_compiler = new scssc();
-        $scss_compiler->setFormatter('scss_formatter_compressed');
-        $scss_compiler->setImportPaths(base_path().'/resources/assets/sass/');
+		$file = public_path().'/css/institution/'.$institution->slug_institucion.'_landing.css';
+		if (file_exists($file)) {
+			return;
+		}
+
+		if (class_exists('ScssPhp\ScssPhp\Compiler')) {
+			$scss_compiler = new \ScssPhp\ScssPhp\Compiler();
+			$scss_compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED ?? 'compressed');
+			$scss_compiler->setImportPaths(base_path().'/resources/assets/sass/');
+		} elseif (class_exists('scssc')) {
+			$scss_compiler = new scssc();
+			$scss_compiler->setFormatter('scss_formatter_compressed');
+			$scss_compiler->setImportPaths(base_path().'/resources/assets/sass/');
+		} else {
+			return; // Gracefully skip if no SCSS compiler is installed
+		}
 
 		$sass_params = NULL;
 		// Prepare primary colors (Default landing colors)
@@ -275,16 +288,33 @@ class Institucion extends Model {
 		}
 
         $string_sass = $sass_params.file_get_contents(base_path().'/resources/assets/sass/institution_landing.scss');
-        $string_css = $scss_compiler->compile($string_sass);
+        if (method_exists($scss_compiler, 'compileString')) {
+            $string_css = $scss_compiler->compileString($string_sass)->getCss();
+        } else {
+            $string_css = $scss_compiler->compile($string_sass);
+        }
 		$file = public_path().'/css/institution/'.$institution->slug_institucion.'_landing.css';
 		file_put_contents($file, $string_css);
 	}
 
 	public static function compileStyle($institution)
 	{
-        $scss_compiler = new scssc();
-        $scss_compiler->setFormatter('scss_formatter_compressed');
-        $scss_compiler->setImportPaths(base_path().'/resources/assets/sass/');
+		$file = public_path().'/css/institution/'.$institution->slug_institucion.'.css';
+		if (file_exists($file)) {
+			return;
+		}
+
+		if (class_exists('ScssPhp\ScssPhp\Compiler')) {
+			$scss_compiler = new \ScssPhp\ScssPhp\Compiler();
+			$scss_compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED ?? 'compressed');
+			$scss_compiler->setImportPaths(base_path().'/resources/assets/sass/');
+		} elseif (class_exists('scssc')) {
+			$scss_compiler = new scssc();
+			$scss_compiler->setFormatter('scss_formatter_compressed');
+			$scss_compiler->setImportPaths(base_path().'/resources/assets/sass/');
+		} else {
+			return; // Gracefully skip if no SCSS compiler is installed
+		}
 
 		$sass_params = NULL;
 		$query = $institution->parametros();
@@ -313,7 +343,11 @@ class Institucion extends Model {
 		}
 
         $string_sass = $sass_params.file_get_contents(base_path().'/resources/assets/sass/institution.scss');
-        $string_css = $scss_compiler->compile($string_sass);
+        if (method_exists($scss_compiler, 'compileString')) {
+            $string_css = $scss_compiler->compileString($string_sass)->getCss();
+        } else {
+            $string_css = $scss_compiler->compile($string_sass);
+        }
 
 		$file = public_path().'/css/institution/'.$institution->slug_institucion.'.css';
 		file_put_contents($file, $string_css);

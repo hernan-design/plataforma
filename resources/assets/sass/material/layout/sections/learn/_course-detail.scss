@@ -23,7 +23,7 @@
       }
     }
 		.det-course-img-wrapper {
-      @include border-radius(8px);
+      border-radius: 8px;
       overflow: hidden;
 			background-color: $white;
 

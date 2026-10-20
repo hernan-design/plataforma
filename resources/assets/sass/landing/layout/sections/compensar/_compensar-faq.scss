@@ -4,8 +4,8 @@
 		.collapsible {
 			border: 0;
 			background-color: $silver;
-			@include box-shadow(none);
-			@include border-radius(12px);
+			box-shadow: none;
+			border-radius: 12px;
 
 			.collapsible-body {
 				border: 0;
@@ -60,7 +60,7 @@
 			> li.collapsible-question-group {
 				margin-bottom: rem-calc(40);
 				border: none;
-				@include transition(all ease-in 300ms);
+				transition: all ease-in 300ms;
 
 				@media #{$tablet-up} {
 				  margin-bottom: rem-calc(20);
@@ -68,7 +68,7 @@
 
 				.collapsible-header {
 					margin-bottom: 0;
-					@include border-radius(12px);
+					border-radius: 12px;
 
 					font-size: rem-calc(18);
 					border: 0;
@@ -86,12 +86,12 @@
 
 
 					position: relative;
-					@include transition(all ease-in 300ms);
+					transition: all ease-in 300ms;
 
 					> i {
 						position: absolute;
 						color: $white;
-						@include transition(all ease-in 300ms);
+						transition: all ease-in 300ms;
 
 						@media #{$mobile-only}, #{$small-only} {
 						  right: 50%;
@@ -121,13 +121,13 @@
 				&.active {
 
 					.collapsible-header {
-				    @include transition(all ease-in 300ms);
+				    transition: all ease-in 300ms;
 						background-color: $compensar-bright-orange-color;
 						color: $white;
 
 						> i {
 							color: $white;
-							@include transform(rotate(180deg));
+							transform: rotate(180deg);
 
 							@media #{$mobile-only}, #{$small-only} {
 						    background-color: $compensar-bright-orange-color;
@@ -142,7 +142,7 @@
 			}
 
 			.collapsible-list-item {
-				@include transition(all ease-in 300ms);
+				transition: all ease-in 300ms;
 
 				> p {
 					padding: rem-calc(10 30 10);
@@ -176,7 +176,7 @@
     			margin-bottom: rem-calc(10);
     			padding: rem-calc(13 63 13 13);
 					position: relative;
-					@include transition(all ease-in 300ms);
+					transition: all ease-in 300ms;
 
 					@media #{$tablet-up} {
 						font-size: rem-calc(16);
@@ -189,7 +189,7 @@
 					  right: 0;
 					  top: 0;
 						font-size: rem-calc(80);
-					  @include transition(all ease-in 300ms);
+					  transition: all ease-in 300ms;
 					}
 
 					&:hover {

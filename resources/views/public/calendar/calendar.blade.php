@@ -16,13 +16,13 @@
 
 	{{-- Metas by facebook --}}
 	@section('meta_ob_title'){{{ !empty($event->nombre_facebook) ? trim($event->nombre_facebook) : trim($event->nombre_evento) }}}@stop
-	@section('meta_ob_description'){{{ !empty($event->descripcion_facebook) ? trim($event->descripcion_facebook) : !empty($event->resumen_evento) ? trim($event->nombre_evento) : trim($event->resumen_evento) }}}@stop
-	@section('meta_ob_image'){{{ !empty($event->imagen_facebook) ? $event->imagen_facebook : $event->imagen_evento ? $event->imagen_evento : Config::get('tuproyecto.image_forum') }}}@stop
+	@section('meta_ob_description'){{{ !empty($event->descripcion_facebook) ? trim($event->descripcion_facebook) : (!empty($event->resumen_evento) ? trim($event->nombre_evento) : trim($event->resumen_evento)) }}}@stop
+	@section('meta_ob_image'){{{ !empty($event->imagen_facebook) ? $event->imagen_facebook : ($event->imagen_evento ? $event->imagen_evento : Config::get('tuproyecto.image_forum')) }}}@stop
 
 	{{-- Metas by twitter --}}
 	@section('meta_tw_title'){{{ !empty($event->nombre_twitter) ? trim($event->nombre_twitter) : trim($event->nombre_evento) }}}@stop
-	@section('meta_tw_description'){{{ !empty($event->descripcion_twitter) ? trim($event->descripcion_twitter) : !empty($event->resumen_evento) ? trim($event->nombre_evento) : trim($event->resumen_evento) }}}@stop
-	@section('meta_tw_image'){{{ !empty($event->imagen_twitter) ? $event->imagen_twitter : $event->imagen_evento ? $event->imagen_evento : Config::get('tuproyecto.image_forum') }}}@stop
+	@section('meta_tw_description'){{{ !empty($event->descripcion_twitter) ? trim($event->descripcion_twitter) : (!empty($event->resumen_evento) ? trim($event->nombre_evento) : trim($event->resumen_evento)) }}}@stop
+	@section('meta_tw_image'){{{ !empty($event->imagen_twitter) ? $event->imagen_twitter : ($event->imagen_evento ? $event->imagen_evento : Config::get('tuproyecto.image_forum')) }}}@stop
 @else
 	@section('meta_url'){{ Request::url() }}@stop
 @endif

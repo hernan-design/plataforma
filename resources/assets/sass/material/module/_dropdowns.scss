@@ -29,7 +29,7 @@ $drop-box-shadow: 6px 6px 70px rgba($black, .28) !default;
     @include dropdown-container(content, top);
   }
 
-  @include box-shadow($drop-box-shadow);
+  box-shadow: $drop-box-shadow;
 
   &.radius {
   	@include radius($f-dropdown-radius);
@@ -188,7 +188,7 @@ $drop-box-shadow: 6px 6px 70px rgba($black, .28) !default;
   	bottom: $f-dropdown-content-padding / 2 !important;
   };
 	background-color: $white;
-	@include box-shadow(1px 1px 15px rgba($black, .4));
+	box-shadow: 1px 1px 15px rgba($black, .4);
 
 	> li:not(.has-form) {
 		@include dropdown-style;
@@ -460,7 +460,7 @@ $drop-box-shadow: 6px 6px 70px rgba($black, .28) !default;
     @include dropdown-container(list, top);
   }
 
-  @include box-shadow($drop-box-shadow);
+  box-shadow: $drop-box-shadow;
 
   &.radius {
   	@include radius($f-dropdown-radius);

@@ -257,7 +257,7 @@ class Muro extends Model {
    		$query->orderBy('muro.hora_muro','desc');
 
    		// Get posts
-   		$posts = $query->skip($filters['offset'])->take($filters['limit'])->get();
+   		$posts = $query->skip($filters['offset'] ?? 0)->take($filters['limit'] ?? 10)->get();
 
 		$data = array();
 		if(count($posts) > 0) {
@@ -453,7 +453,7 @@ class Muro extends Model {
 		}
 		$object->srcparams = TuProyecto::encryptSrcParams([$resource_cod, $resource]);
 
-		if ($object->codigo_usuario !== Auth::id() && Auth::user()->ability('admin,super-admin', 'login-admin')) {
+		if (Auth::check() && $object->codigo_usuario !== Auth::id() && Auth::user()->ability('admin,super-admin', 'login-admin')) {
 			$object->isAuthorizedToDelete = true;
 		}
 

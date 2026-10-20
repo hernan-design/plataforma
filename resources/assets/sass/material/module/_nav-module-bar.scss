@@ -47,7 +47,7 @@
     }
 
     .f-dropdown {
-      @include transition(all ease-in 300ms);
+      transition: all ease-in 300ms;
 
       &.dropdown-main {
         left: auto !important;
@@ -131,7 +131,7 @@
           color: $white;
           padding: rem-calc(10 20 10 10);
 
-          @include border-radius(0);
+          border-radius: 0;
 
           &:focus {
             background-color: rgba($black, 0.2);

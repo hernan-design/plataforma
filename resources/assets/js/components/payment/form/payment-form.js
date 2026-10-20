@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { actionCreators } from '../../../stores/payment';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import Misc from '../../../helpers/misc.js';
+import Misc from '../../../helpers/misc';
 
 // app components
 import Form from '../../containers/form';

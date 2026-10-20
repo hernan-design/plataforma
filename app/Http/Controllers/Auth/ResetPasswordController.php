@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Auth\Events\PasswordReset;
 
 class ResetPasswordController extends Controller
@@ -22,7 +21,64 @@ class ResetPasswordController extends Controller
     |
     */
 
-    use ResetsPasswords;
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'correo_electronico' => $request->email]
+        );
+    }
+
+    public function reset(Request $request)
+    {
+        $request->validate($this->rules(), $this->validationErrorMessages());
+
+        $response = $this->broker()->reset(
+            $this->credentials($request), function ($user, $password) {
+                $this->resetPassword($user, $password);
+            }
+        );
+
+        return $response == \Illuminate\Support\Facades\Password::PASSWORD_RESET
+                    ? $this->sendResetResponse($request, $response)
+                    : $this->sendResetFailedResponse($request, $response);
+    }
+
+    protected function validationErrorMessages()
+    {
+        return [];
+    }
+
+    protected function sendResetResponse(Request $request, $response)
+    {
+        return redirect($this->redirectPath())
+                            ->with('status', trans($response));
+    }
+
+    protected function sendResetFailedResponse(Request $request, $response)
+    {
+        return redirect()->back()
+                    ->withInput($request->only('correo_electronico'))
+                    ->withErrors(['correo_electronico' => trans($response)]);
+    }
+
+    public function broker()
+    {
+        return \Illuminate\Support\Facades\Password::broker();
+    }
+
+    protected function guard()
+    {
+        return \Illuminate\Support\Facades\Auth::guard();
+    }
+
+    public function redirectPath()
+    {
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+    }
 
     /**
      * Where to redirect users after resetting their password.

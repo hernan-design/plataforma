@@ -2,13 +2,26 @@
 
 namespace App;
 
-use Zizaco\Entrust\EntrustRole;
+use Illuminate\Database\Eloquent\Model;
 
 use Config, Cache;
 
 use App\Modulo;
 
-class Rol extends EntrustRole {
+class Rol extends Model {
+
+	/**
+	 * Tabla de roles (antes definida por Zizaco\Entrust\EntrustRole).
+	 */
+	protected $table = 'seguridad.rol';
+
+	/**
+	 * Many-to-Many relations with the user model.
+	 */
+	public function users()
+	{
+		return $this->belongsToMany(Usuario::class, config('entrust.role_user_table'), 'role_id', 'user_id');
+	}
 
 	public static function getRole($role) {
     	switch ($role) :

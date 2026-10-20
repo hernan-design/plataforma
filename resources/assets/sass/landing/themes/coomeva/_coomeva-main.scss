@@ -23,7 +23,7 @@
 	}
 
 	.button {
-		@include border-radius(25);
+		border-radius: 25;
 		text-transform: initial;
 		font-weight: 400;
 	}

@@ -10,7 +10,7 @@
 	bottom: 0px;
 	background-color: $white;
 	width: 100%;
-	@include box-shadow(0px 0px 4px $iron);
+	box-shadow: 0px 0px 4px $iron;
 
 	.footer-info {
 		padding: rem-calc(35 0);

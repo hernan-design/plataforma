@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { composables } from '../../../stores/paginator';
 import Misc, { strToNickname, stripTags, urlWrapLink } from '../../../helpers/misc';
 import { thumbs } from '../../../helpers/states';
-import laroute from '../../../helpers/laroute';
+import laroute from '../../../helpers/laroute.js';
 import lazyDrive from '../../decorators/lazyDrive';
 import { formatMessage } from '../../../init-app';
 

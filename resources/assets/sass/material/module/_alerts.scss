@@ -31,8 +31,8 @@ $size-icon: rem-calc(18) !default;
 	}
 	z-index: 1010;
 	left: 50%;
-	@include translate(-50%, 0);
-	@include box-shadow(2px 17px 80px rgba($black, 0.44));
+	transform: translate(-50%, 0);
+	box-shadow: 2px 17px 80px rgba($black, 0.44);
 
 	@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
 		top: $topbar-height + rem-calc(5);

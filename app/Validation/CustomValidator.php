@@ -29,18 +29,32 @@ class CustomValidator extends Validator
 
     public function validateRecaptcha($attribute, $value, $parameters)
     {
-        $client = new Client();
-        $response = $client->post(
-            'https://www.google.com/recaptcha/api/siteverify', [
-                'verify' => false,
-                'form_params'=> [
-                    'secret' => RegistroSesion::institution()->clave_secreta_captcha ?: config('tuproyecto.grecatcha_secret_key'),
-                    'response' => $value
+        if (empty($value)) {
+            return false;
+        }
+
+        try {
+            $secret = env('RECAPTCHA_SECRET_KEY');
+            if (empty($secret)) {
+                $secret = RegistroSesion::institution()->clave_secreta_captcha ?: config('tuproyecto.grecatcha_secret_key');
+            }
+
+            $client = new Client();
+            $response = $client->post(
+                'https://www.google.com/recaptcha/api/siteverify', [
+                    'verify' => false,
+                    'form_params'=> [
+                        'secret' => $secret,
+                        'response' => $value
+                    ]
                 ]
-            ]
-        );        
-        $body = json_decode((string)$response->getBody());
-        return $body->success;
+            );        
+            $body = json_decode((string)$response->getBody());
+            return isset($body->success) && $body->success === true;
+        } catch (\Exception $e) {
+            Log::error('validateRecaptcha error: ' . $e->getMessage());
+            return false;
+        }
     }
 
     public function validateSmaller($attribute, $value, $parameters)

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../stores/forum';
-import laroute from '../../../helpers/laroute';
+import laroute from '../../../helpers/laroute.js';
 import Misc, { strToNickname } from '../../../helpers/misc';
 import { getModule } from '../../../helpers/states';
 import { typeContent } from '../../../helpers/redux-utils';

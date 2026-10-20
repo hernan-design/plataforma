@@ -2,7 +2,7 @@
 import React from 'react';
 import moment from 'moment';
 import Misc from '../../helpers/misc';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 
 // app componenets
 

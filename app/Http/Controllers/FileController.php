@@ -9,6 +9,8 @@ use TuProyecto;
 use Request, Response, App, Lang, Log, Input, URL, File, Image;
 
 use App\Adjunto;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class FileController extends Controller {
 
@@ -107,6 +109,7 @@ class FileController extends Controller {
 	public function crop()
 	{
 		if (Request::ajax()) {
+			Log::info("--- CROP CALLED ---", Input::all());
 			try {
 				// Output file
 				$output_file_path = sprintf('%s/temp/%s', public_path(), rand().'.jpg');
@@ -116,13 +119,15 @@ class FileController extends Controller {
 				{
 					switch (Input::get('crop_type')) {
 						case 'name':
+						case 'temp':
 							// Local file
 							$input_file_path = sprintf('%s/temp/%s', public_path(), Input::get('file_name'));
 							if(!File::exists($input_file_path)) {
 								throw new \Exception('file to crop did not found');
 							}
 							// open file a image resource
-							$img = Image::make($input_file_path);
+							$manager = new ImageManager(new Driver());
+							$img = $manager->decodePath($input_file_path);
 							break;
 
 						case 'url':
@@ -131,7 +136,8 @@ class FileController extends Controller {
 							copy(Input::get('file_name'), $input_file_path);
 
 							// open file a image resource
-							$img = Image::make($input_file_path);
+							$manager = new ImageManager(new Driver());
+							$img = $manager->decodePath($input_file_path);
 							break;
 
 						default:
@@ -142,10 +148,10 @@ class FileController extends Controller {
 				}
 
 				// crop image
-				$img->crop( intval(Input::get('w')), intval(Input::get('h')), intval(Input::get('x')), intval(Input::get('y')) );
+				$img = $img->crop( intval(Input::get('w')), intval(Input::get('h')), intval(Input::get('x')), intval(Input::get('y')) );
 				if(Input::has('targ_w') && Input::has('targ_h')) {
 					// now you are able to resize the instance
-					$img->resize(Input::get('targ_w'), Input::get('targ_h'));
+					$img = $img->resize(intval(Input::get('targ_w')), intval(Input::get('targ_h')));
 				}
 				$img->save($output_file_path, 90);
 
@@ -158,11 +164,12 @@ class FileController extends Controller {
 					if(File::exists($output_file_path)) {
 						File::delete($output_file_path);
 					}
+					Log::info("--- CROP SUCCESS ---", ['file_path' => $result->file_path]);
 					return Response::json(['success' => true, 'file_path' => $result->file_path]);
 				}
-			}catch (\Exception $e) {
-				Log::error($e->getMessage());
-				return Response::json(['success' => false, 'errors' => Lang::get('app.exception')]);
+			}catch (\Throwable $e) {
+				Log::error((string) $e);
+				return Response::json(['success' => false, 'errors' => $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine()]);
 			}
 		}
     	App::abort(404);
@@ -207,7 +214,7 @@ class FileController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function upload(Request $request)
+	public function upload()
 	{
 		if (Request::ajax()) {
 			if (Request::hasFile('file')) {
@@ -223,14 +230,12 @@ class FileController extends Controller {
 					if($fileType === 'image') {
 						$file_path = sprintf('%s/temp/%s', public_path(), rand().'.jpg');
 						$file_name = rand().'.jpg';
-						$img = Image::make($file);
+						$manager = new ImageManager(new Driver());
+						$img = $manager->decodePath($file->getRealPath());
 						$document_type = 'image';
 
 						if(Input::has('targ_w') || Input::has('targ_h')) {
-							$img->resize(Input::get('targ_w'), Input::get('targ_h'), function($constraint) {
-								$constraint->aspectRatio();
-								$constraint->upsize();
-							});
+							$img = $img->scaleDown(Input::get('targ_w'), Input::get('targ_h'));
 						}
 						$img->save($file_path, 85);
 					}

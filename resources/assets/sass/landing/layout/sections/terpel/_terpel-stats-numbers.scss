@@ -85,7 +85,7 @@
 			font-family: 'BadaBoomBB';
 			letter-spacing: 4px;
 			font-size: rem-calc(30);
-			@include border-radius(12px);
+			border-radius: 12px;
 			line-height: 30px;
 
 			@media #{$medium-only} {

@@ -31,9 +31,9 @@ $material-transition-delay: 0s !default;
 	&.active, &.open {
 		&.bubbleback{
 			&:before {
-				@include scale(45);
-				@include opacity(0);
-				@include transition( all 0.5s ease-out );
+				transform: scale(45);
+				opacity: 0;
+				transition:  all 0.5s ease-out ;
 			}
 		}
 	}
@@ -45,74 +45,74 @@ $material-transition-delay: 0s !default;
 
 	&.active, &.open {
 		.md-hamburger__layer {
-				@include animation-name( md-hamburger__icon--slide );
-				@include animation-fill-mode(forwards);
+				animation-name: md-hamburger__icon--slide;
+				animation-fill-mode: forwards;
 			&:before {
-				@include animation-name( md-hamburger__icon--slide-before );
-				@include animation-fill-mode(forwards);
+				animation-name: md-hamburger__icon--slide-before;
+				animation-fill-mode: forwards;
 			}
 
 			&:after {
-				@include animation-name( md-hamburger__icon--slide-after );
-				@include animation-fill-mode(forwards);
+				animation-name: md-hamburger__icon--slide-after;
+				animation-fill-mode: forwards;
 			}
 		}
 	}
 
 	&.no-active {
 		.md-hamburger__layer {
-			@include animation-name( md-hamburger__icon--slide-from );
+			animation-name: md-hamburger__icon--slide-from;
 
 			&:before {
-				@include animation-name( md-hamburger__icon--slide-before-from );
+				animation-name: md-hamburger__icon--slide-before-from;
 			}
 
 			&:after {
-				@include animation-name( md-hamburger__icon--slide-after-from );
+				animation-name: md-hamburger__icon--slide-after-from;
 			}
 		}
 	}
 }
 
-@include keyframes( md-hamburger__icon--slide ) {
+@keyframes  md-hamburger__icon--slide  {
 	0% {
 	}
 	100% {
-		@include rotate(180deg);
+		transform: rotate(180deg);
 	}
 }
 
-@include keyframes( md-hamburger__icon--slide-before ) {
+@keyframes  md-hamburger__icon--slide-before  {
 	0% {
 	}
 	100% {
-		@include rotate(45deg);
+		transform: rotate(45deg);
 		margin: -10% 49%;
 		width: 60%;
 	}
 }
 
-@include keyframes( md-hamburger__icon--slide-after ) {
+@keyframes  md-hamburger__icon--slide-after  {
 	0% {
 	}
 	100% {
-		@include rotate(-45deg);
+		transform: rotate(-45deg);
 		margin: -10% 49%;
 		width: 60%;
 	}
 }
 
-@include keyframes( md-hamburger__icon--slide-from ) {
+@keyframes  md-hamburger__icon--slide-from  {
 	0% {
-		@include rotate(-180deg);
+		transform: rotate(-180deg);
 	}
 	100% {
 	}
 }
 
-@include keyframes( md-hamburger__icon--slide-before-from ) {
+@keyframes  md-hamburger__icon--slide-before-from  {
 	0% {
-		@include rotate(45deg);
+		transform: rotate(45deg);
 		margin: -10% 49%;
     width: 60%;
 	}
@@ -120,9 +120,9 @@ $material-transition-delay: 0s !default;
 	}
 }
 
-@include keyframes( md-hamburger__icon--slide-after-from ) {
+@keyframes  md-hamburger__icon--slide-after-from  {
 	0% {
-		@include rotate(-45deg);
+		transform: rotate(-45deg);
 		margin: -10% 49%;
     width: 60%;
 	}
@@ -135,36 +135,36 @@ $material-transition-delay: 0s !default;
 .md-hamburger-close__icon {
 	&.active, &.open {
 		.md-hamburger__layer {
-				@include animation-name( md-hamburger-close__icon--slide );
-				@include animation-fill-mode(forwards);
+				animation-name: md-hamburger-close__icon--slide;
+				animation-fill-mode: forwards;
 			&:before {
-				@include animation-name( md-hamburger-close__icon--slide-before );
-				@include animation-fill-mode(forwards);
+				animation-name: md-hamburger-close__icon--slide-before;
+				animation-fill-mode: forwards;
 			}
 
 			&:after {
-				@include animation-name( md-hamburger-close__icon--slide-after );
-				@include animation-fill-mode(forwards);
+				animation-name: md-hamburger-close__icon--slide-after;
+				animation-fill-mode: forwards;
 			}
 		}
 	}
 
 	&.no-active {
 		.md-hamburger__layer {
-			@include animation-name( md-hamburger-close__icon--slide-from );
+			animation-name: md-hamburger-close__icon--slide-from;
 
 			&:before {
-				@include animation-name( md-hamburger-close__icon--slide-before-from );
+				animation-name: md-hamburger-close__icon--slide-before-from;
 			}
 
 			&:after {
-				@include animation-name( md-hamburger-close__icon--slide-after-from );
+				animation-name: md-hamburger-close__icon--slide-after-from;
 			}
 		}
 	}
 }
 
-@include keyframes( md-hamburger-close__icon--slide ) {
+@keyframes  md-hamburger-close__icon--slide  {
 	0% {
 	}
 	100% {
@@ -173,23 +173,23 @@ $material-transition-delay: 0s !default;
 	}
 }
 
-@include keyframes( md-hamburger-close__icon--slide-before ) {
+@keyframes  md-hamburger-close__icon--slide-before  {
 	0% {
 	}
 	100% {
-		@include transform( rotate(45deg) translate(.2em, .25em) );
+		transform:  rotate(45deg) translate(.2em, .25em) ;
 	}
 }
 
-@include keyframes( md-hamburger-close__icon--slide-after ) {
+@keyframes  md-hamburger-close__icon--slide-after  {
 	0% {
 	}
 	100% {
-		@include transform( rotate(-45deg) translate(.2em, -0.25em) );
+		transform:  rotate(-45deg) translate(.2em, -0.25em) ;
 	}
 }
 
-@include keyframes( md-hamburger-close__icon--slide-from ) {
+@keyframes  md-hamburger-close__icon--slide-from  {
 	0% {
 		// background-color: initial;
 	}
@@ -198,17 +198,17 @@ $material-transition-delay: 0s !default;
 	}
 }
 
-@include keyframes( md-hamburger-close__icon--slide-before-from ) {
+@keyframes  md-hamburger-close__icon--slide-before-from  {
 	0% {
-		@include transform( rotate(45deg) translate(.2em, .25em) );
+		transform:  rotate(45deg) translate(.2em, .25em) ;
 	}
 	100% {
 	}
 }
 
-@include keyframes( md-hamburger-close__icon--slide-after-from ) {
+@keyframes  md-hamburger-close__icon--slide-after-from  {
 	0% {
-		@include transform( rotate(-45deg) translate(.2em, -0.25em) );
+		transform:  rotate(-45deg) translate(.2em, -0.25em) ;
 	}
 	100% {
 	}
@@ -222,8 +222,8 @@ $material-transition-delay: 0s !default;
 		&:before {
 			background-color: $white;
 			z-index: 0;
-			@include opacity(.8);
-			// @include transition( all $material-transition-duration ease-out );
+			opacity: .8;
+			// transition:  all $material-transition-duration ease-out ;
 			@media #{$mobile-only}, #{$small-only} {
 				z-index: -1;
 			}
@@ -233,19 +233,19 @@ $material-transition-delay: 0s !default;
 	&.active, &.open {
 		.md-plus__layer {
 			&:before {
-				@include rotate(135deg);
+				transform: rotate(135deg);
 			}
 			&:after {
-				@include rotate(45deg);
+				transform: rotate(45deg);
 			}
 		}
 
 		@media #{$mobile-only}, #{$small-only} {
 			&.bubbleback {
 				&:before {
-					@include opacity(.8);
-					@include scale(2500);
-					@include transition(none);
+					opacity: .8;
+					transform: scale(2500);
+					transition: none;
 				}
 			}
 		}
@@ -259,19 +259,19 @@ $material-transition-delay: 0s !default;
 	// ul[class*=browse-list-] {
 	// 	> li {
 	// 		> [class*=item-], .item-wrap-list {
-	// 			@include transition(box-shadow 250ms ease-out, background-color 250ms ease-out);
+	// 			transition: box-shadow 250ms ease-out, background-color 250ms ease-out;
 
 	// 			&:hover {
-	// 				@include box-shadow($box-shadow-item-hover);
+	// 				box-shadow: $box-shadow-item-hover;
 	// 			}
 	// 		}
 	// 	}
 
 	// 	.item-wrap-list {
-	// 		@include transition(box-shadow 250ms ease-out, background-color 250ms ease-out);
+	// 		transition: box-shadow 250ms ease-out, background-color 250ms ease-out;
 
 	// 		&:hover {
-	// 			@include box-shadow($box-shadow-item-hover);
+	// 			box-shadow: $box-shadow-item-hover;
 	// 		}
 	// 	}
 	// }
@@ -284,14 +284,14 @@ $material-transition-delay: 0s !default;
 // animated for dropdown options create plus
 ul.drop-opt-create, ul.drop-opt-md {
 	max-height: 1px;
-	@include opacity(0);
-	@include transition-property(max-height opacity);
-	@include transition-duration(800ms);
-	@include transition-timing-function($material-transition-timing-function);
-	@include transition-delay($material-transition-delay);
+	opacity: 0;
+	transition-property: max-height opacity;
+	transition-duration: 800ms;
+	transition-timing-function: $material-transition-timing-function;
+	transition-delay: $material-transition-delay;
 
 	&.active, &.open {
-		@include opacity(1);
+		opacity: 1;
 		max-height: rem-calc(500);
 	}
 }
@@ -299,14 +299,14 @@ ul.drop-opt-create, ul.drop-opt-md {
 .dd {
   position: absolute;
   top: -9999px;
-  @include translateY(-20px);
-  @include opacity(0);
+  transform: translateY(-20px);
+  opacity: 0;
 }
 .dropdown-transition-md {
   position: relative;
-  @include opacity(1);
-	@include translateY(0px);
-	@include transition(transform 400ms, opacity 400ms);
+  opacity: 1;
+	transform: translateY(0px);
+	transition: transform 400ms, opacity 400ms;
 }
 
 // -------------------
@@ -314,10 +314,10 @@ ul.drop-opt-create, ul.drop-opt-md {
 // -------------------
 .content-panels {
 	.panel-item {
-		@include transition(all 200ms ease-out);
+		transition: all 200ms ease-out;
 
 		&:hover {
-			@include box-shadow($box-shadow-item-hover);
+			box-shadow: $box-shadow-item-hover;
 			border-top-color: $sky-blue;
 			background-color: $white;
 		}
@@ -328,20 +328,20 @@ ul.drop-opt-create, ul.drop-opt-md {
 // 05. slide box animated
 // ----------------------
 #topmenu-main-options {
-	@include transition-property(all);
-	@include transition-duration($material-transition-duration);
-	@include transition-timing-function($material-transition-timing-function);
-	@include transition-delay(100ms);
+	transition-property: all;
+	transition-duration: $material-transition-duration;
+	transition-timing-function: $material-transition-timing-function;
+	transition-delay: 100ms;
 	right: 0px;
 	left: auto;
 	width: 0px;
 	height: 0px;
-	// @include border-radius(0px 0px 0px 50px);
+	// border-radius: 0px 0px 0px 50px;
 
 	&.show-topmenu-options {
 		width: 100%;
 		height: 100%;
-		@include border-radius(0px);
+		border-radius: 0px;
 	}
 }
 
@@ -349,7 +349,7 @@ ul.drop-opt-create, ul.drop-opt-md {
 // 06. side navigation animated
 // ----------------------------
 .wrapper-side-nav {
-	@include transition(all $material-transition-duration $material-transition-timing-function);
+	transition: all $material-transition-duration $material-transition-timing-function;
 }
 
 // -------------------------
@@ -364,25 +364,25 @@ ul.drop-opt-create, ul.drop-opt-md {
   height: 100%;
   border-radius: 50%;
   background-color: $white;
-  @include opacity(0.6);
+  opacity: 0.6;
 
-	@include animation(sk-bounce 2.0s infinite ease-in-out);
+	animation: sk-bounce 2.0s infinite ease-in-out;
 }
 .double-bounce2 {
-	@include animation-delay(-1.0s);
+	animation-delay: -1.0s;
 }
-@include keyframes( sk-bounce ) {
-	0%, 100% { @include transform( scale(0.0) ); }
-  50% { @include transform( scale(1.0) ); }
+@keyframes  sk-bounce  {
+	0%, 100% { transform:  scale(0.0) ; }
+  50% { transform:  scale(1.0) ; }
 }
 
 // progress preloader
 .progress-preloader {
 	.determinate {
-		@include animation(preload-determinate 6.0s linear);
+		animation: preload-determinate 6.0s linear;
 	}
 }
-@include keyframes(preload-determinate) {
+@keyframes preload-determinate {
 	from { width: 0%; }
 	to { width: 100%; }
 }
@@ -393,34 +393,34 @@ ul.drop-opt-create, ul.drop-opt-md {
   #preloader-wrapper {
 		visibility: hidden;
 
-		@include transform( translateY(-100%) );
-		@include transition( all 0.3s 1s ease-out );
+		transform:  translateY(-100%) ;
+		transition:  all 0.3s 1s ease-out ;
 
 	  .preloader-section.loader-section-0 {
-	  	@include transform( translateY(-100%) );
-	  	@include transition( all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000) );
+	  	transform:  translateY(-100%) ;
+	  	transition:  all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000) ;
 	  }
 
 	  .preloader-section.loader-section-1 {
-	  	@include transform( translateY(100%) );
-	  	@include transition( all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000) );
+	  	transform:  translateY(100%) ;
+	  	transition:  all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000) ;
 	  }
 
 	  #preloader {
-	  	@include opacity(0);
-	  	@include transition( all 0.3s ease-out );
+	  	opacity: 0;
+	  	transition:  all 0.3s ease-out ;
 	  }
 
 	  .preloader-diagonal-wrap {
 			visibility: hidden;
 
-			@include transform( translate(-100%) );
-			@include transition( all 0.3s 1s ease-out );
+			transform:  translate(-100%) ;
+			transition:  all 0.3s 1s ease-out ;
 		}
   }
 
   .progress-preloader {
-  	@include opacity(0);
+  	opacity: 0;
   	clip: rect(0px, auto, auto, 3000px);
   }
 }

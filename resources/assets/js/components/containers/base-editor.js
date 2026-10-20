@@ -1,7 +1,8 @@
 // resources/assets/js/components/containers/base-editor.js
+import '../../helpers/jquery-global.js';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Misc, { formToJson, setSpinner, getCsrf, removeSpinner } from '../../helpers/misc.js';
+import Misc, { formToJson, setSpinner, getCsrf, removeSpinner } from '../../helpers/misc';
 import { route } from '../../helpers/laroute.js';
 import $ from 'jquery';
 
@@ -9,9 +10,6 @@ class BaseEditor extends Component {
 
     constructor(props) {
         super(props);
-
-        // initialize attributes
-        this.loadDependencies();
 
         let data = props.formCreate ? formToJson(props.formCreate) : {};
         this.defaultValue = props.value || props.defaultValue || data[props.name] || '';
@@ -27,11 +25,14 @@ class BaseEditor extends Component {
         this.imageUpload = this.imageUpload.bind(this);
     }
 
-    loadDependencies() {
+    async componentDidMount() {
         if (typeof window !== 'undefined') {
-            require('bootstrap-sass/assets/javascripts/bootstrap/modal.js');
-            require('bootstrap-sass/assets/javascripts/bootstrap/dropdown.js');
-            require('bootstrap-sass/assets/javascripts/bootstrap/tooltip.js');
+            window.$ = window.jQuery = $;
+            $.summernote = $.summernote || { lang: {} };
+
+            await import('bootstrap-sass/assets/javascripts/bootstrap/modal.js');
+            await import('bootstrap-sass/assets/javascripts/bootstrap/dropdown.js');
+            await import('bootstrap-sass/assets/javascripts/bootstrap/tooltip.js');
 
             // set aliases for bootstrap js libraries
             if(
@@ -43,34 +44,100 @@ class BaseEditor extends Component {
 
                 $.fn.bsDropdown = bsDropdown;
                 $.fn.bsTooltip = bsTooltip;
+
+                // Bridge $.fn.tooltip so Summernote and jQuery UI coexist seamlessly
+                const origTooltip = $.fn.tooltip;
+                $.fn.tooltip = function(option) {
+                    if (this.closest('.note-editor, .note-btn-group, .note-toolbar').length || this.data('bs.tooltip') || (typeof option === 'string' && (option === 'hide' || option === 'show' || option === 'toggle'))) {
+                        if ($.fn.bsTooltip) {
+                            try {
+                                return $.fn.bsTooltip.apply(this, arguments);
+                            } catch(e) {}
+                        }
+                    }
+                    try {
+                        if (typeof option === 'string' && (option === 'hide' || option === 'close')) {
+                            if (this.data('ui-tooltip') || this.data('uiTooltip')) {
+                                return origTooltip.call(this, 'close');
+                            }
+                            return this;
+                        }
+                        if (typeof option === 'string' && (option === 'show' || option === 'open')) {
+                            if (this.data('ui-tooltip') || this.data('uiTooltip')) {
+                                return origTooltip.call(this, 'open');
+                            }
+                            return this;
+                        }
+                        return origTooltip.apply(this, arguments);
+                    } catch(err) {
+                        return this;
+                    }
+                };
             }
 
-            this.ReactSummernote = require('react-summernote').default;
-            require("summernote/dist/summernote.js");
-            require("summernote-cleaner/summernote-cleaner.js");
-            require('react-summernote/lang/summernote-es-ES.js');
-        }
-    }
+            const jq = window.jQuery || window.$ || $;
+            if (jq) {
+                window.$ = window.jQuery = jq;
+                jq.summernote = jq.summernote || {};
+                jq.summernote.lang = jq.summernote.lang || {};
+                jq.summernote.options = jq.summernote.options || {};
+                jq.summernote.plugins = jq.summernote.plugins || {};
+                jq.summernote.ui = jq.summernote.ui || {};
+            }
 
-    componentDidMount() {
-        const $nodeEditor = $(this.nodeEditor);
+            this.ReactSummernote = (await import('react-summernote')).default;
+            await import("summernote/dist/summernote.js");
+
+            // Re-ensure summernote namespaces after summernote/dist/summernote.js loads
+            if (jq && jq.summernote) {
+                jq.summernote.lang = jq.summernote.lang || {};
+                jq.summernote.options = jq.summernote.options || {};
+                jq.summernote.plugins = jq.summernote.plugins || {};
+            }
+
+            try {
+                await import("summernote-cleaner/summernote-cleaner.js");
+            } catch (cleanerErr) {
+                console.warn('summernote-cleaner could not be loaded:', cleanerErr);
+            }
+
+            try {
+                await import('react-summernote/lang/summernote-es-ES.js');
+            } catch (langErr) {
+                console.warn('summernote-es-ES could not be loaded:', langErr);
+            }
+        }
+
+        const jq = window.jQuery || window.$ || $;
+        const $nodeEditor = jq(this.nodeEditor);
 
         this.setState({canRender: true}, () => {
-            $nodeEditor.find('[data-toggle="tooltip"]').bsTooltip();
-            $nodeEditor.find('[data-toggle="dropdown"]').each(function(index, el) {
-                const $el = $(el);
-
-                $el.bsDropdown();
-                $el.data('_lite_dropdown').setEvent();
-            });
+            if ($nodeEditor.find) {
+                if ($nodeEditor.find('[data-toggle="tooltip"]').bsTooltip) {
+                    $nodeEditor.find('[data-toggle="tooltip"]').bsTooltip();
+                }
+                $nodeEditor.find('[data-toggle="dropdown"]').each(function(index, el) {
+                    const $el = jq(el);
+                    if ($el.bsDropdown) {
+                        $el.bsDropdown();
+                        if ($el.data('_lite_dropdown')) {
+                            $el.data('_lite_dropdown').setEvent();
+                        }
+                    }
+                });
+            }
         });
     }
 
     componentWillUnmount() {
-        const $nodeEditor = $(this.nodeEditor);
-
-        $nodeEditor.find('[data-toggle="tooltip"]').bsTooltip('destroy');
-        $nodeEditor.find('[data-toggle="dropdown"]').off('bs.dropdown');
+        const jq = window.jQuery || window.$ || $;
+        const $nodeEditor = jq(this.nodeEditor);
+        if ($nodeEditor.find) {
+            if ($nodeEditor.find('[data-toggle="tooltip"]').bsTooltip) {
+                $nodeEditor.find('[data-toggle="tooltip"]').bsTooltip('destroy');
+            }
+            $nodeEditor.find('[data-toggle="dropdown"]').off('bs.dropdown');
+        }
     }
 
     componentWillReceiveProps(nextProps) {

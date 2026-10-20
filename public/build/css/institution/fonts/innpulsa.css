@@ -1,0 +1,61 @@
+@font-face {
+	font-family:'FuturaStd-Medium';
+	src: url('../../../build/css/fonts/FuturaStd-Medium.eot') format('embedded-opentype'),
+	url('../../../build/css/fonts/FuturaStd-Medium.woff2') format('woff2'),
+	url('../../../build/css/fonts/FuturaStd-Medium.woff') format('woff'),
+	url('../../../build/css/fonts/FuturaStd-Medium.ttf')  format('truetype'),
+	url('../../../build/css/fonts/FuturaStd-Medium.svg#svgFontName') format('svg');
+}
+
+@font-face {
+	font-family:'FuturaStd-Bold';
+	src: url('../../../build/css/fonts/FuturaStd-Bold.eot') format('embedded-opentype'),
+	url('../../../build/css/fonts/FuturaStd-Bold.woff2') format('woff2'),
+	url('../../../build/css/fonts/FuturaStd-Bold.woff') format('woff'),
+	url('../../../build/css/fonts/FuturaStd-Bold.ttf')  format('truetype'),
+	url('../../../build/css/fonts/FuturaStd-Bold.svg#svgFontName') format('svg');
+}
+
+@font-face {
+	font-family:'FuturaStd-ExtraBold';
+	src: url('../../../build/css/fonts/FuturaStd-ExtraBold.eot') format('embedded-opentype'),
+	url('../../../build/css/fonts/FuturaStd-ExtraBold.woff2') format('woff2'),
+	url('../../../build/css/fonts/FuturaStd-ExtraBold.woff') format('woff'),
+	url('../../../build/css/fonts/FuturaStd-ExtraBold.ttf')  format('truetype'),
+	url('../../../build/css/fonts/FuturaStd-ExtraBold.svg#svgFontName') format('svg');
+}
+
+@font-face {
+	font-family:'FuturaStd-Heavy';
+	src: url('../../../build/css/fonts/FuturaStd-Heavy.eot') format('embedded-opentype'),
+	url('../../../build/css/fonts/FuturaStd-Heavy.woff2') format('woff2'),
+	url('../../../build/css/fonts/FuturaStd-Heavy.woff') format('woff'),
+	url('../../../build/css/fonts/FuturaStd-Heavy.ttf')  format('truetype'),
+	url('../../../build/css/fonts/FuturaStd-Heavy.svg#svgFontName') format('svg');
+}
+
+@font-face {
+	font-family: 'Montserrat Light';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Montserrat Light'), url('../../../build/css/fonts/Montserrat-Light.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Montserrat Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Montserrat Regular'), url('../../../build/css/fonts/Montserrat-Regular.woff') format('woff');
+}
+@font-face {
+	font-family: 'Montserrat Medium';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Montserrat Medium'), url('../../../build/css/fonts/Montserrat-Medium.woff') format('woff');
+}
+@font-face {
+	font-family: 'Montserrat Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Montserrat Bold'), url('../../../build/css/fonts/Montserrat-Bold.woff') format('woff');
+}

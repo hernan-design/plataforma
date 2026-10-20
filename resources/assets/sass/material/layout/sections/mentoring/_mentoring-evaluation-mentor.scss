@@ -14,7 +14,7 @@
 				position: absolute;
 				img {
 					border: 2px solid $white;
-					@include box-shadow(2px 2px 20px rgba($black,0.7));
+					box-shadow: 2px 2px 20px rgba($black,0.7);
 				}
 			}
 

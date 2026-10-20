@@ -9,10 +9,10 @@
     }
 
     .top-bar {
-      @include transition(all 300ms ease-in-out);
+      transition: all 300ms ease-in-out;
 
       &.expanded {
-        @include transition(all 300ms ease-in-out);
+        transition: all 300ms ease-in-out;
 
         @media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
           height: 360px;

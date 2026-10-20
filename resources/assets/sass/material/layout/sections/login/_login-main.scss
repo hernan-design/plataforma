@@ -5,7 +5,7 @@
 
 	.inner-signin {
 		padding: rem-calc(40);
-		@include box-shadow(2px 2px 8px $iron);
+		box-shadow: 2px 2px 8px $iron;
 	}
 
 	.content-social-register {
@@ -44,11 +44,11 @@
 	padding: rem-calc(50 100);
 
 	p {
-		@extend .block-text-xmedium;
+		/*  @extend .block-text-xmedium;  */
 		text-align: justify;
 	}
 
 	ul, ol {
-		@extend .text-xmd;
+		/*  @extend .text-xmd;  */
 	}
 }

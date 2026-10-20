@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const NoResults = ({ children, message, hasResults }) => (
+const NoResults = ({ children, message = 'No hay resultados.', hasResults = true }) => (
     <div className={`no-results-filter ${hasResults ? 'hidesoft': ''}`}>
         {
             children ||
@@ -15,11 +15,6 @@ NoResults.propTypes = {
     children: PropTypes.element,
     message: PropTypes.string,
     hasResults: PropTypes.bool
-}
-
-NoResults.defaultProps = {
-    hasResults: true,
-    message: 'No hay resultados.'
 };
 
-export default NoResults
+export default NoResults;

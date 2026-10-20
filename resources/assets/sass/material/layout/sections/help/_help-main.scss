@@ -80,7 +80,7 @@
 		}
 
 		.collapsible {
-			@include box-shadow(none);
+			box-shadow: none;
 			border: 0;
 
 			.collapsible-body {
@@ -110,9 +110,9 @@
 				background-color: $white; // Old browsers
 				@include filter-gradient($white, $smoke, vertical); // IE6-9
 				@include background-image(linear-gradient(top, $white 0%, $smoke 100%));
-				@include border-radius($global-radius);
-				@include transition(all ease-in 300ms);
-				@include box-shadow(0px 2px 3px $iron);
+				border-radius: $global-radius;
+				transition: all ease-in 300ms;
+				box-shadow: 0px 2px 3px $iron;
 
 				&.active {
 					background: none $white;
@@ -133,14 +133,14 @@
 				    padding-right: 50px;
 				    padding-bottom: 15px;
 				    position: relative;
-						@include transition(all ease-in 300ms);
+						transition: all ease-in 300ms;
 
 						> i {
 							margin-right: rem-calc(8);
 							position: absolute;
 					    right: 0px;
 					    top: 0;
-							@include transition(all ease-in 300ms);
+							transition: all ease-in 300ms;
 						}
 					}
 				}
@@ -151,7 +151,7 @@
 							color: #70bf16;
 
 							> i {
-								@include transform(rotate(90deg));
+								transform: rotate(90deg);
 							}
 						}
 					}
@@ -164,7 +164,7 @@
 
 			.collapsible-list-item {
 				border-bottom: 1px solid $gainsboro;
-				@include transition(all ease-in 300ms);
+				transition: all ease-in 300ms;
 
 				&:hover {
 					background-color: $color-main-wrap-alt;
@@ -188,7 +188,7 @@
     			margin-bottom: rem-calc(10);
     			padding: rem-calc(13 63 13 13);
 					position: relative;
-					@include transition(all ease-in 300ms);
+					transition: all ease-in 300ms;
 
 					@media #{$tablet-up} {
 						font-size: rem-calc(16);
@@ -200,7 +200,7 @@
 						position: absolute;
 					  right: 0;
 					  top:0;
-					  @include transition(all ease-in 300ms);
+					  transition: all ease-in 300ms;
 					}
 
 					&:hover {
@@ -214,14 +214,14 @@
 					background-color: $color-main-wrap-alt;
 					border: 0;
 					padding-bottom: rem-calc(15);
-					@include border-radius($global-radius);
+					border-radius: $global-radius;
 
 					.collapsible-header {
 						color: $black;
 
 						> i {
 							color: $black;
-					    @include transform(rotate(90deg));
+					    transform: rotate(90deg);
 						}
 					}
 				}

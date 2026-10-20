@@ -15,13 +15,13 @@
 			left: rem-calc(15);
 			right: rem-calc(15);
 		}
-		// @include box-shadow(0px 95px 130px -100px $oil inset);
-		@include transition(all ease-out 300ms);
+		// box-shadow: 0px 95px 130px -100px $oil inset;
+		transition: all ease-out 300ms;
 
 		&.expanded {
 			background-color: transparentize($background-header-land, .1);
-			// @include opacity(.9);
-			@include box-shadow( 0px 1px 15px rgba($black, .5) );
+			// opacity: .9;
+			box-shadow:  0px 1px 15px rgba($black, .5) ;
 
 			.top-bar-section {
 				ul li > a {
@@ -67,7 +67,7 @@
 				min-width: rem-calc(35);
 				width: rem-calc(35);
 				height: rem-calc(35);
-				@include border-radius(50%);
+				border-radius: 50%;
 			}
 
 			&.avatar-small {
@@ -226,7 +226,7 @@
 			}
 
 			.dropdown {
-				@include box-shadow(0px 1px 2px $iron);
+				box-shadow: 0px 1px 2px $iron;
 
 				li {
 					&:not(.has-form) {
@@ -342,8 +342,8 @@
 
 			#nav-header {
 				background-color: transparentize($background-header-land, .1);
-				// @include opacity(.9);
-				@include box-shadow( 0px 1px 15px rgba($black, .5) );
+				// opacity: .9;
+				box-shadow:  0px 1px 15px rgba($black, .5) ;
 
 				.top-bar-section {
 					ul li > a {
@@ -512,7 +512,7 @@
 				border: 1px solid $gris;
 				padding: rem-calc(20);
 				height: rem-calc(205);
-				@include border-radius($global-radius);
+				border-radius: $global-radius;
 
 				.title-category-opts {
 					margin: rem-calc(0 0 15);
@@ -528,7 +528,7 @@
 
 				&:hover, &.active {
 					background-color: $white;
-					@include box-shadow( 2px 2px 15px rgba($black,.3) );
+					box-shadow:  2px 2px 15px rgba($black,.3) ;
 				}
 
 				ul.list-menu-opts {

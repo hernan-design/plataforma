@@ -5,7 +5,7 @@ import Misc, { strToNickname, imageDefault } from '../../helpers/misc';
 import { Link } from 'react-router-dom';
 import { thumbs } from '../../helpers/states';
 import { formatMessage } from '../../init-app';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import moment from 'moment';
 
 // app components

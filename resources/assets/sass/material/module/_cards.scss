@@ -17,7 +17,7 @@
 	}
 
 	@media #{$tablet-up} {
-		@include box-shadow($panel-shadow);
+		box-shadow: $panel-shadow;
 		@include radius;
 		border-top: 1px solid $h-separate-materialize;
 		border-bottom: 1px solid $h-separate-materialize;
@@ -32,7 +32,7 @@
 
 
 	@media #{$tablet-up} {
-		@include box-shadow($panel-shadow);
+		box-shadow: $panel-shadow;
 		@include radius;
 		@include margin-item-bottom;
 		border-top: 1px solid $h-separate-materialize;
@@ -72,10 +72,10 @@
 
 // Styles for publishing card
 .card-published-entry {
-	@extend .card;
+	/*  @extend .card;  */
 
 	@media #{$mobile-only}, #{$small-only} {
-		@include box-shadow(none);
+		box-shadow: none;
 		border-top: 1px solid $gainsboro;
 		border-bottom: 1px solid $gainsboro;
 	}
@@ -85,7 +85,7 @@
 	}
 
 	.card-content-entry {
-		@extend .card-content;
+		/*  @extend .card-content;  */
 		padding: rem-calc(15);
 
 		p {
@@ -114,7 +114,7 @@
 	}
 
 	.card-action-entry {
-		@extend .card-action;
+		/*  @extend .card-action;  */
 		padding: rem-calc(10 15 10);
 
 		a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
@@ -138,7 +138,7 @@
 
 // styles for forms
 .card-form {
-	@extend .card;
+	/*  @extend .card;  */
 
 	.card-content {
 		padding: {
@@ -168,7 +168,7 @@ ul.card-user-detail {
 	background-color: $white;
 	display: inline-block;
 	width: auto;
-	@include box-shadow($box-shadow-item);
+	box-shadow: $box-shadow-item;
 
 	&.expand {
 		width: 100%;
@@ -194,7 +194,7 @@ ul.card-user-detail {
 .card-user-info, .card-data-info {
 	display: block;
 	padding: rem-calc(8 20);
-	@include transition(all 250ms ease-out);
+	transition: all 250ms ease-out;
 
 	&:hover, &:focus {
 		background-color: $gray-light-alt;

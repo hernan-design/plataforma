@@ -22,7 +22,7 @@ class LoadMoreBound extends Component {
         window.removeEventListener('scroll', this.handleScrollBound);
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if(this.props.isLoading !== nextProps.isLoading) {
             this.setState({ isLoading: nextProps.isLoading });
         }

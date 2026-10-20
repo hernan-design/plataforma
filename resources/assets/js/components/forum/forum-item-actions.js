@@ -10,7 +10,7 @@ import { formatMessage } from '../../init-app';
 import { typeContent } from '../../helpers/redux-utils';
 import { getModule } from '../../helpers/states';
 import Misc from '../../helpers/misc';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import $ from 'jquery';
 
 // app components
@@ -84,7 +84,7 @@ class ForumItemActions extends Component {
                     data-dropdown-content
                     className="opts-action-dropdown radius no-arrow text-sm"
                     aria-hidden={hidden}
-                    aria-autoclose={autoclose}
+                    data-autoclose={autoclose}
                     ref={node => { this.nodeDrop = node; }}
                     {...props}
                 >

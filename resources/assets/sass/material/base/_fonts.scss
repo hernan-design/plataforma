@@ -7,264 +7,98 @@
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text:700italic); //Crimson text
 @import url(https://fonts.googleapis.com/css?family=Roboto); //Roboto font
 
-// San Francisco Text Web font
-// ---------------------------
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-heavy-webfont.woff',
-		'sanfranciscotext-heavy-webfont.ttf',
-		'sanfranciscotext-heavy-webfont.svg#san_francisco_textheavy'
-	),
-	'sanfranciscotext-heavy-webfont.eot',
-	900,
-	normal
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-heavyitalic-webfont.woff',
-		'sanfranciscotext-heavyitalic-webfont.ttf',
-		'sanfranciscotext-heavyitalic-webfont.svg#san_francisco_textheavyitalic'
-	),
-	'sanfranciscotext-heavyitalic-webfont.eot',
-	900,
-	italic
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-bold-webfont.woff',
-		'sanfranciscotext-bold-webfont.ttf',
-		'sanfranciscotext-bold-webfont.svg#san_francisco_textbold'
-	),
-	'sanfranciscotext-bold-webfont.eot',
-	700,
-	normal
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-bolditalic-webfont.woff',
-		'sanfranciscotext-bolditalic-webfont.ttf',
-		'sanfranciscotext-bolditalic-webfont.svg#san_francisco_textbolditelic'
-	),
-	'sanfranciscotext-bolditalic-webfont.eot',
-	700,
-	italic
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-semibold-webfont.woff',
-		'sanfranciscotext-semibold-webfont.ttf',
-		'sanfranciscotext-semibold-webfont.svg#san_francisco_textsemibold'
-	),
-	'sanfranciscotext-semibold-webfont.eot',
-	600,
-	normal
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-semibolditalic-webfont.woff',
-		'sanfranciscotext-semibolditalic-webfont.ttf',
-		'sanfranciscotext-semibolditalic-webfont.svg#san_francisco_textsemibolditalic'
-	),
-	'sanfranciscotext-semibolditalic-webfont.eot',
-	600,
-	italic
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-medium-webfont.woff',
-		'sanfranciscotext-medium-webfont.ttf',
-		'sanfranciscotext-medium-webfont.svg#san_francisco_textmedium'
-	),
-	'sanfranciscotext-medium-webfont.eot',
-	500,
-	normal
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-mediumitalic-webfont.woff',
-		'sanfranciscotext-mediumitalic-webfont.ttf',
-		'sanfranciscotext-mediumitalic-webfont.svg#san_francisco_textmediumitalic'
-	),
-	'sanfranciscotext-mediumitalic-webfont.eot',
-	500,
-	italic
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-regular-webfont.woff',
-		'sanfranciscotext-regular-webfont.ttf',
-		'sanfranciscotext-regular-webfont.svg#san_francisco_textregular'
-	),
-	'sanfranciscotext-regular-webfont.eot',
-	300,
-	normal
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-regularitalic-webfont.woff',
-		'sanfranciscotext-regularitalic-webfont.ttf',
-		'sanfranciscotext-regularitalic-webfont.svg#san_francisco_textregularitalic'
-	),
-	'sanfranciscotext-regularitalic-webfont.eot',
-	300,
-	italic
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-light-webfont.woff',
-		'sanfranciscotext-light-webfont.ttf',
-		'sanfranciscotext-light-webfont.svg#san_francisco_textlight'
-	),
-	'sanfranciscotext-light-webfont.eot',
-	200,
-	normal
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-lightitalic-webfont.woff',
-		'sanfranciscotext-lightitalic-webfont.ttf',
-		'sanfranciscotext-lightitalic-webfont.svg#san_francisco_textlightitalic'
-	),
-	'sanfranciscotext-lightitalic-webfont.eot',
-	200,
-	italic
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-thin-webfont.woff',
-		'sanfranciscotext-thin-webfont.ttf',
-		'sanfranciscotext-thin-webfont.svg#san_francisco_textthin'
-	),
-	'sanfranciscotext-thin-webfont.eot',
-	100,
-	normal
-);
-@include font-face(
-	"San Francisco",
-	font-files(
-		'sanfranciscotext-thinitalic-webfont.woff',
-		'sanfranciscotext-thinitalic-webfont.ttf',
-		'sanfranciscotext-thinitalic-webfont.svg#san_francisco_textthinitalic'
-	),
-	'sanfranciscotext-thinitalic-webfont.eot',
-	100,
-	italic
-);
-
 // Frutiger Text Web font
 // ----------------------
-@include font-face(
-	"Frutiger Roman",
-	font-files(
-		'FrutigerLTStd-Roman.woff',
-		'FrutigerLTStd-Roman.ttf',
-		'FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman'
-	),
-	'FrutigerLTStd-Roman.eot',
-	500,
-	normal
-);
-@include font-face(
-	"Frutiger",
-	font-files(
-		'FrutigerLTStd-Black.woff',
-		'FrutigerLTStd-Black.ttf',
-		'FrutigerLTStd-Black.svg#FrutigerLTStd-Black'
-	),
-	'FrutigerLTStd-Black.eot',
-	900,
-	normal
-);
-@include font-face(
-	"Frutiger",
-	font-files(
-		'FrutigerLTStd-BlackItalic.woff',
-		'FrutigerLTStd-BlackItalic.ttf',
-		'FrutigerLTStd-BlackItalic.svg#FrutigerLTStd-BlackItalic'
-	),
-	'FrutigerLTStd-BlackItalic.eot',
-	900,
-	italic
-);
-@include font-face(
-	"Frutiger",
-	font-files(
-		'FrutigerLTStd-Bold.woff',
-		'FrutigerLTStd-Bold.ttf',
-		'FrutigerLTStd-Bold.svg#FrutigerLTStd-Bold'
-	),
-	'FrutigerLTStd-Bold.eot',
-	600,
-	normal
-);
-@include font-face(
-	"Frutiger",
-	font-files(
-		'FrutigerLTStd-BoldItalic.woff',
-		'FrutigerLTStd-BoldItalic.ttf',
-		'FrutigerLTStd-BoldItalic.svg#FrutigerLTStd-BoldItalic'
-	),
-	'FrutigerLTStd-BoldItalic.eot',
-	600,
-	italic
-);
-@include font-face(
-	"Frutiger",
-	font-files(
-		'FrutigerLTStd-Roman.woff',
-		'FrutigerLTStd-Roman.ttf',
-		'FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman'
-	),
-	'FrutigerLTStd-Roman.eot',
-	500,
-	normal
-);
-@include font-face(
-	"Frutiger",
-	font-files(
-		'FrutigerLTStd-Italic.woff',
-		'FrutigerLTStd-Italic.ttf',
-		'FrutigerLTStd-Italic.svg#FrutigerLTStd-Italic'
-	),
-	'FrutigerLTStd-Italic.eot',
-	500,
-	italic
-);
-@include font-face(
-	"Frutiger",
-	font-files(
-		'FrutigerLTStd-Light.woff',
-		'FrutigerLTStd-Light.ttf',
-		'FrutigerLTStd-Light.svg#FrutigerLTStd-Light'
-	),
-	'FrutigerLTStd-Light.eot',
-	200,
-	normal
-);
-@include font-face(
-	"Frutiger",
-	font-files(
-		'FrutigerLTStd-LightItalic.woff',
-		'FrutigerLTStd-LightItalic.ttf',
-		'FrutigerLTStd-LightItalic.svg#FrutigerLTStd-LightItalic'
-	),
-	'FrutigerLTStd-LightItalic.eot',
-	200,
-	italic
-);
+@font-face {
+    font-family: "Frutiger Roman";
+    src: url('FrutigerLTStd-Roman.eot');
+    src: url('FrutigerLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-Roman.woff') format('woff'),
+         url('FrutigerLTStd-Roman.ttf') format('truetype'),
+         url('FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Frutiger";
+    src: url('FrutigerLTStd-Black.eot');
+    src: url('FrutigerLTStd-Black.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-Black.woff') format('woff'),
+         url('FrutigerLTStd-Black.ttf') format('truetype'),
+         url('FrutigerLTStd-Black.svg#FrutigerLTStd-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Frutiger";
+    src: url('FrutigerLTStd-BlackItalic.eot');
+    src: url('FrutigerLTStd-BlackItalic.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-BlackItalic.woff') format('woff'),
+         url('FrutigerLTStd-BlackItalic.ttf') format('truetype'),
+         url('FrutigerLTStd-BlackItalic.svg#FrutigerLTStd-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Frutiger";
+    src: url('FrutigerLTStd-Bold.eot');
+    src: url('FrutigerLTStd-Bold.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-Bold.woff') format('woff'),
+         url('FrutigerLTStd-Bold.ttf') format('truetype'),
+         url('FrutigerLTStd-Bold.svg#FrutigerLTStd-Bold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Frutiger";
+    src: url('FrutigerLTStd-BoldItalic.eot');
+    src: url('FrutigerLTStd-BoldItalic.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-BoldItalic.woff') format('woff'),
+         url('FrutigerLTStd-BoldItalic.ttf') format('truetype'),
+         url('FrutigerLTStd-BoldItalic.svg#FrutigerLTStd-BoldItalic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Frutiger";
+    src: url('FrutigerLTStd-Roman.eot');
+    src: url('FrutigerLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-Roman.woff') format('woff'),
+         url('FrutigerLTStd-Roman.ttf') format('truetype'),
+         url('FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Frutiger";
+    src: url('FrutigerLTStd-Italic.eot');
+    src: url('FrutigerLTStd-Italic.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-Italic.woff') format('woff'),
+         url('FrutigerLTStd-Italic.ttf') format('truetype'),
+         url('FrutigerLTStd-Italic.svg#FrutigerLTStd-Italic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Frutiger";
+    src: url('FrutigerLTStd-Light.eot');
+    src: url('FrutigerLTStd-Light.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-Light.woff') format('woff'),
+         url('FrutigerLTStd-Light.ttf') format('truetype'),
+         url('FrutigerLTStd-Light.svg#FrutigerLTStd-Light') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Frutiger";
+    src: url('FrutigerLTStd-LightItalic.eot');
+    src: url('FrutigerLTStd-LightItalic.eot?#iefix') format('embedded-opentype'),
+         url('FrutigerLTStd-LightItalic.woff') format('woff'),
+         url('FrutigerLTStd-LightItalic.ttf') format('truetype'),
+         url('FrutigerLTStd-LightItalic.svg#FrutigerLTStd-LightItalic') format('svg');
+    font-weight: 200;
+    font-style: italic;
+}
 
 // Web font for icon social
 // ------------------------
@@ -280,42 +114,18 @@
 	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
 }
 
-// Web font for TuProyecto icons
-// -----------------------------
-@include font-face(
-	"FontTuProyecto",
-	font-files(
-		'tupro-icons-font.woff',
-		'tupro-icons-font.ttf',
-		'tupro-icons-font.svg#tupro-icons-font'
-	),
-	'tupro-icons-font.eot',
-	normal,
-	normal
-);
-/*Base class definition for tuproyecto icons*/
-.#{$icon-css-prefix} {
-	display: inline-block;
-	font: normal normal normal #{$icon-fontsize-base}/1 FontTuProyecto; // shortening font declaration
-	font-size: inherit; // can't have font-size inherit on line above, so need to override
-	text-rendering: auto; // optimizelegibility throws things off #1094
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
-	speak: none;
-}
+
 // Summernote fonts
 // ----------------
-@include font-face(
-	"summernote",
-	font-files(
-		'summernote.woff',
-		'summernote.ttf'
-	),
-	"summernote.eot",
-	normal,
-	normal
-);
+@font-face {
+    font-family: "summernote";
+    src: url('summernote.eot');
+    src: url('summernote.eot?#iefix') format('embedded-opentype'),
+         url('summernote.woff') format('woff'),
+         url('summernote.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 // ======================
 // Styles for text global
@@ -459,7 +269,7 @@ html, html a {
 
 // Style for headers
 // -----------------
-#{headers(all)} {
+h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 
 	&.thin-header {

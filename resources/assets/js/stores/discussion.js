@@ -6,6 +6,7 @@ import { dynamicRecipes as dynamicComments } from './discussion-comment';
 import { dynamicRecipes as dynamicLikes, dynamicRecipeLikes } from './like';
 import { getItem } from '@orange-marmalade/paginate-this';
 import { get as getProp } from 'lodash';
+import { Map } from 'immutable';
 import { getResource } from '../helpers/states';
 import {
     buildActionType as actionType,
@@ -40,7 +41,10 @@ export const dynamicRecipes = composeDynamicReducers({
         if(entry.cod) {
             return createDiscussion({
                 listId: dynamicName,
-                locator: state => getProp(state, location)[dynamicName],
+                locator: state => {
+                    const loc = getProp(state, location);
+                    return (loc && loc[dynamicName]) || Map();
+                },
                 updaterDiscussionCounter: updateCounter(entry)
             });
         }

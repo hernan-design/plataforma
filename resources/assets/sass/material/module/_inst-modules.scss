@@ -411,7 +411,7 @@ button, .button {
 	.post-footer-box {
 
 		ul.footer-box-icons {
-			@extend ul.social-box-icons;
+			@extend .social-box-icons;
 		}
 	}
 }
@@ -424,7 +424,7 @@ button, .button {
 	.post-footer-box {
 
 		ul.footer-box-icons {
-			@extend ul.social-box-icons;
+			@extend .social-box-icons;
 		}
 	}
 
@@ -432,7 +432,7 @@ button, .button {
 	.post-comments-box {
 		.user-comment {
 			.comment-icons-list {
-      	@extend ul.social-box-icons;
+      	@extend .social-box-icons;
       }
 		}
 	}
@@ -867,7 +867,7 @@ textarea.materialize-textarea {
 
 		&:hover {
 			&:before {
-				@include transition(all ease-out 300ms);
+				transition: all ease-out 300ms;
 				color: scale-color($secondary-color, $lightness: $color-function-factor);
 			}
 		}

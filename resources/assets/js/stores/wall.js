@@ -267,7 +267,6 @@ export const recipeEntries = createPaginator({
     listId: LIST_ID,
     fetch: actionCreators.loadEntries,
     initialSettings: {
-        initialized: true,
         pageSize: 20
     },
     pageParams: {

@@ -2,7 +2,7 @@
 
 namespace App\Models\mongodb;
 
-use Jenssegers\Mongodb\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use MongoDB\BSON\ObjectID;
 use MongoDB\Model\BSONArray;
 

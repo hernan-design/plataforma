@@ -52,14 +52,14 @@
 					bottom: rem-calc(10);
 				}
 				background-color: $sky-blue;
-				@include box-shadow($box-shadow-button);
+				box-shadow: $box-shadow-button;
 				color: $white;
 
-				&.xtiny  { @extend .xtiny !optional; }
-				&.tiny   { @extend .tiny !optional; }
-				&.small  { @extend .small !optional; }
-				&.medium { @extend .medium !optional; }
-				&.large  { @extend .large !optional; }
+				&.xtiny  { /* @extend .xtiny !optional; */ }
+				&.tiny   { /* @extend .tiny !optional; */ }
+				&.small  { /* @extend .small !optional; */ }
+				&.medium { /* @extend .medium !optional; */ }
+				&.large  { /* @extend .large !optional; */ }
 
 				i {
 					vertical-align: middle;
@@ -84,13 +84,13 @@
 
 				button, .button {
 					color: $active-color;
-					@include box-shadow($box-shadow-button-active);
+					box-shadow: $box-shadow-button-active;
 
-					&.xtiny  { @extend .xtiny !optional; }
-						&.tiny   { @extend .tiny !optional; }
-						&.small  { @extend .small !optional; }
-						&.medium { @extend .medium !optional; }
-						&.large  { @extend .large !optional; }
+					&.xtiny  { /* @extend .xtiny !optional; */ }
+						&.tiny   { /* @extend .tiny !optional; */ }
+						&.small  { /* @extend .small !optional; */ }
+						&.medium { /* @extend .medium !optional; */ }
+						&.large  { /* @extend .large !optional; */ }
 
 					&:hover, &:focus {
 						background-color: $active-bg;

@@ -133,7 +133,7 @@
 
 		&:hover {
 			&.secondary, &.gray-light {
-				@extend .success;
+				/*  @extend .success;  */
 			}
 		}
 	}

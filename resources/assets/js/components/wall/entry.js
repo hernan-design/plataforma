@@ -74,13 +74,18 @@ class Entry extends Component {
 
     render() {
         const { record, itemId, ownerData, updating, removing } = this.props;
-        const listIdDiscussionNamed = `${listIdDiscussion}_${record.cod}_${namedContent(record.codigoModulo)}`;
-        const recipeIdLikeNamed = `${recipeIdLike}_${record.cod}_${namedContent(record.codigoModulo)}`;
-        const listIdLikeNamed = `${listIdLike}_${record.cod}_${namedContent(record.codigoModulo)}`;
+        if (!record || !record.cod) return null;
+
+        const modName = namedContent(record.codigoModulo) || 'Wall';
+        const listIdDiscussionNamed = `${listIdDiscussion}_${record.cod}_${modName}`;
+        const recipeIdLikeNamed = `${recipeIdLike}_${record.cod}_${modName}`;
+        const listIdLikeNamed = `${listIdLike}_${record.cod}_${modName}`;
         const passData = {
             codigo_modulo: record.codigoModulo,
             codigo_recurso_modulo: record.codigoRecursoModulo
         };
+
+        const isOwner = (ownerData && ownerData.codigoUsuario === record.codigoUsuario) || record.isAuthorizedToDelete;
 
         return(
             <article className="card-published-entry post-entry">
@@ -90,7 +95,7 @@ class Entry extends Component {
                         ...record,
                         contentRef: node => { this.nodeTxt = node }
                     })}
-                    { ownerData.codigoUsuario === record.codigoUsuario || record.isAuthorizedToDelete ?
+                    { isOwner ?
                         (<div>
                             <a className="action-hover-circle icon-21" data-dropdown={`drop-entry-actions-${record.cod}`} aria-controls={`drop-entry-actions-${record.cod}`} aria-expanded={false} data-options="is_hover:false" style={styles.actionActions}>
                                 <i className="mdi mdi-dots-vertical"></i>

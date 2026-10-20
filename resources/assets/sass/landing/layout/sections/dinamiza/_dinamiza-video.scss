@@ -5,7 +5,7 @@
 
 		.bg-container {
 			background: transparent url('https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/alcaldia-cali/2019/video/video-bg.jpg') no-repeat center;
-      @include border-radius(50%);
+      border-radius: 50%;
       display: flex;
       align-items: flex-start;
       justify-content: center;

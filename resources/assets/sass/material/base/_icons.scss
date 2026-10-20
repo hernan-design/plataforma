@@ -136,7 +136,7 @@
 
 // Icons font TuProyecto
 [data-icon]:before {
-  @extend .#{$icon-css-prefix};
+  /* @extend .#{$icon-css-prefix}; */
   content: attr(data-icon);
 }
 // alias icons

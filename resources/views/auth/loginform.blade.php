@@ -46,11 +46,10 @@
 					<div class="row">
 						<div class="small-12 columns input-field">
 							<i class="mdi mdi-email prefix"></i>
-							{!! Form::text('correo_electronico', Input::old('correo_electronico'), [
+							{!! Form::email('correo_electronico', Input::old('correo_electronico'), [
 								'id' => 'correo_electronico',
 								'class' => 'validate',
-								'required' => 'required',
-								'pattern' => 'email'
+								'required' => 'required'
 							])
 							!!}
 							<label for="correo_electronico" data-error="E-mail incorrecto.">E-mail</label>
@@ -89,7 +88,7 @@
 
 					<div class="row">
 						<div class="small-12 columns">
-							{!! Form::submit(trans('app.login'), ['class' => 'button xmedium sky-blue expand btn-lowerc btn-shadow radius widget-login-recaptcha', 'data-key-recaptcha' => App\RegistroSesion::getRecaptchaKey()]) !!}
+							{!! Form::submit(trans('app.login'), ['class' => 'button xmedium sky-blue expand btn-lowerc btn-shadow radius']) !!}
 						</div>
 					</div>
 
@@ -100,6 +99,8 @@
 							)) !!}
 						</div>
 					</div>
+
+					<div class="widget-login-recaptcha-new" data-key-recaptcha="{{ env('RECAPTCHA_SITE_KEY', '6Ld4HuQtAAAAAEgDP3VE3SpcymOzvL_yxvN8At-v') }}"></div>
 				{!! Form::close() !!}
 			</div>
 		</div>

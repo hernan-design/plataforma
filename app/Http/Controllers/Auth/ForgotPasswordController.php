@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
 {
@@ -21,7 +20,27 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
+    public function showLinkRequestForm()
+    {
+        return view('auth.passwords.email');
+    }
+
+    protected function sendResetLinkResponse(Request $request, $response)
+    {
+        return back()->with('status', trans($response));
+    }
+
+    protected function sendResetLinkFailedResponse(Request $request, $response)
+    {
+        return back()
+                ->withInput($request->only('correo_electronico'))
+                ->withErrors(['correo_electronico' => trans($response)]);
+    }
+
+    public function broker()
+    {
+        return Password::broker();
+    }
 
     /**
      * Create a new controller instance.

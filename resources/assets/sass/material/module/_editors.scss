@@ -26,7 +26,7 @@ $editor-icon-color: $gray-base !default;
 
 	position: relative;
 	@if $padding != false { padding: $padding };
-	@include box-shadow( $editor-box-shadow );
+	box-shadow:  $editor-box-shadow ;
 	@if $separator != false { margin-bottom: $separator };
 	background-color: $bgcolor;
 
@@ -73,7 +73,7 @@ $editor-icon-color: $gray-base !default;
 		resize: none;
 		border-color: transparent;
 		border: none;
-		@include box-shadow( none );
+		box-shadow:  none ;
 		margin: 0px;
 		padding: 0;
 		border-bottom: 1px solid $hr-border-color;
@@ -147,7 +147,7 @@ $editor-icon-color: $gray-base !default;
 		$separator: rem-calc(30),
 		$bgcolor: $white
 	);
-	@include box-shadow(none);
+	box-shadow: none;
 
 	textarea {
 		min-height: rem-calc(25);
@@ -173,11 +173,11 @@ $editor-icon-color: $gray-base !default;
 		position: relative;
 		border-color: transparent;
 		border: none;
-		@include box-shadow( none );
+		box-shadow:  none ;
 		margin: 0px;
 		min-height: rem-calc(36);
 		padding: rem-calc(0 10);
-		@include border-radius(6px);
+		border-radius: 6px;
 		background-color: $silver;
 		height: 25px;
 		line-height: 2.5;
@@ -201,7 +201,7 @@ $editor-icon-color: $gray-base !default;
 		color: $iron;
 	}
 
-	@include box-shadow(none);
+	box-shadow: none;
 	border-bottom: 1px solid $hr-border-color;
 }
 
@@ -209,7 +209,7 @@ $editor-icon-color: $gray-base !default;
 // ------------------
 .wysiwyg-container {
 	border: none;
-	@include border-radius(0px);
+	border-radius: 0px;
 	border-bottom: 1px solid $hr-border-color;
 
 	.wysiwyg-editor {
@@ -220,7 +220,7 @@ $editor-icon-color: $gray-base !default;
 		}
     min-height: 3.5em;
 
-		#{headers(all)} {
+		h1, h2, h3, h4, h5, h6 {
 			color: $black;
 		}
 
@@ -396,7 +396,7 @@ $editor-icon-color: $gray-base !default;
 	&:hover, &:focus, &.focus {
 		color: $secondary-color;
 		background-color: transparent;
-		@include border-radius(4px);
+		border-radius: 4px;
 
 		* {
 			color: $secondary-color;
@@ -436,7 +436,7 @@ $editor-icon-color: $gray-base !default;
 			size: $tooltip-font-size;
 			weight: $tooltip-font-weight;
 		}
-		@include border-radius($tooltip-radius);
+		border-radius: $tooltip-radius;
 	}
 }
 .note-modal {

@@ -6,10 +6,10 @@
 		border-top: 0;
 
 		.top-bar {
-			@include transition(all 300ms ease-in-out);
+			transition: all 300ms ease-in-out;
 
 			&.expanded {
-				@include transition(all 300ms ease-in-out);
+				transition: all 300ms ease-in-out;
 
 				@media #{$mobile-only}, #{$small-only}, #{$tablet-only} {
 					height: 415px;
@@ -186,7 +186,7 @@
 							> a {
 								line-height: normal;
 						    padding: 10px 20px;
-						    @include border-radius($global-radius);
+						    border-radius: $global-radius;
 						    border: 1px solid white;
 								background-color: $copo-medium-blue-color; // Old browsers
 								@include filter-gradient($copo-medium-blue-color, $copo-dark-blue-color, vertical); // IE6-9

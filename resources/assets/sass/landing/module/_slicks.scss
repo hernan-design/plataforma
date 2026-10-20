@@ -19,12 +19,12 @@
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    @include animation(spin-slider .8s linear infinite);
+    animation: spin-slider .8s linear infinite;
     margin-left: -30px;
     margin-top: -30px;
     z-index: 1;
 
-    @include keyframes(spin-slider) {
+    @keyframes spin-slider {
 	    0% { transform: rotate(0deg); }
 	    100% { transform: rotate(360deg); }
 		}
@@ -32,13 +32,13 @@
 
 	.wrap-img-slider, .slick-slide {
 		opacity: 0;
-		@include transition(opacity 0.5s ease-in);
+		transition: opacity 0.5s ease-in;
 	}
 
 	.slick-list {
     position: absolute;
     opacity: 0;
-	  @include transition(opacity 0.2s ease-in);
+	  transition: opacity 0.2s ease-in;
 	}
 
 	&.slick-initialized {
@@ -151,7 +151,7 @@
 	    left: auto;
 	    top: auto;
 	    margin: 0 auto;
-	    @include transform(translate(0, -30%));
+	    transform: translate(0, -30%);
 		}
 	}
 
@@ -238,7 +238,7 @@
 		    left: auto;
 		    right: -50%;
 		    margin: 0 auto;
-		    @include transform(translate(-50%, 0));
+		    transform: translate(-50%, 0);
 			}
 		}
 	}

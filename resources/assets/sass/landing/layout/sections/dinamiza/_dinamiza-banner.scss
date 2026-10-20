@@ -11,7 +11,7 @@
 	    left: 50%;
 	    top: 50%;
 	    position: absolute;
-			@include translate(-50%, -50%);
+			transform: translate(-50%, -50%);
 
 			display: none;
 
@@ -232,7 +232,7 @@
 
         .signin-button {
           padding: rem-calc(18 90);
-          @include border-radius(30px);
+          border-radius: 30px;
 
           @media #{$mobile-only}, #{$small-only} {
             padding: rem-calc(15 40);

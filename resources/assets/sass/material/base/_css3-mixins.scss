@@ -37,8 +37,8 @@
     -   transform               - arguments: Parameters: null
     -   transform-style         - arguments: Style: preserve-3d
     -   transition              - Default arguments: What: all, Length: 1s, Easing: ease-in-out
-    -                            - Examples: @include transition (all 2s ease-in-out);
-    -                                        @include transition (opacity 1s ease-in 2s, width 2s ease-out);
+    -                            - Examples: transition: all 2s ease-in-out;
+    -                                        transition: opacity 1s ease-in 2s, width 2s ease-out;
     -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
     -   keyframes               - arguments: Animation name
                                 - content:   Animation css
@@ -174,7 +174,7 @@
 
   @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo);
 
-  @include border-radius( $radius );
+  border-radius:  $radius ;
 }
 
 /* FLEX */
@@ -256,7 +256,7 @@
 @mixin triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0) {
     border: 1px solid $colorOne;
 
-    @include border-radius($radius);
+    border-radius: $radius;
 
     @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree);
 }

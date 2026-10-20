@@ -4,8 +4,7 @@ namespace App;
 
 use App\Rol;
 use App\TerminosCondiciones;
-use http\Client\Curl\User;
-use Illuminate\Auth\UserTrait;
+
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Auth\Authenticatable;
@@ -14,8 +13,8 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
-use phpDocumentor\Reflection\Types\Null_;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
+
+use Illuminate\Support\Str;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use TuProyecto, SendEmail;
 use Cookie, Cache, Config, DB, Auth, Lang, Input, App, Validator, Hash, URL, Log, Session;
@@ -26,7 +25,7 @@ use App\RolUsuario,
 	App\Models\Seguridad\SexoInstitucion;
 
 class Usuario extends BaseModel implements AuthenticatableContract, CanResetPasswordContract, JWTSubject {
-	use Authenticatable, CanResetPassword, EntrustUserTrait, Notifiable;
+	use Authenticatable, CanResetPassword, Notifiable;
 
 	/**
 	 * The database table used by the model.
@@ -618,7 +617,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
 				$user->tipo_usuario = Usuario::typeUser('person');
 				// Validate unique nickname
 				if (isset($data['nombre_usuario']) && !empty($data['nombre_usuario'])) {
-					$nickname_usuario = Usuario::validateNinckname(str_slug(str_limit($data['nombre_usuario'], 16), ""));
+					$nickname_usuario = Usuario::validateNinckname(\Illuminate\Support\Str::slug(\Illuminate\Support\Str::limit($data['nombre_usuario'], 16, ''), ""));
 					$user->nickname_usuario = $nickname_usuario;
 				}
 
@@ -942,9 +941,9 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
    	{
    		switch ($this->attributes['tipo_usuario']) {
 	    	case $this->typeUser('person'):
-				return route('usuario.nickname', $this->attributes['nickname_usuario'] ?? '');
+				return !empty($this->attributes['nickname_usuario']) ? route('usuario.nickname', $this->attributes['nickname_usuario']) : '#';
 			case $this->typeUser('entity'):
-	    		return route('proyecto.proyecto', $this->attributes['nickname_usuario'] ?? '');
+	    		return !empty($this->attributes['nickname_usuario']) ? route('proyecto.proyecto', $this->attributes['nickname_usuario']) : '#';
 	    }
    	}
 
@@ -1115,6 +1114,39 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
 	}
 
 	/**
+	 * Checks if the user has a role by its name (antes provisto por EntrustUserTrait).
+	 *
+	 * @param string|array $name       Role name or array of role names.
+	 * @param bool         $requireAll All roles in the array are required.
+	 *
+	 * @return bool
+	 */
+	public function hasRole($name, $requireAll = false)
+	{
+		if (is_array($name)) {
+			foreach ($name as $roleName) {
+				$hasRole = $this->hasRole($roleName);
+
+				if ($hasRole && !$requireAll) {
+					return true;
+				} elseif (!$hasRole && $requireAll) {
+					return false;
+				}
+			}
+
+			return $requireAll;
+		}
+
+		foreach ($this->cachedRoles() as $role) {
+			if ($role->name == $name) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
 	 * Checks role(s) and permission(s).
 	 *
 	 * @param string|array $roles       Array of roles or comma separated string
@@ -1212,7 +1244,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
 			foreach ($this->cachedRoles() as $role) {
 				// Validate against the Permission table
 				foreach ($role->cachedPermissions($module) as $perm) {
-					if (str_is( $permission, $perm->name) ) {
+					if (Str::is( $permission, $perm->name) ) {
 						return true;
 					}
 				}

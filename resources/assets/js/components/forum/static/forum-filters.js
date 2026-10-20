@@ -9,14 +9,20 @@ import { isEqual } from 'lodash';
 import ItemNavLink from '../../containers/item-nav-link';
 
 const renderItemCategory = () => {
-    return (ct) => (
-        <ItemNavLink
-            key={ct.codigoCategoriaForo}
-            to={{ pathname: `/foro/${ct.urlCategoriaForo}` }}
-            label={ct.nombreCategoriaForo}
-            className="text-xmd"
-        />
-    );
+    return (ct) => {
+        const id = ct.codigoCategoriaForo || ct.codigo_categoria_foro;
+        const name = ct.nombreCategoriaForo || ct.nombre_categoria_foro;
+        const url = ct.urlCategoriaForo || ct.url_categoria_foro;
+
+        return (
+            <ItemNavLink
+                key={id ? `cat-${id}` : `cat-url-${url}`}
+                to={{ pathname: `/foro/${url}` }}
+                label={name}
+                className="text-xmd"
+            />
+        );
+    };
 };
 
 const ForumFilters = ({ categories, match, location }) => {

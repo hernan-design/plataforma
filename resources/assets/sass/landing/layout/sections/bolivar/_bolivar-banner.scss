@@ -12,7 +12,7 @@
       position: absolute;
       // margin-left: -960px;
       // margin-top: -540px;
-      @include translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       @media #{$mobile-only}, #{$small-only},#{$tablet-only}, #{$medium-only} {
         background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/institutions/fundacion-bolivar/fundacion-bolivar-banner_tablet.png);
         background-size: 100%;
@@ -89,7 +89,7 @@
             font-family: 'Sansation Bold';
             text-transform: lowercase;
             background-color: #E3531F; // Old browser
-            @include border-radius(5px);
+            border-radius: 5px;
 
             padding: rem-calc(18 85);
             font-size: rem-calc(19.2);

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Artisaninweb\SoapWrapper\SoapWrapper;
+// use Artisaninweb\SoapWrapper\SoapWrapper;
 
 use Custom\RedCoomeva;
 use App\Custom\Compensar;
@@ -18,20 +18,20 @@ use TuProyecto, Request, Redirect, View, Response, Auth, App, Input, DB, Session
 class UsuarioController extends Controller {
 
 	/**
-	* @var SoapWrapper
+	* @var mixed
 	*/
 	protected $soapWrapper;
 
     /**
      * Instantiate a new UsuarioController instance.
      */
-    public function __construct(SoapWrapper $soapWrapper)
+    public function __construct()
     {
         $this->middleware('auth', ['except' => ['deactivation', 'store', 'showUrl', 'confirmAccount', 'verifyEmail','listProviders']]);
         $this->middleware('intended', ['only' => ['showUrl']]);
         $this->middleware('subscription', ['only' => ['index', 'socialNetworks']]);
 
-        $this->soapWrapper = $soapWrapper;
+        // $this->soapWrapper = $soapWrapper;
     }
 
 	/**
@@ -75,6 +75,7 @@ class UsuarioController extends Controller {
 			// Advanced data validation
 			$validator = Validator::make(Input::all(), [
 				'password' => 'required|min:4|confirmed',
+				'g-recaptcha-response' => 'required|recaptcha',
 			]);
 
             if($validator->fails()) {
@@ -368,7 +369,7 @@ class UsuarioController extends Controller {
 		if (!Auth::user()->nickname_usuario) {
 			$userMailExpldoe = explode('@', Auth::user()->correo_electronico);
 			$userNickname = TuProyecto::unwantedCharacters($userMailExpldoe[0]);
-			$userNicknameProvisional = Usuario::validateNinckname(str_slug(str_limit($userNickname, 10), ""));
+			$userNicknameProvisional = Usuario::validateNinckname(\Illuminate\Support\Str::slug(\Illuminate\Support\Str::limit($userNickname, 10, ''), ""));
 		}
 
 		$templateForm = '';

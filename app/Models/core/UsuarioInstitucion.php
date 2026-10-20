@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Laravel\Cashier\Billable;
+// use Laravel\Cashier\Billable; // Cashier no está instalado (provider deshabilitado en config/app.php)
 
 use App\Models;
 
@@ -14,7 +14,7 @@ use Auth, SendEmail, URL, TuProyecto;
 
 class UsuarioInstitucion extends Model {
 
-	use Billable;
+	// use Billable;
 
 	/**
 	 * The database table used by the model.

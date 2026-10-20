@@ -1,9 +1,9 @@
 // Make sure the charset is set appropriately
 @charset "UTF-8";
+@import "compass";
+@import "compass/css3";
 
-//Import Compass library
-	@import "compass/support";
-	@import "compass/utilities";
+
 
 //Includes the normalize file for elements' base style
 @import "normalize";
@@ -12,6 +12,13 @@
 @import "material/base/variables";
 @import "landing/base/variables";
 @import "landing/base/settings"; //Settings for Foundation Framework
+
+@import "polyfills";
+
+// Fix for Foundation 5 namespace error in modern browsers/bundlers
+meta.foundation-data-attribute-namespace {
+    font-family: 'not-found' !important;
+}
 
 /* Materialize 0.97.6 */
 //
@@ -94,8 +101,7 @@
 	@import "foundation/components/offcanvas";
 	@import "foundation/components/visibility";
 
-//Import Compass library
-	@import "compass/css3";
+
 
 /*!
 *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -103,7 +109,7 @@
 */
 	@import "variables";
 	@import "mixins";
-	@import "path";
+	@import "_path";
 	@import "core";
 	@import "larger";
 	@import "fixed-width";

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import tabulateByState from '../decorators/tabulateByState';
 import { withRouter } from 'react-router-dom';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import { actionCreators } from '../../stores/course';
 import NoSSR from 'react-no-ssr';
 import Misc, { imageDefault } from '../../helpers/misc';

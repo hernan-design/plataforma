@@ -761,10 +761,9 @@
 								</ul>
 							<% } %>
 						</div>
-						<br>
 					</dd>
-					<dd>
-						<a href="<%- Route.route('mentoria.mentores.show', {'mentores': nickname_usuario}) %>" class="right">VER MÁS</a>
+					<dd class="clearfix">
+						<a href="<%- Route.route('mentoria.mentores.show', {'mentores': nickname_usuario}) %>" class="right inst-color-secondary bold-text">VER MÁS</a>
 					</dd>
 				</dl>
 			</div>

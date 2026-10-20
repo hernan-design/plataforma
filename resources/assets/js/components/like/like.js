@@ -26,7 +26,7 @@ class Like extends Component {
         this.handleLike = this.handleLike.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if(
             nextProps.contadorLike !== this.props.contadorLike ||
             nextProps.givingIlike !== this.props.givingIlike

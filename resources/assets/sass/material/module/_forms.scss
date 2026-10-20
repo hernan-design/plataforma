@@ -51,10 +51,10 @@
 		}
 
 		.check-succes {
-			@extend .check-succes;
+			/*  @extend .check-succes;  */
 		}
 		.check-error {
-			@extend .check-error;
+			/*  @extend .check-error;  */
 		}
 
 		input, textarea, select {
@@ -170,10 +170,10 @@
 				input[type="radio"], input[type="checkbox"] {
 					position: absolute;
 					left: -9999px;
-					@include opacity(0);
+					opacity: 0;
 
 					&:not(:checked) + label{
-						@include transition( all 10s ease-in 0s );
+						transition:  all 10s ease-in 0s ;
 
 						&:hover {
 							.item-phase-project{
@@ -186,7 +186,7 @@
 								.content-icon-phase{
 									background-color: $white;
 									border: none;
-									@include box-shadow(3px 3px 7px -3px rgba($oil,.8) inset);
+									box-shadow: 3px 3px 7px -3px rgba($oil,.8) inset;
 								}
 							}
 						}
@@ -200,7 +200,7 @@
 							.content-icon-phase{
 								@extend %inst-bgcolor-body;
 								border: none;
-								@include box-shadow(3px 3px 7px -3px rgba($black,.8) inset);
+								box-shadow: 3px 3px 7px -3px rgba($black,.8) inset;
 
 								i.icon{
 									@extend %inst-color-body;
@@ -217,12 +217,12 @@
 					margin: 0px;
 
 					.item-phase-project{
-						@include border-radius(8px);
+						border-radius: 8px;
 						padding: rem-calc(18 20 5);
 						text-align: center;
 
 						.content-icon-phase{
-							@include border-radius(100%);
+							border-radius: 100%;
 							padding: rem-calc(20 24 0);
 							margin: 0 auto rem-calc(18);
 							border: 2px solid $form-color-alter;
@@ -516,7 +516,7 @@ form {
 		&.check-btn {
 			position: absolute;
 			left: -9999px;
-			@include opacity(0);
+			opacity: 0;
 
 			& + label {
 				display: inline-block;
@@ -524,13 +524,13 @@ form {
 			}
 
 			&:not(:checked) + label.button {
-				@extend .button.sky-blue;
+				/*  @extend .button, .sky-blue;  */
 			}
 
 			&:checked + label.button {
-				@extend .button.white;
+				/*  @extend .button, .white;  */
 				cursor: $cursor-default-value;
-				@include box-shadow($box-shadow-button-active !important);
+				box-shadow: $box-shadow-button-active !important;
 
 				&:hover, &:focus {
 					background-color: $white;
@@ -542,7 +542,7 @@ form {
 		&.role-check {
 			position: absolute;
 			left: -9999px;
-			@include opacity(0);
+			opacity: 0;
 
 			& + label {
 				display: inline-block;
@@ -666,7 +666,7 @@ form {
 		&.filter-check, &.filter-radio, &.md-check, &.md-radio {
 			position: absolute;
 			left: -9999px;
-			@include opacity(0);
+			opacity: 0;
 
 			& + label {
 				display: table;
@@ -764,7 +764,7 @@ form {
 				}
 				text-align: left;
 				line-height: 1.2;
-				@include scale(1);
+				transform: scale(1);
 		  }
 
 			&.filter-check, &.filter-radio, &.md-check, &.md-radio {
@@ -917,9 +917,9 @@ form {
 			font-size: rem-calc(30);
 			text-align: center;
 			z-index: 100;
-			@include box-shadow( none );
+			box-shadow:  none ;
 			@include radius($global-radius);
-			@include transition(all 200ms linear);
+			transition: all 200ms linear;
 			line-height: 2;
 
 			.icon-search {
@@ -958,9 +958,9 @@ form {
 	    height: 70%;
 	    clip: rect(0px, 0px, auto, 0px);
 			z-index: 99;
-			// @include box-shadow( none );
-			@include box-sizing(border-box);
-			@include transition(all 200ms linear);
+			// box-shadow:  none ;
+			box-sizing: border-box;
+			transition: all 200ms linear;
 			// @include radius($global-radius);
 
 			&[aria-invalid*="true"]{
@@ -1076,14 +1076,14 @@ ul.field-and-button-edit {
 		margin: {
 			bottom: rem-calc(20);
 		}
-		@include border-radius($global-radius);
+		border-radius: $global-radius;
 	}
 
 	.edit-field-text {
 		// resize: none;
 		border: 1px solid $silver;
 		padding: rem-calc(10 0 15);
-		@include box-shadow( 1px 1px 4px $iron inset );
+		box-shadow:  1px 1px 4px $iron inset ;
 	}
 
 	&:not(.content-form-editing) {
@@ -1170,7 +1170,7 @@ ul.list-info-editing {
 					$colors-custom: false,
 					$bgcolor: $smoke
 				);
-				// @extend .circle-shadow;
+				// /* @extend .circle-shadow; */
 			}
 
 			&.invert-edit-button, &.invert-edit-button:hover, &.invert-edit-button:focus {
@@ -1207,7 +1207,7 @@ ul.list-info-editing {
   &:hover, &:focus, &.qq-upload-drop-area-active {
     .edit-photo, .change-photo, .edit-video, .change-video {
       clip: auto;
-      @include opacity(1);
+      opacity: 1;
     }
   }
 
@@ -1229,8 +1229,8 @@ ul.list-info-editing {
 		size: rem-calc(16);
 	}
 	clip: rect(0px,0px,0px,0px);
-	@include opacity(0);
-	@include transition( all 0.3s ease );
+	opacity: 0;
+	transition:  all 0.3s ease ;
 
 	&.icon-circle {
 		width: auto;
@@ -1274,7 +1274,7 @@ ul.list-info-editing {
 		height: $input-height;
 		line-height: $input-height;
 		padding: rem-calc(0 16 0 6);
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 
 	&.error {
@@ -1282,7 +1282,7 @@ ul.list-info-editing {
 
 		input {
 			margin-bottom: 0 !important;
-			@include box-shadow(none);
+			box-shadow: none;
 		}
 	}
 
@@ -1305,6 +1305,13 @@ ul.list-info-editing {
 // Styles for crop preview product
 .crop-load-img {
 	margin-top: rem-calc(15);
+	max-width: 100%;
+	overflow: hidden;
+
+	.jcrop-holder {
+		margin: 0 auto;
+		max-width: 100%;
+	}
 }
 .crop-preview-img-product, .crop-preview-img {
 	position: relative;
@@ -1419,7 +1426,7 @@ ul.list-info-editing {
 
 			.chosen-choices, .chosen-single {
 				border: none;
-				@include box-shadow(0px 3px 8px rgba($black,.4));
+				box-shadow: 0px 3px 8px rgba($black,.4);
 				background-image: none;
 
 				&:hover, &:focus {
@@ -1438,7 +1445,7 @@ ul.list-info-editing {
 			}
 
 			.chosen-drop {
-				@include opacity(1);
+				opacity: 1;
 			}
 		}
 	}
@@ -1460,15 +1467,15 @@ ul.list-info-editing {
 		// border-color: $input-border-color;
 		// border-style: $input-border-style;
 		// border-width: $input-border-width;
-		@include border-radius($input-border-radius);
+		border-radius: $input-border-radius;
 		background: $select-bg-color;
 		color: $input-font-color;
 		font: {
 			family: $input-font-family;
 			size: $input-font-size;
 		}
-		@include box-shadow(0px 1px 3px rgba($black,.3));
-		@include transition(all .3s ease-in-out 0s);
+		box-shadow: 0px 1px 3px rgba($black,.3);
+		transition: all .3s ease-in-out 0s;
 
 		&:hover, &:focus {
 			background: $select-hover-bg-color !important;
@@ -1524,11 +1531,11 @@ ul.list-info-editing {
 
 	.chosen-drop {
 		border: none;
-		@include opacity(0);
-		@include border-radius(0px);
-		@include box-shadow(0px 6px 8px rgba($black,.4));
-		@include transition(box-shadow .3s ease-out 0s);
-		@include transition(opacity .2s ease-out 0s);
+		opacity: 0;
+		border-radius: 0px;
+		box-shadow: 0px 6px 8px rgba($black,.4);
+		transition: box-shadow .3s ease-out 0s;
+		transition: opacity .2s ease-out 0s;
 
 		ul.chosen-results {
 			padding: 0;
@@ -1570,9 +1577,9 @@ ul.list-info-editing {
 		border: none;
 		border-bottom: $input-border;
 		outline: none;
-		@include border-radius(0px);
-		@include box-shadow(none);
-		// @include transition(all .3s ease-in-out 0s);
+		border-radius: 0px;
+		box-shadow: none;
+		// transition: all .3s ease-in-out 0s;
 
 		&:hover, &:focus {
 			background-color: transparent;
@@ -1623,10 +1630,10 @@ ul.list-info-editing {
 
 	.select2-dropdown {
 		border: none;
-		@include opacity(0);
-		@include border-radius(0px);
-		@include transition(box-shadow .3s ease-out 0s);
-		@include transition(opacity .2s ease-out 0s);
+		opacity: 0;
+		border-radius: 0px;
+		transition: box-shadow .3s ease-out 0s;
+		transition: opacity .2s ease-out 0s;
 
 		.select2-search {
 			.select2-search__field {
@@ -1690,21 +1697,21 @@ ul.list-info-editing {
 
 		&.select2-container--below {
 			border: none;
-			@include box-shadow(0px 2px 5px rgba($black, .2));
+			box-shadow: 0px 2px 5px rgba($black, .2);
 		}
 		&.select2-container--above {
-			@include box-shadow(0px -2px 5px rgba($black, .2));
+			box-shadow: 0px -2px 5px rgba($black, .2);
 		}
 
 		.select2-dropdown {
 			min-width: auto;
-			@include opacity(1);
+			opacity: 1;
 
 			&.select2-dropdown--below {
-				@include box-shadow(0px 3px 3px rgba($black, .2));
+				box-shadow: 0px 3px 3px rgba($black, .2);
 			}
 			&.select2-dropdown--above {
-				@include box-shadow(0px -3px 3px rgba($black, .2));
+				box-shadow: 0px -3px 3px rgba($black, .2);
 			}
 		}
 
@@ -1757,9 +1764,9 @@ ul.list-info-editing {
 			background-color: $white;
 			padding: 0 15px;
 			border-bottom: none;
-			@include box-sizing(border-box);
-			@include border-radius($global-radius);
-			@include box-shadow(0px 2px 2px rgba($black,0.2));
+			box-sizing: border-box;
+			border-radius: $global-radius;
+			box-shadow: 0px 2px 2px rgba($black,0.2);
 		}
 
 		.caret {
@@ -1786,8 +1793,8 @@ ul.list-info-editing {
 		text-align: center;
 		top: 50%;
 		left: 50%;
-		@include transform(scale(.5));
-		@include transform-origin(-50%, -50%);
+		transform: scale(.5);
+		transform-origin: -50%, -50%;
 
 		span {
 			position: static;
@@ -1800,8 +1807,8 @@ ul.list-info-editing {
 
 	.noUi-active {
 		.range-label {
-			@include border-radius(15px);
-			@include transform(rotate(0deg) translate(-50%,-45px));
+			border-radius: 15px;
+			transform: rotate(0deg) translate(-50%,-45px);
 			top: 0;
 			left: 0;
 			width: auto;

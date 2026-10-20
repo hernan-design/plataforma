@@ -21,8 +21,8 @@
 		#inner-article-detail {
 			background-color: $white;
 			padding: rem-calc(0 0 30);
-			@include box-shadow($box-shadow-item);
-			@include border-radius($global-radius);
+			box-shadow: $box-shadow-item;
+			border-radius: $global-radius;
 		}
 
 		// Article header

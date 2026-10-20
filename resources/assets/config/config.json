@@ -26,7 +26,7 @@
     "assetsPath": "/resources/assets",
     "publicPath": "/public",
     "relativePath": "../",
-    "BASE_PATHNAME": "/plataforma/public",
+    "BASE_PATHNAME": "",
     "certs": [
         {
             "domain": "redcoomeva.com",

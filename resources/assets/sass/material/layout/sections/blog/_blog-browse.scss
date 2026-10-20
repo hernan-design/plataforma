@@ -15,7 +15,7 @@
 			background-color: $white;
 			z-index: 1;
 			@include side-radius(right);
-			@include box-shadow($box-shadow-item);
+			box-shadow: $box-shadow-item;
 
 			.image-last-article{
 				width: 100%;

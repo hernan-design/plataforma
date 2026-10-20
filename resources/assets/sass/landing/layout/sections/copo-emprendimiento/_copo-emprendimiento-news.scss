@@ -119,8 +119,8 @@
 			@media #{$tablet-up} {
 				padding: rem-calc(50);
 				background: rgba($white, 0.7);
-				@include border-radius(32px);
-				@include box-shadow (9px 21px 89px -10px rgba($black, 0.22));
+				border-radius: 32px;
+				box-shadow: 9px 21px 89px -10px rgba($black, 0.22);
 			}
 
 			.news-pictogram {

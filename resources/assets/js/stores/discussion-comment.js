@@ -38,7 +38,7 @@ export const dynamicRecipes = composeDynamicReducers({
         if(entry.cod) {
             return createDiscussionComment({
                 listId: dynamicName,
-                locator: state => getProp(state, location)[dynamicName],
+                locator: state => (getProp(state, location) || {})[dynamicName],
                 updaterCommentCounter: updateCounter(entry)
             });
         }

@@ -15,7 +15,7 @@
 	&:focus {
 		+ .tagsinput {
 			border-bottom: 1px solid $input-focus-color;
-			@include box-shadow(0 1px 0 0 $input-focus-color);
+			box-shadow: 0 1px 0 0 $input-focus-color;
 		}
 	}
 }
@@ -29,11 +29,11 @@ div.tagsinput {
 	line-height: $input-height;
 	overflow-y: auto;
 	margin: $input-margin;
-	@include transition($input-transition);
+	transition: $input-transition;
 
 	&:focus, &.is-focused {
 		border-bottom: 1px solid $input-focus-color;
-		@include box-shadow(0 1px 0 0 $input-focus-color);
+		box-shadow: 0 1px 0 0 $input-focus-color;
 	}
 
 	span.tag {
@@ -41,7 +41,7 @@ div.tagsinput {
 		float: left;
 		padding: rem-calc(1 12);
 		border: none; //1px solid scale-color( $iron, $lightness: -20% );
-		@include border-radius($global-rounded);
+		border-radius: $global-rounded;
 		text-decoration:none;
 		background: scale-color($color-alt-form, $lightness: 60%);
 		color: $monsoon;
@@ -81,12 +81,12 @@ div.tagsinput {
 		background: transparent;
 		outline: 0px;
 		vertical-align: top;
-		@include transition(none !important);
+		transition: none !important;
 
 		&:hover, &:focus {
 			border: none !important;
-			@include box-shadow(none !important);
-			@include transition(none !important);
+			box-shadow: none !important;
+			transition: none !important;
 		}
 	}
 	[data-default]{
@@ -115,12 +115,12 @@ div.tagsinput {
 .react-tagsinput {
 	border: none;
   border-bottom: $input-border;
-  @include box-shadow(none);
+  box-shadow: none;
   margin: $input-margin;
   min-height: $input-height;
   line-height: $input-height;
   outline: none;
-  @include transition($input-transition);
+  transition: $input-transition;
   position: relative;
 
   &:hover {
@@ -129,7 +129,7 @@ div.tagsinput {
 
 	&.react-tagsinput--focused {
 		border-bottom: 1px solid $input-focus-color;
-		@include box-shadow(0 1px 0 0 $input-focus-color);
+		box-shadow: 0 1px 0 0 $input-focus-color;
 	}
 
 	> span {
@@ -149,8 +149,8 @@ div.tagsinput {
 
 		&:hover, &:focus {
 			border: none !important;
-			@include box-shadow(none !important);
-			@include transition(none !important);
+			box-shadow: none !important;
+			transition: none !important;
 		}
 	}
 
@@ -216,8 +216,8 @@ ul.tags-icon-list {
 				weight: 300;
 				size: rem-calc(12);
 			}
-			@include border-radius(1500px);
-			// @include box-shadow(2px 2px 4px $iron);
+			border-radius: 1500px;
+			// box-shadow: 2px 2px 4px $iron;
 
 			&:before {
 				content: "";
@@ -228,7 +228,7 @@ ul.tags-icon-list {
 				margin-right: rem-calc(5);
 				width: 5px;
 				height: 5px;
-				@include border-radius(50%);
+				border-radius: 50%;
 			}
 		}
 	}
@@ -241,7 +241,7 @@ ul.tags-icon-list {
 				// background-color: $sky-blue;
 				// color: $white;
 				color: $secondary-color;
-				// @include box-shadow(2px 2px 1px $iron);
+				// box-shadow: 2px 2px 1px $iron;
 
 				&:before {
 					color: $gray-base;

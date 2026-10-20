@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 use Illuminate\Validation\ValidationException;
 
 use App\Usuario, App\UsuarioInstitucion, App\Estado, App\RegistroSesion, App\Institucion, App\Credencial, App\TipoCredencial;
@@ -24,8 +24,6 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
-    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -47,6 +45,79 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    protected function attemptLogin(Request $request)
+    {
+        return Auth::guard()->attempt(
+            $this->credentials($request), $request->filled('remember')
+        );
+    }
+
+    protected function credentials(Request $request)
+    {
+        return $request->only($this->username(), 'password');
+    }
+
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        if ($response = $this->authenticated($request, $this->guard()->user())) {
+            return $response;
+        }
+
+        return redirect()->intended($this->redirectPath());
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => [trans('auth.failed')],
+        ]);
+    }
+
+    protected function guard()
+    {
+        return Auth::guard();
+    }
+
+    public function redirectPath()
+    {
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+    }
+
+    // Throttling logic simplified
+    protected function hasTooManyLoginAttempts(Request $request)
+    {
+        return \Illuminate\Support\Facades\RateLimiter::tooManyAttempts($this->throttleKey($request), 5);
+    }
+
+    protected function incrementLoginAttempts(Request $request)
+    {
+        \Illuminate\Support\Facades\RateLimiter::hit($this->throttleKey($request), 60);
+    }
+
+    protected function clearLoginAttempts(Request $request)
+    {
+        \Illuminate\Support\Facades\RateLimiter::clear($this->throttleKey($request));
+    }
+
+    protected function throttleKey(Request $request)
+    {
+        return \Illuminate\Support\Str::transliterate(\Illuminate\Support\Str::lower($request->input($this->username())).'|'.$request->ip());
+    }
+
 
     /**
      * Handle a login request to the application.

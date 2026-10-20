@@ -6,11 +6,11 @@
 		.description-box {
 			background-color: $gray-lighter;
 			padding: rem-calc(50 50);
-			@include box-shadow(none);
+			box-shadow: none;
 
 			&:hover {
 				box-shadow: 4px 4px 8px $iron;
-				@include transition(all ease-out 300ms);
+				transition: all ease-out 300ms;
 			}
 
 			.title-small {

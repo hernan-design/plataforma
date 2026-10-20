@@ -30,7 +30,7 @@
     .slick-prev {
       border: none;
       left: rem-calc(40);
-      @include border-radius(none);
+      border-radius: none;
 
       &:before {
         content: mdi('chevron-left');
@@ -40,7 +40,7 @@
     .slick-next {
       border: none;
       right: rem-calc(40);
-      @include border-radius(none);
+      border-radius: none;
 
       &:before {
         content: mdi('chevron-right');
@@ -57,7 +57,7 @@
 	}
 
   .button {
-    @include border-radius(12px);
+    border-radius: 12px;
   }
 
 
@@ -92,7 +92,7 @@
 					img {
 						margin-bottom: rem-calc(20);
 						margin: 0 auto;
-						@include box-shadow(4px 4px 8px $iron);
+						box-shadow: 4px 4px 8px $iron;
 					}
 				}
 			}

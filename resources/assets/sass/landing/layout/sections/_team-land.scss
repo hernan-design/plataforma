@@ -10,13 +10,13 @@
 
 		.team-member-box {
 			padding: rem-calc(20);
-			@include box-shadow(none);
-			@include border-radius($global-radius);
+			box-shadow: none;
+			border-radius: $global-radius;
 
 			&:hover {
 				background-color: $white;
-				@include box-shadow(4px 4px 8px $iron);
-				@include transition(all ease-out 300ms);
+				box-shadow: 4px 4px 8px $iron;
+				transition: all ease-out 300ms;
 			}
 
 			.team-member-img {

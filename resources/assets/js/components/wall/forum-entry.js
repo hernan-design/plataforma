@@ -1,7 +1,7 @@
 // resources/assets/js/components/wall/forum-entry.js
 import React from 'react';
 import Misc from '../../helpers/misc';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 
 // app componenets
 

@@ -61,7 +61,7 @@ $box-shadow-browse-item: $box-shadow-item !default;
 	}
 
 	&.radius {
-		@include border-radius($global-radius);
+		border-radius: $global-radius;
 
 		.top-item-list {
 			overflow: hidden;
@@ -74,7 +74,7 @@ $box-shadow-browse-item: $box-shadow-item !default;
 
 		.columns, [class*="column"] {
 			.top-item-list {
-				@include border-radius(0);
+				border-radius: 0;
 				@include side-radius(left);
 			}
 
@@ -83,12 +83,12 @@ $box-shadow-browse-item: $box-shadow-item !default;
 			}
 
 			.bottom-item-list {
-				@include border-radius(0px);
+				border-radius: 0px;
 			}
 		}
 	}
 	&.round {
-		@include border-radius($global-rounded);
+		border-radius: $global-rounded;
 
 		.top-item-list {
 			overflow: hidden;
@@ -109,7 +109,7 @@ $box-shadow-browse-item: $box-shadow-item !default;
 			}
 
 			.bottom-item-list {
-				@include border-radius(0px);
+				border-radius: 0px;
 			}
 		}
 	}
@@ -445,7 +445,7 @@ ul.list-info-data {
 				border: 1px solid $smoke;
 				background-color: $white;
 				@include radius($global-radius);
-			  @include transition(all ease-in-out 300ms);
+			  transition: all ease-in-out 300ms;
 
 				.description-list-item {
   			  height: rem-calc(176px);
@@ -494,11 +494,11 @@ ul.list-info-data {
 
 					.list-item-wrap {
 						display: table;
-						@include box-shadow(none);
-						@include border-radius(0px);
+						box-shadow: none;
+						border-radius: 0px;
 
 						&:hover {
-							@include box-shadow(none);
+							box-shadow: none;
 
 							.title-item-list {
 								color: $black !important;
@@ -533,7 +533,7 @@ ul.list-info-data {
 									left: -100%;
 									right: -100%;
 									margin: 0 auto !important;
-									@include translate(0, 0);
+									transform: translate(0, 0);
 								}
 							}
 						}
@@ -637,8 +637,8 @@ ul.list-info-data {
 						bottom: rem-calc(30);
 					}
 					@include side-radius(bottom);
-					@include transition(all 400ms linear,opacity 100ms linear);
-					@include opacity(0);
+					transition: all 400ms linear,opacity 100ms linear;
+					opacity: 0;
 					clip: rect(-20px,2000px,0px,-20px);
 				}
 
@@ -668,7 +668,7 @@ ul.list-info-data {
 
 					&:checked {
 						& ~ .reveal-data-info {
-							@include opacity(1);
+							opacity: 1;
 							clip: rect(-20px,2000px,1000px,-20px);
 						}
 
@@ -877,7 +877,7 @@ ul.list-info-data {
 				    margin: 0 auto;
 				    min-width: 100%;
 				    // min-height: 100%;
-				    @include translate(-50%,0);
+				    transform: translate(-50%,0);
 	  			}
 				}
 			}
@@ -900,11 +900,11 @@ ul.list-info-data {
 
 					.list-item-wrap, .item-mask-list {
 						display: table;
-						@include box-shadow(none);
-						@include border-radius(0px);
+						box-shadow: none;
+						border-radius: 0px;
 
 						&:hover {
-							@include box-shadow(none);
+							box-shadow: none;
 
 							.title-item-list {
 								color: $black !important;
@@ -938,7 +938,7 @@ ul.list-info-data {
 									left: -100%;
 									right: -100%;
 									margin: 0 auto !important;
-									@include translate(0, 0);
+									transform: translate(0, 0);
 								}
 							}
 						}
@@ -1213,7 +1213,7 @@ ul.list-info-data {
         > a {
         	display: block;
 					overflow: hidden;
-					@include border-radius($global-radius);
+					border-radius: $global-radius;
         }
 
         img {
@@ -1284,7 +1284,7 @@ ul.list-info-data {
 
       .list-icons-browse {
         .item-icon {
-          @extend .icon-circle-o;
+          /*  @extend .icon-circle-o;  */
 	        @include icon-circle(
             $color: $jumbo,
             $bgcolor: $vapor,
@@ -1297,7 +1297,7 @@ ul.list-info-data {
               $bgcolor: $silver,
               $colors-custom: false
             );
-            // @extend .circle-shadow;
+            // /* @extend .circle-shadow; */
           }
         }
       }
@@ -1411,7 +1411,7 @@ ul.list-info-data {
 						bottom: rem-calc(5);
 					}
 				}
-				#{headers(all)} {
+				h1, h2, h3, h4, h5, h6 {
 					margin: rem-calc(0 0 5);
 					line-height: 1;
 				}
@@ -1431,7 +1431,8 @@ ul.list-info-data {
 			}
 
 			.section-footer {
-				height: rem-calc(70);
+				min-height: rem-calc(70);
+				height: auto;
 			}
 		}
   }
@@ -1520,25 +1521,25 @@ ul.list-info-data {
 			@include browse-item-base;
 			padding: rem-calc(8 10);
 			overflow: visible;
-			@include transition(all 250ms ease-out);
+			transition: all 250ms ease-out;
 
 			.item-thumb {
 				display: inline-block;
-				@include border-radius(50%);
+				border-radius: 50%;
 				border: 2px solid $white;
-				@include box-shadow(2px 2px 10px rgba($black, .3));
+				box-shadow: 2px 2px 10px rgba($black, .3);
 				margin-right: rem-calc(8);
 
 				img {
 					width: rem-calc(50);
 					height: rem-calc(50);
-					@include border-radius(50%);
+					border-radius: 50%;
 				}
 			}
 
 			&:hover {
 				background-color: $white;
-				// @include box-shadow($box-shadow-browse-item !important);
+				// box-shadow: $box-shadow-browse-item !important;
 			}
   	}
   }
@@ -1761,7 +1762,7 @@ ul.list-circles-entrepreneurship {
 		&.wrap-icon {
 			padding: rem-calc(5 10);
 			background-color: $white;
-			@include box-shadow($box-shadow-item);
+			box-shadow: $box-shadow-item;
 
 			&.radius { @include radius; }
       &.round  { @include radius($global-rounded); }
@@ -1772,7 +1773,7 @@ ul.list-circles-entrepreneurship {
 			color: $gray-base;
 
 			&:hover {
-				@include box-shadow( 2px 2px 10px $base !important );
+				box-shadow:  2px 2px 10px $base !important ;
 				color: $sky-blue;
 			}
 			&:focus {
@@ -1823,7 +1824,7 @@ ul.list-circles-entrepreneurship {
 			display: block;
 			width: 100px;
 			overflow: hidden;
-			@include border-radius($global-radius);
+			border-radius: $global-radius;
 			height: 76px;
 
 			> img {
@@ -1835,7 +1836,7 @@ ul.list-circles-entrepreneurship {
 				left: -100%;
 				right: -100%;
 				margin: 0 auto !important;
-				@include translate(0, 0);
+				transform: translate(0, 0);
 			}
 		}
 

@@ -42,7 +42,7 @@
 							margin: auto;
 							width: 106px;
 							height: 106px;
-							@include transition(all 500ms ease-in-out);
+							transition: all 500ms ease-in-out;
 							position: relative;
 						}
 
@@ -74,12 +74,12 @@
 				}
 
 				&.active, &:hover {
-					@include transition(all 500ms ease-in-out);
+					transition: all 500ms ease-in-out;
 
 					.testimonial-person-anchor {
 						.img-box {
 							position: relative;
-							@include transition(all 500ms ease-in-out);
+							transition: all 500ms ease-in-out;
 
 							&:before {
 								content: '';
@@ -91,7 +91,7 @@
 						    left: 50%;
 						    margin-left: -60px;
 						    margin-top: -60px;
-						    @include border-radius(60px);
+						    border-radius: 60px;
 							}
 						}
 					}
@@ -107,7 +107,7 @@
 								// height: 137px;
 								// min-width: 137px;
 								// min-height: 137px;
-								@include transition(all 500ms ease-in-out);
+								transition: all 500ms ease-in-out;
 								position: relative;
 							}
 						}

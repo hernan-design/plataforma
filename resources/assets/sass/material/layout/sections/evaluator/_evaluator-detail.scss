@@ -73,7 +73,7 @@
 				padding: rem-calc(0 20);
 				background-color: $white;
 				@include side-radius(top);
-				@include box-shadow($panel-shadow);
+				box-shadow: $panel-shadow;
 				margin-bottom: rem-calc(20);
 
 				ul.tabs-project-evaluation {
@@ -88,7 +88,7 @@
 					right: 0;
 				}
 
-				#{nest("& >", unquote("#{headers(all)}"))} {
+				& > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
 					padding: rem-calc(25 25 0 25);
 				}
 
@@ -96,7 +96,7 @@
 					top: 0px;
 					left: 0px;
 					right: 0px;
-					@include box-sizing(border-box);
+					box-sizing: border-box;
 
 					.hpanel-title {
 						font-size: rem-calc(20);
@@ -124,7 +124,7 @@
 				padding: rem-calc(25);
 				// border-bottom: 1px solid $hr-border-color;
 
-				// #{headers(all)} {
+				// h1, h2, h3, h4, h5, h6 {
 				// 	margin-bottom: rem-calc(35);
 				// }
 
@@ -173,7 +173,7 @@
 						position: absolute;
 						top: 50%;
 						left: 50%;
-						@include transform( translateY(-50%) translateX(-50%) );
+						transform:  translateY(-50%) translateX(-50%) ;
 					}
 
 					.data-result-average {

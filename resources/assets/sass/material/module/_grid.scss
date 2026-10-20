@@ -37,20 +37,11 @@ $breakpoint-grid-queries:
 .row {
 	&.valign-middle, &.align-middle {
 		display: table;
-		@include flexbox((
-			display: box,
-			box-orient: vertical
-		), $version: 1);
-		@include flexbox((
-			display: flexbox,
-			flex-direction: row
-		), $version: 2);
-		@include flexbox((
-			display: flex,
-			flex-direction: row
-		));
-		@include flex-flow(row wrap);
-		@include align-items(center);
+		display: flex;
+		flex-direction: row;
+		
+		flex-flow: row wrap;
+		align-items: center;
 
 		// loop for grid sizes
 		@each $media-query in $breakpoint-grid-queries {
@@ -62,7 +53,7 @@ $breakpoint-grid-queries:
 
 					&[class*="#{$size}"] {
 						vertical-align: middle;
-						@include align-self(center);
+						align-self: center;
 
 						&, & + [class*="column"]:last-child {
 							float: none;
@@ -70,14 +61,6 @@ $breakpoint-grid-queries:
 					}
 				}
 
-				@for $i from 0 through $total-columns - 1 {
-					> .columns, > [class*="column"] + [class*="column"]:last-child {
-						&.#{$size}-#{$i} {
-							-webkit-box-flex: 0;
-							@include flex(0 0 grid-calc($i, $total-columns));
-						}
-					}
-			  }
 			}
 		}
 
@@ -94,20 +77,11 @@ $breakpoint-grid-queries:
 
 	&.col-equal-height {
 		display: table;
-		@include flexbox((
-			display: box,
-			box-orient: vertical
-		), $version: 1);
-		@include flexbox((
-			display: flexbox,
-			flex-direction: row
-		), $version: 2);
-		@include flexbox((
-			display: flex,
-			flex-direction: row
-		));
-		@include flex-flow(row wrap);
-		@include align-items(stretch);
+		display: flex;
+		flex-direction: row;
+		
+		flex-flow: row wrap;
+		align-items: stretch;
 
 		// loop for grid sizes
 		@each $media-query in $breakpoint-grid-queries {
@@ -128,76 +102,50 @@ $breakpoint-grid-queries:
 
 						&.vtop {
 							vertical-align: top;
-							@include align-self(flex-start);
+							align-self: flex-start;
 						}
 						&.vcenter, &.vmiddle {
 							vertical-align: middle;
-							@include align-self(center);
+							align-self: center;
 
 						}
 						&.vbottom {
 							vertical-align: bottom;
-							@include align-self(flex-end);
+							align-self: flex-end;
 
 						}
 						&.vfill {
-							@include align-items(stretch);
+							align-items: stretch;
 						}
 					}
 				}
 
-				@for $i from 0 through $total-columns - 1 {
-
-					> .columns, > [class*="column"] + [class*="column"]:last-child {
-						&.#{$size}-#{$i} {
-							@include flexbox((
-								display: box,
-								box-orient: vertical
-							), $version: 1);
-							@include flexbox((
-								display: flexbox,
-								flex-direction: row
-							), $version: 2);
-							@include flexbox((
-								display: flex,
-								flex-direction: row
-							));
-							@include flex-wrap(wrap);
-							@include flex(0 0 grid-calc($i, $total-columns));
-							max-width: grid-calc($i, $total-columns);
-
-							#{nest("& >", elements-of-type(block))} {
-								@include flex(1 1 100%);
-							}
-						}
-					}
-			  }
 			}
 		}
 
 		&.valign-top, &.align-top {
-			@include align-items(flex-start);
+			align-items: flex-start;
 
 			> .columns, > [class*="column"] + [class*="column"]:last-child {
 				vertical-align: top;
 			}
 		}
 		&.valign-center, &.align-center, &.align-middle {
-			@include align-items(center);
+			align-items: center;
 
 			> .columns, > [class*="column"] + [class*="column"]:last-child {
 				vertical-align: middle;
 			}
 		}
 		&.valign-bottom, &.align-bottom {
-			@include align-items(flex-end);
+			align-items: flex-end;
 
 			> .columns, > [class*="column"] + [class*="column"]:last-child {
 				vertical-align: bottom;
 			}
 		}
 		&.valign-fill, &.align-fill {
-			@include align-items(stretch);
+			align-items: stretch;
 		}
 
 		&:before, &:after {

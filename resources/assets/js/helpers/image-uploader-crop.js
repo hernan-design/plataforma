@@ -126,7 +126,17 @@
 	* @param Number imgWidth
 	* @param Number imgHeight
 	*/
-	function setSquare (imgWidth, imgHeight) {
+	function setSquare (imgWidth, imgHeight, minW, minH) {
+		if (minW && minH) {
+			var ratio = minW / minH;
+			var w = imgWidth;
+			var h = imgWidth / ratio;
+			if (h > imgHeight) {
+				h = imgHeight;
+				w = imgHeight * ratio;
+			}
+			return [Math.floor(w), Math.floor(h)];
+		}
 		var minDim = Math.min(imgWidth, imgHeight);
 
 		if( imgWidth == imgHeight ){
@@ -201,75 +211,50 @@
 		*/
 		setImage: function (urlImage, callback) {
 			urlImage || (urlImage = this.settings.imgCrop.attr('src')) || (urlImage = '');
-            console.log(urlImage);
+
+			if (!urlImage) {
+				return;
+			}
 
 			var _this = this;
 
-			// validates if already or not was created the crop image
-			if( this.settings.imgCrop.data('Jcrop') !== undefined ){
-				this.jcrop_img = this.settings.imgCrop.data('Jcrop');
+			var img = new Image();
+			img.onload = function () {
+				var realW = img.naturalWidth || img.width || 400;
+				var realH = img.naturalHeight || img.height || 300;
 
-				// settings image crop
-				this.jcrop_img.setImage(urlImage, function () {
+				_this.settings.imgCrop.attr('src', urlImage);
+				_this.settings.imgCrop.css({ 'max-width': '100%', 'height': 'auto' });
 
-					var dimImg = [];
-					// settings image crop
-					if( this.settings.configImg.minWidthImg && this.settings.configImg.minHeightImg ) {
-						dimImg = [this.settings.configImg.minWidthImg, this.settings.configImg.minHeightImg];
-					}else {
-						dimImg = this.jcrop_img.getBounds();
-					}
-
+				function finishSetImage() {
 					methods.changeOptsCrop.call(_this, {
 						imgSet: urlImage,
 						minWidth: _this.settings.configImg.minWidthImg,
 						minHeight: _this.settings.configImg.minHeightImg,
-						imgWidth: dimImg[0],
-						imgHeight: dimImg[1]
+						imgWidth: realW,
+						imgHeight: realH
 					});
 
 					// Add values to the crop form
 					_this.settings.formCrop.find('input#crop_type').val( 'url' );
 					_this.settings.formCrop.find('input#file_name').val( urlImage );
-					_this.settings.formCrop.find('input#file_type').val( urlImage.split('.').slice(-1) );
-				});
+					_this.settings.formCrop.find('input#file_type').val( urlImage.split('.').slice(-1)[0] );
 
-			}else {
+					if( $.isFunction(callback) )
+						callback.call(_this);
+				}
 
-				this.settings.imgCrop.attr('src', urlImage);
-
-				// create crop if does not exist
-				methods.renderImageCrop.call(this, this.settings.imgCrop, function () {
-
-					var dimImg = [];
-					// settings image crop
-					if( this.settings.configImg.minWidthImg && this.settings.configImg.minHeightImg ) {
-						dimImg = [this.settings.configImg.minWidthImg, this.settings.configImg.minHeightImg];
-					}else {
-						dimImg = this.jcrop_img.getBounds();
-					}
-
-					methods.changeOptsCrop.call(this, {
-						imgSet: urlImage,
-						minWidth: this.settings.configImg.minWidthImg,
-						minHeight: this.settings.configImg.minHeightImg,
-						imgWidth: dimImg[0],
-						imgHeight: dimImg[1]
+				if( _this.settings.imgCrop.data('Jcrop') !== undefined && _this.jcrop_img ) {
+					_this.jcrop_img.setImage(urlImage, function () {
+						finishSetImage();
 					});
-
-					// Add values to the crop form
-					this.settings.formCrop.find('input#crop_type').val( 'url' );
-					this.settings.formCrop.find('input#file_name').val( urlImage );
-					if(urlImage){
-                        _this.settings.formCrop.find('input#file_type').val( urlImage );
-                    }
-
-				}.bind(this));
-			}
-
-			// call callback
-			if( $.isFunction(callback) )
-				callback.call();
+				} else {
+					methods.renderImageCrop.call(_this, _this.settings.imgCrop, realW, realH, function () {
+						finishSetImage();
+					});
+				}
+			};
+			img.src = urlImage;
 		},
 
 		/**
@@ -335,45 +320,70 @@
 		/**
 		* set image crop plugin
 		*/
-		renderImageCrop: function ($imgCrop, callback) {
+		renderImageCrop: function ($imgCrop, realW, realH, callback) {
 
 			if( !existCropPlugin() )
 				return false;
 
-			//images crop
 			var _this = this;
 
-			$imgCrop.Jcrop({
+			var parentW = 420;
+			var $col = $imgCrop.closest('.columns, .tablet-6');
+			if ($col.length) {
+				var cw = $col.width();
+				if (cw > 150 && cw <= 480) {
+					parentW = cw;
+				} else {
+					var $modal = $imgCrop.closest('.reveal-modal, .reveal-modal-main, .content-modal');
+					if ($modal.length && $modal.width()) {
+						parentW = Math.floor($modal.width() / 2) - 40;
+					}
+				}
+			}
+			if (parentW > 440) parentW = 440;
+			if (parentW < 280) parentW = 280;
+
+			var hasRatio = _this.settings.configImg.minWidthImg && _this.settings.configImg.minHeightImg;
+			var ratioVal = hasRatio ? (_this.settings.configImg.minWidthImg / _this.settings.configImg.minHeightImg) : 0;
+
+			var maxBoxH = 300;
+			if (hasRatio && ratioVal > 0) {
+				maxBoxH = Math.min(300, Math.round(parentW / ratioVal));
+			}
+
+			$imgCrop.show().css({ 'visibility': 'visible', 'max-width': '100%', 'height': 'auto' });
+
+			var jcropOptions = {
 				onSelect: methods.setCoords.bind(this),
 				onChange: methods.setCoords.bind(this),
 				onRelease: function () {
 				},
-				// minSize: [this.settings.configImg.minWidthImg, this.settings.configImg.minHeightImg],
-				// maxSize: [this.settings.configImg.maxWidthImg, this.settings.configImg.maxHeightImg],
 				bgColor: 'black',
 				bgOpacity: 0.4,
-				setSelect: [ 0, 0, this.settings.configImg.minWidthImg, this.settings.configImg.minHeightImg ],
-				aspectRatio:  this.settings.configImg.minWidthImg / this.settings.configImg.minHeightImg,
-				boxWidth: $imgCrop.parent().width(),
-				boxHeight: 0,
+				aspectRatio: ratioVal,
+				boxWidth: parentW,
+				boxHeight: maxBoxH,
 				allowSelect: false,
 				allowResize: true
+			};
 
-			},function(){
+			if (realW && realH) {
+				jcropOptions.trueSize = [ Math.floor(realW), Math.floor(realH) ];
+			}
+
+			$imgCrop.Jcrop(jcropOptions, function(){
 				_this.jcrop_img = this;
-
-				var dimDefault = _this.jcrop_img.getBounds();
 
 				methods.changeOptsCrop.call(_this, {
 					imgSet: $imgCrop.attr('src'),
 					minWidth: _this.settings.configImg.minWidthImg,
 					minHeight: _this.settings.configImg.minHeightImg,
-					imgWidth: dimDefault[0],
-					imgHeight: dimDefault[1]
+					imgWidth: realW || parentW,
+					imgHeight: realH || maxBoxH
 				});
 
 				if (typeof callback == 'function'){
-					callback.call();
+					callback.call(_this);
 				}
 			});
 		},
@@ -398,23 +408,31 @@
 
 			$.extend(settings, options);
 
-			// set properties
-			settings.dimSelect = setSquare(settings.imgWidth, settings.imgHeight);
+			// set properties with proper aspect ratio
+			settings.dimSelect = setSquare(settings.imgWidth, settings.imgHeight, this.settings.configImg.minWidthImg, this.settings.configImg.minHeightImg);
 			settings.ix = (settings.imgWidth - settings.dimSelect[0])/2;
+			settings.iy = (settings.imgHeight - settings.dimSelect[1])/2;
 
 			// refresh options crop
-			this.jcrop_img.setOptions({
-				trueSize: [ Math.floor(settings.imgWidth), Math.floor(settings.imgHeight) ]
-				// outerImage: settings.imgSet
-			});
+			if (this.jcrop_img) {
+				this.jcrop_img.setOptions({
+					trueSize: [ Math.floor(settings.imgWidth), Math.floor(settings.imgHeight) ]
+				});
+				this.jcrop_img.setSelect( [
+					Math.floor(settings.ix),
+					Math.floor(settings.iy),
+					Math.floor(settings.ix + settings.dimSelect[0]),
+					Math.floor(settings.iy + settings.dimSelect[1])
+				] );
+			}
 
-			this.settings.previewImg.attr('src', settings.imgSet);
-
-            this.jcrop_img.setSelect( [settings.ix, settings.iy, settings.dimSelect[0], settings.dimSelect[1]] );
+			if (this.settings.previewImg && this.settings.previewImg.length) {
+				this.settings.previewImg.attr('src', settings.imgSet);
+			}
 
 			//run callback
 			if (typeof callback == 'function') {
-				callback.call();
+				callback.call(this);
 			}
 		},
 
@@ -516,48 +534,40 @@
 				return;
             }
 
-			// settings image crop
-			if( this.settings.imgCrop.data('Jcrop') !== undefined ) {
+			// Preload image to guarantee that dimensions are loaded before initializing or changing Jcrop
+			var img = new Image();
+			img.onload = function () {
+				var realW = res.file_width || img.width || img.naturalWidth || 400;
+				var realH = res.file_height || img.height || img.naturalHeight || 300;
 
-				this.jcrop_img.setImage(res.file_path, function () {
+				_this.settings.imgCrop.attr('src', res.file_path);
+				_this.settings.imgCrop.css({ 'max-width': '100%', 'height': 'auto' });
 
-					var dimImg = [res.file_width, res.file_height];
-
-					methods.changeOptsCrop.call(this, {
+				function finishCrop() {
+					methods.changeOptsCrop.call(_this, {
 						imgSet: res.file_path,
-						minWidth: this.settings.configImg.minWidthImg,
-						minHeight: this.settings.configImg.minHeightImg,
-						imgWidth: res.file_width,
-						imgHeight: res.file_height
-
+						minWidth: _this.settings.configImg.minWidthImg,
+						minHeight: _this.settings.configImg.minHeightImg,
+						imgWidth: realW,
+						imgHeight: realH
 					}, function () {
 						// emit callback
-						if( $.isFunction(this.settings.callbacks['onCompleteLoad']) )
-							this.settings.callbacks['onCompleteLoad'].call(this, this.settings.uploaderImg, id, name, res);
-					}.bind(this));
+						if( $.isFunction(_this.settings.callbacks['onCompleteLoad']) )
+							_this.settings.callbacks['onCompleteLoad'].call(_this, _this.settings.uploaderImg, id, name, res);
+					});
+				}
 
-				}.bind(this));
-
-			}else {
-
-				this.settings.imgCrop.attr('src', res.file_path);
-
-				methods.renderImageCrop.call(this, this.settings.imgCrop, function () {
-
-					methods.changeOptsCrop.call(this, {
-						imgSet: res.file_path,
-						minWidth: this.settings.configImg.minWidthImg,
-						minHeight: this.settings.configImg.minHeightImg,
-						imgWidth: res.file_width,
-						imgHeight: res.file_height
-					}, function () {
-						// emit callback
-						if( $.isFunction(this.settings.callbacks['onCompleteLoad']) )
-							this.settings.callbacks['onCompleteLoad'].call(this, this.settings.uploaderImg, id, name, res);
-					}.bind(this));
-
-				}.bind(this));
-			}
+				if( _this.settings.imgCrop.data('Jcrop') !== undefined && _this.jcrop_img ) {
+					_this.jcrop_img.setImage(res.file_path, function () {
+						finishCrop();
+					});
+				} else {
+					methods.renderImageCrop.call(_this, _this.settings.imgCrop, realW, realH, function () {
+						finishCrop();
+					});
+				}
+			};
+			img.src = res.file_path;
 
 			// Add values to the crop form
 			this.settings.formCrop.find('input#crop_type').val( 'name' );

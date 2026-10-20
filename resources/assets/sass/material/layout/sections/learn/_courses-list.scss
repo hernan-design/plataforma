@@ -53,7 +53,7 @@
             display: block;
             width: 100px;
             overflow: hidden;
-            @include border-radius($global-radius);
+            border-radius: $global-radius;
             height: 76px;
 
             > img {
@@ -65,7 +65,7 @@
               left: -100%;
               right: -100%;
               margin: 0 auto !important;
-              @include translate(0, 0);
+              transform: translate(0, 0);
             }
           }
 

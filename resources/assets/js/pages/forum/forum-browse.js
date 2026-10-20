@@ -1,10 +1,12 @@
 // resources/assets/js/pages/forum/forum-browse.js
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {
     LIST_ID as forumsListId,
     MORE_COMMENTED_LIST_ID as moreCommentedForumsListId,
-    SHALLOW_LIST_ID as shallowForumListId
+    SHALLOW_LIST_ID as shallowForumListId,
+    dynamicRecipes as dynamicRecipeForums
 } from '../../stores/forum';
 
 // app components
@@ -17,7 +19,13 @@ import LatestForums from '../../components/forum/static/latest-forums';
 
 let previousLocation = null;
 
-const ForumBrowse = ({ match, location, history, queryParams={} }) => {
+const ForumBrowse = ({ match, location, history, queryParams={}, categories=[] }) => {
+
+    React.useEffect(() => {
+        if(categories && categories.length) {
+            dynamicRecipeForums(categories);
+        }
+    }, [categories]);
 
     // set previousLocation if props.location is not modal
     if (
@@ -62,7 +70,8 @@ const ForumBrowse = ({ match, location, history, queryParams={} }) => {
                     <Switch location={isModal ? previousLocation : location}>
                         <Route path={`${match.url}/:category`} render={props => (
                             <ForumThemesList
-                                listId={forumsListId}
+                                key={props.match.params.category}
+                                listId={`${forumsListId}_${props.match.params.category}`}
                                 resetStates={true}
                                 filterData={{
                                     ...passFilterData,
@@ -70,7 +79,9 @@ const ForumBrowse = ({ match, location, history, queryParams={} }) => {
                                 }}
                             />
                         )} />
-                        <Route path={match.url} component={ForumCategoriesBrowse} />
+                        <Route path={match.url} render={() => (
+                            <ForumCategoriesBrowse filterData={passFilterData} />
+                        )} />
                     </Switch>
                 </div>
 
@@ -80,4 +91,8 @@ const ForumBrowse = ({ match, location, history, queryParams={} }) => {
     );
 }
 
-export default ForumBrowse
+const mapStateToProps = state => ({
+    categories: state.forum.categories
+});
+
+export default connect(mapStateToProps)(ForumBrowse);

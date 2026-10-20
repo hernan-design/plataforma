@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 use App\Institucion, App\RegistroSesion;
 
@@ -22,7 +21,39 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return redirect($this->redirectPath());
+    }
+
+    protected function guard()
+    {
+        return \Illuminate\Support\Facades\Auth::guard();
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        //
+    }
+
+    public function redirectPath()
+    {
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+    }
 
     /**
      * Where to redirect users after registration.

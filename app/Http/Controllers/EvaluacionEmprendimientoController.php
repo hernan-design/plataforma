@@ -509,6 +509,6 @@ class EvaluacionEmprendimientoController extends Controller
 		// Export pdf
 		$pdf = App::make('dompdf.wrapper');
 		$pdf->loadHTML(view('core.evaluator.terms', $data)->render());
-		return @$pdf->stream(sprintf('%s.pdf', str_slug($data['title'])));
+		return @$pdf->stream(sprintf('%s.pdf', \Illuminate\Support\Str::slug($data['title'])));
 	}
 }

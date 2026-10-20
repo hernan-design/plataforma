@@ -310,6 +310,13 @@ class Compensar
 	public static function subscription($request, Usuario $user) {
 		$response = new \stdClass();
 		$response->success = false;
+
+		// Bypass subscription check in local development
+		if (\App::environment('local')) {
+			$response->success = true;
+			return $response;
+		}
+
 		if(in_array($request->segment(2), ['aprende'])) {
 			$course = Curso::getCourseUrl($request->segment(4));
 			if($course->curso_gratis) {

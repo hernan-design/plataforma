@@ -31,7 +31,7 @@
 	.signin-button {
 		font-weight: 400;
 		padding: rem-calc(18 90);
-		@include border-radius(30px);
+		border-radius: 30px;
 		font-family: 'Ubuntu', sans-serif;
 		color: $white;
 		text-shadow: 2px 2px 0px rgba($black, 0.2);

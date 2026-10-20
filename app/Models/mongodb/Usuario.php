@@ -2,7 +2,7 @@
 
 namespace App\Models\mongodb;
 
-use Jenssegers\Mongodb\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 class Usuario extends Model
 {

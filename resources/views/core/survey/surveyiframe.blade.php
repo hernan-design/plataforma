@@ -7,7 +7,7 @@
 <head>
 	@include('public.meta')
 
-	<link rel="stylesheet" href="{{ elixir('css/vendor.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/vendor.min.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/application.css') }}">
 	{!! HTML::style('css/institution/'.App\RegistroSesion::getInstitutionSlug().'.css') !!}
 
@@ -79,14 +79,23 @@
 	{{-- js libraries --}}
 	<script>window.document.url = "{{ URL::to('/') }}";</script>
 	{{-- Libraries like: jQuery, foundation, underscore, backbone --}}
-	<script src="{{ elixir('js/vendor/vendor.min.js') }}"></script>
-	{{-- Components --}}
-	<script src="{{ elixir('js/component.js') }}"></script>
-	<script src="{{ elixir('js/app.min.js') }}"></script>
+	<script src="{{ asset('js/vendor/vendor.min.js') }}"></script>
+	@vite(['resources/assets/js/components/main.js'])
+	<script>
+		var checkGlobalize = setInterval(function() {
+			if (window.Globalize) {
+				clearInterval(checkGlobalize);
+				var script = document.createElement('script');
+				script.src = "{{ asset('js/app.min.js') }}";
+				document.body.appendChild(script);
+			}
+		}, 10);
+	</script>
+	@vite(['resources/assets/js/app-client.js'])
 
 	@if (Auth::check() && $app->environment('production'))
 		{{-- Realtime script --}}
-		<script src="{{ elixir('js/realtime.app.js') }}"></script>
+		<script src="{{ asset('js/realtime.app.js') }}"></script>
 	@endif
 
 	@if ($app->environment('production'))

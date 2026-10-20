@@ -70,7 +70,7 @@
 			@include background-image(linear-gradient(top, rgba($dinamiza-light-blue-color,1) 0%,rgba($dinamiza-dark-blue-color,1) 100%));
 			border: 0;
 			z-index: 5;
-			@include border-radius(8px);
+			border-radius: 8px;
 			text-shadow: 2px 2px 0px rgba($black, 0.2);
 			padding: rem-calc(20 70);
 			font-size: rem-calc(21);

@@ -17,7 +17,7 @@
 						&:first-child {
 							> a {
 								color: $jumbo;
-                @include border-radius(24px);
+                border-radius: 24px;
                 border-color: $sena-bright-orange-color !important;
                 text-transform: none;
                 letter-spacing: normal;

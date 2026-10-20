@@ -10,7 +10,7 @@ import { formatMessage } from '../../init-app';
 import { typeContent } from '../../helpers/redux-utils';
 import { getModule } from '../../helpers/states';
 import Misc from '../../helpers/misc';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import $ from 'jquery';
 
 // app components

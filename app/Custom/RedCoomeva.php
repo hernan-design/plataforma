@@ -2,7 +2,7 @@
 
 namespace Custom;
 
-use Artisaninweb\SoapWrapper\SoapWrapper;
+// use Artisaninweb\SoapWrapper\SoapWrapper;
 
 use TuProyecto, SendEmail, Log, AWS;
 
@@ -10,7 +10,7 @@ use App\Usuario, App\Institucion, App\Curso;
 
 class RedCoomeva
 {
-	public static function soapConsultarAsociadoVida(Usuario $user, SoapWrapper $soapWrapper)
+	public static function soapConsultarAsociadoVida(Usuario $user, $soapWrapper = null)
 	{
 		$context = stream_context_create([
 			// set some SSL/TLS specific options
@@ -40,7 +40,7 @@ class RedCoomeva
    	/**
 	 * Custom actions register user.
 	 */
-	public static function register(Usuario $user, SoapWrapper $soapWrapper)
+	public static function register(Usuario $user, $soapWrapper = null)
 	{
 		// Usuario institucion
 		$userinstitution = $user->institucion;
@@ -58,7 +58,7 @@ class RedCoomeva
 	/**
 	 * Verify account.
 	 */
-	public static function verifyaccount(Usuario $user, SoapWrapper $soapWrapper)
+	public static function verifyaccount(Usuario $user, $soapWrapper = null)
 	{
 		$response = new \stdClass();
 		$response->success = true;

@@ -38,12 +38,18 @@ class Adjunto extends Model {
 				$key = sprintf('%s/%s/%s/%s-%s', $type, 'users', Auth::user()->codigo_usuario, date('YmdHis'), $file_name);
 
 				// Upload file to S3
-				$result = $s3->putObject([
-			        'Bucket' =>  $bucket,
-			        'Key'    =>  $key,
-			        'Body'   =>  fopen($file_path, 'rb'),
-			        'ACL'    => 'public-read'
-			    ]);
+				if (env('APP_ENV') === 'local') {
+					$local_path = sprintf('temp/%s-%s', date('YmdHis'), $file_name);
+					copy($file_path, public_path($local_path));
+					$result = ['ObjectURL' => url($local_path)];
+				} else {
+					$result = $s3->putObject([
+						'Bucket' =>  $bucket,
+						'Key'    =>  $key,
+						'Body'   =>  fopen($file_path, 'rb'),
+						'ACL'    => 'public-read'
+					]);
+				}
 
    				$response = new \stdClass();
 				$response->success = true;

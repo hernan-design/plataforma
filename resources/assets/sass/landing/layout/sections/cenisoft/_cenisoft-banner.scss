@@ -12,7 +12,7 @@
       position: absolute;
       // margin-left: -960px;
       // margin-top: -540px;
-      @include translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       @media #{$mobile-only}, #{$small-only},#{$tablet-only}, #{$medium-only} {
       background: url(https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/landing/cenisoft/banner_principal_3.png);
       background-repeat: no-repeat;
@@ -74,7 +74,7 @@
             border: 0;
             text-transform: inherit;
             background-color: #0082CA; // Old browser
-            @include border-radius(15px);
+            border-radius: 15px;
             padding: rem-calc(8 20.8);
             font-size: rem-calc(32);
 

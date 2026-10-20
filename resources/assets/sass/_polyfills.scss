@@ -1,0 +1,296 @@
+// =============================================================================
+// _polyfills.scss — Compatibility shims for Compass & Foundation 5 mixins
+// =============================================================================
+
+// --- CSS3 Animations ---
+@mixin animation($args...) { animation: $args; }
+@mixin animation-name($args...) { animation-name: $args; }
+@mixin animation-fill-mode($args...) { animation-fill-mode: $args; }
+@mixin animation-duration($args...) { animation-duration: $args; }
+@mixin animation-timing-function($args...) { animation-timing-function: $args; }
+@mixin animation-delay($args...) { animation-delay: $args; }
+@mixin keyframes($name) { @keyframes #{$name} { @content; } }
+
+// --- CSS3 Transforms & 3D ---
+@mixin backface-visibility($args...) { backface-visibility: $args; }
+@mixin transform-style($args...) { transform-style: $args; }
+@mixin transform-origin($args...) { transform-origin: $args; }
+@mixin translate3d($x, $y, $z) { transform: translate3d($x, $y, $z); }
+@mixin scale($args...) { transform: scale($args); }
+
+// --- CSS3 Transitions ---
+@mixin transition-property($args...) { transition-property: $args; }
+@mixin transition-duration($args...) { transition-duration: $args; }
+@mixin transition-timing-function($args...) { transition-timing-function: $args; }
+@mixin transition-delay($args...) { transition-delay: $args; }
+@mixin single-transition($property: all, $speed: 300ms, $ease: ease) {
+  transition: $property $speed $ease;
+}
+
+// --- Border Radius Helpers ---
+@mixin border-top-radius($args...) { border-top-left-radius: $args; border-top-right-radius: $args; }
+@mixin border-bottom-radius($args...) { border-bottom-left-radius: $args; border-bottom-right-radius: $args; }
+@mixin border-left-radius($args...) { border-top-left-radius: $args; border-bottom-left-radius: $args; }
+@mixin border-right-radius($args...) { border-top-right-radius: $args; border-bottom-right-radius: $args; }
+@mixin border-top-left-radius($args...) { border-top-left-radius: $args; }
+@mixin border-top-right-radius($args...) { border-top-right-radius: $args; }
+@mixin border-bottom-left-radius($args...) { border-bottom-left-radius: $args; }
+@mixin border-bottom-right-radius($args...) { border-bottom-right-radius: $args; }
+@mixin side-radius($side, $radius) {
+  @if $side == top    { @include border-top-radius($radius); }
+  @if $side == bottom { @include border-bottom-radius($radius); }
+  @if $side == left   { @include border-left-radius($radius); }
+  @if $side == right  { @include border-right-radius($radius); }
+}
+@mixin radius($radius: 3px) { border-radius: $radius; }
+@mixin border-radius($args...) { @if length($args) > 0 { border-radius: $args; } }
+
+// --- Background & Gradients ---
+@mixin background-image($args...) { background-image: $args; }
+@mixin filter-gradient($from, $to, $orientation: vertical) { /* legacy IE - no-op */ }
+@mixin gradient-vertical($from: #fff, $to: #000) { background-image: linear-gradient(to bottom, $from, $to); }
+@mixin gradient-diagonal($from: #fff, $to: #000) { background-image: linear-gradient(135deg, $from, $to); }
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  #{$property}: $value;
+}
+
+// --- Flexbox ---
+@mixin flex-direction($args...) { flex-direction: $args; }
+
+// --- Form / Input Placeholder ---
+@mixin input-placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder           { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-ms-input-placeholder      { @content; }
+  &::placeholder               { @content; }
+}
+
+// --- Typography & Links ---
+@mixin hover-link { &:hover, &:focus { text-decoration: underline; } }
+@mixin link-colors($normal, $hover: null, $active: null, $visited: null, $focus: null) {
+  color: $normal;
+  @if $hover   { &:hover   { color: $hover;   } }
+  @if $active  { &:active  { color: $active;  } }
+  @if $visited { &:visited { color: $visited; } }
+  @if $focus   { &:focus   { color: $focus;   } }
+}
+@mixin selection($color, $bg) { ::selection { color: $color; background: $bg; } }
+
+// --- Utility ---
+@mixin clearfix {
+  &::before, &::after { content: ""; display: table; }
+  &::after { clear: both; }
+}
+@mixin element-invisible {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+@mixin element-invisible-off {
+  position: static;
+  width: auto; height: auto;
+  overflow: visible; clip: auto;
+}
+@mixin css-triangle($size, $color, $direction) {
+  width: 0; height: 0;
+  @if $direction == up    { border-left: $size solid transparent; border-right: $size solid transparent; border-bottom: $size solid $color; }
+  @if $direction == down  { border-left: $size solid transparent; border-right: $size solid transparent; border-top: $size solid $color; }
+  @if $direction == left  { border-top: $size solid transparent; border-bottom: $size solid transparent; border-right: $size solid $color; }
+  @if $direction == right { border-top: $size solid transparent; border-bottom: $size solid transparent; border-left: $size solid $color; }
+}
+
+// --- Font Face ---
+@mixin font-face($name, $path, $weight: normal, $style: normal, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+  $formats: (eot:"embedded-opentype", woff2:"woff2", woff:"woff", ttf:"truetype", svg:"svg");
+  @each $ext in $exts {
+    $format: map-get($formats, $ext);
+    $src: append($src, url("#{$path}.#{$ext}") format("#{$format}"), comma);
+  }
+  @font-face { font-family: $name; font-style: $style; font-weight: $weight; src: $src; }
+}
+@mixin fa-icon() {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// --- Foundation 5 Modal / Reveal Shims ---
+@mixin reveal-modal-base($base-style: true, $width: 50%) {
+  @if $base-style {
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    z-index: 1005;
+    display: none;
+    padding: 1.25rem;
+    border: solid 1px #aaa;
+    background-color: #fff;
+  }
+  width: $width;
+  max-width: 100%;
+}
+@mixin reveal-modal-style(
+  $bg: #fff, $padding: 1.25rem, $border: solid 1px #aaa,
+  $box-shadow: null, $top-offset: 50px, $radius: false
+) {
+  background-color: $bg;
+  @if $padding  != false { padding: $padding; }
+  @if $border   != false { border: $border; }
+  @if $radius   == true  { border-radius: 3px; }
+  @if $radius   != false and $radius != true { border-radius: $radius; }
+  @if $box-shadow { box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+  top: $top-offset;
+}
+@mixin reveal-bg($include-z-index: true) {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,.45);
+  @if $include-z-index { z-index: 1004; }
+}
+@mixin reveal-close($color: #aaa) {
+  position: absolute; top: .5rem; right: 1rem;
+  font-size: 2rem; color: $color; cursor: pointer; line-height: 1;
+}
+
+// --- Foundation 5 Component Shims ---
+@mixin accordion-container() { margin: 0; padding: 0; list-style: none; }
+@mixin accordion-navigation() { display: block; }
+@mixin accordion-content($bg: #fff) { display: none; padding: 1rem; background: $bg; }
+
+@mixin panel($bg: #f5f5f5, $padding: 1.25rem, $adjust: true) {
+  background: $bg; padding: $padding; border: 1px solid darken($bg, 10%);
+}
+@mixin panel-base() { margin-bottom: 1.25rem; }
+
+@mixin label($padding: .25rem .5rem, $text-size: 11px, $bg: #2ba6cb, $radius: false) {
+  display: inline-block; padding: $padding; font-size: $text-size; background-color: $bg;
+  @if $radius { border-radius: 3px; }
+}
+
+@mixin alert($bg: #2ba6cb, $radius: false) {
+  background-color: $bg; padding: .75rem 1.25rem;
+  @if $radius { border-radius: 3px; }
+}
+@mixin alert-close() { float: right; font-weight: bold; cursor: pointer; }
+@mixin alert-style($bg: #2ba6cb) { background-color: $bg; }
+
+@mixin side-nav($divider-size: 1px, $divider-style: solid, $divider-color: #ddd, $link-color: #555) {
+  list-style: none; margin: 0; padding: 0;
+  li { margin: 0; }
+  a { display: block; padding: .25rem 0; color: $link-color; }
+  li.divider { border-top: $divider-size $divider-style $divider-color; }
+}
+
+@mixin sub-nav($font-color: #999, $font-size: 14px, $active-font-color: #222) {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; align-items: center;
+  li { margin-right: 1rem; font-size: $font-size; color: $font-color; }
+  li.active a, li.active { color: $active-font-color; }
+}
+
+@mixin dropdown-container($content: list, $triangle: true, $max-width: 200px) {
+  position: absolute; z-index: 89; background: #fff; border: 1px solid #ccc;
+  max-width: $max-width; list-style: none; margin: 0; padding: 0;
+}
+@mixin dropdown-style($bg: #fff, $hover-bg: #eee, $divider-color: #eee) {
+  li { background: $bg; }
+  li a { display: block; padding: .5rem 1rem; color: #555; }
+  li:hover a { background: $hover-bg; }
+  li.divider { border-top: 1px solid $divider-color; }
+}
+
+@mixin progress-container($bg: #f6f6f6, $height: 25px, $radius: false) {
+  background-color: $bg; height: $height; overflow: hidden;
+  @if $radius { border-radius: 3px; }
+}
+@mixin progress-meter($bg: #2ba6cb) { background: $bg; height: 100%; }
+
+@mixin button-base($style: true, $display: inline-block) {
+  display: $display; cursor: pointer; font-weight: normal; line-height: normal;
+  text-decoration: none; text-align: center;
+}
+@mixin button-size($padding: null, $full-width: false, $font-size: 1rem) {
+  @if $padding { padding: $padding; }
+  font-size: $font-size;
+  @if $full-width { width: 100%; }
+}
+@mixin button-style($bg: #2ba6cb, $radius: false, $disabled: false) {
+  background-color: $bg;
+  @if $radius { border-radius: 3px; }
+  &:hover { background-color: darken($bg, 8%); }
+}
+
+// --- Grid / Layout ---
+@mixin grid-row($behavior: nest-collapse) { width: 100%; }
+@mixin grid-html-classes($include-xl: false) { }
+@mixin grid-greater-than-other() { }
+@mixin block-grid-html-classes($include-xl: false) { }
+@mixin align-classes() { }
+@mixin another-visibility-loop() { }
+@mixin base-list-grid($padding: 1rem) { list-style: none; margin: 0; padding: 0; }
+
+// --- Project-specific custom mixins ---
+@mixin redefine-padding-gb($padding: 0) { padding: $padding; }
+@mixin margin-item-bottom($margin: 1rem) { margin-bottom: $margin; }
+@mixin margin-item-top($margin: 1rem) { margin-top: $margin; }
+@mixin margin-top-module-menu($margin: 1rem) { margin-top: $margin; }
+@mixin btn-sub-nav-default() { }
+@mixin browse-item-base() { display: block; }
+@mixin browse-list-base() { list-style: none; margin: 0; padding: 0; }
+@mixin icon-circle($size: 40px, $bg: #ccc, $font-size: null, $padding: null, $color: null, $bgcolor: null, $sizes-custom: false) {
+  width: $size; height: $size; border-radius: 50%;
+  background: if($bgcolor, $bgcolor, $bg);
+  @if $color { color: $color; }
+  @if $padding { padding: $padding; }
+  @if $font-size { font-size: $font-size; }
+  display: inline-flex; align-items: center; justify-content: center;
+}
+@mixin form-error-message($bg: #f04124) {
+  display: block; padding: .375rem .5625rem .5625rem; margin-top: -1px;
+  background: $bg; font-size: .75rem; font-weight: bold; color: #fff;
+}
+@mixin editor-post() { }
+
+
+@mixin backface-visibility($args...) { backface-visibility: $args; }
+
+
+@mixin transform-style($args...) { transform-style: $args; }
+
+
+@mixin transition-property($args...) { transition-property: $args; }
+@mixin transition-duration($args...) { transition-duration: $args; }
+@mixin transition-timing-function($args...) { transition-timing-function: $args; }
+@mixin transition-delay($args...) { transition-delay: $args; }
+
+
+@mixin transform-origin($args...) { transform-origin: $args; }
+
+
+@mixin border-top-radius($args...) { border-top-left-radius: $args; border-top-right-radius: $args; }
+@mixin border-bottom-radius($args...) { border-bottom-left-radius: $args; border-bottom-right-radius: $args; }
+@mixin border-left-radius($args...) { border-top-left-radius: $args; border-bottom-left-radius: $args; }
+@mixin border-right-radius($args...) { border-top-right-radius: $args; border-bottom-right-radius: $args; }
+@mixin border-top-left-radius($args...) { border-top-left-radius: $args; }
+@mixin border-top-right-radius($args...) { border-top-right-radius: $args; }
+@mixin border-bottom-left-radius($args...) { border-bottom-left-radius: $args; }
+@mixin border-bottom-right-radius($args...) { border-bottom-right-radius: $args; }
+
+
+@mixin background-image($args...) { background-image: $args; }
+
+
+@mixin flex-direction($args...) { flex-direction: $args; }
+
+
+@mixin input-placeholder { &::-webkit-input-placeholder { @content; } &:-moz-placeholder { @content; } &::-moz-placeholder { @content; } &:-ms-input-placeholder { @content; } }
+

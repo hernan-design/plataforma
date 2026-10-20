@@ -6,7 +6,7 @@
 <head>
 	@include('public.meta')
 
-	<link rel="stylesheet" href="{{ elixir('css/vendor.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/vendor.min.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/application.css') }}">
 	{!! HTML::style('css/institution/'.App\RegistroSesion::getInstitutionSlug().'.css') !!}
 
@@ -64,12 +64,90 @@
 	{{-- Js libraries --}}
 	<script>window.document.url = "{{ URL::to('/') }}";</script>
 	{{-- Libraries like: jQuery, foundation --}}
-	<script src="{{ elixir('js/vendor/third-party.js') }}"></script>
-	<script src="{{ elixir('js/bundle.js') }}"></script>
+	<script src="{{ asset('js/vendor/vendor.min.js') }}"></script>
+	<style>
+		.top-bar-section li.has-dropdown,
+		.tab-bar li.has-dropdown {
+			position: relative !important;
+		}
+		.notification-layer-dropdown {
+			display: none;
+		}
+		.notification-layer-dropdown.open {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			position: absolute !important;
+			top: 100% !important;
+			right: 0 !important;
+			left: auto !important;
+			background: #ffffff !important;
+			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
+			border: 1px solid #e0e0e0 !important;
+			border-radius: 4px !important;
+			z-index: 99999 !important;
+		}
+		#user-opt-menu.open {
+			min-width: 200px !important;
+			width: auto !important;
+		}
+		.content-notifications.open {
+			width: 420px !important;
+			max-width: 90vw !important;
+		}
+	</style>
+	<script>
+		$(document).ready(function() {
+			if (window.jQuery && typeof window.jQuery.fn.foundation === 'function') {
+				try { $(document).foundation(); } catch(e) {}
+			}
+
+			// Robust dropdown handler for header & notification dropdowns
+			$(document).on('click', '[data-dropdown]', function(e) {
+				var dropdownId = $(this).attr('data-dropdown');
+				var $li = $(this).closest('li.has-dropdown');
+				var $dropdown = $li.length ? $li.find('#' + dropdownId) : $('#' + dropdownId);
+				if (!$dropdown.length) $dropdown = $('#' + dropdownId);
+				if (!$dropdown.length) return;
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				var isOpen = $dropdown.hasClass('open') && $dropdown.is(':visible');
+				$('.notification-layer-dropdown, [data-dropdown-content]').removeClass('open').hide();
+				$('[data-dropdown]').removeClass('open');
+
+				if (!isOpen) {
+					$(this).addClass('open');
+					$dropdown.addClass('open').show();
+				}
+			});
+
+			// Close dropdowns on outside click
+			$(document).on('click', function(e) {
+				if (!$(e.target).closest('[data-dropdown], [data-dropdown-content], .notification-layer-dropdown').length) {
+					$('.notification-layer-dropdown, [data-dropdown-content]').removeClass('open').hide();
+					$('[data-dropdown]').removeClass('open');
+				}
+			});
+		});
+	</script>
+	@vite(['resources/assets/js/components/main.js'])
+	<script>
+		var checkGlobalize = setInterval(function() {
+			if (window.Globalize) {
+				clearInterval(checkGlobalize);
+				var script = document.createElement('script');
+				script.src = "{{ asset('js/app.min.js') }}";
+				document.body.appendChild(script);
+			}
+		}, 10);
+	</script>
+	@vite(['resources/assets/js/app-client.js'])
 
 	 @if (Auth::check() && $app->environment('production'))
 		{{-- Realtime script --}}
-		<script src="{{ elixir('js/realtime.app.js') }}"></script>
+		<script src="{{ asset('js/realtime.app.js') }}"></script>
 	 @endif
 
 	@if ($app->environment('production'))

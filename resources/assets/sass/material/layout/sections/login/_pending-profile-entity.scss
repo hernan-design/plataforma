@@ -50,7 +50,7 @@
 		.image-profile-entity {
 			width: 100%;
 			border: 2px solid $white;
-			@include box-shadow(0px 0px 20px rgba($black, .7));
+			box-shadow: 0px 0px 20px rgba($black, .7);
 			position: absolute;
 			top: auto;
 			left: rem-calc(10);

@@ -14,10 +14,10 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Algolia
-        Commands\Algolia\AlgoliaSync::class,
-        Commands\Algolia\AlgoliaSyncItem::class,
-        Commands\Algolia\AlgoliaDesync::class,
-        Commands\Algolia\AlgoliaDesyncItem::class,
+        // Commands\Algolia\AlgoliaSync::class,
+        // Commands\Algolia\AlgoliaSyncItem::class,
+        // Commands\Algolia\AlgoliaDesync::class,
+        // Commands\Algolia\AlgoliaDesyncItem::class,
 
         // GoogleApi
 		Commands\GoogleApi\MakeCalendarConference::class,

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TagsInput from 'react-tagsinput';
 import Autosuggest from 'react-autosuggest';
 import Misc from '../../helpers/misc';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import axios, { CancelToken } from 'axios';
 
 // if (typeof window !== 'undefined') {

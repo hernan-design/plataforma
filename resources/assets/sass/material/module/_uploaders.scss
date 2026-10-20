@@ -38,8 +38,8 @@
 			width: 100%;
 			height: 100%;
 			background-color: transparentize($black, .4);
-			@include opacity(0);
-			@include transition( all 0.3s ease );
+			opacity: 0;
+			transition:  all 0.3s ease ;
 		}
 
 		> i {
@@ -52,8 +52,8 @@
 				top: -0.5em;
 				left: -0.5em;
 			}
-			@include opacity(0);
-			@include transition( all 0.3s ease );
+			opacity: 0;
+			transition:  all 0.3s ease ;
 		}
 	}
 
@@ -62,11 +62,11 @@
 			color: $white;
 
 			&:before {
-				@include opacity(1);
+				opacity: 1;
 			}
 
 			> i {
-				@include opacity(1);
+				opacity: 1;
 			}
 		}
 	}
@@ -83,7 +83,7 @@
 			top: 0;
 			left: 0;
 			z-index: 0;
-			@include opacity(0);
+			opacity: 0;
 
 			li{
 				list-style: none none outside;
@@ -118,7 +118,7 @@
 			top: 0;
 			left: 0;
 			z-index: 0;
-			@include opacity(0);
+			opacity: 0;
 			li{
 				list-style: none none outside;
 			}
@@ -138,12 +138,12 @@
 			}
 		}
 		.qq-upload-drop-area-selector{
-			@include opacity(0);
+			opacity: 0;
 			z-index: 0;
 			&.qq-upload-drop-area-active{
 				background: transparent;
 				border: none;
-				@include border-radius(0px);
+				border-radius: 0px;
 			}
 		}
 
@@ -186,7 +186,7 @@
 		max-height: rem-calc(800);
 		overflow: visible;
 		background-color: scale-color($white, $lightness: -1%);
-		@include border-radius($global-radius);
+		border-radius: $global-radius;
 
 		&:before {
 			content: attr(qq-drop-area-text) " ";
@@ -196,7 +196,7 @@
 			width: 100%;
 			text-align: center;
 			top: 45%;
-			@include opacity(.25);
+			opacity: .25;
 		}
 
 		// Styles for progess bar
@@ -213,7 +213,7 @@
 			background: $sky-blue;
 			height: 18px;
 			margin: 0;
-			@include border-radius(0px);
+			border-radius: 0px;
 		}
 
 		.qq-upload-file {
@@ -223,7 +223,7 @@
 		.qq-edit-filename {
 			display: inline-block;
 			width: rem-calc(250);
-			// @include transition(none);
+			// transition: none;
 
 			&.qq-editing {
 			}
@@ -353,7 +353,7 @@
 		background: transparent;
 		vertical-align: middle;
     border: none;
-    @include box-shadow(none);
+    box-shadow: none;
 
     &:hover, &:focus {
     	background-color: transparent;

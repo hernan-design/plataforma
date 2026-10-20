@@ -53,7 +53,7 @@
 
 					.light-text{
 						color: inherit !important;
-						@include opacity(.3);
+						opacity: .3;
 					}
 
 					@media #{$mobile-only}, #{$small-only} {
@@ -90,7 +90,7 @@
 				bottom: 0;
 				left: rem-calc(16);
 			}
-			@include transition(all 0.3s ease 0s);
+			transition: all 0.3s ease 0s;
 
 			.desc-overlay-image{
 				position: relative;
@@ -108,7 +108,7 @@
 					}
 					text-transform: uppercase;
 				}
-				@include transition(all 0.5s ease 0s);
+				transition: all 0.5s ease 0s;
 			}
 			ul.list-icon-overlay{
 				position: absolute;
@@ -132,7 +132,7 @@
 						}
 					}
 				}
-				@include transition(all 0.5s ease 0s);
+				transition: all 0.5s ease 0s;
 			}
 		}
 
@@ -259,7 +259,7 @@
 					background-color: #00ACEE;
 				}
 				&:hover {
-					@include box-shadow(0px 0px 25px 2px rgba($tuatara,.3) inset );
+					box-shadow: 0px 0px 25px 2px rgba($tuatara,.3) inset ;
 				}
 
 				> i.fa{

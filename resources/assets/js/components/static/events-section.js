@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import tabulateByState from '../decorators/tabulateByState';
 import { Link, withRouter } from 'react-router-dom';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import { actionCreators } from '../../stores/event';
 import NoSSR from 'react-no-ssr';
 import Misc from '../../helpers/misc';
@@ -66,7 +66,7 @@ class EventsSection extends Component {
         this.previousLocation = props.location;
     }
 
-    componentWillUpdate(nextProps) {
+    UNSAFE_componentWillUpdate(nextProps) {
         const { location } = this.props;
 
         // set previousLocation if props.location is not modal

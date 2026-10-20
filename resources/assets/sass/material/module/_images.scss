@@ -23,7 +23,7 @@ img {
 		$count-size: $count-size + 5;
 	}
 
-	&.radius-img { @include border-radius($global-radius !important);	}
+	&.radius-img { border-radius: $global-radius !important;	}
 
 	&.radius-top-img { @include side-radius(top); }
 
@@ -34,7 +34,7 @@ img {
 	&.radius-left-img { @include side-radius(left); }
 
 	&.rounded-img {
-		@include border-radius(50% !important);
+		border-radius: 50% !important;
 	}
 }
 
@@ -52,7 +52,7 @@ img {
 	width: rem-calc(140);
 	height: rem-calc(140);
 	border: 2px solid $white;
-	@include box-shadow(2px 2px 20px rgba($black, .7));
+	box-shadow: 2px 2px 20px rgba($black, .7);
 	position: absolute;
 	top: auto;
 	left: rem-calc(25);
@@ -112,17 +112,17 @@ img.no-image {
 // -----------------------
 .rounded-thumb {
 	display: inline-block;
-	@include border-radius(50%);
+	border-radius: 50%;
 	margin-right: rem-calc(8);
 
 	&:not(.no-outline) {
 		border: 2px solid $white;
-		@include box-shadow(2px 2px 10px rgba($black, .3));
+		box-shadow: 2px 2px 10px rgba($black, .3);
 	}
 
 	img {
 		width: rem-calc(50);
 		height: rem-calc(50);
-		@include border-radius(50%);
+		border-radius: 50%;
 	}
 }

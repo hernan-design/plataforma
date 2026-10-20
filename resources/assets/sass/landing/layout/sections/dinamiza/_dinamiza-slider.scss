@@ -50,7 +50,7 @@
 			background-color: $dinamiza-light-blue-color; // Old browsers
 			@include filter-gradient($dinamiza-light-blue-color, $dinamiza-dark-blue-color, vertical);
 			@include background-image(linear-gradient(top, rgba($dinamiza-light-blue-color,1) 0%,rgba($dinamiza-dark-blue-color,1) 100%));
-			@include border-radius(8px);
+			border-radius: 8px;
 
 			padding: rem-calc(20 90);
 			font-size: rem-calc(21);
@@ -79,7 +79,7 @@
 	    position: absolute;
 	    // margin-left: -960px;
 	    // margin-top: -540px;
-			@include translate(-50%, -50%);
+			transform: translate(-50%, -50%);
 		}
 
 		.slick-slider-dinamiza {
@@ -196,7 +196,7 @@
 						button {
 							background-color: $white;
 							border: 0;
-							@include box-shadow( 0px 0px 14px $white);
+							box-shadow:  0px 0px 14px $white;
 						}
 					}
 				}

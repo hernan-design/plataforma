@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Classes;
+
 use Illuminate\Support\Facades\Mail;
 
 use App\Institucion, App\RegistroSesion;
@@ -49,7 +51,9 @@ class SendEmail {
 
 		// Meta tags
 		$meta_tags = Institucion::getMetaTags($institution->codigo_institucion);
-		$data['_inst_url'] = $institution->url_institucion ? $institution->url_institucion : config('tuproyecto.url');
+		$inst_url = $institution->url_institucion ? $institution->url_institucion : config('tuproyecto.url');
+		// En entorno local usar APP_URL para que los links apunten a localhost
+		$data['_inst_url'] = app()->isLocal() ? config('app.url') : $inst_url;
 
 		Mail::send($data['_template'], $data, function($message) use($data, $institution) {
  			$message->from(($institution->correo_envio_notificaciones ? $institution->correo_envio_notificaciones : config('tuproyecto.noreply')), $data['_inst_name']);

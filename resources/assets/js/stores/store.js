@@ -9,35 +9,34 @@ import { initializeStore, middleware as paginateMiddleware } from '@orange-marma
 //
 // Variables
 //
-let useStore = null;
 // compose
 const composeEnhancers = composeWithDevTools({});
 
 // define middlewares to pass when to create the store of redux
 const middlewares = [thunkMiddleware, apiMiddleware];
 
-//
-// Functions
-//
-export function attachReducers(newReducers = {}) {
-    useStore.attachReducers(newReducers);
-}
+import { setStore } from './store-registry';
+
+// compose
 const mainMiddleware = midds => applyMiddleware.apply(null, midds);
 
-if( process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' ) {
-    middlewares.push(paginateMiddleware.spill);
-}
+// Do not use paginateMiddleware.spill as it crashes with undefined.toJS() on dynamic sub-reducers
+// if( process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' ) {
+//     middlewares.push(paginateMiddleware.spill);
+// }
+
+import * as reducers from './index';
 
 //
 // Reducers
 //
 export default function factoryStore(preloadedState) {
-    const reducers = require('./');
     const rootReducer = combineReducers(reducers);
 
-    const store = useStore = createStore( rootReducer, preloadedState, composeEnhancers(
+    const store = createStore( rootReducer, preloadedState, composeEnhancers(
         mainMiddleware(middlewares)
     ));
+    setStore(store);
 
     initializeStore(store);
 

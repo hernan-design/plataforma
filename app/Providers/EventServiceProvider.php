@@ -36,8 +36,8 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-		Like::observe(new LikeObserver);
-		DiscusionInstitucion::observe(new DiscusionObserver);
-		ComentarioDiscusion::observe(new ComentarioDiscusionObserver);
+		// Like::observe(new LikeObserver);
+		// DiscusionInstitucion::observe(new DiscusionObserver);
+		// ComentarioDiscusion::observe(new ComentarioDiscusionObserver);
     }
 }

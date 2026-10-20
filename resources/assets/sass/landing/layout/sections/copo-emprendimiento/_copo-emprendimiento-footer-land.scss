@@ -55,7 +55,7 @@
 					}
 
 					a {
-						@include opacity(.4);
+						opacity: .4;
 						background-color: transparent;
 
 						&:hover {
@@ -65,7 +65,7 @@
 						}
 
 						&:hover{
-							@include opacity(1);
+							opacity: 1;
 						}
 					}
 				}

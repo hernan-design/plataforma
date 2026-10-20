@@ -66,7 +66,7 @@
 		}
 
 		.collapsible {
-			@include box-shadow(none);
+			box-shadow: none;
 			border: 0;
 
 			.collapsible-body {
@@ -92,7 +92,7 @@
     			padding-right: rem-calc(63);
     			padding-bottom: rem-calc(13);
     			margin-bottom: rem-calc(10);
-					@include border-radius($global-radius);
+					border-radius: $global-radius;
 
 					@media #{$tablet-only}, #{$medium-only} {
 						font-size: rem-calc(14);
@@ -106,21 +106,21 @@
 						position: absolute;
 					  right: 0;
 					  top:0;
-					  @include transition(all ease-in 300ms);
+					  transition: all ease-in 300ms;
 					}
 				}
 
 				&.active {
 					padding-bottom: rem-calc(15);
 					background-color: $gray-light;
-					@include border-radius($global-radius);
+					border-radius: $global-radius;
 
 					.collapsible-header {
 						color: $copo-bright-blue-color;
 
 						> i {
 							color: $copo-bright-blue-color;
-					    @include transform(rotate(180deg));
+					    transform: rotate(180deg);
 						}
 					}
 				}

@@ -35,7 +35,7 @@
 			background-color: transparent;
 			color: $gray-base;
 			padding: rem-calc(20 0);
-			@include border-radius($global-radius);
+			border-radius: $global-radius;
 			border: 1px solid $gray-light-alt;
 
 			> span {

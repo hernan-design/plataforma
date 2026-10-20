@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Misc from '../../helpers/misc';
 import { thumbs } from '../../helpers/states';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import { decorators } from '@orange-marmalade/paginate-this';
 
 const UserLikes = ({ record }) => (

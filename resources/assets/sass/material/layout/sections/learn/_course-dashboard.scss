@@ -30,7 +30,7 @@
 			background-color: $white;
 
 			> li {
-				@extend .vtop;
+				/*  @extend .vtop;  */
 			}
 		}
     ul.nav-interactive{
@@ -74,7 +74,7 @@
 			padding: {
 				top: rem-calc(41.6);
 			}
-			@include box-shadow(none);
+			box-shadow: none;
 			border: none;
 		}
 		// unsubscribe panel
@@ -82,7 +82,7 @@
 			margin: {
 				top: rem-calc(20);
 			}
-			@include box-shadow(none);
+			box-shadow: none;
 			border: none;
 
 			.on-unsubscribe-course {

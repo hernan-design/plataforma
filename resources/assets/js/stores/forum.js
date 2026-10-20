@@ -32,14 +32,18 @@ export const MORE_COMMENTED_LIST_ID = 'recipeMoreCommentedForums';
  */
 export const dynamicRecipes = composeDynamicReducers({
     location: 'forumRecipes',
-    nameReducer: (c) => `${LIST_ID}_${c.urlCategoriaForo}`,
+    nameReducer: (c) => `${LIST_ID}_${c.urlCategoriaForo || c.url_categoria_foro}`,
     createReducer: (c, { dynamicName, location, ...restConfig }) => {
+        const catUrl = c.urlCategoriaForo || c.url_categoria_foro;
         return createPaginator({
             listId: dynamicName,
-            locator: state => getProp(state, location)[dynamicName],
+            locator: state => (getProp(state, location) || {})[dynamicName],
             initialSettings: {
                 // initialized: true,
-                pageSize: 5
+                pageSize: 5,
+                filters: {
+                    url_categoria_foro: catUrl
+                }
             },
             pageParams: {
                 endpoint: params => laroute.route('api.foro.index', params),
@@ -258,7 +262,6 @@ export const actionCreators = {
 export const recipeForums = createPaginator({
     listId: LIST_ID,
     initialSettings: {
-        initialized:true,
         pageSize: 20
     },
     pageParams: {

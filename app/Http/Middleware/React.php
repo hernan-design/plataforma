@@ -132,8 +132,11 @@ class React
 			if ($this->isJson($content)) {
 				$content = json_decode($content);
 			}
-		} catch (Exception $e) {
-			$content = null;
+		} catch (\Exception $e) {
+			$content = (object)[
+				'content' => null,
+				'preloadedState' => json_encode($data)
+			];
 		}
 		return $content;
 	}
@@ -145,8 +148,8 @@ class React
 	 */
 	protected function getCompilerUrl()
 	{
-		$host = $this->config->get('react.host', 'localhost');
-		$port = $this->config->get('react.port', 3001);
+		$host = $this->config->get('react.host', env('REACT_HOST', 'http://127.0.0.1'));
+		$port = $this->config->get('react.port', env('REACT_PORT', 8443));
 		$path = $this->path;
 		if ($path and substr($path, 0, 1) !== '/') {
 			$path = '/' . $path;

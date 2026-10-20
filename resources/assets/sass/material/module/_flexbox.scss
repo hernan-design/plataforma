@@ -5,31 +5,22 @@
 
 .fx-main-content {
 	width: 100%;
-	@include flexbox((
-		display: box,
-		box-orient: vertical
-	), $version: 1);
-	@include flexbox((
-		display: flexbox,
-		flex-direction: row
-	), $version: 2);
-	@include flexbox((
-		display: flex,
-		flex-direction: row
-	));
-	@include flex-flow(row wrap);
-	@include align-items(stretch);
-	@include justify-content(flex-end);
+	display: flex;
+	flex-direction: row;
+	
+	flex-flow: row wrap;
+	align-items: stretch;
+	justify-content: flex-end;
 
 	.fx-col-left, .fx-col-right {
 		// min-width: rem-calc(240);
 		background-color: transparent;
-		@include flex(0 1 auto);
+		flex: 0 1 auto;
 		z-index: 3;
 	}
 
 	.fx-col-left {
-		@include transition(margin-left 250ms ease);
+		transition: margin-left 250ms ease;
 		will-change: margin-left;
 
 		&.is-hide {
@@ -40,7 +31,7 @@
 	}
 
 	.fx-col-right {
-		@include transition(margin-right 250ms ease);
+		transition: margin-right 250ms ease;
 
 		&.is-hide {
 			margin: {
@@ -53,7 +44,7 @@
 		min-width: 1px;
 		max-width: 100%;
 		width: 1px;
-		@include flex(1 0 auto);
+		flex: 1 0 auto;
 	}
 
 	// icon arrow side
@@ -89,11 +80,11 @@
 	}
 
 	.hide-fx-left-btn {
-		@include transition(right .3s linear);
+		transition: right .3s linear;
 		&.on {
 			right: rem-calc(-40);
 			padding-right: rem-calc(35);
-			@include box-shadow($box-shadow-item);
+			box-shadow: $box-shadow-item;
 
 			.side-nav-arrow {
 				&:before{
@@ -112,10 +103,10 @@
 	}
 
 	.hide-fx-right-btn {
-		@include transition(left .3s linear);
+		transition: left .3s linear;
 		&.on {
 			left: rem-calc(-40);
-			@include box-shadow($box-shadow-item);
+			box-shadow: $box-shadow-item;
 
 			.side-nav-arrow {
 				&:before{

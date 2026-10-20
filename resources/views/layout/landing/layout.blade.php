@@ -65,10 +65,15 @@
 		@include('public.modalbase')
 
 		{{-- js libraries --}}
-	    <script>window.document.url = "{{ URL::to('/') }}";</script>
+	    <script>
+			window.document.url = "{{ URL::to('/') }}";
+			window.global = window;
+			window.process = { env: { NODE_ENV: 'production' } };
+		</script>
 		{{-- Libraries so: jQuery, underscore, backbone --}}
 		<script src="{{ elixir('js/vendor/vendor-landing.min.js') }}"></script>
-		<script src="{{ elixir('js/landing.min.js') }}"></script>
+		<script src="{{ asset('js/landing.min.js') }}"></script>
+		@vite(['resources/assets/js/components/main.js'])
 
 		@if (Auth::check() && $app->environment('production'))
 			{{-- Realtime script --}}

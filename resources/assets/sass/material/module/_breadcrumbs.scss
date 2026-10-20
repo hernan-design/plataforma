@@ -32,7 +32,7 @@
 				border-left: 8px solid $crumb-slash-color;
 				border-top: 14px solid transparent;
 				border-bottom: 14px solid transparent;
-   			@include box-shadow( -6px 0px 0px $crumb-slash-color );
+   			box-shadow:  -6px 0px 0px $crumb-slash-color ;
 			}
 		}
 
@@ -48,7 +48,7 @@
 			right: -8px;
 			top: 0px;
 			z-index: 2;
-			@include box-shadow( -4px 0px 0px $white );
+			box-shadow:  -4px 0px 0px $white ;
 		}
 
 		a {
@@ -70,7 +70,7 @@
 				color: $crumb-font-color-current;
 			}
 
-			@include box-shadow( 1px 2px 5px rgba($black,.2) );
+			box-shadow:  1px 2px 5px rgba($black,.2) ;
 		}
 
 		&.unavailable {

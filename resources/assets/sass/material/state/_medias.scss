@@ -78,7 +78,7 @@
 							width: 100%;
 							float: left;
 							height: 100%;
-							@include flex-direction(row);
+							flex-direction: row;
 						}
 					}
 
@@ -89,7 +89,7 @@
 							width: 100%;
 							float: left;
 							height: 100%;
-							@include flex-direction(row);
+							flex-direction: row;
 						}
 					}
 				}
@@ -179,7 +179,7 @@
 	// border radius tablet up
 
 	.radius-tablet-up {
-		@include border-radius($global-radius);
+		border-radius: $global-radius;
 	}
 }
 @media #{$tablet-only} {

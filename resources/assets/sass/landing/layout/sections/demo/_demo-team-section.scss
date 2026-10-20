@@ -6,13 +6,13 @@
 
 		.demo-team-member-box {
 			padding: rem-calc(20);
-			@include box-shadow(none);
-			@include border-radius($global-radius);
+			box-shadow: none;
+			border-radius: $global-radius;
 
 			&:hover {
 				background-color: $white;
-				@include box-shadow($box-shadow-item);
-				@include transition($box-transition-item);
+				box-shadow: $box-shadow-item;
+				transition: $box-transition-item;
 			}
 
 			.demo-team-member-img {

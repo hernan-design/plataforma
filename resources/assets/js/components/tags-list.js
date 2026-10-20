@@ -1,7 +1,7 @@
 // resources/assets/js/components/tags-list.js
 import React from 'react';
 
-const TagsList = ({ tags, className }) => (
+const TagsList = ({ tags = '', className = '' }) => (
     <ul className={`tags-icon-list ${className}`}>
         { tags &&
             tags.split(',').map((tag, indx) => (
@@ -11,9 +11,4 @@ const TagsList = ({ tags, className }) => (
     </ul>
 );
 
-TagsList.defaultProps = {
-    className: '',
-    tags: ''
-};
-
-export default TagsList
+export default TagsList;

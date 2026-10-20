@@ -5,7 +5,8 @@
 */
 
 //Global App Backbone
-app || (app = {});
+window.app = window.app || {};
+var app = window.app;
 
 (function ($, window, document, undefined) {
 
@@ -13,7 +14,6 @@ app || (app = {});
 
 		el: 'body',
 		events:{
-			'submit #form-new-account': 'onValidateRegister',
 			// 'blur #fld-email-register': 'onValidateEmailRegister',
 			// 'blur #correo_electronico': 'onValidateEmailLogin'
 		},

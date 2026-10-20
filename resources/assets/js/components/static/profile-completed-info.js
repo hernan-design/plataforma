@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Misc from '../../helpers/misc';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 
 const ProfileCompletedInfo = ({ ownerData }) => {
 

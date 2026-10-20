@@ -38,7 +38,19 @@ global.Route = laroute;
 global.moment = moment;
 
 // socket.io client
-const ioNotify = io.connect(`${window.location.host}:${config.port}/nsp-notify`, { 'forceNew': true });
+let ioNotify = null;
+if (config.NODE_ENV !== 'development') {
+    ioNotify = io.connect(`${window.location.host}:${config.port}/nsp-notify`, { 
+        'forceNew': true,
+        'reconnectionAttempts': 2 
+    });
+} else {
+    // Dummy object to prevent errors when ioNotify.on is called below
+    ioNotify = {
+        on: () => {},
+        emit: () => {}
+    };
+}
 
 // Initialize attributes
 const PERMISSION_GRANTED = 'granted';

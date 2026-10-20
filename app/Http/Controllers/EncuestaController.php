@@ -121,7 +121,7 @@ class EncuestaController extends Controller
 
 		if ($request->ajax()) {
 			$user = $userSurvey = $answers = null;
-			if($request->has('codigo_usuario_encuesta')) {
+			if($request->has('codigo_usuario_encuesta') && !empty($request->codigo_usuario_encuesta)) {
 				// Detail form
 				list($codigo_usuario_encuesta) = TuProyecto::decryptSrcParams($request->codigo_usuario_encuesta);
 				if(!$codigo_usuario_encuesta || !is_numeric($codigo_usuario_encuesta)) {

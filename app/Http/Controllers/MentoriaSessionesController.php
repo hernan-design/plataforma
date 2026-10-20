@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Illuminate\Http\Requests;
+// use Illuminate\Http\Requests;
 use Illuminate\Support\Facades\Validator;
 use TuProyecto,  View, Response, Auth, Input, DB, Log, Lang, App, SendEmail, Redirect;
 use App\Mentoria,

@@ -50,7 +50,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => env('APP_URL', 'http://localhost'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -154,18 +154,18 @@ return [
 		App\Providers\PasswordResetServiceProvider::class,
 		App\Providers\ValidationServiceProvider::class,
 		App\Providers\PdfServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
-		Laravel\Socialite\SocialiteServiceProvider::class,
-		Intervention\Image\ImageServiceProvider::class,
-		Jenssegers\Mongodb\MongodbServiceProvider::class,
-		Lord\Laroute\LarouteServiceProvider::class,
-		Aws\Laravel\AwsServiceProvider::class,
-		Zizaco\Entrust\EntrustServiceProvider::class,
+        // Collective\Html\HtmlServiceProvider::class,
+		// Laravel\Socialite\SocialiteServiceProvider::class,
+		// Intervention\Image\ImageServiceProvider::class,
+		MongoDB\Laravel\MongoDBServiceProvider::class, // Reemplazo de Jenssegers
+		// Lord\Laroute\LarouteServiceProvider::class,
+		// Aws\Laravel\AwsServiceProvider::class,
+		// Zizaco\Entrust\EntrustServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
- 		Laravel\Cashier\CashierServiceProvider::class,
-		Artisaninweb\SoapWrapper\ServiceProvider::class,
+ 		// Laravel\Cashier\CashierServiceProvider::class,
+		// Artisaninweb\SoapWrapper\ServiceProvider::class,
 		Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-		PulkitJalan\Google\GoogleServiceProvider::class
+		// PulkitJalan\Google\GoogleServiceProvider::class
 	],
 
 	/*
@@ -194,7 +194,7 @@ return [
 		'Event'     => Illuminate\Support\Facades\Event::class,
 		'File'      => Illuminate\Support\Facades\File::class,
 		'Gate'      => Illuminate\Support\Facades\Gate::class,
-		'Google'    => PulkitJalan\Google\Facades\Google::class,
+		// 'Google'    => PulkitJalan\Google\Facades\Google::class,
 		'Hash'      => Illuminate\Support\Facades\Hash::class,
 		'Input'		=> Illuminate\Support\Facades\Request::class,
 		'Inspiring' => Illuminate\Foundation\Inspiring::class,
@@ -215,14 +215,16 @@ return [
 		'URL'       => Illuminate\Support\Facades\URL::class,
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View'      => Illuminate\Support\Facades\View::class,
-		'Form'      => Collective\Html\FormFacade::class,
-        'HTML'      => Collective\Html\HtmlFacade::class,
-		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-		'Image'     => Intervention\Image\Facades\Image::class,
-		'AWS'       => Aws\Laravel\AwsFacade::class,
-		'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+		'Form'      => App\Helpers\FormHelper::class,
+        'HTML'      => App\Helpers\HtmlHelper::class,
+        'TuProyecto'=> App\Classes\TuProyecto::class,
+        'SendEmail' => App\Classes\SendEmail::class,
+		// 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+		// 'Image'     => Intervention\Image\Facades\Image::class,
+		// 'AWS'       => Aws\Laravel\AwsFacade::class,
+		// 'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 		'PDF'       => Barryvdh\DomPDF\Facade::class,
-		'SoapWrapper' => Artisaninweb\SoapWrapper\Facade::class,
+		// 'SoapWrapper' => Artisaninweb\SoapWrapper\Facade::class,
 		'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
     	'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 	],

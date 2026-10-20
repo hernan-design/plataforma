@@ -18,12 +18,12 @@ $panel-padding: rem-calc(25 20);
 // $border:true
 @mixin panel-base($args...) {
 	@include panel($args...);
-	@include box-shadow($panel-shadow);
+	box-shadow: $panel-shadow;
 	@include margin-item-bottom;
 	position: relative;
 
 	@media #{$mobile-only}, #{$small-only} {
-		@include box-shadow(none);
+		box-shadow: none;
 		margin: rem-calc(3 -10 3 -10);
 		border-bottom: 1px solid $gainsboro;
 		border-top: 1px solid $gainsboro;
@@ -40,13 +40,13 @@ $panel-padding: rem-calc(25 20);
 			position: relative;
 			top: -#{nth($panel-padding, 1)};
 			left: -#{nth($panel-padding, 2)};
-			@include box-sizing(content-box);
+			box-sizing: content-box;
 			padding: $panel-padding;
 		}
 	}
 
 	&.radius {
-		@include border-radius($global-radius);
+		border-radius: $global-radius;
 
 		.title-panel {
 			@include side-radius(top, $global-radius);
@@ -54,7 +54,7 @@ $panel-padding: rem-calc(25 20);
 	}
 
 	&.round {
-		@include border-radius($global-rounded);
+		border-radius: $global-rounded;
 
 		.title-panel {
 			@include side-radius(top, $global-rounded);
@@ -68,7 +68,7 @@ $panel-padding: rem-calc(25 20);
 	}
 
 	.title-panel {
-		@include box-sizing(content-box);
+		box-sizing: content-box;
 		width: 100%;
 		line-height: rem-calc(55);
 		font-weight: normal;
@@ -265,15 +265,15 @@ $panel-padding: rem-calc(25 20);
 		bottom: rem-calc(10);
 	}
 
-	&.radius { @include border-radius($global-radius); }
-	&.round { @include border-radius($global-rounded); }
+	&.radius { border-radius: $global-radius; }
+	&.round { border-radius: $global-rounded; }
 
 	.panel-item {
 		@include panel( $bg: $white, $padding: $panel-padding );
 		border: 0;
 		border-top: 3px solid transparent;
 		position: relative;
-		@include box-shadow(1px 1px 10px $base);
+		box-shadow: 1px 1px 10px $base;
 		margin: 0;
 
 		&:not(:nth-last-of-type(1)) {
@@ -295,7 +295,7 @@ $panel-padding: rem-calc(25 20);
 	z-index: 1;
 
 	&:not(.no-shadow) {
-		@include box-shadow(0px 1px 6px rgba($black, .2));
+		box-shadow: 0px 1px 6px rgba($black, .2);
 	}
 	&.no-border {
 		border: none;
@@ -348,8 +348,8 @@ $panel-padding: rem-calc(25 20);
 		position: absolute;
 		right: nth($panel-padding, 2);
 		bottom: -#{nth($panel-padding, 2)};
-		@include box-shadow(0px 0px 0px 1px $white, 0px 4px 10px rgba($black, .2));
-		@include background-clip(padding-box);
+		box-shadow: 0px 0px 0px 1px $white, 0px 4px 10px rgba($black, .2);
+		background-clip: padding-box;
 
 		&:not(.no-border) {
 			border: 7px solid transparent;
@@ -364,7 +364,7 @@ $panel-padding: rem-calc(25 20);
 		    bottom: 0px;
 		    background-color: transparent;
 		    border-radius: 50%;
-		    @include box-shadow(0px 4px 20px rgba($black, .3));
+		    box-shadow: 0px 4px 20px rgba($black, .3);
 			}
 		}
 	}

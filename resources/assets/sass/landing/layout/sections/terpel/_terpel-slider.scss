@@ -33,7 +33,7 @@
 	    left: 50%;
 	    top: 50%;
 	    position: absolute;
-			@include translate(-50%, -50%);
+			transform: translate(-50%, -50%);
 
 			&.img-480x650-mobile {
 				display: none;

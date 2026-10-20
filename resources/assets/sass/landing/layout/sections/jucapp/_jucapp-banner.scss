@@ -12,7 +12,7 @@
       position: absolute;
       // margin-left: -960px;
       // margin-top: -540px;
-      @include translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       @media #{$mobile-only}, #{$small-only} {
         background: url(https://s3-us-west-2.amazonaws.com/static.jucapp.com/landing/banner/mobile.png);
         background-size: 100%;

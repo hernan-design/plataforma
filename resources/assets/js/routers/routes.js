@@ -209,21 +209,33 @@ app || (app = {});
         handleClick: function () {
 
             var _this = this;
-            $( document ).on('click', 'a[href^="/"]', function (e){
+            $( document ).on('click', 'a', function (e){
 
                 var toRoute = $( e.currentTarget ).attr('href');
-                // console.log( toRoute );
+                if(!toRoute) return;
 
                 //if Route begins with hash does not continue
                 if( (/^\#/).test(toRoute) )
                     return;
+                
+                // Avoid intercepting target blank
+                if ($(e.currentTarget).attr('target') === '_blank') return;
+                
+                var origin = window.location.origin || (window.location.protocol + "//" + window.location.host);
 
-                //if the Route is URL does not prevent event
-                if( !window.Misc.isUrl(toRoute) ){
-                    e.preventDefault();
-                }else{
-                    return false;
+                // Is this an internal link?
+                if (toRoute.indexOf(origin) === 0) {
+                    toRoute = toRoute.replace(origin, '');
+                } else if (/^http(s)?:\/\//.test(toRoute)) {
+                    // It's an external link
+                    return;
+                } else if (!/^\//.test(toRoute)) {
+                    // Doesn't start with origin, http, or /, ignore (like mailto:, tel:)
+                    return;
                 }
+
+                // If we get here, it's an internal link
+                e.preventDefault();
 
                 _this.navigate(toRoute, {trigger: true});
             });

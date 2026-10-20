@@ -37,7 +37,7 @@ class AccountDropdown extends Component {
                 className={`md-dropdown content drop-account ${className}`}
                 data-dropdown-content
                 aria-hidden={this.state.hidden}
-                aria-autoclose={this.state.autoclose}
+                data-autoclose={this.state.autoclose}
                 ref={node => { this.nodeDrop = node; }}
             >
                 <div className="card-user-info">

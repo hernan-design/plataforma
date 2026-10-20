@@ -18,6 +18,11 @@ use Illuminate\Http\Request;
 */
 Route::post('login', 'Security\AuthController@authenticate');
 
+Route::post('debug-log', function(Request $request) {
+    \Log::info('CLIENT_DEBUG: ' . json_encode($request->all()));
+    return response()->json(['status' => 'ok']);
+});
+
 /*
 | Prefix Api
 */
@@ -40,3 +45,5 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 	Route::resource('user', 'User\UserController', ['only' => ['store']]);
 	Route::resource('voto', 'Voto\VotoController', ['only' => ['store']]);
 });
+
+Route::get('/debug-config', function() { return [ 'port' => config('database.connections.pgsql.port'), 'db' => config('database.connections.pgsql.database') ]; });

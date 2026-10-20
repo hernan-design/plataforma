@@ -32,7 +32,7 @@
 			overflow: hidden;
 			position: relative;
 			height: 300px;
-			@include border-radius($global-radius);
+			border-radius: $global-radius;
 
 			@media #{$tablet-only}, #{$small-only}, #{$mobile-only} {
 				margin-bottom: rem-calc(15);
@@ -55,7 +55,7 @@
 				height: 300px;
 				min-height: 100%;
 				padding: rem-calc(35);
-				@include transition(all 350ms ease-in-out);
+				transition: all 350ms ease-in-out;
 
 				&.advice {
 					background-color: rgba(255, 113, 16, 0.6);

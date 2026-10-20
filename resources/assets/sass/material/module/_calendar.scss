@@ -4,7 +4,7 @@
 	border: 0;
 
 	@media #{$mobile-only} {
-		@include border-radius(0);
+		border-radius: 0;
 		border-left: 0;
 		border-right: 0;
 	}

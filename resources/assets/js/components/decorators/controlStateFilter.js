@@ -23,14 +23,11 @@ export default function controlStateFilter(WrapperList) {
 
         refreshResults(props, timeout = 0) {
             const { loadByState, location, field } = props;
-            const stateFilter = location.state && location.state[field];
+            const stateFilter = (location.state && ({}).hasOwnProperty.call(location.state, field))
+                ? location.state[field]
+                : (location.pathname ? location.pathname.replace(/^\/comunidad\/?/, '') : '');
 
-            if(
-                location.state &&
-                ({}).hasOwnProperty.call(location.state, field)
-            ) {
-                loadByState(stateFilter, timeout);
-            }
+            loadByState(stateFilter, timeout);
         }
 
         shouldComponentUpdate(nextProps) {

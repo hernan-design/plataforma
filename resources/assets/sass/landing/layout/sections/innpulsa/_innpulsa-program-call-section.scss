@@ -6,12 +6,12 @@
 		.program-call-box {
 			background-color: $gray-lighter;
 			padding: rem-calc(30);
-			@include box-shadow(none);
+			box-shadow: none;
 
 			&:hover {
 				background-color: $white;
 				box-shadow: 4px 4px 8px $iron;
-				@include transition(all ease-out 300ms);
+				transition: all ease-out 300ms;
 			}
 
 			.program-call-category-title {

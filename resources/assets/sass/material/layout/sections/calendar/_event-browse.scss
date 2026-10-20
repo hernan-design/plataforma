@@ -46,7 +46,7 @@
 			    padding: 3px 13px;
 			    display: inline-block;
 			    border: 1px solid $dark-silver;
-			    @include border-radius(19px);
+			    border-radius: 19px;
 			    position: relative;
 
 			    &:before {
@@ -126,7 +126,7 @@
 					    display: block;
 					    width: 100%;
 					    overflow: hidden;
-					    @include border-radius($global-radius);
+					    border-radius: $global-radius;
 					    height: 70px;
 
 					    @media #{$tablet-up} {
@@ -142,7 +142,7 @@
 								left: -100%;
 								right: -100%;
 								margin: 0 auto !important;
-								@include translate(0, 0);
+								transform: translate(0, 0);
 					    }
 						}
 					}

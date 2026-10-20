@@ -9,12 +9,12 @@
 		.intro-boxes {
 			background-color: $white;
 			padding: rem-calc(30 0 30);
-			@include box-shadow(none);
+			box-shadow: none;
 
 			&:hover {
 				background-color: $selectrain-light-green-color;
-				// @include box-shadow(4px 4px 8px $iron);
-				@include transition(all ease-out 300ms);
+				// box-shadow: 4px 4px 8px $iron;
+				transition: all ease-out 300ms;
 			}
 
 

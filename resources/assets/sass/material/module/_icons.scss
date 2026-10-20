@@ -47,8 +47,8 @@ $material-transition-icon-delay: 0s !default;
 	text-align: center;
 	@if $padding { padding: $padding; }
 	@if $font-size { font-size: $font-size; }
-	@include border-radius(50%);
-	@include box-sizing(content-box);
+	border-radius: 50%;
+	box-sizing: content-box;
 
 	> i {
 		vertical-align: top;
@@ -159,7 +159,7 @@ $material-transition-icon-delay: 0s !default;
 
 	// shadow to circle
 	&.circle-shadow {
-		@include box-shadow(1px 1px 4px transparentize($black, .3));
+		box-shadow: 1px 1px 4px transparentize($black, .3);
 	}
 
 	&.circle-reflex-bottom {
@@ -172,16 +172,16 @@ $material-transition-icon-delay: 0s !default;
 			width: 35%;
 			height: 2px;
 			left: 32%;
-			@include border-radius(50%);
-			@include box-shadow(10px 0px 3px #D2D0D0, -10px 0px 3px #D2D0D0);
+			border-radius: 50%;
+			box-shadow: 10px 0px 3px #D2D0D0, -10px 0px 3px #D2D0D0;
 		}
 	}
 
 	@if $has-transition == true {
-		@include transition-property(all);
-		@include transition-duration($material-transition-icon-duration);
-		@include transition-timing-function($material-transition-icon-timing-function);
-		@include transition-delay($material-transition-icon-delay);
+		transition-property: all;
+		transition-duration: $material-transition-icon-duration;
+		transition-timing-function: $material-transition-icon-timing-function;
+		transition-delay: $material-transition-icon-delay;
 	}
 
 }
@@ -212,11 +212,11 @@ $material-transition-icon-delay: 0s !default;
 		width: 1em;
 		height: 1em;
 		background-color: #{$material-animated-icon-color};
-		// @include transition(all 500ms ease-out);
-		// @include transition-delay(100ms);
-		@include animation-duration($material-animated-icon-duration);
-		@include animation-timing-function($material-animated-icon-timing-function);
-		@include animation-delay($material-animated-icon-delay);
+		// transition: all 500ms ease-out;
+		// transition-delay: 100ms;
+		animation-duration: $material-animated-icon-duration;
+		animation-timing-function: $material-animated-icon-timing-function;
+		animation-delay: $material-animated-icon-delay;
 	}
 
 	.label-icon {
@@ -243,9 +243,9 @@ $material-transition-icon-delay: 0s !default;
 				left: -2px;
 			};
 			background-color: $white;//$purple-blue;
-			@include border-radius(50%);
-			@include scale(0);
-			@include opacity(1);
+			border-radius: 50%;
+			transform: scale(0);
+			opacity: 1;
 		}
 	}
 }
@@ -261,7 +261,7 @@ $material-transition-icon-delay: 0s !default;
 	.md-hamburger__layer {
 		height: .1em;
 		background-color: $tabbar-menu-icon-color;
-		@include border-radius(3px);
+		border-radius: 3px;
 
 		&:before, &:after {
 			content: '';
@@ -271,10 +271,10 @@ $material-transition-icon-delay: 0s !default;
 			width: inherit;
 			height: .1em;
 			background: inherit;
-			@include border-radius(3px);
-			@include animation-duration($material-animated-icon-duration);
-			@include animation-timing-function($material-animated-icon-timing-function);
-			@include animation-delay($material-animated-icon-delay);
+			border-radius: 3px;
+			animation-duration: $material-animated-icon-duration;
+			animation-timing-function: $material-animated-icon-timing-function;
+			animation-delay: $material-animated-icon-delay;
 		}
 
 		&:before {
@@ -299,14 +299,14 @@ $material-transition-icon-delay: 0s !default;
 			width: inherit;
 			height: inherit;
 			background: $white;
-			@include transition-property(all);
-			@include transition-duration($material-transition-icon-duration);
-			@include transition-timing-function($material-transition-icon-timing-function);
-			@include transition-delay($material-transition-icon-delay);
+			transition-property: all;
+			transition-duration: $material-transition-icon-duration;
+			transition-timing-function: $material-transition-icon-timing-function;
+			transition-delay: $material-transition-icon-delay;
 		}
 
 		&:before {
-			@include rotate(90deg);
+			transform: rotate(90deg);
 		}
 		&:after {
 		}
@@ -316,7 +316,7 @@ $material-transition-icon-delay: 0s !default;
 .toggle-reveal-info {
 	position: absolute;
 	left: -9999px;
-	@include opacity(0);
+	opacity: 0;
 
 	& + label {
 		@include icon-circle(
@@ -336,7 +336,7 @@ $material-transition-icon-delay: 0s !default;
 			margin: 0;
 			padding: 0;
 			border: none;
-			@include transform(none);
+			transform: none;
 			@extend %font-mdi;
 			color: inherit !important;
 			content: mdi('eye');
@@ -363,15 +363,15 @@ $material-transition-icon-delay: 0s !default;
 				padding: 0;
 				border: none;
 				color: inherit !important;
-				@include transform(none);
+				transform: none;
 				content: mdi('window-close');
-				@include transform-origin(initial, false);
+				transform-origin: initial, false;
 
-				@include animation(x-rotate 0.5s ease);
-				@include keyframes( x-rotate ) {
-					0% { @include transform( rotate(0deg) ); }
-					70% { @include transform( rotate(405deg) ); }
-					100% { @include transform( rotate(360deg) ); }
+				animation: x-rotate 0.5s ease;
+				@keyframes  x-rotate  {
+					0% { transform:  rotate(0deg) ; }
+					70% { transform:  rotate(405deg) ; }
+					100% { transform:  rotate(360deg) ; }
 				}
 			}
 

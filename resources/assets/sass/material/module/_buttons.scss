@@ -181,7 +181,7 @@ $box-shadow-button-active: 0px 3px 12px rgba($black, .3) !default;
 
 		// button shadow
 		&.btn-shadow {
-			@include box-shadow( $box-shadow-button !important );
+			box-shadow:  $box-shadow-button !important ;
 		}
 
 		// buttons social

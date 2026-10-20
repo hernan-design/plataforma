@@ -33,14 +33,14 @@
 					&:hover{
 
 						img {
-							@include filter( grayscale(0%) );
-							@include opacity(1);
+							filter:  grayscale(0%) ;
+							opacity: 1;
 						}
 					}
 
 					img {
-						@include filter( grayscale(100%) );
-						@include opacity(.5);
+						filter:  grayscale(100%) ;
+						opacity: .5;
 					}
 				}
 			}

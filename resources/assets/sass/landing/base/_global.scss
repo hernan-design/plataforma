@@ -60,8 +60,8 @@
 }
 
 .block-vpadding-both {
-	@extend .block-vpadding-top;
-	@extend .block-vpadding-bottom;
+	/* @extend .block-vpadding-top; */
+	/* @extend .block-vpadding-bottom; */
 }
 
 // spacing vertical
@@ -75,8 +75,8 @@
 }
 
 .block-vspacing-both {
-	@extend .block-spacing-top;
-	@extend .block-spacing-bottom;
+	/* @extend .block-spacing-top; */
+	/* @extend .block-spacing-bottom; */
 }
 
 // spacing horizontal
@@ -90,6 +90,6 @@
 }
 
 .block-hspacing-both {
-	@extend .block-spacing-left;
-	@extend .block-spacing-right;
+	/* @extend .block-spacing-left; */
+	/* @extend .block-spacing-right; */
 }

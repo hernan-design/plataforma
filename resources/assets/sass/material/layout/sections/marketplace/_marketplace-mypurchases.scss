@@ -94,7 +94,7 @@
 			.button, button {
 				background-color: transparent;
 				border: none;
-				@include box-shadow(none !important);
+				box-shadow: none !important;
 				text-transform: uppercase !important;
 				margin: 0px;
 				padding: {

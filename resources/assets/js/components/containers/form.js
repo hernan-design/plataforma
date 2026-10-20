@@ -4,7 +4,7 @@ import $ from 'jquery';
 import Misc from '../../helpers/misc';
 import { actionCreators } from '../../stores/form';
 
-const Foundation = global && global.Foundation ? require('foundation') : null;
+const Foundation = typeof window !== 'undefined' ? window.Foundation : null;
 
 class Form extends Component {
 

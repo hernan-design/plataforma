@@ -62,7 +62,7 @@ class WallEntries extends Component {
         this.refreshResults(this.props.location);
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         const { location:locationNext, history:historyNext } = nextProps;
 
         if(this.props.results !== nextProps.results) {
@@ -89,30 +89,40 @@ class WallEntries extends Component {
     refreshResults(location, timeout = 0) {
         const { listActions } = this.props;
 
-        if(
-            location.state &&
-            ({}).hasOwnProperty.call(location.state, 'channel')
-        ) {
-            this.setState({ channelLocation: location }, () => {
-                if( this.passChannelPrivacity() ) {
-                    listActions.showByState('url_canal', location.state && location.state.channel, timeout);
-                }
-            });
-        }
+        const channel = (location && location.state && ({}).hasOwnProperty.call(location.state, 'channel'))
+            ? location.state.channel
+            : (location && location.pathname ? location.pathname.replace(/^\/comunidad\/?/, '') : '');
+
+        const channelLocation = {
+            ...(location || {}),
+            state: {
+                ...((location && location.state) || {}),
+                channel
+            }
+        };
+
+        this.setState({ channelLocation }, () => {
+            if( this.passChannelPrivacity() ) {
+                listActions.showByState('url_canal', channel, timeout);
+            }
+        });
     }
 
     passChannelPrivacity() {
-        const channelLocation = this.state.channelLocation;
+        const channelLocation = this.state.channelLocation || {};
         const { ownerData, channels } = this.props;
         
         const stateChannel = channelLocation.state && channelLocation.state.channel;
         const stateCodChannel = channelLocation.state && channelLocation.state.codChannel;
         const evalChannelPrivacity = ch => ((ch.urlCanal === stateChannel) && ch.canalAbierto);
-        const owner_channels =  ownerData.channels.find(channel => (channel.codigoCanal === stateCodChannel && channel.codigoEstado === 8));
+        const owner_channels = (ownerData && Array.isArray(ownerData.channels))
+            ? ownerData.channels.find(channel => (channel.codigoCanal === stateCodChannel && channel.codigoEstado === 8))
+            : undefined;
 
         return !!(
-            channels.findIndex(evalChannelPrivacity) !== -1 ||
+            (Array.isArray(channels) && channels.findIndex(evalChannelPrivacity) !== -1) ||
             typeof owner_channels != 'undefined' ||
+            !stateChannel ||
             stateChannel === '' ||
             stateChannel === 'general' ||
             typeof channelLocation.state === 'undefined'

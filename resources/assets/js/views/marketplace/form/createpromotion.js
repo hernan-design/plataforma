@@ -27,10 +27,16 @@ app || (app = {});
 		* Constructor Method
 		*/
 		initialize : function() {
-			_.bindAll(this, 'beforeRender', 'render', 'afterRender', 'openModalImg', 'closeModalImg');
+			_.bindAll(this, 'beforeRender', 'render', 'afterRender', 'openModalImg', 'closeModalImg', 'closeModal');
 
 			this.$modalImageCrop = $('#modal-image-promotion');
             this.$modalCreateEntity = $('#modal-base-material');
+
+			var _this = this;
+			this.$modalImageCrop.off('click.closeCropModal').on('click.closeCropModal', '.close-reveal-modal', function (e) {
+				e.preventDefault();
+				_this.closeModal();
+			});
 
 			this.configAlert = {
 				'wrapper': '#main-wrap',
@@ -348,7 +354,7 @@ app || (app = {});
 							if( resp.success ){
 								_this.model.set('imagen_promocion', resp.file_path);
 
-								_this.$modalImageCrop.foundation('reveal', 'close');
+								_this.closeModal();
 							}else{
 								window.Misc.showAlertBox( confCrop );
 							}
@@ -400,9 +406,31 @@ app || (app = {});
 		* handler event with avatar modal is opened
 		*/
 		openModalImg: function (e) {
-			if( this.$el.data('imageUploaderCrop') !== undefined ){
+			if( this.$el.data('imageUploaderCrop') !== undefined && this.model.get('imagen_promocion') ){
                 this.$el.imageUploaderCrop('changeImage', this.model.get('imagen_promocion'));
             }
+		},
+
+		/**
+		* Programmatic safe close for crop modal
+		*/
+		closeModal: function () {
+			if (window.Foundation && window.Foundation.libs && window.Foundation.libs.reveal) {
+				window.Foundation.libs.reveal.locked = false;
+			}
+			try {
+				this.$modalImageCrop.foundation('reveal', 'close');
+			} catch(e) {}
+
+			var _this = this;
+			setTimeout(function() {
+				if (_this.$modalImageCrop.is(':visible') || $('.reveal-modal-bg').is(':visible')) {
+					_this.$modalImageCrop.removeClass('open').hide().css({ visibility: 'hidden', opacity: 0 });
+					$('.reveal-modal-bg').remove();
+					$('body').removeClass('modal-open').css('overflow', '');
+					_this.closeModalImg({ namespace: 'fndtn.reveal' });
+				}
+			}, 150);
 		},
 
 		/**
@@ -410,23 +438,28 @@ app || (app = {});
 		*/
 		closeModalImg: function (e) {
 
-			if(e.namespace != 'fndtn.reveal') return;
+			if (e && e.namespace && e.namespace != 'fndtn.reveal') return;
 
-			var $imgCrop = this.$el.imageUploaderCrop('getImgCrop'),
-				$imgPreview = this.$el.imageUploaderCrop('getPreviewImg'),
-				jcrop_img = null;
+			try {
+				if (this.$el.data('imageUploaderCrop') !== undefined) {
+					var $imgCrop = this.$el.imageUploaderCrop('getImgCrop'),
+						$imgPreview = this.$el.imageUploaderCrop('getPreviewImg'),
+						jcrop_img = null;
 
-			// check out if already was assigned the jcrop library
-			if( $imgCrop.data('Jcrop') !== undefined ){
-				$imgCrop.attr('src', '');
-				$imgPreview.attr('src', '');
-				jcrop_img = $imgCrop.data('Jcrop');
-				jcrop_img.destroy();
+					if ($imgCrop && $imgCrop.length && $imgCrop.data('Jcrop') !== undefined) {
+						$imgCrop.attr('src', '');
+						$imgPreview.attr('src', '');
+						jcrop_img = $imgCrop.data('Jcrop');
+						jcrop_img.destroy();
+					}
+				}
+			} catch (err) {
+				console.warn('Error closing modal crop image:', err);
 			}
 
 			// detach events
 			this.$modalImageCrop.off('opened.fndtn.reveal');
-			$(document).off('closed.fndtn.reveal', this.$modalImageCrop);
+			$(document).off('closed.fndtn.reveal');
 		},
 
         onProduct: function (e) {

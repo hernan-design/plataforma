@@ -73,8 +73,7 @@ class ProyectoController extends Controller {
 	        		$user->tipo_usuario = Usuario::typeUser('entity');
 	        		$user->imagen_usuario = Config::get('tuproyecto.no_project_image');
 	        		$username = TuProyecto::unwantedCharacters(Input::get('nombre_usuario'));
-					// Validate unique nickname
-					$usernickname= Usuario::validateNinckname(str_slug(str_limit($username, 16), ""));
+					$usernickname= Usuario::validateNinckname(\Illuminate\Support\Str::slug(\Illuminate\Support\Str::limit($username, 16, ''), ""));
 	        		$user->nickname_usuario = $usernickname;
 	        		if( Input::has('identificacion_usuario') && Input::get('identificacion_usuario') != '' ){
 

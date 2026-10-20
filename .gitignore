@@ -8,9 +8,10 @@
 Homestead.yaml
 Homestead.json
 *.rdb
-.env.*.php
-.env.php
 .env
+.env.*
+.env.local
+
 .phpintel
 .vscode
 
@@ -23,7 +24,8 @@ resources/assets/libs
 
 # Public
 public/css/institution/*.css
-public/temp
+public/temp/
+public/build/temp/
 
 
 ### PhpStorm ###

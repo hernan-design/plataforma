@@ -203,7 +203,7 @@ $mediaelementplayer-path-sprite: '../img/mediaelement' !default;
 				// 	position: relative;
 				// 	display: block;
 				// 	float: left;
-				// 	@include rotate(90deg);
+				// 	transform: rotate(90deg);
 
 				// 	> div {
 				// 	}
@@ -245,11 +245,11 @@ $mediaelementplayer-path-sprite: '../img/mediaelement' !default;
 				margin: 0px;
 				background: $aluminum;
 				width: 100% !important;
-				@include border-radius(0px);
+				border-radius: 0px;
 				height: 2px;
 
 				> span:not(.#{$mediaelementplayer-prefix}-time-float) {
-					@include border-radius(0px);
+					border-radius: 0px;
 					height: 2px;
 				}
 

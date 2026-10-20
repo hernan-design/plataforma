@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import tabulateByState from '../decorators/tabulateByState';
 import { Link, withRouter } from 'react-router-dom';
-import laroute from '../../helpers/laroute';
+import laroute from '../../helpers/laroute.js';
 import { composables } from '../../stores/paginator';
 import NoSSR from 'react-no-ssr';
 import Misc, { strToNickname } from '../../helpers/misc';
@@ -64,7 +64,7 @@ class ForumsSection extends Component {
         this.previousLocation = props.location;
     }
 
-    componentWillUpdate(nextProps) {
+    UNSAFE_componentWillUpdate(nextProps) {
         const { location } = this.props;
 
         // set previousLocation if props.location is not modal

@@ -10,13 +10,13 @@ import _ from 'lodash';
 import ItemNavLink from '../containers/item-nav-link';
 
 const renderItemChannel = (isInside=false) => {
-    return (ch) => (
+    return (ch, idx) => (
         <ItemNavLink
-            key={ch.codigoCanal}
+            key={ch.codigoCanal ? `ch-${ch.codigoCanal}` : `ch-idx-${idx}`}
             to={{
-                pathname: `/comunidad/${ch.urlCanal}`,
+                pathname: `/comunidad/${ch.urlCanal || ch.codigoCanal || ''}`,
                 state: {
-                    channel: ch.urlCanal,
+                    channel: ch.urlCanal || '',
                     codChannel: ch.codigoCanal
                 }
             }}
@@ -35,7 +35,7 @@ const renderItemCategory = (channels, location) => (
         )) !== -1;
 
         return(
-            <li key={ct.codigoCategoriaCanal} className={activeCategory || i === 0 ? 'active' : ''}>
+            <li key={ct.codigoCategoriaCanal ? `cat-${ct.codigoCategoriaCanal}` : `cat-idx-${i}`} className={activeCategory || i === 0 ? 'active' : ''}>
                 <a className={`collapsible-header ${activeCategory || i === 0 ? 'active' : ''}`}>{ct.nombreCategoriaCanal}</a>
                 <div className="collapsible-body">
                     <ul className="side-navigation">
@@ -74,7 +74,7 @@ class ChannelsFilter extends Component {
 
                 <ul className="side-navigation" data-collapsible="expandable">
                     <ItemNavLink
-                        key={0}
+                        key="channel-general"
                         to={{
                             pathname: `/comunidad`,
                             state: {

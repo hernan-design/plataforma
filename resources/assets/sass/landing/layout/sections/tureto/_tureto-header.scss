@@ -1,6 +1,6 @@
 %tureto-header{
 	#{$header-land}{
 		background-color: $white;
-		@include box-shadow (0px 14px 50px -17px rgba($black, 0.6));
+		box-shadow: 0px 14px 50px -17px rgba($black, 0.6);
 	}
 }

@@ -71,14 +71,14 @@
                         {{-- Left Nav Section --}}
                         <div class="left wrap-inst-logo show-for-medium-up">
                             <a href="{{ App\RegistroSesion::getCommunityRoot() }}" class="left inst-logo" title="{{ Lang::get('app.home') }}">
-                            {!! HTML::image( (isset($parameters['imagen_header']) ? $parameters['imagen_header'] : App\RegistroSesion::getInstitutionImg()), App\RegistroSesion::getInstitutionName()) !!}
+                            <img src="{{ isset($parameters['imagen_header']) ? $parameters['imagen_header'] : App\RegistroSesion::getInstitutionImg() }}" alt="{{ App\RegistroSesion::getInstitutionName() }}">
                             </a>
                         </div>
                         <ul class="left-top-menu inline-list-grid">
                             <li>&nbsp;</li>
                             {{-- Form search --}}
                             <li class="has-form item-field-search">
-                                {!! Form::open(['route' => 'search.index', 'method' => 'GET', 'id' => 'form-search']) !!}
+                                <form action="{{ route('search.index') }}" method="GET" id="form-search">
                                     <div class="field-search text-left">
                                         <input
                                             type="text"
@@ -97,7 +97,7 @@
                                             <i class="mdi mdi-24 mdi-magnify icon-search"></i>
                                         </button>
                                     </div>
-                                {!! Form::close() !!}
+                                </form>
                             </li>
                         </ul>
                     </li>

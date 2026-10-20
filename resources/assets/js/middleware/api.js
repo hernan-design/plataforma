@@ -3,10 +3,10 @@
 import '../../config';
 import { camelizeKeys } from 'humps';
 import axios from 'axios';
-import laroute from '../helpers/laroute';
+import laroute from '../helpers/laroute.js';
 import Misc from '../helpers/misc';
 
-const API_ROOT = `http://localhost${process.env.NODE_ENV !== 'production' ? process.env.BASE_PATHNAME : ''}`;
+const API_ROOT = (typeof window !== 'undefined' && window.location ? window.location.origin : 'http://localhost') + (process.env.NODE_ENV !== 'production' ? (process.env.BASE_PATHNAME || '') : '');
 
 // create http api with axios to consume resources
 export const httpApi = axios.create({

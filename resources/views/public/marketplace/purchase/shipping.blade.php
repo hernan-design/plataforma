@@ -19,7 +19,7 @@
 				@if(($product->domicilio_producto == true  &&  $type->codigo_tipo_envio == App\TipoEnvio::getTypeShipping('shippingdomicile')) || $type->codigo_tipo_envio != App\TipoEnvio::getTypeShipping('shippingdomicile') )
 					<div class="row">
 						<div class="small-12 columns text-center">
-							<input name="shipping-type" id="shipping-type-{{ $type->codigo_tipo_envio }}" type="radio" value="{{ $type->codigo_tipo_envio }}" {{ session("shipping_$purchase->codigo_compra") == $type->codigo_tipo_envio ? 'checked' : $type->nombre_tipo_envio == 'Envío a domicilio.' ? 'checked' : ''  }}>
+							<input name="shipping-type" id="shipping-type-{{ $type->codigo_tipo_envio }}" type="radio" value="{{ $type->codigo_tipo_envio }}" {{ session("shipping_$purchase->codigo_compra") == $type->codigo_tipo_envio ? 'checked' : ($type->nombre_tipo_envio == 'Envío a domicilio.' ? 'checked' : '') }}>
 							<label for="shipping-type-{{ $type->codigo_tipo_envio }}" class="">
 								<span class="text-md dark-text lighter-text">{{ $type->nombre_tipo_envio }} <span class="light-text">{{ $type->descripcion_tipo_envio ? '('.$type->descripcion_tipo_envio.')' : '' }}</span></span>
 							</label>
