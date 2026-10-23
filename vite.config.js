@@ -8,9 +8,18 @@ export default defineConfig({
     publicDir: 'public',
     server: {
         host: '127.0.0.1',
+        port: 5175,
+        hmr: {
+            host: '127.0.0.1',
+            port: 5175
+        },
         watch: {
             ignored: ['**/public/temp/**']
         }
+    },
+
+    build: {
+        emptyOutDir: false,
     },
 
     define: {
@@ -82,6 +91,11 @@ export default defineConfig({
             // (la carpeta "slick.js" confunde al dev server de Vite; se usan las copias de /public)
             { find: /.*[\\\/]ajax-loader\.gif$/, replacement: '/img/ajax-loader.gif' },
             { find: /.*[\\\/]fonts[\\\/]slick\.(woff|ttf|eot|svg|woff2)$/, replacement: '/css/fonts/slick.$1' },
+
+            // Redirect summernote to version 0.8.20 bundled with react-summernote (exact production version)
+            { find: /^summernote\/dist\/(.*)$/, replacement: path.resolve(__dirname, 'node_modules/react-summernote/node_modules/summernote/dist/$1') },
+            { find: /^summernote\/(.*)$/, replacement: path.resolve(__dirname, 'node_modules/react-summernote/node_modules/summernote/$1') },
+            { find: /^summernote$/, replacement: path.resolve(__dirname, 'node_modules/react-summernote/node_modules/summernote/dist/summernote.js') },
         ]
     },
 

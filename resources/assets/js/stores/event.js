@@ -1,6 +1,6 @@
 // resources/assets/js/stores/articles.js
 import laroute from '../helpers/laroute.js';
-import { fetchCreator } from '../middleware/api';
+import { CALL_API, CancelToken, fetchCreator } from '../middleware/api';
 import createPaginator, { composables } from './paginator';
 import { TypedError, actionCreators as errorActions } from './error-message';
 
@@ -30,10 +30,44 @@ export const actionTypes = {
 // action creators
 // ---------------
 let cancelFetchShallow = null;
+const { SHALLOW_EVENTS_REQUEST, SHALLOW_EVENTS_SUCCESS, SHALLOW_EVENTS_FAILURE } = actionTypes;
+const fetchShallowes = (data = {}, params = {}) => {
+    const { csrftoken, ...restData } = data;
+
+    return {
+        [CALL_API]: {
+            types: [SHALLOW_EVENTS_REQUEST, SHALLOW_EVENTS_SUCCESS, SHALLOW_EVENTS_FAILURE],
+            endpoint: laroute.route('api.evento.index', { type: 'calendar', ...params }),
+            data: restData,
+            meta: {
+                csrftoken,
+                cancelToken: new CancelToken(c => {
+                    cancelFetchShallow = c;
+                })
+            }
+        }
+    };
+};
 
 export const actionCreators = {
-    loadShallowesByChannel: (channel, time = 0) => (dispatch) => {
-        return dispatch(pageActionsShallow.showByState(
+    loadShallowes: (pageInfo) => (dispatch, getState) => {
+        const { session } = getState();
+        const { page, pageSize, ...restQuery } = pageInfo.query;
+
+        const promise = dispatch(fetchShallowes(
+            { 'csrftoken': session.csrftoken },
+            {
+                limit: pageSize,
+                ...( JSON.parse(JSON.stringify(restQuery)) )
+            }
+        ));
+
+        return promise;
+    },
+    loadShallowesByChannel: (channel, time = 0) => (dispatch, getState) => {
+        if(typeof cancelFetchShallow === 'function' && time) cancelFetchShallow();
+
+        return dispatch(pageActionsShallow.loadByState(
             'url_canal',
             channel,
             time
@@ -68,6 +102,7 @@ export const actionCreators = {
 // --------
 export const recipeShallowEvents = createPaginator({
     listId: SHALLOW_LIST_ID,
+    fetch: actionCreators.loadShallowes,
     initialSettings: {
         pageSize: 4,
         filters: {
@@ -75,13 +110,7 @@ export const recipeShallowEvents = createPaginator({
         }
     },
     pageParams: {
-        endpoint: params => laroute.route('api.evento.index', params),
-        loadTypes: [
-            actionTypes.SHALLOW_EVENTS_REQUEST,
-            actionTypes.SHALLOW_EVENTS_SUCCESS,
-            actionTypes.SHALLOW_EVENTS_FAILURE
-        ],
-        cancelFetch: cancelFetchShallow
+        idProps: 'codigoEvento'
     }
 });
 

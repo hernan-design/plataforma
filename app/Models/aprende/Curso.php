@@ -251,12 +251,13 @@ class Curso extends Model {
 		// Get posts
 		if($typeCourse == 'coursesNoted' || $typeCourse == 'webinarsNoted' || $typeCourse == 'lecturesNoted' || $typeCourse == 'coursesNoted'){
    			$query->orderBy('curso_institucion.contador_inscritos','desc');
-		}else{
+		} else {
 			$query->orderBy('curso.orden_curso', 'asc');
 			$query->orderBy('curso.fecha_registro_curso', 'desc');
 		}
-		$data = $query->skip(isset($filters['offset']) && !empty($filters['offset']) ? $filters['offset'] : '')->take($filters['limit'])->get();
-		//dd($data);
+		$offset = !empty($filters['offset']) ? (int)$filters['offset'] : 0;
+		$limit = !empty($filters['limit']) ? (int)$filters['limit'] : 10;
+		$data = $query->skip($offset)->take($limit)->get();
 		if(count($data) > 0) {
 			foreach ($data as $course) {
 				$course->url_externa_curso = $course->parseExternalURL();

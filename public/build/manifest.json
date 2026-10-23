@@ -1,57 +1,57 @@
 {
-  "_jquery-global-DDPFQXmM.js": {
-    "file": "assets/jquery-global-DDPFQXmM.js",
+  "_jquery-global-C2kXsjc0.js": {
+    "file": "assets/jquery-global-C2kXsjc0.js",
     "name": "jquery-global",
     "imports": [
-      "_simple-editor-BcPUgVtn.js"
+      "_simple-editor-BVpPdN5j.js"
     ]
   },
-  "_react-summernote-YIKZNNOH.js": {
-    "file": "assets/react-summernote-YIKZNNOH.js",
+  "_react-summernote-ByvkBJLT.js": {
+    "file": "assets/react-summernote-ByvkBJLT.js",
     "name": "react-summernote",
     "isDynamicEntry": true,
     "imports": [
-      "_simple-editor-BcPUgVtn.js",
-      "_jquery-global-DDPFQXmM.js"
+      "_simple-editor-BVpPdN5j.js",
+      "_jquery-global-C2kXsjc0.js"
     ]
   },
-  "_simple-editor-BcPUgVtn.js": {
-    "file": "assets/simple-editor-BcPUgVtn.js",
+  "_simple-editor-BVpPdN5j.js": {
+    "file": "assets/simple-editor-BVpPdN5j.js",
     "name": "simple-editor",
     "dynamicImports": [
       "node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
       "node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
       "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js",
-      "_react-summernote-YIKZNNOH.js",
-      "_summernote-1FjJv2CE.js",
-      "_summernote-cleaner-Co2GoJh1.js",
-      "_summernote-es-ES-DDwgklsF.js"
+      "_react-summernote-ByvkBJLT.js",
+      "_summernote-DFCala_m.js",
+      "_summernote-cleaner-hcFEhT4q.js",
+      "_summernote-es-ES-ocM1Jfwc.js"
     ]
   },
-  "_summernote-1FjJv2CE.js": {
-    "file": "assets/summernote-1FjJv2CE.js",
+  "_summernote-DFCala_m.js": {
+    "file": "assets/summernote-DFCala_m.js",
     "name": "summernote",
     "isDynamicEntry": true,
     "imports": [
-      "_simple-editor-BcPUgVtn.js",
-      "_jquery-global-DDPFQXmM.js"
+      "_simple-editor-BVpPdN5j.js",
+      "_jquery-global-C2kXsjc0.js"
     ]
   },
-  "_summernote-cleaner-Co2GoJh1.js": {
-    "file": "assets/summernote-cleaner-Co2GoJh1.js",
+  "_summernote-cleaner-hcFEhT4q.js": {
+    "file": "assets/summernote-cleaner-hcFEhT4q.js",
     "name": "summernote-cleaner",
     "isDynamicEntry": true,
     "imports": [
-      "_simple-editor-BcPUgVtn.js",
-      "_jquery-global-DDPFQXmM.js"
+      "_simple-editor-BVpPdN5j.js",
+      "_jquery-global-C2kXsjc0.js"
     ]
   },
-  "_summernote-es-ES-DDwgklsF.js": {
-    "file": "assets/summernote-es-ES-DDwgklsF.js",
+  "_summernote-es-ES-ocM1Jfwc.js": {
+    "file": "assets/summernote-es-ES-ocM1Jfwc.js",
     "name": "summernote-es-ES",
     "isDynamicEntry": true,
     "imports": [
-      "_simple-editor-BcPUgVtn.js"
+      "_simple-editor-BVpPdN5j.js"
     ]
   },
   "node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js": {
@@ -73,30 +73,40 @@
     "isDynamicEntry": true
   },
   "resources/assets/js/app-client.js": {
-    "file": "assets/app-client-CT0xd-sc.js",
+    "file": "assets/app-client-DeZhevbR.js",
     "name": "app-client",
     "src": "resources/assets/js/app-client.js",
     "isEntry": true,
     "imports": [
-      "_simple-editor-BcPUgVtn.js"
+      "_simple-editor-BVpPdN5j.js",
+      "_jquery-global-C2kXsjc0.js"
+    ],
+    "dynamicImports": [
+      "resources/assets/js/helpers/select2-es.js"
     ]
   },
   "resources/assets/js/components/main.js": {
-    "file": "assets/main-CgV92KlG.js",
+    "file": "assets/main-BBUb9dwn.js",
     "name": "main",
     "src": "resources/assets/js/components/main.js",
     "isEntry": true,
     "imports": [
-      "_simple-editor-BcPUgVtn.js"
+      "_simple-editor-BVpPdN5j.js"
     ]
   },
+  "resources/assets/js/helpers/select2-es.js": {
+    "file": "assets/select2-es-BIHI7g3E.js",
+    "name": "select2-es",
+    "src": "resources/assets/js/helpers/select2-es.js",
+    "isDynamicEntry": true
+  },
   "resources/assets/sass/application.scss": {
-    "file": "assets/application-Drsj-hNW.css",
+    "file": "assets/application-BboStnrq.css",
     "src": "resources/assets/sass/application.scss",
     "isEntry": true
   },
   "resources/assets/sass/landing.scss": {
-    "file": "assets/landing-l8zdRP-9.css",
+    "file": "assets/landing-DPizV5aA.css",
     "src": "resources/assets/sass/landing.scss",
     "isEntry": true
   }

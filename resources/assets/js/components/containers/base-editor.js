@@ -111,6 +111,7 @@ class BaseEditor extends Component {
         const jq = window.jQuery || window.$ || $;
         const $nodeEditor = jq(this.nodeEditor);
 
+
         this.setState({canRender: true}, () => {
             if ($nodeEditor.find) {
                 if ($nodeEditor.find('[data-toggle="tooltip"]').bsTooltip) {
@@ -216,19 +217,33 @@ class BaseEditor extends Component {
         }).then(
             response => response.json()
         ).then( data => {
-            this.editor.insertImage(data.file_path, function ($image) {
-                $image.css('width', '100%');
-                // $image.attr('data-filename', 'retriever');
-            });
+            if (data && data.file_path && this.editor) {
+                this.editor.insertImage(data.file_path, ($image) => {
+                    $image.css('width', '100%');
+                });
+                if (this.editor.noteEditable) {
+                    const updatedContent = this.editor.noteEditable.html();
+                    this.handleChange(updatedContent);
+                }
+            } else if (data && data.errors) {
+                console.error('Image upload failed:', data.errors);
+            }
 
             // remove spinner
             removeSpinner({
                 wrap: noteEditor,
                 direct: false
             });
-        }).catch(err => ({
-            infoStatus: 'error'
-        }));
+        }).catch(err => {
+            removeSpinner({
+                wrap: noteEditor,
+                direct: false
+            });
+            console.error('Image upload network/server error:', err);
+            return {
+                infoStatus: 'error'
+            };
+        });
     }
 
     render() {

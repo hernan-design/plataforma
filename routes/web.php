@@ -63,7 +63,9 @@ Route::group(['middleware' => 'auth'], function()
 	{
 		Route::resource('canalusuario', 'CanalUsuarioController', ['only' => ['index','store','update']]);
 
-		Route::get('{canal}/create', ['as' => 'create', 'uses' => 'MuroController@index']);
+		Route::get('create/{form?}', ['as' => 'create_form', 'uses' => 'MuroController@index']);
+		Route::get('{canal}/create/{form?}', ['as' => 'canal_create_form', 'uses' => 'MuroController@index']);
+		Route::get('{canal}/edit/{form?}', ['as' => 'canal_edit_form', 'uses' => 'MuroController@index']);
 	});
 	Route::resource('comunidad', 'MuroController', ['only' => ['index','store','destroy','update','show']]);
 

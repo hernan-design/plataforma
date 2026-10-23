@@ -138,7 +138,8 @@
 
 // styles for forms
 .card-form {
-	/*  @extend .card;  */
+	@extend .card;
+	background-color: $white;
 
 	.card-content {
 		padding: {

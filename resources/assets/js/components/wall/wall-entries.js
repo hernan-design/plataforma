@@ -72,6 +72,13 @@ class WallEntries extends Component {
         }
 
         if(this.props.location !== locationNext && historyNext.action !== 'POP') {
+            const currentChannel = this.getCleanChannel(this.props.location);
+            const nextChannel = this.getCleanChannel(locationNext);
+
+            if (currentChannel === nextChannel && locationNext && locationNext.state && locationNext.state.modal) {
+                return;
+            }
+
             this.refreshResults(locationNext, 100);
         }
     }
@@ -86,12 +93,24 @@ class WallEntries extends Component {
             ownerData !== nextProps.ownerData);
     }
 
+    getCleanChannel(location) {
+        let channel = (location && location.state && ({}).hasOwnProperty.call(location.state, 'channel'))
+            ? location.state.channel
+            : (location && location.pathname ? location.pathname.replace(/^\/comunidad\/?/, '') : '');
+
+        if (channel) {
+            channel = channel.replace(/\/(create|edit).*$/i, '').replace(/^(create|edit).*$/i, '');
+            if (channel === 'general') {
+                channel = '';
+            }
+        }
+        return channel || '';
+    }
+
     refreshResults(location, timeout = 0) {
         const { listActions } = this.props;
 
-        const channel = (location && location.state && ({}).hasOwnProperty.call(location.state, 'channel'))
-            ? location.state.channel
-            : (location && location.pathname ? location.pathname.replace(/^\/comunidad\/?/, '') : '');
+        const channel = this.getCleanChannel(location);
 
         const channelLocation = {
             ...(location || {}),
@@ -112,7 +131,13 @@ class WallEntries extends Component {
         const channelLocation = this.state.channelLocation || {};
         const { ownerData, channels } = this.props;
         
-        const stateChannel = channelLocation.state && channelLocation.state.channel;
+        let stateChannel = channelLocation.state && channelLocation.state.channel;
+        if (stateChannel) {
+            stateChannel = stateChannel.replace(/\/(create|edit).*$/i, '').replace(/^(create|edit).*$/i, '');
+            if (stateChannel === 'general') {
+                stateChannel = '';
+            }
+        }
         const stateCodChannel = channelLocation.state && channelLocation.state.codChannel;
         const evalChannelPrivacity = ch => ((ch.urlCanal === stateChannel) && ch.canalAbierto);
         const owner_channels = (ownerData && Array.isArray(ownerData.channels))

@@ -17,15 +17,32 @@ export default function controlStateFilter(WrapperList) {
                 this.props.location !== nextProps.location &&
                 nextProps.history.action !== 'POP'
             ) {
+                const currentFilter = this.getChannelFilter(this.props.location, this.props.field);
+                const nextFilter = this.getChannelFilter(nextProps.location, this.props.field);
+                if (currentFilter === nextFilter && nextProps.location && nextProps.location.state && nextProps.location.state.modal) {
+                    return;
+                }
                 this.refreshResults(nextProps, 100);
             }
         }
 
+        getChannelFilter(location, field) {
+            let stateFilter = (location && location.state && ({}).hasOwnProperty.call(location.state, field))
+                ? location.state[field]
+                : (location && location.pathname ? location.pathname.replace(/^\/comunidad\/?/, '') : '');
+
+            if (stateFilter) {
+                stateFilter = stateFilter.replace(/\/(create|edit).*$/i, '').replace(/^(create|edit).*$/i, '');
+                if (stateFilter === 'general') {
+                    stateFilter = '';
+                }
+            }
+            return stateFilter || '';
+        }
+
         refreshResults(props, timeout = 0) {
             const { loadByState, location, field } = props;
-            const stateFilter = (location.state && ({}).hasOwnProperty.call(location.state, field))
-                ? location.state[field]
-                : (location.pathname ? location.pathname.replace(/^\/comunidad\/?/, '') : '');
+            const stateFilter = this.getChannelFilter(location, field);
 
             loadByState(stateFilter, timeout);
         }

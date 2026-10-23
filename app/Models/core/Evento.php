@@ -188,6 +188,7 @@ class Evento extends Model {
 	public static function getEvents(array $filters = [])
 	{
 		$events = [];
+		$instId = (int) (RegistroSesion::getInstitution() ?: 0);
 
 		$query = Evento::query();
         $query->select('evento.resumen_evento','evento.codigo_evento', 'evento.pago_evento', 'tipo_evento_calendario.codigo_tipo_evento as codigo_tipo_evento', 'tipo_evento_calendario.codigo_clase_tipo_evento', 'nombre_evento', 'lugar_evento', 'url_evento', 'fecha_evento', 'fecha_fin_evento', 'hora_inicio_evento', 'hora_fin_evento', 'nombre_ciudad', 'evento.codigo_estado', 'evento.codigo_usuario as owner', 'mentoria.codigo_usuario as entrepreneur', 'usuario.nickname_usuario', 'usprorg.nickname_usuario as nickname_organizador', 'usuario.imagen_usuario', 'icono_tipo_evento', 'evento.imagen_evento',
@@ -198,25 +199,25 @@ class Evento extends Model {
 			FROM core.etapa_contenido
 		LEFT JOIN param.etapa_conten_insti ON etapa_conten_insti.codigo_etapa_contenido = etapa_contenido.codigo_etapa_contenido
 		LEFT JOIN core.etapa_cont_event ON etapa_cont_event.codigo_etapa_contenido = etapa_contenido.codigo_etapa_contenido
-        WHERE etapa_conten_insti.codigo_institucion = ".RegistroSesion::getInstitution()." AND etapa_cont_event.codigo_evento = evento.codigo_evento)"),
+        WHERE etapa_conten_insti.codigo_institucion = " . $instId . " AND etapa_cont_event.codigo_evento = evento.codigo_evento)"),
 		DB::raw("( SELECT string_agg(categoria_contenido.nombre_categoria_contenido::text, ',') as categorias
 			FROM core.categoria_contenido
 		LEFT JOIN param.cat_conten_insti ON cat_conten_insti.codigo_categoria_contenido = categoria_contenido.codigo_categoria_contenido
 		LEFT JOIN core.cat_conten_evento ON cat_conten_evento.codigo_categoria_contenido = categoria_contenido.codigo_categoria_contenido
-        WHERE cat_conten_insti.codigo_institucion = ".RegistroSesion::getInstitution()." AND cat_conten_evento.codigo_evento = evento.codigo_evento)"),
+        WHERE cat_conten_insti.codigo_institucion = " . $instId . " AND cat_conten_evento.codigo_evento = evento.codigo_evento)"),
         (Auth::check() ?
         DB::raw("(SELECT CASE WHEN usuario_evento.codigo_usuario_institucion IS NULL THEN FALSE ELSE TRUE END AS registrado FROM core.usuario_institucion
             JOIN core.evento_institucion ON usuario_institucion.codigo_institucion = evento_institucion.codigo_institucion
-                AND usuario_institucion.codigo_usuario = ".Auth::user()->codigo_usuario."
+                AND usuario_institucion.codigo_usuario = " . (int)Auth::user()->codigo_usuario . "
             JOIN core.usuario_evento ON usuario_institucion.codigo_usuario_institucion = usuario_evento.codigo_usuario_institucion AND
             usuario_evento.codigo_evento =  evento.codigo_evento LIMIT 1 )") : DB::raw('FALSE AS registrado'))
 		);
 
 
         $query->join('core.ciudad', 'evento.codigo_ciudad', '=', 'ciudad.codigo_ciudad');
-		$query->join('core.evento_institucion', function($join) {
+		$query->join('core.evento_institucion', function($join) use ($instId) {
 			$join->on('evento.codigo_evento', '=', 'evento_institucion.codigo_evento')
-				->where('evento_institucion.codigo_institucion', '=', RegistroSesion::getInstitution())
+				->where('evento_institucion.codigo_institucion', '=', $instId)
 				->where('evento_institucion.codigo_estado', '=', Estado::getState('active'));
 		});
 		$query->join('core.tipo_evento_calendario', 'evento_institucion.codigo_tipo_evento_calendario', '=', 'tipo_evento_calendario.codigo_tipo_evento_calendario');
@@ -242,10 +243,10 @@ class Evento extends Model {
 	                ->where('contenido_canal.codigo_estado', '=', Estado::getState('active'));
 	        });
 
-	        $query->join('core.canal', function($join) use($filters){
+	        $query->join('core.canal', function($join) use($filters, $instId){
 	            $join->on('contenido_canal.codigo_canal', '=', 'canal.codigo_canal')
 	                ->where('canal.url_canal', '=', $filters['url_canal'])
-					->where('canal.codigo_institucion', '=', RegistroSesion::getInstitution());
+					->where('canal.codigo_institucion', '=', $instId);
 	        });
 		}
 
@@ -320,7 +321,7 @@ class Evento extends Model {
 
 				$query->orderBy('evento.fecha_evento','desc');
 				$query->orderBy('evento.hora_inicio_evento','desc');
-		   		$query->skip($filters['offset'])->take($filters['limit']);
+		   		$query->skip($filters['offset'] ?? 0)->take($filters['limit'] ?? 10);
 				$data = $query->get();
 		        break;
 
@@ -392,7 +393,7 @@ class Evento extends Model {
 				$query->orderBy('evento.hora_inicio_evento','asc');
 
 		        // Get posts
-				$data = $query->take($filters['limit'])->get();
+				$data = $query->take($filters['limit'] ?? 10)->get();
 				break;
 		}
 

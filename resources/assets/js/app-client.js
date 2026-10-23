@@ -28,6 +28,12 @@ if (preloadedState.channel) {
         preloadedState.channel.channels = camelizeKeys(preloadedState.channel.channels);
     }
 }
+if (preloadedState.session) {
+    preloadedState.session = camelizeKeys(preloadedState.session);
+}
+if (preloadedState.event && Array.isArray(preloadedState.event.types)) {
+    preloadedState.event.types = camelizeKeys(preloadedState.event.types);
+}
 
 // rewrite pagination recipe reducers to set like immutable values
 preloadedState = recipesToImmutable(preloadedState);

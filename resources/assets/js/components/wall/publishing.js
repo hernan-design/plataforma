@@ -30,27 +30,29 @@ const SwitchForm = ({ match, ...props }) => {
 const Publishing = ({ match, location, history, ownerData, channels, passPrivacity }) => {
     
     // validated attributes
-    const isModal = !!(
-        location.state &&
-        location.state.modal
-    );
-
-    const hasChannel = ({}).hasOwnProperty.call(match.params, 'channel') && !!match.params.channel;
+    const hasChannel = ({}).hasOwnProperty.call(match.params, 'channel') && !!match.params.channel && match.params.channel !== 'general';
     const currentChannel = channels.find(ch => hasChannel && (ch.urlCanal === match.params.channel));
-    const availablePublish = ownerData.usuarioVerificado && passPrivacity;
+    const isGeneral = !hasChannel || match.params.channel === 'general';
+    const isChannelPrivacityPassed = isGeneral || passPrivacity;
+    const availablePublish = (typeof ownerData.usuarioVerificado !== 'undefined') ? (Boolean(ownerData.usuarioVerificado) && isChannelPrivacityPassed) : true;
 
     const handleBack = (e) => {
         if(e) {
-            e.preventDefault;
-            e.stopPropagation();
+            if(typeof e.preventDefault === 'function') e.preventDefault();
+            if(typeof e.stopPropagation === 'function') e.stopPropagation();
         }
 
-        if(match.params.channel && match.params.channel === 'general') {
-            history.replace('/comunidad');
-        }else {
-            history.replace(`${match.url}`);
+        const channel = match.params.channel;
+        if(!channel || channel === 'general') {
+            history.push('/comunidad');
+        } else {
+            history.push(`/comunidad/${channel}`);
         }
-    }
+    };
+
+    const isModalOpen = isChannelPrivacityPassed && (
+        location.pathname.indexOf('/create') !== -1 || location.pathname.indexOf('/edit') !== -1
+    );
 
     return(
         <section className="content-chosen-publishing">
@@ -63,16 +65,6 @@ const Publishing = ({ match, location, history, ownerData, channels, passPrivaci
                     }
                 }} />
 
-                {/* history.action === 'POP'&&
-                    <Redirect to={{
-                        pathname: `${match.url}`,
-                        state: {
-                            channel: currentChannel ? currentChannel.urlCanal : '',
-                            codChannel: currentChannel ? currentChannel.codigoCanal : ''
-                        }
-                    }} />
-                */}
-
                 { !availablePublish ?
                     <Redirect from={`${match.url}/create`} to={{
                         pathname: `${match.url}`,
@@ -84,21 +76,24 @@ const Publishing = ({ match, location, history, ownerData, channels, passPrivaci
                     :
                     null
                 }
-                { isModal ?
-                    <Route path={`${match.url}/(create|edit)/:formPublish`} render={props => (
-                        <SwitchForm onClose={handleBack} channelUrl={match.params.channel} style={styles.choosingBox} {...props} />
-                    )} />
-                    :
-                    null
-                }
-                { isModal ?
-                    <Route path={`${match.url}/create`} render={props => (
-                        <ChoosePublishing onClose={handleBack} style={styles.choosingBox} ownerData={ownerData} {...props} />
-                    )} />
-                    :
-                    null
-                }
-                { passPrivacity ?
+
+                {/* Specific form routes: with channel or without channel */}
+                <Route path="/comunidad/:channel/(create|edit)/:formPublish" render={props => (
+                    <SwitchForm onClose={handleBack} channelUrl={props.match.params.channel} style={styles.choosingBox} {...props} />
+                )} />
+                <Route path="/comunidad/(create|edit)/:formPublish" render={props => (
+                    <SwitchForm onClose={handleBack} channelUrl="" style={styles.choosingBox} {...props} />
+                )} />
+
+                {/* Choose publishing type routes: with channel or without channel */}
+                <Route path="/comunidad/:channel/create" render={props => (
+                    <ChoosePublishing onClose={handleBack} style={styles.choosingBox} ownerData={ownerData} {...props} />
+                )} />
+                <Route path="/comunidad/create" render={props => (
+                    <ChoosePublishing onClose={handleBack} style={styles.choosingBox} ownerData={ownerData} {...props} />
+                )} />
+
+                { isChannelPrivacityPassed ?
                     <Route path={`${match.url}`} render={(props) => (
                         <ButtonPublishing hasChannel={hasChannel} channelUrl={match.params.channel} {...props} />
                     )} />
@@ -107,15 +102,13 @@ const Publishing = ({ match, location, history, ownerData, channels, passPrivaci
                 }
             </Switch>
 
-            { isModal && passPrivacity ?
-                (<Route path={`${match.url}`} children={() => <span
+            { isModalOpen && (
+                <span
                     className="overlight"
                     style={styles.overlight}
                     onClick={handleBack}
-                />} />)
-                :
-                null
-            }
+                />
+            )}
         </section>
     );
 };

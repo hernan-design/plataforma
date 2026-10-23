@@ -80,7 +80,11 @@ class ButtonPublishing extends Component {
                 { ownerData.usuarioVerificado &&
                     (<Link to={{
                         pathname: `${match.url}${hasChannel ? '' : '/general'}/create`,
-                        state: { modal: true }
+                        state: {
+                            modal: true,
+                            channel: currentChannel ? currentChannel.urlCanal : '',
+                            codChannel: currentChannel ? currentChannel.codigoCanal : ''
+                        }
                     }} style={{ display:'block' }} >
                         <ul className="inline-list-grid vcenter">
                             <li className="has-image">
