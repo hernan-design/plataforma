@@ -83,14 +83,14 @@ class Persona extends BaseModel
             $join->on('usuario_institucion.codigo_usuario', '=', 'usuario.codigo_usuario')
                 ->where('usuario_institucion.codigo_institucion', '=', RegistroSesion::getInstitution());
         });
-        $query->join('seguridad.aceptacion_terminos', function($join) {
+        $query->leftJoin('seguridad.aceptacion_terminos', function($join) {
             $join->on('aceptacion_terminos.codigo_usuario_institucion', '=', 'usuario_institucion.codigo_usuario_institucion')
-                ->where('usuario_institucion.codigo_institucion', '=', RegistroSesion::getInstitution());
-        });
-        $query->join('param.version_terminos','version_terminos.codigo_version_terminos','aceptacion_terminos.codigo_version_terminos');
-        $query->join('param.terminos_condiciones', function($join) {
-            $join->on('terminos_condiciones.codigo_terminos_condiciones', '=', 'version_terminos.codigo_terminos_condiciones')
-                ->where('terminos_condiciones.tipo_terminos', '=', TerminosCondiciones::getTypeTerms('mentoring'));
+                ->whereIn('aceptacion_terminos.codigo_version_terminos', function($sub) {
+                    $sub->select('vt.codigo_version_terminos')
+                        ->from('param.version_terminos as vt')
+                        ->join('param.terminos_condiciones as tc', 'tc.codigo_terminos_condiciones', '=', 'vt.codigo_terminos_condiciones')
+                        ->where('tc.tipo_terminos', '=', TerminosCondiciones::getTypeTerms('mentoring'));
+                });
         });
 
 		// City / Country

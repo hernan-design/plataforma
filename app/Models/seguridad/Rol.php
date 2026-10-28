@@ -29,6 +29,7 @@ class Rol extends Model {
 		    case 'admininstitution': return 2;
             case 'user': return 3;
             case 'mentor': return 7;
+            case 'gestor-de-mentorias': return 56;
 		    case 'seller': return 14;
 			default: return 'Not role identified';
 		endswitch;
