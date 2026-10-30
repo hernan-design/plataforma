@@ -66,7 +66,11 @@ class DiscusionController extends Controller
 					abort(403);
 				}
 
-				list($codigo_recurso_modulo) = TuProyecto::decryptSrcParams($request->codigo_recurso_modulo);
+				if(is_numeric($request->codigo_recurso_modulo)) {
+					$codigo_recurso_modulo = $request->codigo_recurso_modulo;
+				} else {
+					list($codigo_recurso_modulo) = TuProyecto::decryptSrcParams($request->codigo_recurso_modulo);
+				}
 				if(!$codigo_recurso_modulo || !is_numeric($codigo_recurso_modulo)) {
 					abort(403);
 				}

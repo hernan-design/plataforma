@@ -273,7 +273,11 @@ class Discusion extends Model
 			isset($filters['codigo_modulo']) && !empty($filters['codigo_modulo']) &&
 			isset($filters['codigo_recurso_modulo']) && !empty($filters['codigo_recurso_modulo'])
 		) {
-			list($content_cod) = TuProyecto::decryptSrcParams($filters['codigo_recurso_modulo']);
+			if(is_numeric($filters['codigo_recurso_modulo'])) {
+				$content_cod = $filters['codigo_recurso_modulo'];
+			} else {
+				list($content_cod) = TuProyecto::decryptSrcParams($filters['codigo_recurso_modulo']);
+			}
 			if(!$content_cod || !is_numeric($content_cod)) {
                 abort(403);
             }

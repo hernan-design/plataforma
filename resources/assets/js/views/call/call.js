@@ -101,10 +101,13 @@ app || (app = {});
 				// Overwrite id attribute of the model
 				this.model.idAttribute = 'codigo_convocatoria';
 				this.model.set({'codigo_convocatoria': this.model.get('codigo_convocatoria')},{'silent':true});
-				 // reference to views
-				this.referenceViews();
 
 				$(window).scrollTop(0);
+			}
+
+			if (this.model.get('codigo_convocatoria')) {
+				// reference to views
+				this.referenceViews();
 			}
 
 			// Change modal title
@@ -341,6 +344,10 @@ app || (app = {});
 		* reference to views
 		*/
 		referenceViews: function () {
+			if (this.discussionListView instanceof Backbone.View) {
+				this.discussionListView.stopListening();
+				this.discussionListView.undelegateEvents();
+			}
 			// instance of discussion view
 			this.discussionListView = new app.DiscussionListView({
 				el: this.$wrapperDiscussion,

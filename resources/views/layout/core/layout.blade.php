@@ -198,6 +198,11 @@
 			if (window.jQuery && typeof window.jQuery.fn.foundation === 'function') {
 				try { $(document).foundation(); } catch(e) {}
 			}
+			if (window.Foundation && window.Foundation.libs && window.Foundation.libs.abide && window.Foundation.libs.abide.settings) {
+				window.Foundation.libs.abide.settings.patterns = window.Foundation.libs.abide.settings.patterns || {};
+				window.Foundation.libs.abide.settings.patterns['max_char_textarea'] = /[^\s](.[\n\r]*?){1,}/;
+				window.Foundation.libs.abide.settings.patterns['min_char_textarea'] = /[^\s](.[\n\r]*?){1,}/;
+			}
 
 			// Safe jQuery UI / Bootstrap tooltip bridge to prevent "no such method 'hide' for tooltip widget instance"
 			if (window.jQuery && window.jQuery.ui && window.jQuery.ui.tooltip && window.jQuery.ui.tooltip.prototype) {

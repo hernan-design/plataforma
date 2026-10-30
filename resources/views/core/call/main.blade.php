@@ -474,11 +474,12 @@
 									</div>
 									<div class="small-12 tablet-6 columns">
 										<div id="wrapper-program-discussion" class="panel-content radius">
+											<div id="wrapper-posts-discussion">
 											@if(Auth::check())
 												{!! Form::open(['action' => null, 'data-abide' => '', 'id' => 'form-discussion-program']) !!}
 													<div class="textarea-post-discussion clearfix input-field">
-														<textarea placeholder="Comenta aquí" required="required" name="texto_discucion" id="texto_discucion" cols="50" rows="2" pattern="max_char_textarea" class="materialize-textarea validate"></textarea>
-														<label for="texto_discucion" data-error="El campo esta vació o tiene muy pocos caracteres"></label>
+														<textarea placeholder="Comenta aquí" required="required" name="texto_discucion" id="texto_discucion" cols="50" rows="2" class="materialize-textarea validate"></textarea>
+														<label for="texto_discucion" data-error="El campo esta vacío"></label>
 														<button class="right button tiny sky-blue radius btn-shadow btn-lowerc" type="submit">Comentar</button>
 													</div>
 													<input type="hidden" name="codigo_convocatoria" value="<%= codigo_convocatoria %>" />
@@ -488,6 +489,7 @@
 											<section id="discussion-posts-wrap" class="">
 												{{-- Render Tasks template --}}
 											</section>
+											</div>
 										</div>
 									</div>
 								</div>
