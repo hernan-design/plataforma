@@ -144,7 +144,7 @@
 
                                 @if( Auth::user()->ability('super-admin', 'create', ['module'  => '/marketplace']) && App\Institucion::hasPermission('create-products') )
                                     <li class="tab-title has-dropdown tab-more" data-options role="navigation">
-                                        <a href="" data-dropdown="drop-desk-nav" data-options="is_hover:true" class="mdi mdi-chevron-down vcenter link-option-submenu tab-icon-right">Más</a>
+                                        <a href="#" data-dropdown="drop-desk-nav" data-options="is_hover:true" class="mdi mdi-chevron-down vcenter link-option-submenu tab-icon-right">Más</a>
                                         <ul id="drop-desk-nav" data-dropdown-content class="tabs-dropdown dropdown no-bullet inst-bgcolor-secondary f-dropdown">
                                             <li>
                                                 <a href="<%- window.Misc.urlFull(Route.route('marketplace.create')) %>" class="mdi mdi-plus drop-icon-left">{{ transtp('marketplace.create.products') }}</a>

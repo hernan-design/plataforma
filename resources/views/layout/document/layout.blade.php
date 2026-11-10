@@ -4,6 +4,37 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
 <head>
+	<script>
+		// Suppress Chrome violations for deprecated unload listeners and browser extension unhandled promises
+		(function() {
+			var origAdd = EventTarget.prototype.addEventListener;
+			EventTarget.prototype.addEventListener = function(type, listener, options) {
+				if (type === 'unload') {
+					return origAdd.call(this, 'pagehide', listener, options);
+				}
+				return origAdd.apply(this, arguments);
+			};
+			try {
+				Object.defineProperty(window, 'onunload', {
+					get: function() { return null; },
+					set: function(fn) {
+						if (typeof fn === 'function') {
+							window.addEventListener('pagehide', fn);
+						}
+					},
+					configurable: true
+				});
+			} catch(e) {}
+			window.addEventListener('unhandledrejection', function(event) {
+				if (event && event.reason) {
+					var msg = event.reason.message || String(event.reason);
+					if (typeof msg === 'string' && msg.indexOf('message channel closed') !== -1) {
+						event.preventDefault();
+					}
+				}
+			});
+		})();
+	</script>
 	@include('public.meta')
 
 	<link rel="stylesheet" href="{{ asset('css/vendor.min.css') }}">
@@ -145,9 +176,17 @@
 	</script>
 	@vite(['resources/assets/js/app-client.js'])
 
-	 @if (Auth::check() && $app->environment('production'))
+	 @if (Auth::check())
 		{{-- Realtime script --}}
-		<script src="{{ asset('js/realtime.app.js') }}"></script>
+		<script>
+			if (!document.cookie.includes('_user_id=')) {
+				document.cookie = "_user_id={{ Auth::user()->codigo_usuario }}; path=/";
+			}
+			if (!document.cookie.includes('_inst_id=')) {
+				document.cookie = "_inst_id={{ App\RegistroSesion::getInstitution() }}; path=/";
+			}
+		</script>
+		<script src="{{ asset('js/realtime.app.js') }}?v={{ time() }}"></script>
 	 @endif
 
 	@if ($app->environment('production'))

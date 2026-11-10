@@ -20,10 +20,10 @@
 </script>
 <script type="text/template" id="general-notification-tpl">
 	<div class="item-notify">
-		<a href="<%- window.Misc.urlFull(url) %>" title="<%- title %>" class="wrapper-link-notify toNotifyLink">
+		<a href="<%- window.Misc.urlFull(typeof url !== 'undefined' && url ? url : '') %>" title="<%- typeof title !== 'undefined' && title ? title : '' %>" class="wrapper-link-notify toNotifyLink">
 			<ul class="card-info-notify inline-list-grid valign-top">
 				<li class="has-image">
-					<img src="<%- image %>" alt="<%- title %>" class="image-item-notify" onerror="imageDefault(this, window._tp.thumbs.global())" />
+					<img src="<%- typeof image !== 'undefined' && image ? image : '' %>" alt="<%- typeof title !== 'undefined' && title ? title : '' %>" class="image-item-notify" onerror="imageDefault(this, window._tp.thumbs.global())" />
 				</li>
 				<li>
 					<% if(title) { %>
@@ -48,7 +48,7 @@
 </script>
 <script type="text/template" id="like-notification-tpl">
 	<div class="item-notify">
-		<a href="<%- window.Misc.urlFull(url) %>" title="<%- title %>" class="wrapper-link-notify toNotifyLink">
+		<a href="<%- window.Misc.urlFull(typeof url !== 'undefined' && url ? url : '') %>" title="<%- typeof title !== 'undefined' && title ? title : '' %>" class="wrapper-link-notify toNotifyLink">
 			<ul class="card-info-notify inline-list-grid valign-top">
 				<li class="has-image">
 					<img src="<%- _.flatten([deliveredBy])[0].avatar %>" alt="<%- window.Misc.strToNickname(_.flatten([deliveredBy])[0].nickname) %>" class="rounded-img size45" onerror="imageDefault(this, window._tp.thumbs.avatar())">

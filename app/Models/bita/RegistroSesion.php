@@ -43,8 +43,8 @@ class RegistroSesion extends Model {
 
 		// Auth user used Broadcast events
 		if(Auth::check()) {
-			Cookie::queue(Cookie::forever('_inst_id', $institution->codigo_institucion));
-            Cookie::queue(Cookie::forever('_user_id', Auth::user()->codigo_usuario));
+			Cookie::queue(Cookie::forever('_inst_id', $institution->codigo_institucion, null, null, null, false));
+            Cookie::queue(Cookie::forever('_user_id', Auth::user()->codigo_usuario, null, null, null, false));
 		}
 
 		// Type Payment

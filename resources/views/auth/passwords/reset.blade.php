@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="small-12 columns input-field">
                             <i class="prefix mdi mdi-email"></i>
-                            {!! Form::text('correo_electronico', $email ?: old('correo_electronico'), [
+                            {!! Form::text('correo_electronico', ($email ?? old('correo_electronico')), [
                                 'id' => 'correo_electronico',
                                 'required' => 'required',
                                 'pattern' => 'email',

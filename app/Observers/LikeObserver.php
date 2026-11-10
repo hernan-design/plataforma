@@ -57,7 +57,7 @@ class LikeObserver
 				case Recurso::getResource('mentoria.gestion'):
 					$title = transtp('notifications.like.title.mentoring');
 					$content = $objResource->resource->descripcion_asesoria;
-					$url = route('mentoria.preguntas.show', ['pregunta' => sprintf("%s-%s", 'pregunta', $$objResource->resource->codigo_asesoria)]);
+					$url = route('mentoria.preguntas.show', ['pregunta' => sprintf("%s-%s", 'pregunta', $objResource->resource->codigo_asesoria)]);
 					$receivedBy = $objResource->resource->codigo_usuario;
 				break;
 
@@ -118,8 +118,8 @@ class LikeObserver
 			if( !is_null($url) && !is_null($receivedBy) )
 			{
 		    	// Get userReceivedBy
-    			$userReceivedBy = MDBUsuario::where('cod', $receivedBy)->first();
-    			if( $userReceivedBy instanceof MDBUsuario && $receivedBy !== Auth::user()->codigo_usuario)
+    			$userReceivedBy = MDBUsuario::getOrCreateByCode($receivedBy);
+    			if( $userReceivedBy instanceof MDBUsuario && (int) $receivedBy !== (int) Auth::user()->codigo_usuario)
     			{
 				   	// Broadcasting event
 					event(new Notification([

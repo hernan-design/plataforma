@@ -1232,7 +1232,7 @@
 						<% }else { %>
 							<div class="row">
 								<div class="mobile-12 small-4 tablet-3 columns end">
-									<a class="button xmedium expand sky-blue radius btn-shadow btn-lowerc btn-clean-margin dropdown" data-dropdown="drop-opts-review-<%- url_producto %>" aria-controls="drop-opts-review-<%- url_producto %>" data-options="is_hover:true;">Por aprobación</a>
+									<a href="#" class="button xmedium expand sky-blue radius btn-shadow btn-lowerc btn-clean-margin dropdown" data-dropdown="drop-opts-review-<%- url_producto %>" aria-controls="drop-opts-review-<%- url_producto %>" data-options="is_hover:true;">Por aprobación</a>
 								</div>
 								<div class="mobile-12 small-8 tablet-9 columns">
 									<ul class="inline-list-grid align-top">
@@ -1263,7 +1263,7 @@
 				<% }else if(state_product == 'pending'){ %>
 					<li>
 					<% if( !_.isUndefined(type_action) && type_action.toLowerCase() == 'state' ) { %>
-						<a class="action-state-drop text-mdi lighter-text" data-dropdown="drop-opts-pending-<%- url_producto %>" aria-controls="drop-opts-pending-<%- url_producto %>">
+						<a href="#" class="action-state-drop text-mdi lighter-text" data-dropdown="drop-opts-pending-<%- url_producto %>" aria-controls="drop-opts-pending-<%- url_producto %>">
 							<i class="mdi mdi-content-save mdi-21 icon-drop icon-left"></i>
 							<span>Guardado</span>
 							<i class="mdi mdi-menu-down mdi-21 icon-drop icon-right"></i>
@@ -1271,7 +1271,7 @@
 					<% }else { %>
 						<div class="row">
 							<div class="mobile-12 small-4 tablet-3 columns">
-								<a class="button xmedium expand sky-blue radius btn-shadow btn-lowerc btn-clean-margin dropdown" data-dropdown="drop-opts-pending-<%- url_producto %>" aria-controls="drop-opts-pending-<%- url_producto %>" data-options="is_hover:false;align:bottom">Guardado</a>
+								<a href="#" class="button xmedium expand sky-blue radius btn-shadow btn-lowerc btn-clean-margin dropdown" data-dropdown="drop-opts-pending-<%- url_producto %>" aria-controls="drop-opts-pending-<%- url_producto %>" data-options="is_hover:false;align:bottom">Guardado</a>
 							</div>
 							<div class="mobile-12 small-8 tablet-9 columns">
 								<ul class="inline-list-grid align-top">
@@ -1378,7 +1378,7 @@
 					<li>
 						<div class="row">
 							<div class="mobile-12 small-4 tablet-4 columns">
-								<a class="button xmedium expand sky-blue radius btn-shadow btn-lowerc btn-clean-margin dropdown" data-dropdown="drop-opts-pending-<%- url_contenido %>" aria-controls="drop-opts-pending-<%- url_contenido %>" data-options="is_hover:false;align:bottom">Guardado</a>
+								<a href="#" class="button xmedium expand sky-blue radius btn-shadow btn-lowerc btn-clean-margin dropdown" data-dropdown="drop-opts-pending-<%- url_contenido %>" aria-controls="drop-opts-pending-<%- url_contenido %>" data-options="is_hover:false;align:bottom">Guardado</a>
 							</div>
 							<div class="mobile-12 small-8 tablet-8 columns">
 								<ul class="inline-list-grid align-top">
@@ -1404,7 +1404,7 @@
 					<li>
 						<div class="row">
 							<div class="mobile-12 small-4 tablet-4 columns">
-								<a class="button xmedium expand sky-blue radius btn-shadow btn-lowerc btn-clean-margin dropdown" data-dropdown="drop-opts-finish-<%- url_contenido %>" aria-controls="drop-opts-finish-<%- url_contenido %>" data-options="is_hover:true;">Artículo publicado</a>
+								<a href="#" class="button xmedium expand sky-blue radius btn-shadow btn-lowerc btn-clean-margin dropdown" data-dropdown="drop-opts-finish-<%- url_contenido %>" aria-controls="drop-opts-finish-<%- url_contenido %>" data-options="is_hover:true;">Artículo publicado</a>
 							</div>
 							<div class="mobile-12 small-8 tablet-8 columns">
 								<ul id="drop-opts-finish-<%- url_contenido %>" data-dropdown-content class="friendship-dropdown radius inline-list-grid align-top" aria-hidden="true">

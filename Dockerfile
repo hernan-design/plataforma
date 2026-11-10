@@ -28,9 +28,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         pdo_pgsql \
         pgsql
 
-# 3. Instalar extensión de MongoDB para PHP mediante PECL
-RUN pecl install mongodb \
-    && docker-php-ext-enable mongodb
+# 3. Instalar extensión de MongoDB y Redis para PHP mediante PECL
+RUN pecl install mongodb && docker-php-ext-enable mongodb \
+    && pecl install redis && docker-php-ext-enable redis
 
 # 4. Habilitar mod_rewrite de Apache para soportar el enrutamiento de Laravel
 RUN a2enmod rewrite

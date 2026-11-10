@@ -19,8 +19,8 @@ class ComentarioDiscusionObserver
 			list($notifyOwner, $notifyParticipants) = $this->prepareNotification($model);
 
 		   	// Get userReceivedBy
-			$userReceivedBy = MDBUsuario::where('cod', $notifyOwner['receivedBy'])->first();
-			if( $userReceivedBy instanceof MDBUsuario && $notifyOwner['receivedBy'] !== Auth::user()->codigo_usuario ) {
+			$userReceivedBy = MDBUsuario::getOrCreateByCode($notifyOwner['receivedBy']);
+			if( $userReceivedBy instanceof MDBUsuario && (int) $notifyOwner['receivedBy'] !== (int) Auth::user()->codigo_usuario ) {
 			   	// Broadcasting event
                 event(new Notification($notifyOwner));
 			}

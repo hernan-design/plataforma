@@ -5,6 +5,37 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="es"> <!--<![endif]-->
 <head>
+	<script>
+		// Suppress Chrome violations for deprecated unload listeners and browser extension unhandled promises
+		(function() {
+			var origAdd = EventTarget.prototype.addEventListener;
+			EventTarget.prototype.addEventListener = function(type, listener, options) {
+				if (type === 'unload') {
+					return origAdd.call(this, 'pagehide', listener, options);
+				}
+				return origAdd.apply(this, arguments);
+			};
+			try {
+				Object.defineProperty(window, 'onunload', {
+					get: function() { return null; },
+					set: function(fn) {
+						if (typeof fn === 'function') {
+							window.addEventListener('pagehide', fn);
+						}
+					},
+					configurable: true
+				});
+			} catch(e) {}
+			window.addEventListener('unhandledrejection', function(event) {
+				if (event && event.reason) {
+					var msg = event.reason.message || String(event.reason);
+					if (typeof msg === 'string' && msg.indexOf('message channel closed') !== -1) {
+						event.preventDefault();
+					}
+				}
+			});
+		})();
+	</script>
 
 	@include('public.meta')
 
@@ -19,7 +50,7 @@
 	<link rel="stylesheet" href="{{ elixir('css/application.css') }}">
 	{!! HTML::style('css/institution/'.App\RegistroSesion::getInstitutionSlug().'.css') !!}
 
-	@if (Auth::check() && $app->environment('production'))
+	@if (Auth::check())
 		{{-- Woopra --}}
 		@include('public.woopra')
 	@endif
@@ -192,6 +223,13 @@
 			width: 420px !important;
 			max-width: 90vw !important;
 		}
+		.f-dropdown.open,
+		.friendship-dropdown.open {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			z-index: 9999 !important;
+		}
 	</style>
 	<script>
 		$(document).ready(function() {
@@ -245,22 +283,18 @@
 				};
 			}
 
-			// Robust dropdown handler for header & notification dropdowns
-			$(document).on('click', '[data-dropdown]', function(e) {
+			// Only handle header notification & user menu dropdowns
+			$(document).on('click', '#header-wrap [data-dropdown]', function(e) {
 				var dropdownId = $(this).attr('data-dropdown');
-				console.log('DROPDOWN_CLICKED:', dropdownId, $(this));
-				var $li = $(this).closest('li.has-dropdown');
-				var $dropdown = $li.length ? $li.find('#' + dropdownId) : $('#' + dropdownId);
-				if (!$dropdown.length) $dropdown = $('#' + dropdownId);
-				console.log('FOUND_DROPDOWN:', $dropdown.length, $dropdown);
-				if (!$dropdown.length) return;
+				var $dropdown = $('#' + dropdownId);
+				if (!$dropdown.length || !$dropdown.hasClass('notification-layer-dropdown')) return;
 
 				e.preventDefault();
 				e.stopPropagation();
 
 				var isOpen = $dropdown.hasClass('open') && $dropdown.is(':visible');
-				$('.notification-layer-dropdown, [data-dropdown-content]').removeClass('open').hide();
-				$('[data-dropdown]').removeClass('open');
+				$('.notification-layer-dropdown').removeClass('open').hide();
+				$('#header-wrap [data-dropdown]').removeClass('open');
 
 				if (!isOpen) {
 					$(this).addClass('open');
@@ -268,11 +302,125 @@
 				}
 			});
 
+			function positionFndtnDropdown($dropdown, $target) {
+				var targetOffset = $target.offset();
+				var $offsetParent = $dropdown.offsetParent();
+				var parentOffset = ($offsetParent.length && $offsetParent[0] !== document.body && $offsetParent[0] !== document.documentElement)
+					? $offsetParent.offset()
+					: { top: 0, left: 0 };
+
+				var top = targetOffset.top - parentOffset.top + $target.outerHeight();
+				var left = targetOffset.left - parentOffset.left;
+
+				var windowWidth = $(window).width();
+				var dropWidth = $dropdown.outerWidth() || 200;
+				if (targetOffset.left + dropWidth > windowWidth - 16) {
+					left = left - dropWidth + $target.outerWidth();
+				}
+				if (left < 8) left = 8;
+
+				$dropdown.css({
+					position: 'absolute',
+					top: Math.round(top) + 'px',
+					left: Math.round(left) + 'px'
+				});
+			}
+
+			function openFndtnDropdown($target) {
+				var dropId = $target.attr('data-dropdown');
+				if (!dropId) return;
+				var $dropdown = $('#' + dropId);
+				if (!$dropdown.length) return;
+
+				$('.f-dropdown.open, .friendship-dropdown.open, [data-dropdown-content].open').not('.notification-layer-dropdown, #' + dropId).removeClass('open').hide();
+				$('[data-dropdown]').not('#header-wrap [data-dropdown], [data-dropdown="' + dropId + '"]').removeClass('open');
+
+				$target.addClass('open');
+				$dropdown.addClass('open').show();
+
+				var positioned = false;
+				if (window.Foundation && window.Foundation.libs && window.Foundation.libs.dropdown) {
+					try {
+						window.Foundation.libs.dropdown.css($dropdown, $target);
+						var curLeft = parseInt($dropdown.css('left'), 10);
+						if (!isNaN(curLeft) && curLeft > -1000) {
+							positioned = true;
+						}
+					} catch(e) {}
+				}
+
+				if (!positioned) {
+					positionFndtnDropdown($dropdown, $target);
+				}
+			}
+
+			function closeFndtnDropdown($target) {
+				var dropId = $target ? $target.attr('data-dropdown') : null;
+				if (dropId) {
+					$target.removeClass('open');
+					$('#' + dropId).removeClass('open').hide();
+				} else {
+					$('.f-dropdown.open, .friendship-dropdown.open, [data-dropdown-content].open').not('.notification-layer-dropdown').removeClass('open').hide();
+					$('[data-dropdown]').not('#header-wrap [data-dropdown]').removeClass('open');
+				}
+			}
+
+			// Handle click for content dropdowns (Guardado button, state dropdowns, etc.)
+			$(document).on('click', '[data-dropdown]:not(#header-wrap [data-dropdown])', function(e) {
+				var $target = $(this);
+				var dropId = $target.attr('data-dropdown');
+				var $dropdown = $('#' + dropId);
+				if (!$dropdown.length) return;
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				var isOpen = $dropdown.hasClass('open') && $dropdown.is(':visible');
+				if (isOpen) {
+					closeFndtnDropdown($target);
+				} else {
+					openFndtnDropdown($target);
+				}
+			});
+
+			// Handle hover for dropdowns configured with is_hover:true (like "Más")
+			$(document).on('mouseenter', '[data-dropdown][data-options*="is_hover:true"], [data-dropdown][data-options*="is_hover: true"]', function() {
+				openFndtnDropdown($(this));
+			});
+
+			$(document).on('mouseleave', '[data-dropdown][data-options*="is_hover:true"], [data-dropdown][data-options*="is_hover: true"], #drop-desk-nav', function(e) {
+				var $related = $(e.relatedTarget);
+				if ($related.closest('[data-dropdown="drop-desk-nav"], #drop-desk-nav').length) {
+					return;
+				}
+				setTimeout(function() {
+					if (!$(':hover').closest('[data-dropdown="drop-desk-nav"], #drop-desk-nav').length) {
+						$('[data-dropdown="drop-desk-nav"]').removeClass('open');
+						$('#drop-desk-nav').removeClass('open').hide();
+					}
+				}, 150);
+			});
+
 			// Close dropdowns on outside click
 			$(document).on('click', function(e) {
-				if (!$(e.target).closest('[data-dropdown], [data-dropdown-content], .notification-layer-dropdown').length) {
-					$('.notification-layer-dropdown, [data-dropdown-content]').removeClass('open').hide();
-					$('[data-dropdown]').removeClass('open');
+				if (!$(e.target).closest('#header-wrap [data-dropdown], .notification-layer-dropdown').length) {
+					$('.notification-layer-dropdown').removeClass('open').hide();
+					$('#header-wrap [data-dropdown]').removeClass('open');
+				}
+				if (!$(e.target).closest('[data-dropdown], [data-dropdown-content], .f-dropdown, .friendship-dropdown').length) {
+					closeFndtnDropdown();
+				}
+			});
+
+			// Close content dropdown when a link inside it is clicked
+			$(document).on('click', '[data-dropdown-content] a', function(e) {
+				var $a = $(this);
+				if (!$a.attr('data-dropdown')) {
+					var $content = $a.closest('[data-dropdown-content], .f-dropdown, .friendship-dropdown');
+					setTimeout(function() {
+						$content.removeClass('open').hide();
+						$('[data-dropdown="' + $content.attr('id') + '"]').removeClass('open');
+					}, 100);
 				}
 			});
 
@@ -376,9 +524,17 @@
 	</script>
 	@vite(['resources/assets/js/app-client.js'])
 
-	@if (Auth::check() && $app->environment('production'))
+	@if (Auth::check())
 		{{-- Realtime script --}}
-		<script src="{{ asset('js/realtime.app.js') }}"></script>
+		<script>
+			if (!document.cookie.includes('_user_id=')) {
+				document.cookie = "_user_id={{ Auth::user()->codigo_usuario }}; path=/";
+			}
+			if (!document.cookie.includes('_inst_id=')) {
+				document.cookie = "_inst_id={{ App\RegistroSesion::getInstitution() }}; path=/";
+			}
+		</script>
+		<script src="{{ asset('js/realtime.app.js') }}?v={{ time() }}"></script>
 	@endif
 
 	@if ($app->environment('production'))

@@ -47,6 +47,19 @@ Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@s
 | Secure Routes Application
 |--------------------------------------------------------------------------
 */
+// TEMPORAL (solo local): login de pruebas para verificar notificaciones. ELIMINAR al terminar.
+if (app()->environment('local')) {
+    Route::get('dev-autologin', function () {
+        session(['_inst_key' => 30]);
+        Auth::loginUsingId(455173);
+        $inst = App\Institucion::findOrFail(30);
+        App\RegistroSesion::dataPrepare($inst);
+        Cookie::queue(Cookie::forever('_user_id', 455173, null, null, null, false));
+        Cookie::queue(Cookie::forever('_inst_id', 30, null, null, null, false));
+        return redirect(request('to', '/notificaciones'));
+    });
+}
+
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 Route::group(['middleware' => 'auth'], function()

@@ -6,7 +6,7 @@ use MongoDB\Laravel\Eloquent\Model;
 use MongoDB\BSON\ObjectID;
 use MongoDB\Model\BSONArray;
 
-use Auth, Input;
+use Auth;
 
 use App\Models\mongodb\Usuario, App\RegistroSesion;
 
@@ -18,7 +18,7 @@ class Notificacion extends Model
 	 *
 	 * @var string
 	 */
-    protected $collection = 'notifications';
+    protected $table = 'notifications';
 
     protected $dates = ['created'];
 
@@ -35,7 +35,13 @@ class Notificacion extends Model
     public static function getNotifications()
     {
     	// Get user
-        $user = Usuario::where('cod', Auth::user()->codigo_usuario)->first();
+        $user = Usuario::getOrCreateAuthUser();
+        if (!$user instanceof Usuario) {
+            $response = new \stdClass();
+            $response->total_entries = 0;
+            $response->items = [];
+            return $response;
+        }
 		// Get notifications
 	   	$data = Notificacion::raw(function($collection) use ($user)
 		{
@@ -44,16 +50,16 @@ class Notificacion extends Model
 				[ '$match' => ['$or' => [ ['receivedBy' => ['$in' => [new ObjectID($user->_id)]]], ['isGlobal' => ['$eq' => true]] ] ] ],
 				[ '$match' => ['deletedBy' => ['$nin' => [new ObjectID($user->_id)]]] ],
 				[ '$match' => ['type' => ['$in' => [Notificacion::getType('general'), Notificacion::getType('like'), Notificacion::getType('favorite'), Notificacion::getType('discussion')]]] ],
-	 			[ '$skip' => intval(Input::get('offset')) ],
-	 			[ '$limit' => intval(Input::get('limit')) ],
+	 			[ '$skip' => intval(request('offset', 0)) ],
+	 			[ '$limit' => (intval(request('limit', 15)) ?: 15) ],
 			   	[
 			   		'$project' => [
 						'_id' => 1,
-						'title' => 1,
-						'content' => 1,
-						'image' => 1,
+						'title' => [ '$ifNull' => ['$title', ''] ],
+						'content' => [ '$ifNull' => ['$content', ''] ],
+						'image' => [ '$ifNull' => ['$image', ''] ],
 						'type' => 1,
-						'url' => 1,
+						'url' => [ '$ifNull' => ['$url', ''] ],
 						'created' => 1,
 						'deliveredBy' => 1,
 						'read' => [
@@ -88,7 +94,10 @@ class Notificacion extends Model
 		// Get count posts
     	$query = self::query();
 		$query->where('institution', RegistroSesion::getInstitution());
-		$query->whereIn('receivedBy', [new ObjectID($user->_id)]);
+		$query->where(function ($q) use ($user) {
+			$q->whereIn('receivedBy', [new ObjectID($user->_id)])
+			  ->orWhere('isGlobal', true);
+		});
 		$query->whereRaw(['deletedBy' => [ '$nin' => [new ObjectID($user->_id)] ]]);
 		$query->whereIn('type', [self::getType('general'), self::getType('like'), self::getType('favorite'), self::getType('discussion')]);
 		$total_entries = $query->count();

@@ -24,12 +24,12 @@ class RespuestaEncuesta extends Model
        	switch ($tipo_pregunta) {
 			case PreguntaEncuesta::getType('open'):
 				$filter = $arAnswers->where('codigo_pregunta_encuesta', $codigo_pregunta)->first();
-				$respuesta = $filter['texto_respuesta_encuesta'];
+				$respuesta = $filter ? ($filter['texto_respuesta_encuesta'] ?? null) : null;
 			break;
 
 			case PreguntaEncuesta::getType('single'):
 				$filter = $arAnswers->where('codigo_pregunta_encuesta', $codigo_pregunta)->first();
-				$respuesta = $filter['codigo_opcion_encuesta'];
+				$respuesta = $filter ? ($filter['codigo_opcion_encuesta'] ?? null) : null;
 			break;
 
 			case PreguntaEncuesta::getType('multiple'):
@@ -43,7 +43,7 @@ class RespuestaEncuesta extends Model
 
 			case PreguntaEncuesta::getType('upload'):
 				$filter = $arAnswers->where('codigo_pregunta_encuesta', $codigo_pregunta)->first();
-				$respuesta = $filter['texto_respuesta_encuesta'];
+				$respuesta = $filter ? ($filter['texto_respuesta_encuesta'] ?? null) : null;
 			break;
 
 			case PreguntaEncuesta::getType('matriz'):
@@ -52,7 +52,7 @@ class RespuestaEncuesta extends Model
 				foreach ($filter as $answer) {
 					$respuesta_item = "";
 					$opcion = OpcionPreguntaEncuesta::find($answer->codigo_opcion_encuesta);
-					if($opcion->tipo_campo_opcion == TipoCampoPregunta::getTypeQuestion('select')){
+					if($opcion && $opcion->tipo_campo_opcion == TipoCampoPregunta::getTypeQuestion('select')){
 						$campo_respuesta = ItemOpcionEncuesta::where('codigo_item_opcion_encuesta',(int)$answer->texto_respuesta_encuesta)->first();
 						if($campo_respuesta instanceof ItemOpcionEncuesta){
 							$respuesta_item = $campo_respuesta->nombre_item_opcion_encuesta;

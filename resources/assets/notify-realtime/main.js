@@ -40,7 +40,7 @@ global.moment = moment;
 // socket.io client
 let ioNotify = null;
 if (config.NODE_ENV !== 'development') {
-    ioNotify = io.connect(`${window.location.host}:${config.port}/nsp-notify`, { 
+    ioNotify = io.connect(`${window.location.hostname}:${config.port}/nsp-notify`, { 
         'forceNew': true,
         'reconnectionAttempts': 2 
     });

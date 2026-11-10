@@ -262,7 +262,7 @@ class EncuestaController extends Controller
 
 
 					// Usuario encuesta
-					if($request->has('codigo_usuario_encuesta')) {
+					if($request->has('codigo_usuario_encuesta') && !empty($request->codigo_usuario_encuesta)) {
 						// Decrypt src-params
 						list($codigo_usuario_encuesta) = TuProyecto::decryptSrcParams($request->codigo_usuario_encuesta);
 						if(!$codigo_usuario_encuesta || !is_numeric($codigo_usuario_encuesta)) {

@@ -92,7 +92,7 @@ class NotificacionesController extends Controller
                 $notification = Notificacion::find($id);
                 if($notification instanceof Notificacion)
                 {
-	                $user = Usuario::where('cod', Auth::user()->codigo_usuario)->first();
+	                $user = Usuario::getOrCreateAuthUser();
 	                if(!$user instanceof Usuario) {
 	                    abort(404);
 	                }
@@ -123,7 +123,7 @@ class NotificacionesController extends Controller
                 $notification = Notificacion::find($id);
                 if($notification instanceof Notificacion)
                 {
-	                $user = Usuario::where('cod', Auth::user()->codigo_usuario)->first();
+	                $user = Usuario::getOrCreateAuthUser();
 	                if(!$user instanceof Usuario) {
 	                    abort(404);
 	                }
