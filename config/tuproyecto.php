@@ -32,31 +32,31 @@ return [
 	|
 	*/
 
-	'header_logo' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/coposoftware-logo-platform-header.png',
+	'header_logo' => '/images/institutions/compensar/compensar-logo-header-plataforma-pos.png',
 
-	'logo' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/coposoftware-logo-platform-header.png',
+	'logo' => '/images/institutions/compensar/compensar-logo-header-plataforma-pos.png',
 
 	'color' => '#000000',
 
 	'url' => 'https://coposoftware.com',
 
-	'favicon' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/copo/coposoftware-favicon.ico',
+	'favicon' => '/images/institutions/compensar/compensar-favicon.png',
 
 	'description' => 'Construye TuProyecto. Recibe aportes y opiniones de mentores para llevarlo a una etapa de financiación. Es TuProyecto pero no estas solo.',
 
 	'keywords' => 'emprendimiento,conectividad,innovacion,proyecto,asesoria en proyecto,ayuda en proyecto,financiacion de proyectos,financiacion colectiva,crowdfunding,crowdfunding colombia,apoyo a proyectos',
 
-	'social_image' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/svg/no-image.svg',
+	'social_image' => '/images/no-image.svg',
 
-	'avatar_image' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/svg/no-user-image.svg',
+	'avatar_image' => '/images/no-user-image.svg',
 
-	'no_image' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/svg/no-image.svg',
+	'no_image' => '/images/no-image.svg',
 
-	'no_project_image' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/svg/no-image-770x460.svg',
+	'no_project_image' => '/images/no-image-770x460.svg',
 
-	'no_event_image' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/general/pruebas/events-wall-3.jpg',
+	'no_event_image' => '/images/no-image.svg',
 
-	'no_promotion_image' => 'https://s3-us-west-2.amazonaws.com/static.tuproyecto.com/images/svg/no-product-promo-image.svg',
+	'no_promotion_image' => '/images/no-image.svg',
 
 	/*
 	|--------------------------------------------------------------------------
