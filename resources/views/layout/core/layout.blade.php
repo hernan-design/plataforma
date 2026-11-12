@@ -165,7 +165,9 @@
 					msg.indexOf('rename-unsafe-lifecycles') !== -1 ||
 					msg.indexOf('childContextTypes') !== -1 ||
 					msg.indexOf('legacy-context') !== -1 ||
-					msg.indexOf('defaultProps') !== -1
+					msg.indexOf('defaultProps') !== -1 ||
+					msg.indexOf('Deprecation warning') !== -1 ||
+					msg.indexOf('PropTypes') !== -1
 				) {
 					return;
 				}
@@ -183,7 +185,9 @@
 					msg.indexOf('childContextTypes') !== -1 ||
 					msg.indexOf('legacy-context') !== -1 ||
 					msg.indexOf('Unexpected key') !== -1 ||
-					msg.indexOf('defaultProps') !== -1
+					msg.indexOf('defaultProps') !== -1 ||
+					msg.indexOf('spread into JSX') !== -1 ||
+					msg.indexOf('A props object containing a "key" prop') !== -1
 				) {
 					return;
 				}
@@ -424,12 +428,9 @@
 				}
 			});
 
-			// Robust modal close handler for Foundation Reveal modals (.close-reveal-modal and backdrop)
-			$(document).on('click', '.close-reveal-modal', function(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				var $modal = $(this).closest('[data-reveal], .reveal-modal, .reveal-modal-main, .reveal-modal-form');
-				if (!$modal.length) {
+			// Robust modal close handler for Foundation Reveal modals (.close-reveal-modal, .confirm-action, and backdrop)
+			function closeRevealModal($modal) {
+				if (!$modal || !$modal.length) {
 					$modal = $('[data-reveal]:visible, .reveal-modal:visible, .reveal-modal-main:visible, .reveal-modal-form:visible');
 				}
 				if (window.Foundation && window.Foundation.libs && window.Foundation.libs.reveal) {
@@ -450,6 +451,16 @@
 						$modal.trigger('closed.fndtn.reveal');
 					}
 				}, 150);
+			}
+
+			$(document).on('click', '.close-reveal-modal', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				closeRevealModal($(this).closest('[data-reveal], .reveal-modal, .reveal-modal-main, .reveal-modal-form'));
+			});
+
+			$(document).on('click', '#modal-base-confirm-tp .confirm-action', function() {
+				closeRevealModal($(this).closest('[data-reveal], .reveal-modal, .reveal-modal-main, .reveal-modal-form'));
 			});
 
 			$(document).on('click', '.reveal-modal-bg', function(e) {
@@ -458,22 +469,7 @@
 					return;
 				}
 				e.preventDefault();
-				if (window.Foundation && window.Foundation.libs && window.Foundation.libs.reveal) {
-					window.Foundation.libs.reveal.locked = false;
-				}
-				if ($modal.length && typeof $modal.foundation === 'function') {
-					try {
-						$modal.foundation('reveal', 'close');
-					} catch(err) {}
-				}
-				setTimeout(function() {
-					if ($modal.is(':visible') || $('.reveal-modal-bg').is(':visible')) {
-						$modal.removeClass('open').css({ display: 'none', visibility: 'hidden', opacity: 0 });
-						$('.reveal-modal-bg').remove();
-						$('body').removeClass('modal-open').css('overflow', '');
-						$modal.trigger('closed.fndtn.reveal');
-					}
-				}, 150);
+				closeRevealModal($modal);
 			});
 
 			// Robust Foundation tab handler for dynamic and cross-container tabs

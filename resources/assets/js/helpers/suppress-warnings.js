@@ -19,7 +19,8 @@ if (typeof window !== 'undefined' && window.console) {
             msg.includes('moment.updateLocale') ||
             msg.includes('defineLocale') ||
             msg.includes('momentjs.com') ||
-            msg.includes('Deprecation warning')
+            msg.includes('Deprecation warning') ||
+            msg.includes('PropTypes')
         ) {
             return;
         }
@@ -38,7 +39,9 @@ if (typeof window !== 'undefined' && window.console) {
             msg.includes('is no longer supported in React 18') ||
             msg.includes('switch-to-createroot') ||
             msg.includes('ReactDOM.render') ||
-            msg.includes('Cannot update during an existing state transition')
+            msg.includes('Cannot update during an existing state transition') ||
+            msg.includes('spread into JSX') ||
+            msg.includes('A props object containing a "key" prop')
         ) {
             return;
         }

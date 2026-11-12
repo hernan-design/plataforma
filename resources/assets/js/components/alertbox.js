@@ -114,7 +114,7 @@ AlertBox.contextTypes = {
     store: PropTypes.object
 };
 
-AlertBox.PropTypes = {
+AlertBox.propTypes = {
     className: PropTypes.string,
     message: PropTypes.oneOfType([
         PropTypes.string,

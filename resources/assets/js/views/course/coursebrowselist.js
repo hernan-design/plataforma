@@ -62,7 +62,7 @@ app || (app = {});
             if( this.parameters.dataFilter.limit ) {
 	        	this.collection.state = this.collection._checkState(_.extend({}, this.collection.state, {
 					pageSize: this.parameters.dataFilter.limit
-				}));2
+				}));
             }else {
             	$( window ).on("scroll", this.onLoadMore);
             	this.collection.state = this.collection._checkState(_.extend({}, this.collection.state, {
@@ -108,6 +108,8 @@ app || (app = {});
         getFirstData: function  (dataFilter, replace) {
             dataFilter || (dataFilter = {});
             replace || (replace = false);
+
+            this.isLoading = false;
 
             if(replace) {
                 this.parameters.dataFilter = dataFilter;
@@ -204,7 +206,8 @@ app || (app = {});
         */
         onLoadMore: function (e) {
 
-            e.preventDefault();
+            if (e && typeof e.preventDefault === 'function') e.preventDefault();
+            if (this.isLoading) return;
 
             var _this = this;
             var scrollHeight = $(document).height();
@@ -215,11 +218,16 @@ app || (app = {});
                 // when scroll to bottom of the page
                 if( this.collection.state.currentPage < this.collection.state.lastPage && this.pageOld == this.collection.state.currentPage ){
 
+                    this.isLoading = true;
                     this.collection.getNextPage({
                         data: _.clone(this.parameters.dataFilter),
                         wait: true,
                         success: function (collection) {
+                            _this.isLoading = false;
                             _this.pageOld = collection.state.currentPage;
+                        },
+                        error: function () {
+                            _this.isLoading = false;
                         }
                     });
                 }

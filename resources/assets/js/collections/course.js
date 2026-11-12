@@ -39,7 +39,24 @@ app || (app = {});
         * parse state of the paginator collection
         */
         parseState: function (resp, queryParams, state, options) {
-            return {totalRecords: resp.total_entries};
+            var totalRecords = (resp && resp.total_entries) || 0;
+            var pageSize = (state && state.pageSize) || 15;
+            var totalPages = Math.ceil(totalRecords / pageSize);
+            var firstPage = (state && state.firstPage != null) ? state.firstPage : 0;
+            var maxPage = firstPage === 0 ? Math.max(0, totalPages - 1) : Math.max(firstPage, totalPages);
+            var currentPage = (state && state.currentPage != null) ? state.currentPage : firstPage;
+            if (totalPages > 0 && currentPage > maxPage) {
+                currentPage = maxPage;
+            } else if (totalPages === 0) {
+                currentPage = firstPage;
+            }
+            if (currentPage < firstPage) {
+                currentPage = firstPage;
+            }
+            return {
+                totalRecords: totalRecords,
+                currentPage: currentPage
+            };
         },
         /**
         * Return all the posts

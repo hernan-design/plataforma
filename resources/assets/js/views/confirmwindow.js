@@ -74,7 +74,18 @@ app || (app = {});
 
 			var _this = this;
 
+			if (window.Foundation && window.Foundation.libs && window.Foundation.libs.reveal) {
+				window.Foundation.libs.reveal.locked = false;
+			}
 			this.$el.foundation('reveal', 'close');
+			setTimeout(function() {
+				if (_this.$el.is(':visible') || $('.reveal-modal-bg').is(':visible')) {
+					_this.$el.removeClass('open').css({ display: 'none', visibility: 'hidden', opacity: 0 });
+					$('.reveal-modal-bg').remove();
+					$('body').removeClass('modal-open').css('overflow', '');
+					_this.$el.trigger('closed.fndtn.reveal');
+				}
+			}, 150);
 
 			if( typeof this.parameters.onConfirm == 'function' ) {
 				this.parameters.onConfirm.call(this, this.parameters.dataFilter );

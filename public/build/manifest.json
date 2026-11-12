@@ -73,7 +73,7 @@
     "isDynamicEntry": true
   },
   "resources/assets/js/app-client.js": {
-    "file": "assets/app-client-DeZhevbR.js",
+    "file": "assets/app-client-BfuWTOJt.js",
     "name": "app-client",
     "src": "resources/assets/js/app-client.js",
     "isEntry": true,
@@ -101,12 +101,12 @@
     "isDynamicEntry": true
   },
   "resources/assets/sass/application.scss": {
-    "file": "assets/application-BboStnrq.css",
+    "file": "assets/application-BGWC1JAe.css",
     "src": "resources/assets/sass/application.scss",
     "isEntry": true
   },
   "resources/assets/sass/landing.scss": {
-    "file": "assets/landing-DPizV5aA.css",
+    "file": "assets/landing-C6BXIdcV.css",
     "src": "resources/assets/sass/landing.scss",
     "isEntry": true
   }

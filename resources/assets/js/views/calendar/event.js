@@ -248,7 +248,10 @@ app || (app = {});
 			});
 
             if(!_.isUndefined(this.model.get('register')) && this.model.get('register')){
-                this.modelEventUser.set({codigo_usuario_evento: this.model.get('codigo_usuario_evento')});
+                this.modelEventUser.set({
+                    codigo_usuario_evento: this.model.get('codigo_usuario_evento'),
+                    register: true
+                });
 
                 if(this.model.hasChanged('view') && this.model.get('view')){
                     this.modelEventUser.fetch();
@@ -256,6 +259,7 @@ app || (app = {});
                     this.eventUser.render();
                 }
             }else{
+                this.modelEventUser.resetAttrs({silent: true});
                 this.eventUser.render();
             }
         },

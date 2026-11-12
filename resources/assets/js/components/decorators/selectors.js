@@ -2,32 +2,41 @@
 import { recordProps } from '@orange-marmalade/paginate-this/dist/pageInfoTranslator';
 
 export default function select(paginator) {
+    const rawResults = paginator && typeof paginator.get === 'function' ? paginator.get('results') : null;
+    const getResults = () => (rawResults && typeof rawResults.toJS === 'function' ? rawResults.toJS() : (rawResults || []));
+    const getIds = () => (rawResults && typeof rawResults.map === 'function'
+        ? rawResults.map(r => (r && typeof r.get === 'function' ? r.get(recordProps().identifier) : r[recordProps().identifier]))
+        : []);
+    const getProp = (key, fallback = false) => (paginator && typeof paginator.get === 'function' ? paginator.get(key) : fallback);
 
     const tabulateByState = () => ({
-        results: paginator.get('results').toJS(),
-        ids: paginator.get('results').map(r => r.get(recordProps().identifier)),
-        isLoading: paginator.get('isLoading'),
-        stale: paginator.get('stale')
+        results: getResults(),
+        ids: getIds(),
+        isLoading: getProp('isLoading'),
+        stale: getProp('stale')
     });
 
     const tabulateList = () => ({
-        results: paginator.get('results').toJS(),
-        ids: paginator.get('results').map(r => r.get(recordProps().identifier)),
-        isLoading: paginator.get('isLoading'),
-        isAdding: paginator.get('isAdding')
-    })
-
-    const filterData = () => ({
-        isLoading: paginator.get('isLoading'),
-        stale: paginator.get('stale'),
-        filters: paginator.get('filters').toJS(),
-        sort: paginator.get('sort'),
-        sortReverse: paginator.get('sortReverse')
+        results: getResults(),
+        ids: getIds(),
+        isLoading: getProp('isLoading'),
+        isAdding: getProp('isAdding')
     });
 
+    const filterData = () => {
+        const rawFilters = getProp('filters', null);
+        return {
+            isLoading: getProp('isLoading'),
+            stale: getProp('stale'),
+            filters: rawFilters && typeof rawFilters.toJS === 'function' ? rawFilters.toJS() : (rawFilters || {}),
+            sort: getProp('sort', null),
+            sortReverse: getProp('sortReverse')
+        };
+    };
+
     const lazyDrive = () => ({
-        isLoading: paginator.get('isLoading'),
-        isAdding: paginator.get('isAdding')
+        isLoading: getProp('isLoading'),
+        isAdding: getProp('isAdding')
     });
 
     return {

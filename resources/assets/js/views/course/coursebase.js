@@ -39,6 +39,7 @@ app || (app = {});
 			this.callListCourse = new app.CourseList();
 			this.callListWebinar = new app.CourseList();
 			this.callListLecture = new app.CourseList();
+			this.callListMyContent = new app.CourseList();
 
 
 			var _this = this;
@@ -238,7 +239,7 @@ app || (app = {});
 					'micontenido' : function() {
 						var params = {
 							el: _this.$('#content-section-mycourses'),
-							collection: _this.callListCourse,
+							collection: _this.callListMyContent,
 							parameters: {
 								type: 'micontenido',
 								action: '',
@@ -369,6 +370,9 @@ app || (app = {});
 			params || (params = {});
 
 			if( this.courseListView instanceof Backbone.View ) {
+				if( typeof this.courseListView.onLoadMore === 'function' ) {
+					$( window ).off("scroll", this.courseListView.onLoadMore);
+				}
 				this.courseListView.stopListening();
 				this.courseListView.undelegateEvents();
 			}

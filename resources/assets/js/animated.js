@@ -41,6 +41,7 @@
 		*/
 		slidingMenuSide: function () {
 
+			$(document).off('click', '.hide-fx-left-btn, .hide-fx-right-btn');
 			$(document).on('click', '.hide-fx-left-btn, .hide-fx-right-btn', function (event) {
 				event.preventDefault();
 
@@ -104,6 +105,7 @@
 			var _this = this;
 
 			// handler with click event
+			$(document).off('click', '.toggle-slide-drop');
 			$(document).on('click', '.toggle-slide-drop', function(event) {
 				event.preventDefault();
 
@@ -190,6 +192,7 @@
 		* focus to
 		*/
 		focusTo: function () {
+			$(document).off('click', '[data-focuses]');
 			$(document).on('click', '[data-focuses]', function (event) {
 				event.preventDefault();
 
@@ -228,6 +231,7 @@
 		*/
 		toggleSignUp: function () {
 
+			$(document).off('click', '.show-strip-signup');
 			$(document).on('click', '.show-strip-signup', function (event) {
 				event.preventDefault();
 
@@ -239,6 +243,7 @@
          * when the link was clicked in the main menu options, start preload
          */
         preloadTolink: function () {
+            $(document).off('click', '.load-when-linking');
             $(document).on('click', '.load-when-linking', function (event) {
                 $('body').removeClass('loaded');
             });

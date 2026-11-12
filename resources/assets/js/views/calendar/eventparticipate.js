@@ -44,6 +44,7 @@ app || (app = {});
             this.listenTo( this.model, 'change:register', this.render );
             this.listenTo( this.model, 'request', this.loadSpinner );
             this.listenTo( this.model, 'sync', this.responseServer );
+            this.listenTo( this.model, 'error', this.responseServer );
         },
 
         /*
@@ -78,9 +79,16 @@ app || (app = {});
                     template: _.template($("#modal-participate-event-tpl").html() || ""),
                     titleConfirm: "¡Confirma tu interés en el evento!",
                     onConfirm: function () {
+                        if (_this.isRegistering) return;
+                        if (_this.model.get('register') || !_this.model.isNew()) {
+                            _this.$el.html( _this.templateRemove() );
+                            return;
+                        }
+                        _this.isRegistering = true;
 
-                        _this.model.save(data, {patch: true, wait: true,
+                        _this.model.save(data, {wait: true,
                             success: function (model, resp) {
+                                _this.isRegistering = false;
 
                                 /*Valida (resp.check) que cumpla con los criterios enviados desde el controlador UsuarioEventoController
                                 en el método participateEvent*/
@@ -129,6 +137,10 @@ app || (app = {});
 
                                     window.Misc.showAlertBox( _this.configAlert );
                                 }
+                            },
+                            error: function () {
+                                _this.isRegistering = false;
+                                _this.responseServer();
                             }
                         });
                     }
@@ -171,7 +183,7 @@ app || (app = {});
                     if( resp.success !== undefined ){
                         if( resp.success ){
                             _this.$el.html( _this.template() );
-                            _this.model = new app.UserEventModel();
+                            _this.model.resetAttrs({silent: true});
                         }
                     }
                 }

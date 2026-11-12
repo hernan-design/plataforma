@@ -11,98 +11,103 @@
 // ----------------------
 @font-face {
     font-family: "Frutiger Roman";
-    src: url('FrutigerLTStd-Roman.eot');
-    src: url('FrutigerLTStd-Roman.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-Roman.woff') format('woff'),
-         url('FrutigerLTStd-Roman.ttf') format('truetype'),
-         url('FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-Roman.eot');
+    src: url('/css/fonts/FrutigerLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-Roman.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-Roman.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman') format('svg');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: "Frutiger";
-    src: url('FrutigerLTStd-Black.eot');
-    src: url('FrutigerLTStd-Black.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-Black.woff') format('woff'),
-         url('FrutigerLTStd-Black.ttf') format('truetype'),
-         url('FrutigerLTStd-Black.svg#FrutigerLTStd-Black') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-Black.eot');
+    src: url('/css/fonts/FrutigerLTStd-Black.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-Black.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-Black.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-Black.svg#FrutigerLTStd-Black') format('svg');
     font-weight: 900;
     font-style: normal;
 }
 @font-face {
     font-family: "Frutiger";
-    src: url('FrutigerLTStd-BlackItalic.eot');
-    src: url('FrutigerLTStd-BlackItalic.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-BlackItalic.woff') format('woff'),
-         url('FrutigerLTStd-BlackItalic.ttf') format('truetype'),
-         url('FrutigerLTStd-BlackItalic.svg#FrutigerLTStd-BlackItalic') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-BlackItalic.eot');
+    src: url('/css/fonts/FrutigerLTStd-BlackItalic.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-BlackItalic.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-BlackItalic.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-BlackItalic.svg#FrutigerLTStd-BlackItalic') format('svg');
     font-weight: 900;
     font-style: italic;
 }
 @font-face {
     font-family: "Frutiger";
-    src: url('FrutigerLTStd-Bold.eot');
-    src: url('FrutigerLTStd-Bold.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-Bold.woff') format('woff'),
-         url('FrutigerLTStd-Bold.ttf') format('truetype'),
-         url('FrutigerLTStd-Bold.svg#FrutigerLTStd-Bold') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-Bold.eot');
+    src: url('/css/fonts/FrutigerLTStd-Bold.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-Bold.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-Bold.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-Bold.svg#FrutigerLTStd-Bold') format('svg');
     font-weight: 600;
     font-style: normal;
 }
 @font-face {
     font-family: "Frutiger";
-    src: url('FrutigerLTStd-BoldItalic.eot');
-    src: url('FrutigerLTStd-BoldItalic.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-BoldItalic.woff') format('woff'),
-         url('FrutigerLTStd-BoldItalic.ttf') format('truetype'),
-         url('FrutigerLTStd-BoldItalic.svg#FrutigerLTStd-BoldItalic') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-BoldItalic.eot');
+    src: url('/css/fonts/FrutigerLTStd-BoldItalic.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-BoldItalic.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-BoldItalic.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-BoldItalic.svg#FrutigerLTStd-BoldItalic') format('svg');
     font-weight: 600;
     font-style: italic;
 }
 @font-face {
     font-family: "Frutiger";
-    src: url('FrutigerLTStd-Roman.eot');
-    src: url('FrutigerLTStd-Roman.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-Roman.woff') format('woff'),
-         url('FrutigerLTStd-Roman.ttf') format('truetype'),
-         url('FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-Roman.eot');
+    src: url('/css/fonts/FrutigerLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-Roman.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-Roman.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-Roman.svg#FrutigerLTStd-Roman') format('svg');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: "Frutiger";
-    src: url('FrutigerLTStd-Italic.eot');
-    src: url('FrutigerLTStd-Italic.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-Italic.woff') format('woff'),
-         url('FrutigerLTStd-Italic.ttf') format('truetype'),
-         url('FrutigerLTStd-Italic.svg#FrutigerLTStd-Italic') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-Italic.eot');
+    src: url('/css/fonts/FrutigerLTStd-Italic.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-Italic.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-Italic.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-Italic.svg#FrutigerLTStd-Italic') format('svg');
     font-weight: 500;
     font-style: italic;
 }
 @font-face {
     font-family: "Frutiger";
-    src: url('FrutigerLTStd-Light.eot');
-    src: url('FrutigerLTStd-Light.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-Light.woff') format('woff'),
-         url('FrutigerLTStd-Light.ttf') format('truetype'),
-         url('FrutigerLTStd-Light.svg#FrutigerLTStd-Light') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-Light.eot');
+    src: url('/css/fonts/FrutigerLTStd-Light.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-Light.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-Light.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-Light.svg#FrutigerLTStd-Light') format('svg');
     font-weight: 200;
     font-style: normal;
 }
 @font-face {
     font-family: "Frutiger";
-    src: url('FrutigerLTStd-LightItalic.eot');
-    src: url('FrutigerLTStd-LightItalic.eot?#iefix') format('embedded-opentype'),
-         url('FrutigerLTStd-LightItalic.woff') format('woff'),
-         url('FrutigerLTStd-LightItalic.ttf') format('truetype'),
-         url('FrutigerLTStd-LightItalic.svg#FrutigerLTStd-LightItalic') format('svg');
+    src: url('/css/fonts/FrutigerLTStd-LightItalic.eot');
+    src: url('/css/fonts/FrutigerLTStd-LightItalic.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/FrutigerLTStd-LightItalic.woff') format('woff'),
+         url('/css/fonts/FrutigerLTStd-LightItalic.ttf') format('truetype'),
+         url('/css/fonts/FrutigerLTStd-LightItalic.svg#FrutigerLTStd-LightItalic') format('svg');
     font-weight: 200;
     font-style: italic;
 }
 
 // Web font for icon social
 // ------------------------
-@include font-face("Social", font-files('social-logos.ttf'), false);
+@font-face {
+    font-family: "Social";
+    src: url('/css/fonts/social-logos.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /*Base class definition for social icons*/
 .#{$social-css-prefix} {
 	display: inline-block;
@@ -114,15 +119,38 @@
 	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
 }
 
+// Web font for TuProyecto icons
+// -----------------------------
+@font-face {
+    font-family: "FontTuProyecto";
+    src: url('/css/fonts/tupro-icons-font.eot');
+    src: url('/css/fonts/tupro-icons-font.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/tupro-icons-font.woff') format('woff'),
+         url('/css/fonts/tupro-icons-font.ttf') format('truetype'),
+         url('/css/fonts/tupro-icons-font.svg#tupro-icons-font') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*Base class definition for tuproyecto icons*/
+.#{$icon-css-prefix} {
+	display: inline-block;
+	font: normal normal normal #{$icon-fontsize-base}/1 FontTuProyecto; // shortening font declaration
+	font-size: inherit; // can't have font-size inherit on line above, so need to override
+	text-rendering: auto; // optimizelegibility throws things off #1094
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+	speak: none;
+}
 
 // Summernote fonts
 // ----------------
 @font-face {
     font-family: "summernote";
-    src: url('summernote.eot');
-    src: url('summernote.eot?#iefix') format('embedded-opentype'),
-         url('summernote.woff') format('woff'),
-         url('summernote.ttf') format('truetype');
+    src: url('/css/font/summernote.eot');
+    src: url('/css/font/summernote.eot?#iefix') format('embedded-opentype'),
+         url('/css/font/summernote.woff') format('woff'),
+         url('/css/font/summernote.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

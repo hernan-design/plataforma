@@ -152,6 +152,25 @@ class UsuarioEventoController extends Controller
 	 */
 	public function participateEvent($event, int $codigo_evento, $request, $user, $userInstitution)
 	{
+		$existingUserEvent = UsuarioEvento::where('codigo_evento', $codigo_evento)
+			->where('codigo_usuario_institucion', $userInstitution->codigo_usuario_institucion)
+			->where('codigo_estado', Estado::getState('active'))
+			->first();
+
+		if ($existingUserEvent instanceof UsuarioEvento) {
+			$response = $existingUserEvent;
+			$response->codigo_evento = $request->codigo_evento;
+			$response->nickname_usuario = $user->nickname_usuario;
+			$response->imagen_usuario = $user->imagen_usuario;
+			$response->nombre_usuario = $user->nombre_usuario;
+			$response->nombre_nivel_educacion = $user->nombre_nivel_educacion;
+			$response->success = true;
+			$response->message = '¡Ya te encuentras registrado en este evento!';
+			$response->register = true;
+			$response->check = true;
+			return $response;
+		}
+
 		$userEvent = new UsuarioEvento;
 
 		DB::beginTransaction();
