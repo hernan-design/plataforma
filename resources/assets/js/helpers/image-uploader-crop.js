@@ -454,7 +454,7 @@
 			if( $.isFunction(this.settings.callbacks['onCropping']) )
 				this.settings.callbacks['onCropping'].call(this, this.jcrop_img);
 
-			this.settings.formCrop.find(':submit').addClass('disabled');
+			this.settings.formCrop.find(':submit').prop('disabled', true).addClass('disabled');
 
 			$.post(this.settings.cropping.endpoint, data, methods.onSuccessCrop.bind(this))
 			 .fail(methods.onErrorCrop.bind(this));
@@ -583,7 +583,7 @@
 		*/
 		onSuccessCrop: function (resp, status, jqXHR) {
 
-			this.settings.formCrop.find(':submit').removeClass('disabled');
+			this.settings.formCrop.find(':submit').prop('disabled', false).removeClass('disabled');
 
 			// call crop complete
 			if( $.isFunction(this.settings.callbacks['onCropComplete']) ) {
@@ -599,7 +599,7 @@
 		*/
 		onErrorCrop: function(jqXHR, status, error) {
 
-			this.settings.formCrop.find(':submit').removeClass('disabled');
+			this.settings.formCrop.find(':submit').prop('disabled', false).removeClass('disabled');
 
 			// call crop error
 			if( $.isFunction(this.settings.callbacks['onCropError']) ) {

@@ -37,9 +37,9 @@ class CiudadController extends Controller
 				});
 
 				if(!empty($request->q)) {
-					$query->whereRaw("distrito_ciudad ilike '%".$request->q."%'");
+					$query->whereRaw("distrito_ciudad ilike ?", ['%' . $request->q . '%']);
 				}elseif ($request->dataId) {
-					$query->whereRaw("distrito_ciudad ilike '%".$request->dataId."%'");
+					$query->whereRaw("distrito_ciudad ilike ?", ['%' . $request->dataId . '%']);
 				}else{
 					$query->whereNotNull('distrito_ciudad');
 					$query->whereRaw("distrito_ciudad != ''");
@@ -62,7 +62,7 @@ class CiudadController extends Controller
 				});
 
 				if($request->has('department')){
-					$query->whereRaw("distrito_ciudad ilike '%".$request->department."%'");
+					$query->whereRaw("distrito_ciudad ilike ?", ['%' . $request->department . '%']);
 				}
 
 				if($request->has('id') ){
@@ -71,8 +71,8 @@ class CiudadController extends Controller
 
 				if($request->has('q')) {
 					$query->where( function($query) use($request) {
-						$query->whereRaw("nombre_ciudad ilike '%".$request->q."%'");
-						$query->orWhereRaw("distrito_ciudad ilike '%".$request->q."%'");
+						$query->whereRaw("nombre_ciudad ilike ?", ['%' . $request->q . '%']);
+						$query->orWhereRaw("distrito_ciudad ilike ?", ['%' . $request->q . '%']);
 					});
 				}
 

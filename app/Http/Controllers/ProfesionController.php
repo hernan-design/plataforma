@@ -23,7 +23,7 @@ class ProfesionController extends Controller
 			$query->select('codigo_profesion_persona as id', 'nombnre_profesion_persona as text');
 
 			if(!empty($request->q)) {
-				$query->whereRaw("nombnre_profesion_persona ilike '%".$request->q."%'");
+				$query->whereRaw("nombnre_profesion_persona ilike ?", ['%' . $request->q . '%']);
 			}elseif ($request->dataId) {
 				$query->where("codigo_profesion_persona", '=', $request->dataId);
 			}

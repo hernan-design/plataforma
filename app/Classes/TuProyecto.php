@@ -108,7 +108,7 @@ class TuProyecto
 	    }
 	    $time = strtotime($time);
 	    $date = strtotime($date);
-	    $month = strtolower(jdmonthname(gregoriantojd(date('m',$date), 1, 1), CAL_MONTH_GREGORIAN_LONG));
+	    $month = strtolower(date('F', $date));
 
 		$date_format = "%s %s, %d, %s";
 		return sprintf($date_format, Lang::get("app.$month"), date(Lang::get('app.day_format'),$date), date('Y',$date), date('g:i a',$time));
@@ -121,9 +121,9 @@ class TuProyecto
 	    }
 
 	    $date = strtotime($date);
-	    $month = strtolower(jdmonthname(gregoriantojd(date('m',$date), 1, 1), CAL_MONTH_GREGORIAN_LONG));
-	    $day_week = strtolower(jddayofweek ( cal_to_jd(CAL_GREGORIAN, date("m",$date),date("d",$date), date("Y",$date)) , 1 ));
-	    $day_month = strftime('%e',strtotime($date));
+	    $month = strtolower(date('F', $date));
+	    $day_week = strtolower(date('l', $date));
+	    $day_month = date('j', $date);
 
 	    switch ($type) {
 	    	case 'short':
@@ -311,10 +311,23 @@ class TuProyecto
 
 	public static function getMonths()
 	{
-	    $months = [];
-		for ($x = 1; $x <= 12; $x++) {
-			$month = strtolower(jdmonthname(gregoriantojd($x, 1, 1), CAL_MONTH_GREGORIAN_LONG));
-		    $months[$x] = Lang::get("app.$month");
+		$monthKeys = [
+			1 => 'january',
+			2 => 'february',
+			3 => 'march',
+			4 => 'april',
+			5 => 'may',
+			6 => 'june',
+			7 => 'july',
+			8 => 'august',
+			9 => 'september',
+			10 => 'october',
+			11 => 'november',
+			12 => 'december',
+		];
+		$months = [];
+		foreach ($monthKeys as $x => $month) {
+			$months[$x] = Lang::get("app.$month");
 		}
 		return $months;
 	}

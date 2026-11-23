@@ -41,17 +41,21 @@ class TipoIdentificacion extends Model
 				->where('tipo_id_institucion.codigo_institucion', '=', RegistroSesion::getInstitution());
 		});
 
-		if($institution->validacion_edad_documento && isset($filters['data']) && !empty($filters['data'])){
-			$from = new DateTime($filters['data']);
-			$to   = new DateTime('today');
-			$interval = $from->diff($to);
+		if($institution && $institution->validacion_edad_documento && isset($filters['data']) && !empty($filters['data'])){
+			try {
+				$from = new DateTime($filters['data']);
+				$to   = new DateTime('today');
+				$interval = $from->diff($to);
 
-			if ($institution->codigo_institucion == Institucion::getInstitution('compensar') && $interval->format('%y') < '18') {
-				return [["id"=> null,"text" => ""]];
-			}
+				if ($institution->codigo_institucion == Institucion::getInstitution('compensar') && $interval->format('%y') < '18') {
+					return [["id"=> null,"text" => ""]];
+				}
 
-			if($interval->format('%y') < '18'){
-				$query->whereIn('tipo_identificacion.codigo_tipo_identificacion', [self::type('ti'), self::type('rc')]);
+				if($interval->format('%y') < '18'){
+					$query->whereIn('tipo_identificacion.codigo_tipo_identificacion', [self::type('ti'), self::type('rc')]);
+				}
+			} catch (\Throwable $e) {
+				// Si la fecha no es válida, se omite el filtro de edad
 			}
 		}
 
@@ -74,7 +78,7 @@ class TipoIdentificacion extends Model
 		}
 
 		if(isset($filters['q']) && !empty($filters['q'])){
-			$query->whereRaw("nombre_tipo_identificacion ilike '%".trim($filters['q'])."%'");
+			$query->whereRaw("nombre_tipo_identificacion ilike ?", ['%' . trim($filters['q']) . '%']);
 		}
 
 		$query->orderby('nombre_tipo_identificacion', 'asc');

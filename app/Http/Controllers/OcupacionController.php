@@ -23,7 +23,7 @@ class OcupacionController extends Controller
             $query->select('codigo_ocupacion_persona as id', 'nombre_ocupacion_persona as text');
 
             if(!empty($request->q)) {
-                $query->whereRaw("nombre_ocupacion_persona ilike '%".$request->q."%'");
+                $query->whereRaw("nombre_ocupacion_persona ilike ?", ['%' . $request->q . '%']);
             }elseif ($request->dataId) {
                 $query->where("codigo_ocupacion_persona", $request->dataId);
             }

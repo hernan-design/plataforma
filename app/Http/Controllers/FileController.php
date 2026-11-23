@@ -115,41 +115,76 @@ class FileController extends Controller {
 				$output_file_path = sprintf('%s/temp/%s', public_path(), rand().'.jpg');
 				$file_name = rand().'.jpg';
 
-				if(Input::has('file_name'))
-				{
-					switch (Input::get('crop_type')) {
-						case 'name':
-						case 'temp':
-							// Local file
-							$input_file_path = sprintf('%s/temp/%s', public_path(), Input::get('file_name'));
-							if(!File::exists($input_file_path)) {
-								throw new \Exception('file to crop did not found');
-							}
-							// open file a image resource
-							$manager = new ImageManager(new Driver());
-							$img = $manager->decodePath($input_file_path);
-							break;
-
-						case 'url':
-							// Remote Input
-							$input_file_path = sprintf('%s/temp/%s', public_path(), rand().'.'.Input::get('file_type'));
-							copy(Input::get('file_name'), $input_file_path);
-
-							// open file a image resource
-							$manager = new ImageManager(new Driver());
-							$img = $manager->decodePath($input_file_path);
-							break;
-
-						default:
-							throw new \Exception('crop type is undefined');
-					}
-				}else{
+				if (!Input::has('file_name') || empty(Input::get('file_name'))) {
 					throw new \Exception('file to crop is undefined');
 				}
 
+				$rawFile = Input::get('file_name');
+				$input_file_path = null;
+				$isTempDownload = false;
+
+				// 1. Is it a URL?
+				if (filter_var($rawFile, FILTER_VALIDATE_URL) || preg_match('/^https?:\/\//i', $rawFile)) {
+					$urlParts = parse_url($rawFile);
+					$urlPath = isset($urlParts['path']) ? ltrim($urlParts['path'], '/') : '';
+
+					// Check if it's local to the server (e.g. 127.0.0.1, localhost, or same host/temp)
+					if ($urlPath && File::exists(public_path($urlPath))) {
+						$input_file_path = public_path($urlPath);
+					} elseif ($urlPath && File::exists(public_path('temp/' . basename($urlPath)))) {
+						$input_file_path = public_path('temp/' . basename($urlPath));
+					} else {
+						// Remote URL: download to local temp
+						$ext = Input::get('file_type') ?: pathinfo($urlPath, PATHINFO_EXTENSION) ?: 'jpg';
+						$downloadPath = sprintf('%s/temp/%s.%s', public_path(), uniqid('remote_', true), $ext);
+						$context = stream_context_create([
+							'http' => ['timeout' => 5],
+							'ssl' => ['verify_peer' => false, 'verify_peer_name' => false]
+						]);
+						$content = @file_get_contents($rawFile, false, $context);
+						if ($content !== false) {
+							File::put($downloadPath, $content);
+							$input_file_path = $downloadPath;
+							$isTempDownload = true;
+						}
+					}
+				}
+
+				// 2. Check in public/temp/ with basename
+				if (!$input_file_path) {
+					$candidate = sprintf('%s/temp/%s', public_path(), basename($rawFile));
+					if (File::exists($candidate)) {
+						$input_file_path = $candidate;
+					}
+				}
+
+				// 3. Check directly in public_path
+				if (!$input_file_path) {
+					$candidate = public_path(ltrim($rawFile, '/'));
+					if (File::exists($candidate)) {
+						$input_file_path = $candidate;
+					}
+				}
+
+				// 4. Check in storage_path
+				if (!$input_file_path) {
+					$candidate = storage_path('app/' . ltrim($rawFile, '/'));
+					if (File::exists($candidate)) {
+						$input_file_path = $candidate;
+					}
+				}
+
+				if (!$input_file_path || !File::exists($input_file_path)) {
+					throw new \Exception('file to crop did not found');
+				}
+
+				// open file as image resource
+				$manager = new ImageManager(new Driver());
+				$img = $manager->decodePath($input_file_path);
+
 				// crop image
 				$img = $img->crop( intval(Input::get('w')), intval(Input::get('h')), intval(Input::get('x')), intval(Input::get('y')) );
-				if(Input::has('targ_w') && Input::has('targ_h')) {
+				if (Input::has('targ_w') && Input::has('targ_h')) {
 					// now you are able to resize the instance
 					$img = $img->resize(intval(Input::get('targ_w')), intval(Input::get('targ_h')));
 				}
@@ -157,22 +192,24 @@ class FileController extends Controller {
 
 				// Upload File
 				$result = Adjunto::upload($output_file_path, $file_name, 'image');
-				if(is_object($result) && $result->success === true) {
-					if(File::exists($input_file_path)) {
+				if (is_object($result) && $result->success === true) {
+					// Only delete intermediate download if we created one
+					if ($isTempDownload && File::exists($input_file_path)) {
 						File::delete($input_file_path);
 					}
-					if(File::exists($output_file_path)) {
+					// Delete temporary output
+					if (File::exists($output_file_path)) {
 						File::delete($output_file_path);
 					}
 					Log::info("--- CROP SUCCESS ---", ['file_path' => $result->file_path]);
 					return Response::json(['success' => true, 'file_path' => $result->file_path]);
 				}
-			}catch (\Throwable $e) {
+			} catch (\Throwable $e) {
 				Log::error((string) $e);
 				return Response::json(['success' => false, 'errors' => $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine()]);
 			}
 		}
-    	App::abort(404);
+		App::abort(404);
 	}
 
 	/**
@@ -186,13 +223,31 @@ class FileController extends Controller {
 			if (Request::hasFile('file'))
 			{
 				try {
-					$destinationPath = public_path().'/temp';
+					$file = Request::file('file');
+					$allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'pdf', 'doc', 'docx', 'xls', 'xlsx'];
+					$extension = strtolower($file->getClientOriginalExtension());
 
-					$file = Input::file('file');
-					$fileName = rand().'.'.$file->getClientOriginalExtension();
+					if (!in_array($extension, $allowedExtensions, true)) {
+						return Response::json(['success' => false, 'errors' => 'Tipo de archivo no permitido'], 400);
+					}
+
+					$destinationPath = public_path() . '/temp';
+					if (!file_exists($destinationPath)) {
+						@mkdir($destinationPath, 0755, true);
+					}
+
+					$fileName = bin2hex(random_bytes(16)) . '.' . $extension;
 					$mimeType = $file->getMimeType();
 
-					list($width, $height) = getimagesize($file->getRealPath());
+					$width = null;
+					$height = null;
+					if (str_starts_with($mimeType, 'image/')) {
+						$imgSize = @getimagesize($file->getRealPath());
+						if ($imgSize) {
+							$width = $imgSize[0];
+							$height = $imgSize[1];
+						}
+					}
 
 					$file->move($destinationPath, $fileName);
 					$file_path = sprintf('%s/temp/%s', URL::to('/'), $fileName);

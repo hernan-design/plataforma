@@ -382,7 +382,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
 
 	public static function getUser($nickname)
    	{
-		return Usuario::whereRaw("trim(lower(nickname_usuario)) = trim(lower('$nickname'))")
+		return Usuario::whereRaw("trim(lower(nickname_usuario)) = trim(lower(?))", [$nickname])
 			->whereRaw("trim(lower(nickname_usuario)) != ''")
 			->whereNotNull('nickname_usuario')->first();
    	}
@@ -450,7 +450,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
 	        });
         }
 
-		$query->whereRaw("trim(lower(nickname_usuario)) = trim(lower('$nickname'))");
+		$query->whereRaw("trim(lower(nickname_usuario)) = trim(lower(?))", [$nickname]);
 		$query->whereRaw("trim(lower(nickname_usuario)) != ''");
 		$query->whereNotNull('nickname_usuario');
 
@@ -484,7 +484,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
 				->where('mentor.role_id', '=',Rol::getRole('mentor'));
         });
 
-		$query->whereRaw("usuario.codigo_usuario = $id");
+		$query->where("usuario.codigo_usuario", "=", $id);
 		return $query->first();
    	}
 
@@ -507,14 +507,14 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
 		}
 
 		if ($institucion->vincular_contactos_externos) {
-			return Usuario::whereRaw("trim(lower(correo_electronico)) = trim(lower('$email'))")
+			return Usuario::whereRaw("trim(lower(correo_electronico)) = trim(lower(?))", [$email])
 			->whereRaw("trim(lower(correo_electronico)) != ''")
 			->whereNotNull('correo_electronico')->first();
 		} else {
 			$query = Usuario::query();
 			$query->select('usuario.*','usuario_institucion.codigo_usuario_institucion','usuario_institucion.codigo_institucion','usuario_institucion.fecha_registro_usuario' );
 			$query->join('core.usuario_institucion', 'usuario_institucion.codigo_usuario', '=', 'usuario.codigo_usuario')
-				->whereRaw("trim(lower(correo_electronico)) = trim(lower('$email'))")
+				->whereRaw("trim(lower(correo_electronico)) = trim(lower(?))", [$email])
 				->whereRaw("trim(lower(correo_electronico)) != ''")
 				->whereNotNull('correo_electronico');
 				// ->where('usuario_institucion.codigo_institucion', '=', $institucion->codigo_institucion);

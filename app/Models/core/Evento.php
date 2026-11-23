@@ -508,7 +508,7 @@ class Evento extends Model {
 		$object->codigo_tema_principal_evento = $event->codigo_tema_principal_evento;
 		$object->nombre_tema_principal_evento = $event->nombre_tema_principal_evento;
 		$object->codigo_ciudad = $event->codigo_ciudad;
-		$object->nombre_ciudad = $event->ciudad->nombre_ciudad;
+		$object->nombre_ciudad = $event->ciudad ? $event->ciudad->nombre_ciudad : '';
 		$object->fecha_evento = $event->fecha_evento;
 		$object->fecha_fin_evento = $event->fecha_fin_evento;
 		$object->hora_inicio_evento = $event->hora_inicio_evento;

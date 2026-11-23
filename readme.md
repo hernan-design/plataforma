@@ -137,22 +137,44 @@ El entorno frontend se compila y ejecuta con **Vite**:
 
 ---
 
-## 🔔 Preparación del Componente Realtime (Notificaciones y Sockets)
+## 🔔 Microservicio de Tiempo Real (Notificaciones y WebSockets)
 
-El módulo de notificaciones y eventos en tiempo real se apoya en **Redis** y **MongoDB**:
+El módulo de notificaciones y eventos en tiempo real se ejecuta como un microservicio independiente en **Node.js** con **Express** y **Socket.IO**, integrándose con **Redis (Pub/Sub)** y **MongoDB**:
 
-1. **Iniciar el servidor Redis:**
-   ```bash
-   redis-server
-   ```
-2. **Iniciar la base de datos MongoDB:**
-   ```bash
-   mongod
-   ```
-3. **Iniciar el servicio realtime / node:**
-   ```bash
-   npm start
-   ```
+### 1. Prerrequisitos de Infraestructura
+Asegurarse de que los servicios de persistencia estén levantados (vía Docker o locales):
+* **Redis:** En el puerto `6380` del host (o `6379` en red Docker).
+* **MongoDB:** En el puerto `27018` del host (o `27017` en red Docker).
+
+### 2. Iniciar el Microservicio
+Desde la carpeta `plataforma/`:
+```bash
+# Opción 1 (Directa con Node):
+node server-realtime.js
+
+# Opción 2 (Vía npm script):
+npm run realtime
+```
+
+### 3. Puertos y Endpoints Clave
+* **Puerto:** `8443` (por defecto `http://localhost:8443` o configurado vía `REACT_PORT`).
+* **Namespace Socket.IO:** `/nsp-notify`
+* **Health Check (Estado de salud):**
+  ```bash
+  curl http://localhost:8443/health
+  ```
+  Respuesta esperada:
+  ```json
+  {"status":"ok","service":"tuproyecto-realtime","mongo":"connected","activeSockets":0}
+  ```
+
+### 4. Diagnóstico y Solución de Errores Comunes
+* **`net::ERR_CONNECTION_REFUSED` en el navegador (`realtime.app.js`):**
+  * **Causa:** El microservicio no está encendido o fue detenido.
+  * **Solución:** Ejecutar `node server-realtime.js` en una terminal.
+* **`Error: listen EADDRINUSE: address already in use 0.0.0.0:8443`:**
+  * **Causa:** Ya existe un proceso escuchando en el puerto 8443.
+  * **Solución:** Cerrar la instancia previa o matar el proceso en el puerto 8443 antes de volver a iniciarlo.
 
 ---
 

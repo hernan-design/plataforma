@@ -99,6 +99,14 @@ const Notification = mongoose.model('Notification', notificationSchema);
 const app = express();
 app.use(express.json());
 
+// In production, block debug dashboard and test mutation endpoints
+const requireDevEnvironment = (req, res, next) => {
+    if (process.env.NODE_ENV === 'production') {
+        return res.status(403).json({ error: 'Endpoint deshabilitado en entorno de producción por políticas de seguridad.' });
+    }
+    next();
+};
+
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.json({
@@ -110,8 +118,8 @@ app.get('/health', (req, res) => {
     });
 });
 
-// API: List recent notifications from MongoDB
-app.get('/api/notifications', async (req, res) => {
+// API: List recent notifications from MongoDB (Dev only)
+app.get('/api/notifications', requireDevEnvironment, async (req, res) => {
     try {
         const notifs = await Notification.find().sort({ created: -1 }).limit(20);
         res.json({ success: true, count: notifs.length, notifications: notifs });
@@ -120,8 +128,8 @@ app.get('/api/notifications', async (req, res) => {
     }
 });
 
-// API: Send test notification via Redis
-app.post('/api/test-notify', async (req, res) => {
+// API: Send test notification via Redis (Dev only)
+app.post('/api/test-notify', requireDevEnvironment, async (req, res) => {
     try {
         const { title, content, isGlobal, cod, institution } = req.body;
         const payload = {
@@ -142,8 +150,8 @@ app.post('/api/test-notify', async (req, res) => {
     }
 });
 
-// API: Delete a notification from MongoDB
-app.delete('/api/notifications/:id', async (req, res) => {
+// API: Delete a notification from MongoDB (Dev only)
+app.delete('/api/notifications/:id', requireDevEnvironment, async (req, res) => {
     try {
         await Notification.findByIdAndDelete(req.params.id);
         res.json({ success: true, message: 'Documento eliminado de MongoDB' });
@@ -152,8 +160,8 @@ app.delete('/api/notifications/:id', async (req, res) => {
     }
 });
 
-// Web UI: Interactive Test Dashboard in Browser
-app.get('/', (req, res) => {
+// Web UI: Interactive Test Dashboard in Browser (Dev only)
+app.get('/', requireDevEnvironment, (req, res) => {
     res.send(`<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -348,9 +356,24 @@ const server = http.createServer(app);
 // -------------------------------------------------------------
 // 4. Socket.IO Setup
 // -------------------------------------------------------------
+const allowedOrigins = [
+    'http://127.0.0.1:8001',
+    'http://localhost:8001',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000'
+];
+
 const io = new SocketIOServer(server, {
     cors: {
-        origin: '*',
+        origin: (origin, callback) => {
+            if (!origin || allowedOrigins.includes(origin) || origin.includes('tuproyecto.com') || origin.includes('compensar.com')) {
+                callback(null, true);
+            } else if (process.env.NODE_ENV !== 'production') {
+                callback(null, true);
+            } else {
+                callback(new Error('Origen no permitido por CORS'));
+            }
+        },
         methods: ['GET', 'POST'],
         credentials: true
     },
@@ -409,8 +432,12 @@ nspNotify.on('connection', (socket) => {
                 }
             }
             if (!cod) {
-                cod = 455173; // Fallback automático para Compensar en entorno local
-                console.log(`[Socket.IO] cod fallback Compensar: ${cod}`);
+                if (process.env.NODE_ENV === 'production') {
+                    console.warn(`[Socket.IO] Conexión sin usuario rechazado en producción: ${socket.id}`);
+                    return;
+                }
+                cod = 455173; // Fallback automático exclusivamente en desarrollo local
+                console.log(`[Socket.IO] cod fallback desarrollo: ${cod}`);
             }
             if (cod) {
                 currentCod = parseInt(cod, 10);

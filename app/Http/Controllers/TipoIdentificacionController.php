@@ -15,17 +15,20 @@ class TipoIdentificacionController extends Controller
 	 */
 	public function index(Request $request)
 	{
-		if ($request->has('data')) {
-			$date = $request->all();
-			$values = explode('-', $date['data']);
+		$filters = $request->all();
+
+		// Si 'data' (fecha de nacimiento) está incompleta (ej: "--" o vacía), la descartamos para no bloquear la consulta
+		if (isset($filters['data'])) {
+			$values = explode('-', (string) $filters['data']);
 			if (empty($values[0]) || empty($values[1]) || empty($values[2])) {
-				return;
+				unset($filters['data']);
 			}
 		}
 
-		if($request->ajax()){
-			return response()->json( TipoIdentificacion::identificationType( $request->all() ) );
+		if ($request->ajax()) {
+			return response()->json(TipoIdentificacion::identificationType($filters));
 		}
+
 		abort(404);
 	}
 }

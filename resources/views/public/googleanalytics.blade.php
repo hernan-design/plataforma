@@ -1,3 +1,4 @@
+@if(App::environment('production') && !in_array(Request::getHost(), ['localhost', '127.0.0.1']) && App\RegistroSesion::getGoogleAnalytics())
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -7,3 +8,4 @@
   ga('create', '{{ App\RegistroSesion::getGoogleAnalytics() }}', 'auto');
   ga('send', 'pageview');
 </script>
+@endif

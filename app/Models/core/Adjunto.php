@@ -31,18 +31,17 @@ class Adjunto extends Model {
 		if($file_path && $type) {
 			try {
 				$type = ($type == 'image') ? 'images' : 'documents';
-				$s3 = AWS::createClient('s3');
-
 				// Dynamic bucket
 				$bucket = env('AWS_BUCKET_NAME', 'static-dev.tuproyecto.com');
 				$key = sprintf('%s/%s/%s/%s-%s', $type, 'users', Auth::user()->codigo_usuario, date('YmdHis'), $file_name);
 
-				// Upload file to S3
+				// Upload file to S3 or local
 				if (env('APP_ENV') === 'local') {
 					$local_path = sprintf('temp/%s-%s', date('YmdHis'), $file_name);
 					copy($file_path, public_path($local_path));
 					$result = ['ObjectURL' => url($local_path)];
 				} else {
+					$s3 = AWS::createClient('s3');
 					$result = $s3->putObject([
 						'Bucket' =>  $bucket,
 						'Key'    =>  $key,
