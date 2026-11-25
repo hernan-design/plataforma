@@ -97,12 +97,12 @@ app || (app = {});
 		*/
 		afterRender: function () {
 
+			this.ready();
+
 			// to check apply program step
             if( this.parameters.step.length ){
                 this.switchStep( this.parameters.step );
             }
-
-			this.ready();
 		},
 
 		/**
@@ -273,7 +273,21 @@ app || (app = {});
 
             app.AppRouter.navigate( Route.route('convocatoria.aplicar', {convocatoria: this.programModel.get('url_convocatoria'), step: 'terminos'}), {trigger: triggerRoute} );
 
-            $(document).foundation('tab', 'toggle_active_tab', this.$('.get-apply-terms-program').parent());
+            var $tab = this.$('.get-apply-terms-program').parent();
+            $tab.siblings().removeClass('active');
+            $tab.addClass('active');
+
+            this.$('#contents-apply-program > .content').removeClass('active');
+            this.$('#apply-terms-program').addClass('active');
+
+            try {
+                if ($.fn.foundation) {
+                    this.$el.foundation('tab', 'reflow');
+                    $(document).foundation('tab', 'toggle_active_tab', $tab);
+                }
+            } catch (e) {
+                console.warn('Foundation tab toggle warning:', e);
+            }
 
             this.applyTermsView.render();
             // this.applyTermsView.trigger('getData');
@@ -291,7 +305,21 @@ app || (app = {});
 
             app.AppRouter.navigate( Route.route('convocatoria.aplicar', {convocatoria: this.programModel.get('url_convocatoria'), step: 'entidad'}), {trigger: triggerRoute} );
 
-            $(document).foundation('tab', 'toggle_active_tab', this.$('.get-apply-entity-program').parent());
+            var $tab = this.$('.get-apply-entity-program').parent();
+            $tab.siblings().removeClass('active');
+            $tab.addClass('active');
+
+            this.$('#contents-apply-program > .content').removeClass('active');
+            this.$('#apply-entity-program').addClass('active');
+
+            try {
+                if ($.fn.foundation) {
+                    this.$el.foundation('tab', 'reflow');
+                    $(document).foundation('tab', 'toggle_active_tab', $tab);
+                }
+            } catch (e) {
+                console.warn('Foundation tab toggle warning:', e);
+            }
 
             switch( parseInt(this.programModel.get('codigo_orientacion_convocatoria')) ) {
             	case window._tp.orientationProgram['entity']: this.applyEntityView.render();
@@ -317,7 +345,21 @@ app || (app = {});
 
             app.AppRouter.navigate( Route.route('convocatoria.aplicar', {convocatoria: this.programModel.get('url_convocatoria'), step: 'formulario'}), {trigger: triggerRoute} );
 
-            $(document).foundation('tab', 'toggle_active_tab', this.$('.get-apply-survey-program').parent());
+            var $tab = this.$('.get-apply-survey-program').parent();
+            $tab.siblings().removeClass('active');
+            $tab.addClass('active');
+
+            this.$('#contents-apply-program > .content').removeClass('active');
+            this.$('#apply-survey-program').addClass('active');
+
+            try {
+                if ($.fn.foundation) {
+                    this.$el.foundation('tab', 'reflow');
+                    $(document).foundation('tab', 'toggle_active_tab', $tab);
+                }
+            } catch (e) {
+                console.warn('Foundation tab toggle warning:', e);
+            }
 
             this.applyFormView.render();
             // this.applyFormView.trigger('getData');

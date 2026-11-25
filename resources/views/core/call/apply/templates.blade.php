@@ -14,7 +14,7 @@
             <% }%>
 			<div class="small-12 columns">
 				<div class="content-progress-apply-program panel-info radius">
-					<ul class="list-program-apply tabs-progress-bar tabs-route disabled" data-tab data-tab-init="is_hover:false">
+					<ul class="list-program-apply tabs-progress-bar tabs-route disabled" data-tab data-options="is_hover:false;deep_linking:false">
 						<li class="bar">
 							<div style="width: 0%;" class="bar__fill"></div>
 						</li>
@@ -31,13 +31,13 @@
 							</a>
 						</li>
 						<li class="tab-title <%- step == 'entidad' ? 'active': '' %>">
-							<a href="#apply-terms-program" title="" aria-controls="apply-entity-program" class="get-apply-entity-program">
+							<a href="#apply-entity-program" title="" aria-controls="apply-entity-program" class="get-apply-entity-program">
 								<div class="bullet"></div>
 								<label class="text-phase">{{ transtp('programs.step3') }}</label>
 							</a>
 						</li>
 						<li class="tab-title <%- step == 'formulario' ? 'active': '' %>">
-							<a href="#apply-terms-program" title="" aria-controls="apply-survey-program" class="get-apply-survey-program">
+							<a href="#apply-survey-program" title="" aria-controls="apply-survey-program" class="get-apply-survey-program">
 								<div class="bullet"></div>
 								<label class="text-phase">{{ transtp('programs.step4') }}</label>
 							</a>

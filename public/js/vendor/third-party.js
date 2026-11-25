@@ -23159,7 +23159,7 @@ m.isFunction(t)&&t(null,!0)}),f.queue(a,m.isString(v)?v:"",[])),"stop"===y?(i(a)
           target_hash = '#' + anchor.attr('href').split('#')[1],
           target = S(target_hash),
           siblings = tab.siblings(),
-          settings = tabs.data(this.attr_name(true) + '-init'),
+          settings = (tabs.length && typeof tabs.data(this.attr_name(true) + '-init') === 'object' && tabs.data(this.attr_name(true) + '-init') !== null) ? tabs.data(this.attr_name(true) + '-init') : $.extend({}, self.settings),
           interpret_keyup_action = function (e) {
             // Light modification of Heydon Pickering's Practical ARIA Examples: http://heydonworks.com/practical_aria_examples/js/a11y.js
 
